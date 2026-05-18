@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-18T23:26:55.983557Z",
+  "scrape_time": "2026-05-18T23:31:12.300827Z",
   "events": [
     {
       "title": "Rightmove HPI m/m",
@@ -60,7 +60,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -75,7 +74,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -90,56 +88,7 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
-      ]
-    },
-    {
-      "title": "Prelim GDP Price Index y/y",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-19T03:50:00+00:00",
-      "actual": "",
-      "forecast": "3.1%",
-      "previous": "3.4%",
-      "pairs": [
-        "usdjpy"
-      ]
-    },
-    {
-      "title": "Prelim GDP q/q",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-19T03:50:00+00:00",
-      "actual": "",
-      "forecast": "0.4%",
-      "previous": "0.1%",
-      "pairs": [
-        "usdjpy"
-      ]
-    },
-    {
-      "title": "Revised Industrial Production m/m",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-19T08:30:00+00:00",
-      "actual": "",
-      "forecast": "-0.5%",
-      "previous": "-0.5%",
-      "pairs": [
-        "usdjpy"
-      ]
-    },
-    {
-      "title": "Tertiary Industry Activity m/m",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-19T08:30:00+00:00",
-      "actual": "",
-      "forecast": "-0.4%",
-      "previous": "-0.4%",
-      "pairs": [
-        "usdjpy"
       ]
     },
     {
@@ -213,7 +162,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -228,7 +176,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -243,7 +190,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -258,7 +204,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -273,7 +218,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -420,7 +364,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -435,7 +378,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -450,44 +392,7 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
-      ]
-    },
-    {
-      "title": "Core Machinery Orders m/m",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-21T03:50:00+00:00",
-      "actual": "",
-      "forecast": "-8.1%",
-      "previous": "13.6%",
-      "pairs": [
-        "usdjpy"
-      ]
-    },
-    {
-      "title": "Trade Balance",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-21T03:50:00+00:00",
-      "actual": "",
-      "forecast": "-0.23T",
-      "previous": "0.09T",
-      "pairs": [
-        "usdjpy"
-      ]
-    },
-    {
-      "title": "Flash Manufacturing PMI",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-21T04:30:00+00:00",
-      "actual": "",
-      "forecast": "54.5",
-      "previous": "54.9",
-      "pairs": [
-        "usdjpy"
       ]
     },
     {
@@ -673,7 +578,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -688,7 +592,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -703,7 +606,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -718,7 +620,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -733,7 +634,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ],
       "actual_source": "Stooq",
@@ -752,7 +652,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -779,7 +678,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -806,7 +704,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -820,18 +717,6 @@
       "previous": "-25",
       "pairs": [
         "gbpusd"
-      ]
-    },
-    {
-      "title": "National Core CPI y/y",
-      "currency": "JPY",
-      "impact": "Low",
-      "event_time": "2026-05-22T03:30:00+00:00",
-      "actual": "",
-      "forecast": "1.7%",
-      "previous": "1.8%",
-      "pairs": [
-        "usdjpy"
       ]
     },
     {
@@ -941,7 +826,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -956,7 +840,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -971,7 +854,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -986,7 +868,6 @@
       "pairs": [
         "eurusd",
         "gbpusd",
-        "usdjpy",
         "xauusd"
       ]
     },
@@ -1046,7 +927,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1061,7 +941,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1076,7 +955,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1103,7 +981,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1118,7 +995,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1133,7 +1009,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1148,7 +1023,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1163,7 +1037,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1226,7 +1099,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1241,7 +1113,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1256,7 +1127,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1379,7 +1249,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1394,7 +1263,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1409,7 +1277,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1424,7 +1291,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1439,7 +1305,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ],
         "actual_source": "Stooq",
@@ -1458,7 +1323,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1485,7 +1349,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1500,7 +1363,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1587,7 +1449,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1602,7 +1463,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1617,7 +1477,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1632,7 +1491,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1715,7 +1573,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1730,7 +1587,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1745,7 +1601,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1808,7 +1663,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1823,7 +1677,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1838,7 +1691,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1853,7 +1705,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1868,7 +1719,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1967,7 +1817,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1982,7 +1831,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -1997,7 +1845,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2076,7 +1923,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2091,7 +1937,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2106,7 +1951,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2121,7 +1965,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2136,7 +1979,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ],
         "actual_source": "Stooq",
@@ -2155,7 +1997,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2170,7 +2011,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2197,7 +2037,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2248,7 +2087,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2263,7 +2101,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2278,7 +2115,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2293,7 +2129,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       }
@@ -2310,7 +2145,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2325,7 +2159,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2340,7 +2173,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2355,7 +2187,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2370,7 +2201,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2385,7 +2215,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2400,7 +2229,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2415,7 +2243,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2430,7 +2257,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2445,7 +2271,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2460,7 +2285,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2475,7 +2299,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2490,7 +2313,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2505,7 +2327,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2520,7 +2341,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2535,7 +2355,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ],
         "actual_source": "Stooq",
@@ -2554,7 +2373,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2569,7 +2387,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2584,7 +2401,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2599,7 +2415,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2614,7 +2429,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2629,7 +2443,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       },
@@ -2644,7 +2457,6 @@
         "pairs": [
           "eurusd",
           "gbpusd",
-          "usdjpy",
           "xauusd"
         ]
       }

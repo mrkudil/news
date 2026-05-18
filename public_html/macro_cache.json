@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-18T23:33:19.856450+00:00",
+  "timestamp": "2026-05-18T23:34:52.238964+00:00",
   "macro": {
     "timestamp": "2026-05-18T22:24:24.319370+00:00",
     "run_id": "7ca886eb",
@@ -919,27 +919,14 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": "",
-            "source": "unavailable",
-            "close": 0.0,
-            "range": 0.0
+            "date": null,
+            "source": null,
+            "close": null,
+            "range": null
           },
-          "pivots": {
-            "PP": 0.0,
-            "R1": 0.0,
-            "R2": 0.0,
-            "R3": 0.0,
-            "S1": 0.0,
-            "S2": 0.0,
-            "S3": 0.0
-          },
-          "price_state": "unavailable",
-          "nearest_level": {
-            "name": "",
-            "value": 0.0,
-            "distance": 0.0,
-            "side": "at"
-          },
+          "pivots": {},
+          "price_state": null,
+          "nearest_level": null,
           "rsi14": {
             "pair": "usdjpy",
             "timeframe": "D1",
@@ -948,7 +935,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "unavailable",
+            "source": "pivot_levels",
             "ok": false
           },
           "ema_20_50": {
@@ -1027,7 +1014,7 @@
           "h1_ema_ok": false
         },
         "sources": {
-          "pivot": "unavailable",
+          "pivot": "pivot_levels",
           "h1": "stooq_h1",
           "d1_ema": "unavailable"
         }
@@ -1395,7 +1382,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "unavailable",
+        "source": "pivot_levels",
         "ok": false
       },
       "xauusd": {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-18T23:10:03.572037Z",
+  "fetched_at": "2026-05-18T23:26:55.983557Z",
   "source": "Stooq",
   "stale": false,
   "ttl_s": 900.0,
@@ -7,31 +7,31 @@
   "rates": [
     {
       "label": "EUR/USD",
-      "rate": "1.16573",
-      "prev": "1.16589",
-      "chg_pct": -0.0137,
+      "rate": "1.16575",
+      "prev": "1.16573",
+      "chg_pct": 0.0017,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
       "stale_label": "fresh",
-      "changed": true
+      "changed": false
     },
     {
       "label": "GBP/USD",
-      "rate": "1.34344",
-      "prev": "1.34354",
-      "chg_pct": -0.0074,
+      "rate": "1.34345",
+      "prev": "1.34344",
+      "chg_pct": 0.0007,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
       "stale_label": "fresh",
-      "changed": true
+      "changed": false
     },
     {
       "label": "AUD/USD",
-      "rate": "0.71728",
-      "prev": "0.71718",
-      "chg_pct": 0.0139,
+      "rate": "0.71751",
+      "prev": "0.71728",
+      "chg_pct": 0.0321,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -40,9 +40,9 @@
     },
     {
       "label": "USD/CAD",
-      "rate": "1.37378",
-      "prev": "1.37380",
-      "chg_pct": -0.0015,
+      "rate": "1.37377",
+      "prev": "1.37378",
+      "chg_pct": -0.0007,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -51,20 +51,20 @@
     },
     {
       "label": "USD/CHF",
-      "rate": "0.78424",
-      "prev": "0.78417",
-      "chg_pct": 0.0089,
+      "rate": "0.78423",
+      "prev": "0.78424",
+      "chg_pct": -0.0013,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
       "stale_label": "fresh",
-      "changed": true
+      "changed": false
     },
     {
       "label": "XAU/USD",
-      "rate": "4580.14",
-      "prev": "4575.24",
-      "chg_pct": 0.1071,
+      "rate": "4586.59",
+      "prev": "4580.14",
+      "chg_pct": 0.1408,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -84,14 +84,14 @@
     },
     {
       "label": "USD/SGD",
-      "rate": "1.2781",
-      "prev": "1.2782",
-      "chg_pct": -0.0063,
+      "rate": "1.2779",
+      "prev": "1.2781",
+      "chg_pct": -0.0156,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
       "stale_label": "fresh",
-      "changed": false
+      "changed": true
     },
     {
       "label": "SGD/MYR",
@@ -183,9 +183,9 @@
     },
     {
       "label": "BTC/USD",
-      "rate": "77083.36",
-      "prev": "76917.68",
-      "chg_pct": 0.2154,
+      "rate": "76990.67",
+      "prev": "77083.36",
+      "chg_pct": -0.1202,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,

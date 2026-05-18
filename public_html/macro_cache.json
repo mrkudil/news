@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-18T23:10:19.487246+00:00",
+  "timestamp": "2026-05-18T23:27:11.372146+00:00",
   "macro": {
     "timestamp": "2026-05-18T22:24:24.319370+00:00",
     "run_id": "7ca886eb",
@@ -388,7 +388,7 @@
     },
     "_regime": "neutral",
     "_prev_scores": {
-      "eurusd": -1.121,
+      "eurusd": -1.123,
       "gbpusd": -0.037,
       "usdjpy": 1.818,
       "xauusd": -2.788
@@ -677,7 +677,7 @@
     "technical_context": {
       "eurusd": {
         "pair": "eurusd",
-        "current_price": 1.16573,
+        "current_price": 1.16575,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -796,7 +796,7 @@
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34344,
+        "current_price": 1.34345,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -915,7 +915,7 @@
       },
       "usdjpy": {
         "pair": "usdjpy",
-        "current_price": 158.804,
+        "current_price": 158.8035,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1034,7 +1034,7 @@
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4580.14,
+        "current_price": 4586.59,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -3043,14 +3043,14 @@
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
-      "eurusd": 1.16573,
-      "gbpusd": 1.34344,
-      "audusd": 0.71728,
-      "usdcad": 1.37378,
-      "usdchf": 0.78424,
-      "xauusd": 4580.14,
+      "eurusd": 1.16575,
+      "gbpusd": 1.34345,
+      "audusd": 0.71751,
+      "usdcad": 1.37377,
+      "usdchf": 0.78423,
+      "xauusd": 4586.59,
       "usdmyr": 3.97344,
-      "usdsgd": 1.27812,
+      "usdsgd": 1.2779,
       "sgdmyr": 3.10475,
       "eurmyr": 4.62242,
       "gbpmyr": 5.30677,
@@ -3059,54 +3059,54 @@
       "idrmyr": 0.000225081,
       "audmyr": 2.84276,
       "nzdmyr": 2.32582,
-      "btcusd": 77083.36
+      "btcusd": 76990.67
     },
     "_price_session_ohlc": {
       "eurusd": {
-        "open": 1.16573,
-        "high": 1.16573,
-        "low": 1.16573,
-        "close": 1.16573,
+        "open": 1.16575,
+        "high": 1.16575,
+        "low": 1.16575,
+        "close": 1.16575,
         "_date": "2026-05-18",
         "_synthetic": true
       },
       "gbpusd": {
-        "open": 1.34344,
-        "high": 1.34344,
-        "low": 1.34344,
-        "close": 1.34344,
+        "open": 1.34345,
+        "high": 1.34345,
+        "low": 1.34345,
+        "close": 1.34345,
         "_date": "2026-05-18",
         "_synthetic": true
       },
       "audusd": {
-        "open": 0.71728,
-        "high": 0.71728,
-        "low": 0.71728,
-        "close": 0.71728,
+        "open": 0.71751,
+        "high": 0.71751,
+        "low": 0.71751,
+        "close": 0.71751,
         "_date": "2026-05-18",
         "_synthetic": true
       },
       "usdcad": {
-        "open": 1.37378,
-        "high": 1.37378,
-        "low": 1.37378,
-        "close": 1.37378,
+        "open": 1.37377,
+        "high": 1.37377,
+        "low": 1.37377,
+        "close": 1.37377,
         "_date": "2026-05-18",
         "_synthetic": true
       },
       "usdchf": {
-        "open": 0.78424,
-        "high": 0.78424,
-        "low": 0.78424,
-        "close": 0.78424,
+        "open": 0.78423,
+        "high": 0.78423,
+        "low": 0.78423,
+        "close": 0.78423,
         "_date": "2026-05-18",
         "_synthetic": true
       },
       "xauusd": {
-        "open": 4580.14,
-        "high": 4580.14,
-        "low": 4580.14,
-        "close": 4580.14,
+        "open": 4586.59,
+        "high": 4586.59,
+        "low": 4586.59,
+        "close": 4586.59,
         "_date": "2026-05-18",
         "_synthetic": true
       },
@@ -3119,10 +3119,10 @@
         "_synthetic": true
       },
       "usdsgd": {
-        "open": 1.27812,
-        "high": 1.27812,
-        "low": 1.27812,
-        "close": 1.27812,
+        "open": 1.2779,
+        "high": 1.2779,
+        "low": 1.2779,
+        "close": 1.2779,
         "_date": "2026-05-18",
         "_synthetic": true
       },
@@ -3191,23 +3191,23 @@
         "_synthetic": true
       },
       "btcusd": {
-        "open": 77083.36,
-        "high": 77083.36,
-        "low": 77083.36,
-        "close": 77083.36,
+        "open": 76990.67,
+        "high": 76990.67,
+        "low": 76990.67,
+        "close": 76990.67,
         "_date": "2026-05-18",
         "_synthetic": true
       }
     },
     "_price_session_high": {
-      "eurusd": 1.16573,
-      "gbpusd": 1.34344,
-      "audusd": 0.71728,
-      "usdcad": 1.37378,
-      "usdchf": 0.78424,
-      "xauusd": 4580.14,
+      "eurusd": 1.16575,
+      "gbpusd": 1.34345,
+      "audusd": 0.71751,
+      "usdcad": 1.37377,
+      "usdchf": 0.78423,
+      "xauusd": 4586.59,
       "usdmyr": 3.97344,
-      "usdsgd": 1.27812,
+      "usdsgd": 1.2779,
       "sgdmyr": 3.10475,
       "eurmyr": 4.62242,
       "gbpmyr": 5.30677,
@@ -3216,17 +3216,17 @@
       "idrmyr": 0.000225081,
       "audmyr": 2.84276,
       "nzdmyr": 2.32582,
-      "btcusd": 77083.36
+      "btcusd": 76990.67
     },
     "_price_session_low": {
-      "eurusd": 1.16573,
-      "gbpusd": 1.34344,
-      "audusd": 0.71728,
-      "usdcad": 1.37378,
-      "usdchf": 0.78424,
-      "xauusd": 4580.14,
+      "eurusd": 1.16575,
+      "gbpusd": 1.34345,
+      "audusd": 0.71751,
+      "usdcad": 1.37377,
+      "usdchf": 0.78423,
+      "xauusd": 4586.59,
       "usdmyr": 3.97344,
-      "usdsgd": 1.27812,
+      "usdsgd": 1.2779,
       "sgdmyr": 3.10475,
       "eurmyr": 4.62242,
       "gbpmyr": 5.30677,
@@ -3235,7 +3235,7 @@
       "idrmyr": 0.000225081,
       "audmyr": 2.84276,
       "nzdmyr": 2.32582,
-      "btcusd": 77083.36
+      "btcusd": 76990.67
     },
     "_price_date": {
       "eurusd": "2026-05-18",

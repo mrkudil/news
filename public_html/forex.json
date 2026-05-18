@@ -1,7 +1,7 @@
 {
-  "scrape_time": "2026-05-18T23:10:03.572037Z",
+  "scrape_time": "2026-05-18T23:26:55.983557Z",
   "status": {
-    "scrape_time": "2026-05-18T23:10:03.572037Z",
+    "scrape_time": "2026-05-18T23:26:55.983557Z",
     "total_sources": 8,
     "failed_sources": 0,
     "sources": {
@@ -16,50 +16,50 @@
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 0.2,
-        "latency_ms": 204
+        "duration": 0.33,
+        "latency_ms": 330
       },
       "Kitco": {
         "success": true,
         "items": 5,
         "error": null,
-        "duration": 0.42,
-        "latency_ms": 421
-      },
-      "secondary": {
-        "success": true,
-        "items": 180,
-        "error": null,
-        "duration": 1.68,
-        "latency_ms": 1685
+        "duration": 0.49,
+        "latency_ms": 492
       },
       "Mining.com": {
         "success": true,
         "items": 19,
         "error": null,
-        "duration": 1.69,
-        "latency_ms": 1688
+        "duration": 1.34,
+        "latency_ms": 1344
+      },
+      "secondary": {
+        "success": true,
+        "items": 180,
+        "error": null,
+        "duration": 1.66,
+        "latency_ms": 1657
       },
       "investingLive": {
         "success": true,
         "items": 100,
         "error": null,
-        "duration": 3.86,
-        "latency_ms": 3862
+        "duration": 3.71,
+        "latency_ms": 3708
       },
       "TradingEconomics-FX": {
         "success": true,
         "items": 9,
         "error": null,
-        "duration": 5.34,
-        "latency_ms": 5339
+        "duration": 4.92,
+        "latency_ms": 4925
       },
       "Stooq": {
         "success": true,
         "items": 17,
         "error": null,
-        "duration": 15.88,
-        "latency_ms": 15879
+        "duration": 15.35,
+        "latency_ms": 15351
       }
     }
   },
@@ -78,8 +78,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": -0.82,
@@ -90,8 +89,7 @@
           "real_yield": 0.0,
           "growth": -0.004,
           "usd": -0.186,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "regime_confidence": 0.33,
         "signal_horizon": "long",
@@ -142,7 +140,7 @@
         },
         "technical_context": {
           "pair": "eurusd",
-          "current_price": 1.16573,
+          "current_price": 1.16575,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -273,8 +271,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": 0.055,
@@ -285,8 +282,7 @@
           "real_yield": 0.0,
           "growth": -0.004,
           "usd": -0.186,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "regime_confidence": 0.33,
         "signal_horizon": "long",
@@ -337,7 +333,7 @@
         },
         "technical_context": {
           "pair": "gbpusd",
-          "current_price": 1.34344,
+          "current_price": 1.34345,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -474,8 +470,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "weighted_factors": {
           "rate": 0.0,
@@ -492,8 +487,7 @@
           "treasury_vol": 0.675,
           "gold_vol": -0.009,
           "energy_inflation": 0.35,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "regime_confidence": 0.33,
         "signal_horizon": "long",
@@ -544,7 +538,7 @@
         },
         "technical_context": {
           "pair": "xauusd",
-          "current_price": 4580.14,
+          "current_price": 4586.59,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -929,7 +923,7 @@
     "technical_context": {
       "eurusd": {
         "pair": "eurusd",
-        "current_price": 1.16573,
+        "current_price": 1.16575,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1048,7 +1042,7 @@
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34344,
+        "current_price": 1.34345,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1167,7 +1161,7 @@
       },
       "usdjpy": {
         "pair": "usdjpy",
-        "current_price": 158.804,
+        "current_price": 158.8035,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1286,7 +1280,7 @@
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4580.14,
+        "current_price": 4586.59,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1857,7 +1851,7 @@
         "title": "Euro rises as Trump delays Iran strike, USD weakens",
         "link": "https://www.fxstreet.com/news/euro-rises-as-trump-delays-iran-strike-usd-weakens-202605182219",
         "published_at": "2026-05-18T22:19:26+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "FXStreet",
         "summary": "The Euro advances late in the North American session, up by 0.26% amid a volatile session characterized by geopolitical headlines and broad US Dollar weakness across the board. At the time of writing, the EUR/USD pair trades at 1.1654 after bouncing off daily lows of 1.1608.",
         "sentiment": "bullish",
@@ -1878,8 +1872,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 1.0,
         "fused_sentiment": "bullish",
@@ -1898,7 +1891,7 @@
         "title": "EURUSD bangs against target resistance at 1.1655. Can the buyers get through the target.",
         "link": "https://investinglive.com/technical-analysis/eurusd-bangs-against-target-resistance-at-11655-can-the-buyers-get-through-the-target-20260518/",
         "published_at": "2026-05-18T17:45:48+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "investingLive",
         "summary": "In the morning kickstart video, I commented on the 1.1655 level as a key target.  The infograph highlights my key technical comment on that pair (see highlighted yellow are on the infograph below from the start of the trading day):The price did move higher and tested that level in the North American",
         "sentiment": "bullish",
@@ -1919,8 +1912,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 2.0,
         "fused_sentiment": "bullish",
@@ -1939,7 +1931,7 @@
         "title": "EUR/USD Mid-Day Outlook",
         "link": "https://www.actionforex.com/technical-outlook/eurusd-outlook/640942-eur-usd-mid-day-outlook-2320/",
         "published_at": "2026-05-18T13:01:05+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "ActionForex",
         "summary": "Daily Pivots: (S1) 1.1603; (P) 1.1637; (R1) 1.1658; More\u2026. Intraday bias in EUR/USD is turned neutral with current recovery, and some consolidations could be seen above 1.1607 temporary low. Risk will stay on the downside as long as 55 4H EMA (now at 1.1700) holds. Rebound from 1.1408 could have com",
         "sentiment": "neutral",
@@ -1960,8 +1952,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -1980,7 +1971,7 @@
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2002,8 +1993,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2022,7 +2012,7 @@
         "title": "Broader energy shock may pressure Europe and lift dollar, Goldman says",
         "link": "https://www.investing.com/news/forex-news/broader-energy-shock-may-pressure-europe-and-lift-dollar-goldman-says-4694730",
         "published_at": "2026-05-18T07:27:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "Investing.com",
         "summary": "",
         "sentiment": "neutral",
@@ -2044,8 +2034,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2064,7 +2053,7 @@
         "title": "Euro Bounces Back as Middle East Hopes Rise",
         "link": "https://tradingeconomics.com/euro-area/currency/news/551610",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bullish",
@@ -2084,8 +2073,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 1.0,
         "fused_sentiment": "bullish",
@@ -2109,7 +2097,7 @@
         "title": "Euro Hovers Near April Lows as Iran War Weighs on Growth",
         "link": "https://tradingeconomics.com/euro-area/currency/news/551529",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -2129,8 +2117,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": -1.0,
         "fused_sentiment": "bearish",
@@ -2154,7 +2141,7 @@
         "title": "Dollar Index Retreats to 99",
         "link": "https://tradingeconomics.com/united-states/currency/news/551631",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2174,8 +2161,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2200,7 +2186,7 @@
         "title": "Dollar Little Changed to Kick Off the Week",
         "link": "https://tradingeconomics.com/united-states/currency/news/551581",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2220,8 +2206,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2246,7 +2231,7 @@
         "title": "Dollar Strengthens on Fed Rate Hike Bets",
         "link": "https://tradingeconomics.com/united-states/currency/news/551374",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2266,8 +2251,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2294,7 +2278,7 @@
         "title": "GBP/USD Mid-Day Outlook",
         "link": "https://www.actionforex.com/technical-outlook/gbpusd-outlook/640931-gbp-usd-mid-day-outlook-2310/",
         "published_at": "2026-05-18T12:49:13+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "ActionForex",
         "summary": "Daily Pivots: (S1) 1.3290; (P) 1.3347; (R1) 1.3379; More\u2026 Intraday bias in GBP/USD is turned neutral first with current recovery, and some consolidations would be seen above 1.3300 temporary low. Further fall is expected as long as 55 4H EMA (now at 1.3483) holds. Below 1.3300 will target a retest o",
         "sentiment": "neutral",
@@ -2315,8 +2299,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2335,7 +2318,7 @@
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2357,8 +2340,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2377,7 +2359,7 @@
         "title": "Sterling Tries to Recover but Political Risks Linger",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551601",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2397,8 +2379,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2422,7 +2403,7 @@
         "title": "Sterling Little-Changed Amid Political and Geopolitical Turmoil",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551506",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2442,8 +2423,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2467,7 +2447,7 @@
         "title": "Dollar Index Retreats to 99",
         "link": "https://tradingeconomics.com/united-states/currency/news/551631",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2487,8 +2467,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2513,7 +2492,7 @@
         "title": "Dollar Little Changed to Kick Off the Week",
         "link": "https://tradingeconomics.com/united-states/currency/news/551581",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2533,8 +2512,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2559,7 +2537,7 @@
         "title": "Dollar Strengthens on Fed Rate Hike Bets",
         "link": "https://tradingeconomics.com/united-states/currency/news/551374",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2579,8 +2557,7 @@
           "real_yield": 0.0,
           "growth": -0.08,
           "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
+          "liquidity": 0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2607,7 +2584,7 @@
         "title": "ICYMI - Goldman cuts US recession odds to 25% as Hormuz closure impact stays contained",
         "link": "https://investinglive.com/news/cymi-goldman-cuts-us-recession-odds-to-25-as-hormuz-closure-impact-stays-contained-20260518/",
         "published_at": "2026-05-18T21:27:22+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "investingLive",
         "summary": "Goldman Sachs cuts its 12-month US recession probability to 25% from 30%, with chief economist Jan Hatzius citing resilient activity and easing financial conditions despite the Strait of Hormuz closure.Summary:US recession probability cut to 25% from 30%, with economic activity holding up and financ",
         "sentiment": "bearish",
@@ -2633,8 +2610,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": -1.0,
         "fused_sentiment": "bearish",
@@ -2679,8 +2655,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2699,7 +2674,7 @@
         "title": "Gold steadies as USD slips, Fed hike bets cap upside",
         "link": "https://www.fxstreet.com/news/gold-steadies-as-usd-slips-fed-hike-bets-cap-upside-202605181714",
         "published_at": "2026-05-18T17:14:03+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "FXStreet",
         "summary": "Gold (XAU/USD) price steadies on Monday after reaching a daily low beneath $4,500, as the US Dollar is on the back foot amid fears that the energy shock spurred by the Middle East conflict could trigger a second wave of inflation.",
         "sentiment": "neutral",
@@ -2726,8 +2701,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2746,7 +2720,7 @@
         "title": "Gold Price Forecast: XAU/USD buyers are losing the battle",
         "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-buyers-are-losing-the-battle-202605181703",
         "published_at": "2026-05-18T17:03:31+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "FXStreet",
         "summary": "XAU/USD bottomed at $4,480 at the beginning of the week, its lowest since late March, as a dismal market sentiment fueled demand for the US Dollar (USD).",
         "sentiment": "neutral",
@@ -2773,8 +2747,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2819,8 +2792,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2865,8 +2837,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",
@@ -2911,8 +2882,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 1.0,
         "fused_sentiment": "bullish",
@@ -2931,7 +2901,7 @@
         "title": "Gold back to $5,400? Here\u2019s why Goldman Sachs still sees bullish potential ahead",
         "link": "https://www.fxstreet.com/news/gold-back-to-5-400-heres-why-goldman-sachs-still-sees-bullish-potential-ahead-202605181321",
         "published_at": "2026-05-18T13:21:30+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "FXStreet",
         "summary": "Central banks are expected to increase their Gold purchases in 2026, analysts at Goldman Sachs say, supporting a much-needed boost to the precious metal toward the end of the year.",
         "sentiment": "bullish",
@@ -2957,8 +2927,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 1.0,
         "fused_sentiment": "bullish",
@@ -2977,7 +2946,7 @@
         "title": "Gold silver prices firmer but gains remains capped by higher oil prices as Strait of Hormuz remains closed - AM Report",
         "link": "https://www.kitco.com/news/article/2026-05-18/gold-silver-prices-firmer-gains-remains-capped-higher-oil-prices-strait",
         "published_at": "2026-05-18T09:20:52-04:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "bullish",
@@ -3003,8 +2972,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 3.0,
         "fused_sentiment": "bullish",
@@ -3023,7 +2991,7 @@
         "title": "Gold is on a Selling Spree",
         "link": "https://www.actionforex.com/contributors/fundamental-analysis/640924-gold-is-on-a-selling-spree/",
         "published_at": "2026-05-18T11:43:55+00:00",
-        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "scraped_at": "2026-05-18T23:26:55.983557Z",
         "source": "ActionForex",
         "summary": "Investors are offloading the precious metal due to rising bond yields. The factors that have driven the dollar higher since March have returned. The US dollar posted its best weekly gain in the last two months on the realisation that the conflict in the Middle East is set to continue. The US-China s",
         "sentiment": "neutral",
@@ -3049,8 +3017,7 @@
           "treasury_vol": 1.5,
           "gold_vol": -0.035,
           "energy_inflation": 1.0,
-          "liquidity": -0.0,
-          "nikkei": 0.0
+          "liquidity": -0.0
         },
         "fused_score": 0.0,
         "fused_sentiment": "neutral",

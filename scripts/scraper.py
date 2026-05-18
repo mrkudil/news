@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-__version__ = "3.8-logfix"
+__version__ = "4.2-clean"
 
 import os
 import re
@@ -194,7 +194,7 @@ DEFAULT_CONFIG: Dict = {
     "ff_throttle_delay":  10.0,
     "calendar_cache_ttl": 1800,
 
-    "enabled_sources": ["inv", "sec", "kit", "mining", "tegold", "cal", "stooq"],
+    "enabled_sources": ["inv", "sec", "kit", "mining", "tegold", "tefx", "cal", "stooq"],
 
     "investinglive_feeds": {
         "news":   "https://investinglive.com/feed/news/",
@@ -232,6 +232,16 @@ DEFAULT_CONFIG: Dict = {
     "mining_gold_archive": "https://www.mining.com/commodity/gold/",
     "tradingeconomics_gold_url": "https://tradingeconomics.com/commodity/gold",
     "tradingeconomics_gold_max_items": 8,
+    "tradingeconomics_fx_urls": {
+        "eur": "https://tradingeconomics.com/euro-area/currency",
+        "gbp": "https://tradingeconomics.com/united-kingdom/currency",
+        "usd": "https://tradingeconomics.com/united-states/currency",
+    },
+    "tradingeconomics_fx_pair_sources": {
+        "eurusd": ["eur", "usd"],
+        "gbpusd": ["gbp", "usd"],
+    },
+    "tradingeconomics_fx_max_items": 6,
 
     "pair_entities": {
         "eurusd": {
@@ -243,11 +253,6 @@ DEFAULT_CONFIG: Dict = {
             "required": [["gbp", "pound", "sterling", "cable", "boe"],
                          ["usd", "dollar", "fed", "greenback", "dxy"]],
             "boost":    ["gbp/usd", "gbpusd"],
-        },
-        "usdjpy": {
-            "required": [["usd", "dollar", "fed", "greenback", "dxy"],
-                         ["jpy", "yen", "boj", "japan"]],
-            "boost":    ["usd/jpy", "usdjpy"],
         },
         "xauusd": {
             "required": [["gold", "xau", "bullion", "precious metal", "spot gold"],
@@ -261,18 +266,17 @@ DEFAULT_CONFIG: Dict = {
         "bullion", "spot gold", "gold prices",
     ],
 
-    "fx_pairs": ["eurusd", "gbpusd", "usdjpy"],
+    "fx_pairs": ["eurusd", "gbpusd"],
 
     "ff_calendar_urls": [
         "https://nfs.faireconomy.media/ff_calendar_thisweek.xml",
     ],
     "ff_min_impact":        "Low",
-    "ff_wanted_currencies": ["EUR", "GBP", "USD", "JPY"],
+    "ff_wanted_currencies": ["EUR", "GBP", "USD"],
     "ff_currency_pairs": {
         "EUR": ["eurusd"],
         "GBP": ["gbpusd"],
-        "USD": ["eurusd", "gbpusd", "usdjpy", "xauusd"],
-        "JPY": ["usdjpy"],
+        "USD": ["eurusd", "gbpusd", "xauusd"],
     },
     "ff_max_events": 20,
 
@@ -284,8 +288,6 @@ DEFAULT_CONFIG: Dict = {
                   
         "EUR/USD": 0.00005,
         "GBP/USD": 0.00005,
-        "USD/JPY": 0.005,
-        "GBP/JPY": 0.005,
         "AUD/USD": 0.00005,
         "USD/CAD": 0.00005,
         "USD/CHF": 0.00005,
@@ -297,7 +299,6 @@ DEFAULT_CONFIG: Dict = {
         "SGD/MYR": 0.0005,
         "EUR/MYR": 0.0005,
         "GBP/MYR": 0.0005,
-        "JPY/MYR": 0.000005,
         "CNY/MYR": 0.0005,
         "THB/MYR": 0.0001,
         "IDR/MYR": 0.000001,
@@ -325,6 +326,14 @@ DEFAULT_CONFIG: Dict = {
     ],
     "rates_cache_ttl_offpeak": 300,                                    
     "price_component_cache_file": ".price_component_cache.json",
+    "pmi_stooq_fallback_enabled": True,
+    "pmi_stooq_symbols": {
+        "USD": "pmmnus.m",
+        "EUR": "pmmneu.m",
+        "GBP": "pmmnuk.m",
+    },
+    "pmi_stooq_cache_ttl": 21600,
+    "pmi_stooq_cache_file": ".pmi_stooq_cache.json",
 }
 
 def _deep_merge(base: Dict, override: Dict) -> Dict:
@@ -511,7 +520,6 @@ _SYMBOL_TOKENS: Dict[str, List[str]] = {
     "EUR": ["eur", "euro", "ecb", "european central bank"],
     "GBP": ["gbp", "pound", "sterling", "cable", "boe", "bank of england"],
     "USD": ["usd", "dollar", "fed", "fomc", "federal reserve", "greenback", "dxy"],
-    "JPY": ["jpy", "yen", "boj", "bank of japan"],
     "XAU": ["gold", "xau", "bullion", "precious metal"],
     "AUD": ["aud", "aussie", "rba", "reserve bank of australia"],
     "CAD": ["cad", "loonie", "boc", "bank of canada"],
@@ -527,7 +535,7 @@ _HIGH_IMPACT_KW = [
     "rate decision", "rate cut", "rate hike", "fomc", "fomc statement",
     "interest rate", "emergency", "intervention", "quantitative easing",
     "quantitative tightening", "nfp", "non-farm payroll", "cpi",
-    "boj decision", "ecb decision", "boe decision", "boc decision",
+    "ecb decision", "boe decision", "boc decision",
 ]
 _MED_IMPACT_KW = [
     "gdp", "pmi", "retail sales", "trade balance", "payroll",
@@ -685,13 +693,10 @@ def setup_logging(log_file: str, log_retention_days: int = 0,
         trim_msg = _trim_log_file(log_file, log_retention_days)
 
     logger = logging.getLogger(__name__)
-    # Prevent the same record from also being emitted by the root logger or
-    # hosting runtime. This is the usual cause of duplicated cron/web logs.
+    # Prevent duplicate records via root logger / hosting runtime.
     logger.propagate = False
 
     if logger.handlers:
-        # Keep an already-configured logger, but make sure propagation stays off
-        # if setup_logging() is called again in the same interpreter.
         return logger
 
     logger.setLevel(logging.INFO)
@@ -720,7 +725,6 @@ def setup_logging(log_file: str, log_retention_days: int = 0,
         if log_to_stdout:
             logger.warning(f"Cannot open log file {log_file}: {exc} -- stdout only")
         else:
-            # Last-resort console fallback only if the log file cannot be opened.
             stdout_h = logging.StreamHandler(sys.stdout)
             stdout_h.setFormatter(fmt)
             logger.addHandler(stdout_h)
@@ -1509,6 +1513,114 @@ class MiningComHandler(SourceHandler):
         return headlines
 
 
+
+class TradingEconomicsFxHandler(SourceHandler):
+    name = "TradingEconomics-FX"
+
+    def _stale_path(self) -> str:
+        return os.path.join(self.cfg["output_dir"], ".tradingeconomics_fx_stale.json")
+
+    def _extract_news_date(self, anchor) -> Optional[datetime]:
+        dt = _extract_date_from_node(anchor)
+        if dt is not None:
+            return dt
+        try:
+            text = " ".join(anchor.parent.get_text(" ", strip=True).split()) if anchor.parent else ""
+            m = re.search(r"\b(20\d{2}-\d{2}-\d{2})\b", text)
+            if m:
+                return parse_date(m.group(1))
+        except Exception:
+            pass
+        return None
+
+    def _extract_summary(self, anchor, title: str) -> str:
+        try:
+            parent_text = " ".join(anchor.parent.get_text(" ", strip=True).split()) if anchor.parent else ""
+            if not parent_text:
+                return ""
+            parent_text = parent_text.replace(title, "", 1).strip()
+            parent_text = re.sub(r"\b20\d{2}-\d{2}-\d{2}\b.*$", "", parent_text).strip()
+            return parent_text[:300]
+        except Exception:
+            return ""
+
+    def _fetch_source_page(self, source_key: str, url: str,
+                           target_pairs: List[str], scrape_time: str) -> List[Dict]:
+        _throttle(url, delay=1.0)
+        session = self._get_session(HTML_ACCEPT)
+        resp = session.get(url, timeout=self.cfg["http_timeout"])
+        resp.raise_for_status()
+        if _is_bot_blocked(resp.text):
+            raise RuntimeError(f"bot-blocked for {source_key} ({url})")
+        soup = BeautifulSoup(resp.text, "html.parser")
+        headlines: List[Dict] = []
+        seen: set = set()
+        limit = int(self.cfg.get("tradingeconomics_fx_max_items", 6))
+        for anchor in soup.select("a[href*='/currency/news/']"):
+            title = anchor.get_text(" ", strip=True)
+            link = (anchor.get("href") or "").strip()
+            if not title or not link:
+                continue
+            if link.startswith("/"):
+                link = "https://tradingeconomics.com" + link
+            if "/currency/news/" not in link:
+                continue
+            norm = link.split("?")[0].rstrip("/")
+            if norm in seen:
+                continue
+            seen.add(norm)
+            pub_date = self._extract_news_date(anchor)
+            summary = self._extract_summary(anchor, title)
+            item = make_headline(title, link, pub_date, "TradingEconomics", scrape_time, summary)
+            item["te_source"] = source_key
+            item["te_pairs"] = list(target_pairs)
+            item["pair"] = target_pairs[0] if len(target_pairs) == 1 else ",".join(target_pairs)
+            headlines.append(item)
+            if len(headlines) >= limit:
+                break
+        headlines = deduplicate(sort_newest(headlines))
+        self.log.info(
+            "TradingEconomics-FX [%s -> %s]: %d article(s)",
+            source_key.upper(), ",".join(p.upper() for p in target_pairs), len(headlines)
+        )
+        return headlines
+
+    def fetch(self, scrape_time: str) -> List[Dict]:
+        urls = self.cfg.get("tradingeconomics_fx_urls", {}) or {}
+        pair_sources = self.cfg.get("tradingeconomics_fx_pair_sources", {}) or {}
+        source_targets: Dict[str, List[str]] = {}
+        for pair, sources in pair_sources.items():
+            pair = str(pair).replace("/", "").lower().strip()
+            for src in sources:
+                src_key = str(src).lower().strip()
+                if not src_key:
+                    continue
+                source_targets.setdefault(src_key, [])
+                if pair not in source_targets[src_key]:
+                    source_targets[src_key].append(pair)
+        all_items: List[Dict] = []
+        last_err = ""
+        for source_key in ("eur", "gbp", "usd"):
+            url = urls.get(source_key)
+            targets = source_targets.get(source_key, [])
+            if not url or not targets:
+                continue
+            try:
+                all_items.extend(self._fetch_source_page(source_key, url, targets, scrape_time))
+            except Exception as exc:
+                last_err = str(exc)
+                self.log.warning("TradingEconomics-FX [%s]: %s", source_key.upper(), exc)
+        all_items = deduplicate(sort_newest(all_items))
+        if all_items:
+            _save_stale_json(self._stale_path(), all_items)
+            return all_items
+        cached = _load_stale_json(self._stale_path(), self.log, "TradingEconomics-FX")
+        if cached is not None:
+            return cached
+        if last_err:
+            raise RuntimeError(last_err)
+        return []
+
 class TradingEconomicsGoldHandler(SourceHandler):
     name = "TradingEconomics-Gold"
 
@@ -1568,7 +1680,6 @@ _STOOQ_PAIRS: List[Tuple[str, str, int]] = [
               
     ("EUR/USD",  "eurusd",   5),
     ("GBP/USD",  "gbpusd",   5),
-    ("USD/JPY",  "usdjpy",   3),
     ("AUD/USD",  "audusd",   5),
     ("USD/CAD",  "usdcad",   5),
     ("USD/CHF",  "usdchf",   5),
@@ -1579,8 +1690,7 @@ _STOOQ_PAIRS: List[Tuple[str, str, int]] = [
                  
     ("SGD/MYR",  "sgdmyr",   4),
     ("EUR/MYR",  "eurmyr",   4),
-    ("GBP/MYR",  "gbpmyr",   4),
-    ("JPY/MYR",  "jpymyr",   6),                 
+    ("GBP/MYR",  "gbpmyr",   4),                 
     ("CNY/MYR",  "cnymyr",   4),
     ("THB/MYR",  "thbmyr",   4),
     ("IDR/MYR",  "idrmyr",   6),                    
@@ -1738,6 +1848,206 @@ def _stooq_fetch_one(symbol: str, cfg: Dict,
     finally:
         if close_after:
             s.close()
+
+
+def _pmi_stooq_cache_path(cfg: Dict) -> str:
+    filename = cfg.get("pmi_stooq_cache_file", ".pmi_stooq_cache.json")
+    return os.path.join(cfg.get("output_dir", "."), filename)
+
+
+def _load_pmi_stooq_cache(cfg: Dict) -> Dict:
+    try:
+        with open(_pmi_stooq_cache_path(cfg), encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _save_pmi_stooq_cache(cfg: Dict, cache: Dict,
+                          log: Optional[logging.Logger] = None) -> None:
+    path = _pmi_stooq_cache_path(cfg)
+    tmp = path + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(cache, f, indent=2)
+        os.replace(tmp, path)
+        try:
+            os.chmod(path, 0o644)
+        except OSError:
+            pass
+    except Exception as exc:
+        if log:
+            log.warning("PMI Stooq cache save: %s", exc)
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+
+
+def _parse_float_token(raw: object) -> Optional[float]:
+    text = str(raw or "").strip()
+    if not text or text.upper() == "N/D":
+        return None
+    m = re.search(r"[-+]?\d+(?:\.\d+)?", text.replace(",", ""))
+    if not m:
+        return None
+    try:
+        return float(m.group(0))
+    except ValueError:
+        return None
+
+
+def _stooq_fetch_latest_csv_quote(symbol: str, cfg: Dict,
+                                  session: requests.Session) -> Optional[Dict[str, object]]:
+    url = _STOOQ_LATEST_TPL.format(symbol=symbol)
+    _throttle(url, delay=0.3)
+    try:
+        resp = session.get(url, timeout=cfg.get("http_timeout", 30))
+        if not resp.ok:
+            return None
+        rows = list(_csv.DictReader(_StringIO(resp.text)))
+        if not rows:
+            return None
+        row = rows[-1]
+        price = _parse_float_token(row.get("Close"))
+        if price is None or not (0.0 < price < 100.0):
+            return None
+        date_raw = (row.get("Date") or "").strip()
+        time_raw = (row.get("Time") or "").strip()
+        quote_dt = parse_date(f"{date_raw} {time_raw}".strip()) if date_raw else None
+        return {
+            "symbol": symbol,
+            "actual": f"{price:.1f}",
+            "value": price,
+            "date": date_raw,
+            "time": time_raw,
+            "quote_time": quote_dt.isoformat() if quote_dt else None,
+            "source": "Stooq",
+            "source_url": f"https://stooq.com/q/?s={symbol}",
+        }
+    except Exception:
+        return None
+
+
+def _fetch_stooq_pmi_values(cfg: Dict, log: logging.Logger) -> Dict[str, Dict[str, object]]:
+    if not cfg.get("pmi_stooq_fallback_enabled", True):
+        return {}
+    symbols = cfg.get("pmi_stooq_symbols", {}) or {}
+    ttl = int(cfg.get("pmi_stooq_cache_ttl", 21600))
+    now_wall = time.time()
+    cache = _load_pmi_stooq_cache(cfg)
+    values: Dict[str, Dict[str, object]] = {}
+    dirty = False
+    session = _make_session("text/csv,*/*", cfg, retries=1)
+    try:
+        for currency, symbol in symbols.items():
+            currency = str(currency).upper().strip()
+            symbol = str(symbol).lower().strip()
+            if not currency or not symbol:
+                continue
+            key = f"pmi_stooq_{currency}"
+            cached = cache.get(key)
+            if cached and now_wall - float(cached.get("t", 0)) < ttl:
+                item = dict(cached.get("item", {}))
+                if item.get("actual"):
+                    item["cached"] = True
+                    values[currency] = item
+                    continue
+            item = _stooq_fetch_latest_csv_quote(symbol, cfg, session)
+            if item and item.get("actual"):
+                values[currency] = item
+                cache[key] = {"t": time.time(), "item": item}
+                dirty = True
+                log.info("PMI Stooq: %s %s actual=%s date=%s",
+                         currency, symbol, item.get("actual"), item.get("date"))
+            elif cached and cached.get("item", {}).get("actual"):
+                item = dict(cached["item"])
+                item["cached"] = True
+                values[currency] = item
+                log.warning("PMI Stooq: live fetch failed for %s (%s) -- using stale cached value %s",
+                            currency, symbol, item.get("actual"))
+            else:
+                log.warning("PMI Stooq: no value for %s (%s)", currency, symbol)
+    finally:
+        session.close()
+    if dirty:
+        _save_pmi_stooq_cache(cfg, cache, log)
+    return values
+
+
+def _blank_calendar_value(value: object) -> bool:
+    text = str(value or "").strip()
+    return not text or text.upper() in {"N/A", "NA", "N/D", "TBD", "-"}
+
+
+def _pmi_region_matches(title: str, currency: str) -> bool:
+    t = title.lower()
+    if "pmi" not in t or "manufactur" not in t:
+        return False
+    if currency == "USD":
+        return not any(x in t for x in ("canada", "mexico"))
+    if currency == "GBP":
+        return any(x in t for x in ("uk", "u.k", "britain", "british")) or "manufacturing pmi" in t
+    if currency == "EUR":
+        return any(x in t for x in ("eurozone", "euro area", "eu ", "european"))
+    return False
+
+
+def _enrich_calendar_with_stooq_pmi(events: List[Dict], cfg: Dict,
+                                    log: logging.Logger) -> Tuple[List[Dict], int]:
+    pmi_values = _fetch_stooq_pmi_values(cfg, log)
+    if not pmi_values:
+        return events, 0
+    currency_pairs = cfg.get("ff_currency_pairs", {})
+    label_map = {"USD": "U.S.", "EUR": "Eurozone", "GBP": "U.K."}
+    changed = 0
+    for currency, item in pmi_values.items():
+        actual = str(item.get("actual") or "").strip()
+        if not actual:
+            continue
+        updated = 0
+        for ev in events:
+            if str(ev.get("currency", "")).upper() != currency:
+                continue
+            if not _blank_calendar_value(ev.get("actual")):
+                continue
+            if not _pmi_region_matches(str(ev.get("title", "")), currency):
+                continue
+            ev["actual"] = actual
+            ev["actual_source"] = "Stooq"
+            ev["actual_source_symbol"] = item.get("symbol")
+            ev["actual_source_url"] = item.get("source_url")
+            ev["actual_source_time"] = item.get("quote_time") or item.get("date")
+            updated += 1
+            changed += 1
+        title = f"Stooq {label_map.get(currency, currency)} Manufacturing PMI"
+        exists = any(
+            str(ev.get("currency", "")).upper() == currency
+            and str(ev.get("actual_source_symbol", "")).lower() == str(item.get("symbol", "")).lower()
+            for ev in events
+        )
+        if not exists:
+            events.append({
+                "title": title,
+                "currency": currency,
+                "impact": "Medium",
+                "event_time": item.get("quote_time"),
+                "actual": actual,
+                "forecast": "",
+                "previous": "",
+                "pairs": currency_pairs.get(currency, []),
+                "source": "Stooq",
+                "actual_source": "Stooq",
+                "actual_source_symbol": item.get("symbol"),
+                "actual_source_url": item.get("source_url"),
+                "actual_source_time": item.get("quote_time") or item.get("date"),
+                "note": "Synthetic PMI fallback row added by scraper.py before macro.py reads calendar.json",
+            })
+            changed += 1
+            log.info("PMI Stooq: appended synthetic %s calendar row actual=%s", currency, actual)
+        elif updated:
+            log.info("PMI Stooq: updated %d %s calendar PMI row(s) actual=%s", updated, currency, actual)
+    return events, changed
 
 def _build_session_snapshot(price: float, when: Optional[datetime] = None) -> Dict[str, float]:
     dt = when or datetime.now(UTC)
@@ -2045,7 +2355,6 @@ _STOOQ_CAL_REGIONS: List[Tuple[str, str]] = [
     ("at", "EUR"),   # Austria
     ("nl", "EUR"),   # Netherlands
     ("eu", "EUR"),   # Eurozone
-    ("jp", "JPY"),   # Japan
 ]
 
 _STOOQ_CAL_REGION_LABELS: Dict[str, str] = {
@@ -2059,7 +2368,6 @@ _STOOQ_CAL_REGION_LABELS: Dict[str, str] = {
     "at": "Austria",
     "nl": "Netherlands",
     "eu": "Eurozone",
-    "jp": "Japan",
 }
 
 _STOOQ_CAL_BASE = "https://stooq.com/kalendarium/"
@@ -2699,6 +3007,7 @@ def main() -> None:
         "kit":    KitcoHandler,
         "mining": MiningComHandler,
         "tegold": TradingEconomicsGoldHandler,
+        "tefx": TradingEconomicsFxHandler,
         "cal":    ForexFactoryCalendarHandler,
         "stooq":  StooqHandler,
     }
@@ -2723,6 +3032,9 @@ def main() -> None:
             calendar_events = handler_map["cal"].run(scrape_time)
         except Exception as exc:
             log.warning("Calendar fetch raised unexpectedly: %s", exc)
+        calendar_events, _pmi_stooq_changes = _enrich_calendar_with_stooq_pmi(calendar_events, cfg, log)
+        if _pmi_stooq_changes:
+            log.info("PMI Stooq: calendar enriched with %d change(s) before macro", _pmi_stooq_changes)
         calendar_by_pair = group_calendar_by_pair(calendar_events, all_pairs)
         _write_json(f"{out}/calendar.json", {
             "scrape_time":    scrape_time,
@@ -2750,7 +3062,6 @@ def main() -> None:
                 f"Macro ready -- fed={us.get('rate','?')} "
                 f"ecb={macro.get('eu',{}).get('rate','?')} "
                 f"boe={macro.get('gb',{}).get('rate','?')} "
-                f"boj={macro.get('jp',{}).get('rate','?')} "
                 f"spread={us.get('yield_spread','?')} "
                 f"spx={spx.get('current','?')}(v={spx.get('valid','?')}) "
                 f"surprises={macro.get('surprises',{})} "
@@ -2783,9 +3094,21 @@ def main() -> None:
     kitco           = results.get("kit",    [])
     mining          = results.get("mining", [])
     te_gold         = results.get("tegold", [])
+    te_fx           = results.get("tefx", [])
     rates           = results.get("stooq",  [])
 
     pair_items = _pregroup_by_pair(inv + sec, all_pairs, cfg)
+    te_fx_by_pair: Dict[str, List[Dict]] = {p: [] for p in all_pairs}
+    for _item in te_fx:
+        _pairs = _item.get("te_pairs") or [_item.get("te_pair") or _item.get("pair")]
+        if isinstance(_pairs, str):
+            _pairs = [_pairs]
+        for _p_raw in _pairs:
+            _p = str(_p_raw or "").replace("/", "").lower().strip()
+            if _p in te_fx_by_pair:
+                _copy = dict(_item)
+                _copy["pair"] = _p
+                te_fx_by_pair[_p].append(_copy)
 
                                                                                  
     if macro:
@@ -2804,7 +3127,7 @@ def main() -> None:
     all_feeds: Dict[str, List[Dict]] = {}
     max_age = cfg.get("headline_max_age_days", 3)
     for pair in cfg["fx_pairs"]:
-        merged = sort_newest(deduplicate(pair_items.get(pair, [])))
+        merged = sort_newest(deduplicate(pair_items.get(pair, []) + te_fx_by_pair.get(pair, [])))
         merged = drop_old_headlines(merged, max_age, log)
         merged = merged[:cfg["max_items_fx"]]
         merged, bd = _apply_macro_to_feed(merged, pair, macro, log)
@@ -2828,7 +3151,7 @@ def main() -> None:
             link="https://investinglive.com/forex/",
             description=(
                 f"Latest {pair.upper()} headlines from "
-                "investingLive, ForexLive, ForexCrunch, ActionForex, Investing.com and DailyForex"
+                "investingLive, ForexLive, ForexCrunch, ActionForex, Investing.com, DailyForex and Trading Economics"
             ),
             headlines=merged,
             path=f"{out}/{pair}.xml",
@@ -2922,7 +3245,6 @@ def main() -> None:
                 "tips_valid":   macro.get("us", {}).get("tips_valid"),
                 "ecb_rate":     macro.get("eu", {}).get("rate"),
                 "boe_rate":     macro.get("gb", {}).get("rate"),
-                "boj_rate":     macro.get("jp", {}).get("rate"),
                 "eu_pmi":       macro.get("eu", {}).get("pmi"),
                 "eu_pmi_valid": macro.get("eu", {}).get("pmi_valid"),
                 "uk_pmi":       macro.get("gb", {}).get("pmi"),
@@ -2935,7 +3257,6 @@ def main() -> None:
                 "pmi_deltas":   macro.get("pmi_deltas", {}),
             },
             "spx":       macro.get("spx", {}),
-            "nikkei":    macro.get("nikkei", {}),
             "surprises": macro.get("surprises", {}),
             "sources":   macro.get("sources", {}),
             "technical_context":       macro.get("technical_context", {}),
@@ -2991,7 +3312,6 @@ def main() -> None:
             "sources":            macro_summary.get("sources", {}),
             "data_quality":       macro_summary.get("data_quality", {}),
             "spx":                macro_summary.get("spx", {}),
-            "nikkei":             macro_summary.get("nikkei", {}),
             "surprises":          macro_summary.get("surprises", {}),
             "regime":             macro_summary.get("regime", ""),
             "regime_duration":    macro_summary.get("regime_duration", 0),

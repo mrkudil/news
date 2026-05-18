@@ -1,0 +1,41 @@
+{
+  "pmi_stooq_USD": {
+    "t": 1779144637.5993524,
+    "item": {
+      "symbol": "pmmnus.m",
+      "actual": "54.5",
+      "value": 54.5,
+      "date": "2026-04-30",
+      "time": "23:00:00",
+      "quote_time": "2026-04-30T23:00:00+00:00",
+      "source": "Stooq",
+      "source_url": "https://stooq.com/q/?s=pmmnus.m"
+    }
+  },
+  "pmi_stooq_EUR": {
+    "t": 1779144637.7017987,
+    "item": {
+      "symbol": "pmmneu.m",
+      "actual": "52.2",
+      "value": 52.2,
+      "date": "2026-04-30",
+      "time": "23:00:00",
+      "quote_time": "2026-04-30T23:00:00+00:00",
+      "source": "Stooq",
+      "source_url": "https://stooq.com/q/?s=pmmneu.m"
+    }
+  },
+  "pmi_stooq_GBP": {
+    "t": 1779144638.334061,
+    "item": {
+      "symbol": "pmmnuk.m",
+      "actual": "53.7",
+      "value": 53.7,
+      "date": "2026-04-30",
+      "time": "23:00:00",
+      "quote_time": "2026-04-30T23:00:00+00:00",
+      "source": "Stooq",
+      "source_url": "https://stooq.com/q/?s=pmmnuk.m"
+    }
+  }
+}

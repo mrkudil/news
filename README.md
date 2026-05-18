@@ -1,0 +1,2 @@
+# News
+Forex News Dashboard

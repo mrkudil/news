@@ -1,0 +1,78 @@
+# =============================================================================
+# Runtime Logs — never commit, grows every run
+# =============================================================================
+*.log
+public_html/*.log
+public/*.log
+logs/
+
+# =============================================================================
+# Local Python Environment
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.venv/
+venv/
+env/
+.env
+.direnv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =============================================================================
+# GitHub Actions ephemeral staging directory
+# Generated fresh every run — never needs tracking
+# =============================================================================
+public/
+
+# =============================================================================
+# OS / Editor noise
+# =============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# =============================================================================
+# Python Packaging / Testing Artefacts
+# =============================================================================
+*.egg-info/
+*.egg
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# =============================================================================
+# Local Backups
+# =============================================================================
+backup/
+bak/
+*.bak
+*.orig
+
+# =============================================================================
+# Cloudflare Wrangler Files
+# =============================================================================
+.wrangler/
+.dev.vars*
+!.dev.vars.example
+!.env.example

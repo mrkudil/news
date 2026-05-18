@@ -2,7 +2,7 @@
 """
 ema.py
 
-Robust EMA engine for EURUSD, GBPUSD, USDJPY, XAUUSD.
+Robust EMA engine for EURUSD, GBPUSD, XAUUSD.
 
 Data sources:
 - Twelve Data API: main Daily correction + gap repair source.
@@ -135,17 +135,15 @@ except ImportError:
     )
 
 UTC = timezone.utc
-SUPPORTED_PAIRS = ["EURUSD", "GBPUSD", "USDJPY", "XAUUSD"]
+SUPPORTED_PAIRS = ["EURUSD", "GBPUSD", "XAUUSD"]
 PAIR_TO_TD_SYMBOL = {
     "EURUSD": "EUR/USD",
     "GBPUSD": "GBP/USD",
-    "USDJPY": "USD/JPY",
     "XAUUSD": "XAU/USD",
 }
 PAIR_TO_STOOQ_SYMBOL = {
     "EURUSD": "eurusd",
     "GBPUSD": "gbpusd",
-    "USDJPY": "usdjpy",
     "XAUUSD": "xauusd",
 }
 
@@ -154,7 +152,6 @@ PAIR_TO_STOOQ_SYMBOL = {
 PAIR_FLAGS: Dict[str, Tuple[str, str]] = {
     "EURUSD": ("🇪🇺", "🇺🇸"),
     "GBPUSD": ("🇬🇧", "🇺🇸"),
-    "USDJPY": ("🇺🇸", "🇯🇵"),
     "XAUUSD": ("🥇", "🇺🇸"),
 }
 
@@ -529,9 +526,7 @@ def _proximity_pct(price: float, ema: float) -> float:
 
 def _format_price(pair: str, value: float) -> str:
     """Format a price with pair-appropriate decimal places."""
-    # JPY pairs and XAUUSD get different precision
-    if "JPY" in pair.upper():
-        return f"{value:.3f}"
+    # XAUUSD gets different precision
     if "XAU" in pair.upper():
         return f"{value:.2f}"
     return f"{value:.5f}"
@@ -551,7 +546,6 @@ def _pair_header(pair: str, bias: str = "") -> str:
     Examples:
       EURUSD (bullish) →  🇪🇺 EUR/USD 🇺🇸 🔼
       GBPUSD (bearish) →  🇬🇧 GBP/USD 🇺🇸 🔽
-      USDJPY (neutral) →  🇺🇸 USD/JPY 🇯🇵
       XAUUSD (bullish) →  🥇 XAU/USD 🇺🇸 🔼
     """
     left, right = PAIR_FLAGS.get(pair.upper(), ("", ""))
@@ -998,8 +992,6 @@ def trend_bias_label(fast_vs_slow: Optional[str]) -> str:
 _CROSS_REL_EPS = 1e-6   # 0.0001 % of price — filters floating-point noise without masking real crosses
 
 
-
-
 def human_bias_label(trend_bias: Optional[str]) -> str:
     if not trend_bias:
         return "Neutral"
@@ -1009,7 +1001,7 @@ def human_bias_label(trend_bias: Optional[str]) -> str:
 
 def detect_cross(prev_fast: float, prev_slow: float, curr_fast: float, curr_slow: float) -> str:
     # Use a relative epsilon scaled to the magnitude of the slow EMA so that
-    # sub-pip noise on high-value pairs (USDJPY ~150, XAUUSD ~2000) does not
+    # sub-pip noise on high-value pairs (XAUUSD ~2000) does not
     # produce phantom cross signals.
     eps = max(abs(curr_slow), abs(prev_slow)) * _CROSS_REL_EPS
     prev_diff = prev_fast - prev_slow
@@ -1512,7 +1504,7 @@ def merge_close_histories(base_rows: List[Dict[str, Any]], overlay_rows: List[Di
 #
 #   # bulk download (mirrors yf.download)
 #   df = StooqDownloader.download("eurusd", period="1mo", interval="1d")
-#   df = StooqDownloader.download(["eurusd","usdjpy"], period="5d")
+#   df = StooqDownloader.download(["eurusd","gbpusd"], period="5d")
 # ---------------------------------------------------------------------------
 
 STOOQ_MAX_QUOTE_AGE_DAYS = 2  # reject quotes older than this many calendar days
@@ -1592,7 +1584,7 @@ class StooqTicker:
     Parameters
     ----------
     symbol : str
-        Stooq symbol, e.g. ``"eurusd"``, ``"usdjpy"``, ``"btc.v"``.
+        Stooq symbol, e.g. ``"eurusd"``, ``"gbpusd"``, ``"btc.v"``.
     """
 
     def __init__(self, symbol: str) -> None:
@@ -1761,7 +1753,7 @@ class StooqDownloader:
     Examples
     --------
     >>> df = StooqDownloader.download("eurusd", period="1mo", interval="1d")
-    >>> df = StooqDownloader.download(["eurusd", "usdjpy"], period="5d")
+    >>> df = StooqDownloader.download(["eurusd", "gbpusd"], period="5d")
     """
 
     @staticmethod
@@ -2392,7 +2384,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Robust EMA engine (Twelve Data broker daily corrections + Stooq live snapshots)."
     )
-    parser.add_argument("--pair", default=None, help="Single pair: EURUSD, GBPUSD, USDJPY, XAUUSD")
+    parser.add_argument("--pair", default=None, help="Single pair: EURUSD, GBPUSD, XAUUSD")
     parser.add_argument("--all", action="store_true", help="Scan all supported pairs")
     parser.add_argument("--fast", type=int, default=20, help="Fast EMA period (default: 20)")
     parser.add_argument("--slow", type=int, default=50, help="Slow EMA period (default: 50)")

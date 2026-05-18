@@ -216,7 +216,6 @@ _USER_AGENT = os.environ.get("SCRAPER_UA", _DEFAULT_UA)
 TD_SYMBOLS: Dict[str, str] = {
     "eurusd": "EUR/USD",
     "gbpusd": "GBP/USD",
-    "usdjpy": "USD/JPY",
     "xauusd": "XAU/USD",
 }
 
@@ -227,11 +226,10 @@ TD_SYMBOLS: Dict[str, str] = {
 STOOQ_SYMBOLS: Dict[str, str] = {
     "eurusd": "eurusd",
     "gbpusd": "gbpusd",
-    "usdjpy": "usdjpy",
     "xauusd": "xauusd",
 }
 
-DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "usdjpy", "xauusd")
+DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "xauusd")
 
 def _normalize_pair_code(value: str) -> str:
     return "".join(ch for ch in (value or "").lower() if ch.isalnum())
@@ -952,7 +950,6 @@ def _save_ohlc_cache_entry(
 
 # Initialise the cache table once at import time (no-op if already exists).
 _init_pivot_ohlc_cache()
-
 
 
 # ---------------------------------------------------------------------------
@@ -1676,8 +1673,6 @@ except RuntimeError:
 def _pivot_format_price(pair: str, value: float) -> str:
     """Format a price with pair-appropriate decimal places."""
     p = pair.lower()
-    if "jpy" in p:
-        return f"{value:.3f}"
     if "xau" in p:
         return f"{value:.2f}"
     return f"{value:.5f}"
@@ -1788,8 +1783,6 @@ def _pivot_send_telegram(
         return False
 
 
-
-
 # ---------------------------------------------------------------------------
 # Groq AI enrichment
 # ---------------------------------------------------------------------------
@@ -1887,19 +1880,12 @@ _PAIR_FLAG: Dict[str, str] = {
     # Major FX
     "eurusd":  "🇪🇺🇺🇸",
     "gbpusd":  "🇬🇧🇺🇸",
-    "usdjpy":  "🇺🇸🇯🇵",
     "usdchf":  "🇺🇸🇨🇭",
     "audusd":  "🇦🇺🇺🇸",
     "nzdusd":  "🇳🇿🇺🇸",
     "usdcad":  "🇺🇸🇨🇦",
     # Minor / cross FX
     "eurgbp":  "🇪🇺🇬🇧",
-    "eurjpy":  "🇪🇺🇯🇵",
-    "gbpjpy":  "🇬🇧🇯🇵",
-    "audjpy":  "🇦🇺🇯🇵",
-    "nzdjpy":  "🇳🇿🇯🇵",
-    "cadjpy":  "🇨🇦🇯🇵",
-    "chfjpy":  "🇨🇭🇯🇵",
     "eurchf":  "🇪🇺🇨🇭",
     "gbpchf":  "🇬🇧🇨🇭",
     "audnzd":  "🇦🇺🇳🇿",
@@ -1918,7 +1904,6 @@ _PAIR_FLAG: Dict[str, str] = {
     "usdmyr":  "🇺🇸🇲🇾",
     "eurmyr":  "🇪🇺🇲🇾",
     "gbpmyr":  "🇬🇧🇲🇾",
-    "jpymyr":  "🇯🇵🇲🇾",
     "audmyr":  "🇦🇺🇲🇾",
     "nzdmyr":  "🇳🇿🇲🇾",
     "cadmyr":  "🇨🇦🇲🇾",
@@ -1954,8 +1939,6 @@ def _pivot_alignment_ok(state: str, alignment: str) -> bool:
     if rule == "with_or_neutral":
         return alignment in ("with", "neutral")
     return False
-
-
 
 
 def _pivot_signal_price_ladder(
@@ -2287,7 +2270,6 @@ def dispatch_pivot_reset_alerts(results: Dict[str, Dict], bot_token: str = TELEG
     if not dry_run:
         _pivot_save_state_file(PIVOT_RESET_ALERT_STATE_FILE, state)
     return sent
-
 
 
 # ---------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-18T22:50:53.008640+00:00",
+  "timestamp": "2026-05-18T22:51:47.161942+00:00",
   "macro": {
     "timestamp": "2026-05-18T22:24:24.319370+00:00",
     "run_id": "7ca886eb",
@@ -388,10 +388,10 @@
     },
     "_regime": "neutral",
     "_prev_scores": {
-      "eurusd": -1.094,
+      "eurusd": -1.112,
       "gbpusd": -0.037,
       "usdjpy": 1.801,
-      "xauusd": -2.786
+      "xauusd": -2.787
     },
     "_factor_history": {
       "eurusd": {},

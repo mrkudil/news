@@ -2,7 +2,7 @@
 """
 momentum.py
 
-Hybrid momentum engine for EURUSD, GBPUSD, USDJPY, XAUUSD.
+Hybrid momentum engine for EURUSD, GBPUSD, XAUUSD.
 
 Session-seeding rule:
   - Exactly 4 TD requests per calendar day (UTC).
@@ -179,21 +179,18 @@ _EMA_BIAS_MAP: Dict[str, float] = {
 PAIR_NORM: Dict[str, float] = {
     "eurusd": 0.4,
     "gbpusd": 0.5,
-    "usdjpy": 0.4,
     "xauusd": 1.0,
 }
 
 SLOPE_THRESH: Dict[str, float] = {
     "eurusd": 0.00004,
     "gbpusd": 0.00004,
-    "usdjpy": 0.00004,
     "xauusd": 0.00008,
 }
 
 TD_SYMBOLS: Dict[str, str] = {
     "eurusd": "EUR/USD",
     "gbpusd": "GBP/USD",
-    "usdjpy": "USD/JPY",
     "xauusd": "XAU/USD",
 }
 
@@ -201,7 +198,6 @@ TD_SYMBOLS: Dict[str, str] = {
 STOOQ_SYMBOLS: Dict[str, str] = {
     "eurusd": "eurusd",
     "gbpusd": "gbpusd",
-    "usdjpy": "usdjpy",
     "xauusd": "xauusd",
 }
 
@@ -211,7 +207,7 @@ _STOOQ_FALLBACKS: Dict[str, List[str]] = {
     "xauusd": ["xauusd", "gold", "gc.f"],
 }
 
-DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "usdjpy", "xauusd")
+DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "xauusd")
 
 # Local TD daily seed written by scraper.py.  This is intentionally read-only here:
 # scraper.py owns the Twelve Data request, momentum.py only consumes the local file.
@@ -1028,8 +1024,6 @@ def _fetch_twelvedata_hourly_closes_direct(pair: str, lookback_hours: int) -> Tu
         return [], f"twelvedata_error:{exc}"
 
 
-
-
 def _fetch_td_hourly_closes(
     pair: str,
     lookback_hours: int = 120,
@@ -1056,7 +1050,6 @@ def _fetch_td_hourly_closes(
         return fetched, f"{status}{suffix}"
 
     return [], f"failed:{status}"
-
 
 
 def _repair_pair_history(
@@ -1175,7 +1168,6 @@ def rsi_payload(closes: List[float], period: int = MOMENTUM_RSI_PERIOD) -> Dict[
     }
 
 
-
 def slope_sign(series: List[float], pair: str = "") -> float:
     e = ema(series, EMA_FAST)
     if len(e) < 2 or e[-2] == 0:
@@ -1239,7 +1231,7 @@ _CROSS_REL_EPS = 1e-6   # 0.0001 % of price — filters floating-point noise wit
 
 def _cross_state(prev_fast: float, prev_slow: float, fast_now: float, slow_now: float) -> str:
     # Relative epsilon scaled to slow EMA magnitude so that sub-pip noise on
-    # high-value pairs (USDJPY ~150, XAUUSD ~2000) does not produce phantom
+    # high-value pairs (XAUUSD ~2000) does not produce phantom
     # cross signals. Mirrors the fix applied to ema.py detect_cross().
     eps = max(abs(slow_now), abs(prev_slow)) * _CROSS_REL_EPS
     prev_diff = prev_fast - prev_slow
@@ -1693,7 +1685,6 @@ def _compute_ema_state(
 _H1_PAIR_FLAGS: Dict[str, Tuple[str, str]] = {
     "eurusd": ("🇪🇺", "🇺🇸"),
     "gbpusd": ("🇬🇧", "🇺🇸"),
-    "usdjpy": ("🇺🇸", "🇯🇵"),
     "xauusd": ("🥇", "🇺🇸"),
 }
 
@@ -1758,8 +1749,6 @@ def _h1_prune_alert_state(state: Dict[str, Any], max_age_hours: int = 48) -> Dic
 def _h1_format_price(pair: str, value: float) -> str:
     """Format a price with pair-appropriate decimal places."""
     p = pair.upper()
-    if "JPY" in p:
-        return f"{value:.3f}"
     if "XAU" in p:
         return f"{value:.2f}"
     return f"{value:.5f}"

@@ -10,9 +10,9 @@
     "t": 1779144640.0044913
   },
   "stooq_price_USDJPY": {
-    "price": 158.8035,
+    "price": 158.8295,
     "source": "Stooq",
-    "t": 1779143068.3597357
+    "t": 1779145034.0438435
   },
   "stooq_price_AUDUSD": {
     "price": 0.71718,
@@ -62,7 +62,7 @@
   "stooq_price_JPYMYR": {
     "price": 0.0250063,
     "source": "Stooq",
-    "t": 1779143077.9108632
+    "t": 1779145034.146234
   },
   "stooq_price_CNYMYR": {
     "price": 0.58394,

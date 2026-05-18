@@ -1,0 +1,218 @@
+{
+  "fetched_at": "2026-05-18T21:29:05.636309Z",
+  "source": "Stooq",
+  "stale": false,
+  "ttl_s": 900.0,
+  "attribution": "https://stooq.com",
+  "rates": [
+    {
+      "label": "EUR/USD",
+      "rate": "1.16537",
+      "prev": "1.16537",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "GBP/USD",
+      "rate": "1.34305",
+      "prev": "1.34305",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/JPY",
+      "rate": "158.832",
+      "prev": "158.832",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "AUD/USD",
+      "rate": "0.71680",
+      "prev": "0.71680",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/CAD",
+      "rate": "1.37408",
+      "prev": "1.37408",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/CHF",
+      "rate": "0.78432",
+      "prev": "0.78432",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "XAU/USD",
+      "rate": "4566.24",
+      "prev": "4566.24",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/MYR",
+      "rate": "3.9734",
+      "prev": "3.9734",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/SGD",
+      "rate": "1.2787",
+      "prev": "1.2787",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "SGD/MYR",
+      "rate": "3.1048",
+      "prev": "3.1048",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "EUR/MYR",
+      "rate": "4.6224",
+      "prev": "4.6224",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "GBP/MYR",
+      "rate": "5.3068",
+      "prev": "5.3068",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "JPY/MYR",
+      "rate": "0.025006",
+      "prev": "0.025006",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "CNY/MYR",
+      "rate": "0.5839",
+      "prev": "0.5839",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "THB/MYR",
+      "rate": "0.1218",
+      "prev": "0.1218",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "IDR/MYR",
+      "rate": "0.000225",
+      "prev": "0.000225",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "AUD/MYR",
+      "rate": "2.8428",
+      "prev": "2.8428",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "NZD/MYR",
+      "rate": "2.3258",
+      "prev": "2.3258",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "BTC/USD",
+      "rate": "76981.47",
+      "prev": "76981.47",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    }
+  ]
+}

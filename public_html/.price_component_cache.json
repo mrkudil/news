@@ -1,0 +1,97 @@
+{
+  "stooq_price_EURUSD": {
+    "price": 1.16537,
+    "source": "Stooq",
+    "t": 1779139751.482763
+  },
+  "stooq_price_GBPUSD": {
+    "price": 1.34305,
+    "source": "Stooq",
+    "t": 1779139752.2616954
+  },
+  "stooq_price_USDJPY": {
+    "price": 158.8315,
+    "source": "Stooq",
+    "t": 1779139753.0981224
+  },
+  "stooq_price_AUDUSD": {
+    "price": 0.7168,
+    "source": "Stooq",
+    "t": 1779139753.8947906
+  },
+  "stooq_price_USDCAD": {
+    "price": 1.37408,
+    "source": "Stooq",
+    "t": 1779139755.128048
+  },
+  "stooq_price_USDCHF": {
+    "price": 0.78432,
+    "source": "Stooq",
+    "t": 1779139756.206705
+  },
+  "stooq_price_XAUUSD": {
+    "price": 4566.24,
+    "source": "Stooq",
+    "t": 1779139757.236791
+  },
+  "stooq_price_USDMYR": {
+    "price": 3.97344,
+    "source": "Stooq",
+    "t": 1779139757.9435804
+  },
+  "stooq_price_USDSGD": {
+    "price": 1.27866,
+    "source": "Stooq",
+    "t": 1779139758.8582215
+  },
+  "stooq_price_SGDMYR": {
+    "price": 3.10475,
+    "source": "Stooq",
+    "t": 1779139759.502479
+  },
+  "stooq_price_EURMYR": {
+    "price": 4.62242,
+    "source": "Stooq",
+    "t": 1779139760.405747
+  },
+  "stooq_price_GBPMYR": {
+    "price": 5.30677,
+    "source": "Stooq",
+    "t": 1779139761.3421474
+  },
+  "stooq_price_JPYMYR": {
+    "price": 0.0250063,
+    "source": "Stooq",
+    "t": 1779139762.0179553
+  },
+  "stooq_price_CNYMYR": {
+    "price": 0.58394,
+    "source": "Stooq",
+    "t": 1779139763.0477898
+  },
+  "stooq_price_THBMYR": {
+    "price": 0.12178,
+    "source": "Stooq",
+    "t": 1779139763.9484382
+  },
+  "stooq_price_IDRMYR": {
+    "price": 0.000225081,
+    "source": "Stooq",
+    "t": 1779139764.5524168
+  },
+  "stooq_price_AUDMYR": {
+    "price": 2.84276,
+    "source": "Stooq",
+    "t": 1779139765.2262237
+  },
+  "stooq_price_NZDMYR": {
+    "price": 2.32582,
+    "source": "Stooq",
+    "t": 1779139766.2639394
+  },
+  "stooq_price_BTCUSD": {
+    "price": 76981.47,
+    "source": "Stooq",
+    "t": 1779139767.0807185
+  }
+}

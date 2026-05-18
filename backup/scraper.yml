@@ -1,0 +1,202 @@
+name: Publish FX News Dashboard
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/**"
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies with uv
+        shell: bash
+        run: |
+          set -euo pipefail
+          pip install uv
+          uv pip install --system tzdata
+          if [ -f requirements.txt ]; then
+            uv pip install --system -r requirements.txt
+          else
+            echo "::warning::requirements.txt not found. Skipping pip install."
+          fi
+
+      - name: Ensure public_html directory exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public_html
+
+          # Initialize alert and momentum JSON files if they don't exist to prevent verification failure
+          for f in pivot_telegram_alerts.json signal_telegram_alerts.json momentum_telegram_alerts.json momentum_closes.json momentum_td_usage.json ema_closes.json ema_state.json ema_twelvedata_usage.json; do
+            if [ ! -f "public_html/$f" ]; then
+              echo '{}' > "public_html/$f"
+            fi
+          done
+
+          # Initialize momentum .jsonl file if missing
+          if [ ! -f "public_html/momentum_stooq_snapshots.jsonl" ]; then
+            touch "public_html/momentum_stooq_snapshots.jsonl"
+          fi
+
+          # Initialize EMA .jsonl file if missing
+          if [ ! -f "public_html/ema_stooq_snapshots.jsonl" ]; then
+            touch "public_html/ema_stooq_snapshots.jsonl"
+          fi
+
+      - name: Run scraper
+        env:
+          SCRAPER_OUTPUT_DIR: public_html
+          MOMENTUM_DATA_DIR: public_html
+          EMA_DATA_DIR: public_html
+          SCRAPER_LOG_FILE: public_html/scraper.log
+          MACRO_CACHE_FILE: public_html/macro_cache.json
+          MACRO_COMPONENT_CACHE: public_html/macro_components.json
+          MACRO_CALENDAR_JSON: public_html/calendar.json
+          MACRO_COMPONENTS_FILE: public_html/macro_components.json
+          SIGNAL_ALERT_STATE_FILE: public_html/signal_telegram_alerts.json
+          SIGNAL_ALERT_MIN_CONFIDENCE: "0.65"
+          SIGNAL_ALERT_PRUNE_H: "26"
+          MOMENTUM_ALLOW_BOOTSTRAP_ANYTIME: "true"
+          MOMENTUM_BOOTSTRAP_ANYTIME_PER_DAY: "4"
+          MOMENTUM_BOOTSTRAP_PER_RUN_MAX: "4"
+          EMA_SESSION_WINDOW_MINUTES: "20"
+          EMA_WARMUP_MULTIPLIER: "2"
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_AI_ENABLED: "1"
+          GROQ_AI_MAX_PER_RUN: "20"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/scraper.py
+
+      - name: Debug scraper logs on failure
+        if: failure()
+        run: |
+          if [ -f public_html/scraper.log ]; then
+            cat public_html/scraper.log
+          else
+            echo "No log file found."
+          fi
+
+      - name: Copy HTML files to public_html
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in index.html macro.html pivots.html ema.html; do
+            if [ -f "$file" ]; then
+              cp "$file" "public_html/$file"
+            fi
+          done
+
+      - name: Verify required files
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            public_html/forex.json
+            public_html/calendar.json
+            public_html/rates.json
+            public_html/macro_components.json
+            public_html/seen_hashes.json
+            public_html/momentum_closes.json
+            public_html/momentum_td_usage.json
+            public_html/momentum_stooq_snapshots.jsonl
+            public_html/ema_state.json
+            public_html/ema_closes.json
+            public_html/ema_twelvedata_usage.json
+            public_html/ema_stooq_snapshots.jsonl
+          )
+          missing=0
+          for file in "${required[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "::error::Missing required file: $file"
+              missing=1
+            else
+              echo "OK $file"
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+
+      - name: Commit generated data back to repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main
+          git add public_html/
+          git reset public_html/scraper.log || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: scraper data update"
+          MAX_RETRIES=5
+          ATTEMPT=0
+          until git push origin HEAD:main; do
+            ATTEMPT=$((ATTEMPT + 1))
+            if [ "$ATTEMPT" -ge "$MAX_RETRIES" ]; then
+              exit 1
+            fi
+            sleep $((1 + RANDOM % 5))
+            git pull --rebase origin main
+          done
+
+      - name: Remove log file before deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f public_html/scraper.log
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public_html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

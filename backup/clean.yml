@@ -1,0 +1,34 @@
+name: Delete Old Workflow Runs and Artifacts
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: cleanup-workflow-runs
+  # SAFETY: Cancel older runs if a new one is triggered.
+  # Prevents multiple cleanup jobs from fighting over the GitHub API simultaneously.
+  cancel-in-progress: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    # SAFETY: Fail-fast after 5 minutes instead of 10. 
+    # API calls to delete runs should complete very quickly; if it hangs, kill it to save Action minutes.
+    timeout-minutes: 5
+
+    steps:
+      - name: Delete old workflow runs (repo-wide)
+        # SPEED & SECURITY: Update to v2 to ensure you are using the latest Node.js runtime and bug fixes
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 3
+          keep_minimum_runs: 2
+          dry_run: false

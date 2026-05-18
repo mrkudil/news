@@ -256,7 +256,7 @@ PMI_SCALE: float = 5.0
 VIX_NEUTRAL_FALLBACK: float = 20.0
 SCORE_MAX: float = 3.0
 
-DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "usdjpy", "xauusd")
+DEFAULT_MAIN_PAIRS: Tuple[str, ...] = ("eurusd", "gbpusd", "xauusd")
 ACTIVE_MAIN_PAIRS: set[str] = set(DEFAULT_MAIN_PAIRS)
 
 def _normalize_pair_code(value: str) -> str:
@@ -305,7 +305,7 @@ _INFLATION_PROXIES: Dict[str, float] = {
 _FACTOR_WEIGHTS_DEFAULT: Dict[str, float] = {
     "rate": 1.0, "curve": 0.0, "risk": 0.8, "diff": 0.0,
     "momentum": 1.0, "real_yield": 0.0, "growth": 0.15,
-    "usd": 0.7, "liquidity": 0.0, "nikkei": 0.0,
+    "usd": 0.7, "liquidity": 0.0,
 }
 
 _WEIGHT_CLAMP = (-2.0, 2.0)
@@ -351,10 +351,8 @@ COMPONENT_TTLS: Dict[str, int] = {
     "uk_pmi": 3600,                                                                 
     "eu_ecb_rate": 21600,                                            
     "gb_boe_rate": 21600,                                            
-    "jp_boj_rate": 21600,                                        
     "vix": 900,                                                    
     "spx": 900,                                                    
-    "nikkei": 900,                                                        
 }
 
 _DEFAULT_UA = (
@@ -879,7 +877,6 @@ def fetch_tips_yield():
     return (0.0, False)
 
 
-
 def _safe_index_level(value: float, label: str) -> float:
     """Generic validator for index/price-style macro series."""
     if not math.isfinite(float(value)):
@@ -937,9 +934,6 @@ def _series_state_from_values(values: List[float], source: str) -> Dict[str, Any
         current = float(values[0])
         return {"current": round(current, 4), "prev": round(current, 4), "change": 0.0, "valid": True, "source": source}
     return {"current": 0.0, "prev": 0.0, "change": 0.0, "valid": False, "source": "fallback"}
-
-
-
 
 
 _YAHOO_GVZ_URL = (
@@ -1364,15 +1358,6 @@ def fetch_boe_rate():
     log.warning("[API FAIL] boe_rate: all sources failed -> 0.0")
     return 0.0
 
-def fetch_boj_rate():
-    val, ok = _fetch_stooq("inrtjp.m", "boj_rate", _RATE_BOUNDS)
-    if ok:
-        _set_fetch_source("boj_rate", "Stooq/INRTJP.M")
-        return val
-    log.warning("[API FAIL] boj_rate: Stooq INRTJP.M failed -> returning 0.0 (data_quality will penalise)")
-    _set_fetch_source("boj_rate", "unavailable")
-    return 0.0
-
 # ---------------------------------------------------------------------------
 # Stooq — yfinance-style fetch module
 #
@@ -1625,8 +1610,8 @@ def stooq_download(
     """
     yfinance-style multi-ticker download.
 
-        data = stooq_download(["vi.c", "^spx", "^nkx"], period="1mo")
-        # → {"vi.c": [...bars...], "^spx": [...], "^nkx": [...]}
+        data = stooq_download(["vi.c", "^spx"], period="1mo")
+        # → {"vi.c": [...bars...], "^spx": [...]}
 
     A short inter-request sleep avoids Stooq rate-limiting on large batches.
     """
@@ -1690,9 +1675,9 @@ def _fetch_stooq(symbol: str, label: str, bounds: Tuple[float, float]) -> Tuple[
 #                       "ytd" "max"
 #
 # Canonical Stooq symbols for the pairs used throughout macro.py:
-#   FX      eurusd    gbpusd    usdjpy    xauusd   (bare — no =x suffix)
-#   Indices ^spx      ^nkx      vi.c
-#   Rates   inrtjp.m  (BoJ monthly)
+#   FX      eurusd    gbpusd    xauusd   (bare — no =x suffix)
+#   Indices ^spx      vi.c
+#   Rates   none
 # ---------------------------------------------------------------------------
 
 def fetch_price(
@@ -1791,86 +1776,6 @@ def fetch_spx() -> Tuple[float, float, bool]:
     _set_fetch_source("spx", "fallback")
     return 0.0, 0.0, False
 
-_NIKKEI_BOUNDS = (5000.0, 80000.0)
-
-def fetch_nikkei() -> Tuple[float, float, bool]:
-    curr_val, curr_ok = _fetch_stooq("^nkx", "nikkei", _NIKKEI_BOUNDS)
-    if curr_ok:
-        _set_fetch_source("nikkei", "Stooq/^nkx")
-        return round(curr_val, 2), round(curr_val, 2), True
-
-    log.warning("[API FAIL] nikkei: Stooq latest quote failed -> trying FRED/NIKKEI225")
-    _nikkei_validator = lambda v, lbl: max(_NIKKEI_BOUNDS[0], min(v, _NIKKEI_BOUNDS[1]))
-    val = _fetch_fred_series("NIKKEI225", "nikkei", validator=_nikkei_validator)
-    if val is not None:
-        _set_fetch_source("nikkei", "FRED/NIKKEI225")
-        log.info(f"[API OK] nikkei: {val} prev={val} (FRED/NIKKEI225, trend=0.0 this run)")
-        return round(val, 2), round(val, 2), True
-
-    log.warning("[API FAIL] nikkei: Stooq and FRED unavailable -> signal suppressed")
-    _set_fetch_source("nikkei", "fallback")
-    return 0.0, 0.0, False
-
-def _nikkei_confirmation_factor(macro: Dict) -> float:
-    nikkei = macro.get("nikkei", {})
-    if not nikkei.get("valid", False):
-        return 0.0
-
-    curr = nikkei.get("current", 0.0)
-    prev = nikkei.get("prev", curr)
-    if prev == 0.0 or curr == 0.0:
-        return 0.0
-
-    pct_change = (curr - prev) / prev * 100
-    nikkei_up = pct_change > 0.0                                      
-
-                                                
-    vix = macro.get("vix_ema", macro.get("vix", VIX_NEUTRAL_FALLBACK))
-    spx = macro.get("spx", {})
-    spx_valid = spx.get("valid", False) and spx.get("prev", 0) > 0
-    spx_pct = ((spx["current"] - spx["prev"]) / spx["prev"] * 100) if spx_valid else 0.0
-
-                             
-    spx_vix_bullish = (spx_pct > 0.0) and (vix < MACRO_VIX_RISK_OFF)                      
-    spx_vix_bearish = (spx_pct < 0.0) and (vix > MACRO_VIX_RISK_OFF)                                 
-
-                                                                              
-    nikkei_magnitude = max(min(pct_change / 1.5, 1.0), -1.0)
-
-    _DIVERGENCE_DAMP = 0.3                                                
-
-    if spx_vix_bullish:
-        if nikkei_up:
-                                                                              
-            signal = nikkei_magnitude
-            log.debug(f"nikkei_confirmation: STRONG BUY signal={signal:.3f} "
-                      f"(SPX^ VIXv Nikkei^ delta={pct_change:+.2f}%)")
-        else:
-                                                                              
-                                                                              
-            signal = abs(nikkei_magnitude) * _DIVERGENCE_DAMP
-            log.debug(f"nikkei_confirmation: DIVERGENCE (SPX^ VIXv but Nikkeiv) "
-                      f"signal={signal:.3f} (dampened {_DIVERGENCE_DAMP}x in regime direction)")
-    elif spx_vix_bearish:
-        if not nikkei_up:
-                                                                                
-            signal = nikkei_magnitude
-            log.debug(f"nikkei_confirmation: STRONG SELL signal={signal:.3f} "
-                      f"(SPXv VIX^ Nikkeiv delta={pct_change:+.2f}%)")
-        else:
-                                                                              
-                                                                                            
-            signal = -abs(nikkei_magnitude) * _DIVERGENCE_DAMP
-            log.debug(f"nikkei_confirmation: DIVERGENCE (SPXv VIX^ but Nikkei^) "
-                      f"signal={signal:.3f} (dampened {_DIVERGENCE_DAMP}x in regime direction)")
-    else:
-                                                                                     
-        signal = nikkei_magnitude * 0.5
-        log.debug(f"nikkei_confirmation: neutral regime signal={signal:.3f} "
-                  f"(Nikkei delta={pct_change:+.2f}%)")
-
-    return round(signal, 3)
-
 def _spx_trend_factor(macro: Dict) -> float:
     spx = macro.get("spx", {})
     if not spx.get("valid", False):
@@ -1913,7 +1818,7 @@ def _load_calendar_surprises() -> Dict[str, float]:
                 continue                                                     
 
         currency = (ev.get("currency", "") or "").upper()
-        if currency not in ("USD", "EUR", "GBP", "JPY"):
+        if currency not in ("USD", "EUR", "GBP"):
             continue
 
         if abs(forecast) > 0.01:
@@ -1969,7 +1874,6 @@ def _load_prev_from_cache():
             "us_rate": macro.get("us", {}).get("rate"),
             "eu_rate": macro.get("eu", {}).get("rate"),
             "gb_rate": macro.get("gb", {}).get("rate"),
-            "jp_rate": macro.get("jp", {}).get("rate"),
             "rate_history": macro.get("rate_history", {}),
             "prev_vix": macro.get("vix"),
             "prev_yield_spread": macro.get("us", {}).get("yield_spread"),
@@ -1982,7 +1886,7 @@ def _load_prev_from_cache():
         }
     except Exception:
         return {
-            "us_rate": None, "eu_rate": None, "gb_rate": None, "jp_rate": None,
+            "us_rate": None, "eu_rate": None, "gb_rate": None,
             "rate_history": {},
             "prev_vix": None, "prev_yield_spread": None, "prev_pmi": {},
             "prev_scores": {}, "factor_history": {},
@@ -2030,16 +1934,14 @@ def compute_data_quality(macro):
     _p("ecb_rate", 0.10, macro.get("eu", {}).get("rate", 0.0) == 0.0, "moderate")
     _p("boe_rate", 0.08, macro.get("gb", {}).get("rate", 0.0) == 0.0, "moderate")
 
-    _p("boj_rate", 0.05, macro.get("jp", {}).get("rate", 0.0) == 0.0, "minor")
     _p("us_pmi", 0.05, not macro.get("pmi_valid", False), "minor")
     _p("eu_pmi", 0.03, not macro.get("eu", {}).get("pmi_valid", False), "minor")
     _p("gb_pmi", 0.03, not macro.get("gb", {}).get("pmi_valid", False), "minor")
 
-    for region in ("us", "eu", "gb", "jp"):
+    for region in ("us", "eu", "gb"):
         series = macro.get("rate_history", {}).get(region, [])
         if len(series) < 2:
             _p(f"{region}_hist_thin", 0.03, True, "minor")
-        elif any(v == 0.0 for v in series) and region != "jp":
             _p(f"{region}_hist_stale", 0.015, True, "minor")                
 
     _p("curve_anomaly", 0.10, abs(us.get("yield_spread", 0.0)) > 5.0, "anomaly")
@@ -2051,7 +1953,7 @@ def compute_data_quality(macro):
     _is_blind = _momentum_blind(macro)
     _p("momentum_blind", 0.08, _is_blind, "moderate")
     if not _is_blind:
-        nones = sum(1 for k in ("us_rate", "eu_rate", "gb_rate", "jp_rate") if prev.get(k) is None)
+        nones = sum(1 for k in ("us_rate", "eu_rate", "gb_rate") if prev.get(k) is None)
         _p("momentum_partial", 0.04, nones >= 2, "minor")
 
     score = max(0.0, min(score, 1.0))
@@ -2062,7 +1964,7 @@ def compute_data_quality(macro):
         "categories": {k: v for k, v in categories.items() if v},
     }
 
-_REQUIRED_KEYS = ("us", "eu", "gb", "jp", "vix", "diff")
+_REQUIRED_KEYS = ("us", "eu", "gb", "vix", "diff")
 
 _FIELD_DEFAULTS: Dict[str, Any] = {
     "vix": VIX_NEUTRAL_FALLBACK,
@@ -2087,10 +1989,8 @@ _NESTED_DEFAULTS: Dict[str, Dict[str, Any]] = {
     },
     "eu": {"rate": 0.0, "pmi": PMI_NEUTRAL, "pmi_valid": False, "pmi_source": "unavailable"},
     "gb": {"rate": 0.0, "pmi": PMI_NEUTRAL, "pmi_valid": False, "pmi_source": "unavailable"},
-    "jp": {"rate": 0.0, "rate_source": "unavailable", "pmi": PMI_NEUTRAL, "pmi_valid": False, "pmi_source": "unavailable"},
-    "diff": {"eurusd": 0.0, "gbpusd": 0.0, "usdjpy": 0.0},
+    "diff": {"eurusd": 0.0, "gbpusd": 0.0},
     "spx": {"current": 0.0, "prev": 0.0, "valid": False, "source": "unavailable"},
-    "nikkei": {"current": 0.0, "prev": 0.0, "valid": False, "source": "unavailable"},
     "gold": {
         "enabled": False,
         "real_yield_momentum": {"current": 0.0, "prev": 0.0, "change": 0.0, "valid": False, "source": "unavailable"},
@@ -2104,12 +2004,11 @@ _NESTED_DEFAULTS: Dict[str, Dict[str, Any]] = {
         "us_rate": None,
         "eu_rate": None,
         "gb_rate": None,
-        "jp_rate": None,
         "prev_pmi": {"us": None, "eu": None, "gb": None},
         "us_yield_spread": None,
         "prev_vix": None,
     },
-    "rate_history": {"us": [], "eu": [], "gb": [], "jp": []},
+    "rate_history": {"us": [], "eu": [], "gb": []},
 }
 
 def _clone_default(value: Any) -> Any:
@@ -2177,10 +2076,8 @@ _FETCH_SOURCE_ALIASES: Dict[str, str] = {
     "uk_pmi": "uk_pmi",
     "eu_ecb_rate": "ecb_rate",
     "gb_boe_rate": "boe_rate",
-    "jp_boj_rate": "boj_rate",
     "vix": "vix",
     "spx": "spx",
-    "nikkei": "nikkei",
 }
 
 def _source_label_for_component(key: str, value: Any = None) -> str:
@@ -2206,7 +2103,7 @@ def _is_component_cacheworthy(key: str, value: Any) -> bool:
     if key in ("vix", "tips_yield"):
         return isinstance(value, (tuple, list)) and len(value) >= 2 and bool(value[1])
 
-    if key in ("spx", "nikkei"):
+    if key in ("spx",):
         return isinstance(value, (tuple, list)) and len(value) >= 3 and bool(value[2])
 
     if key == "gold_macro":
@@ -2224,7 +2121,7 @@ def _is_component_cacheworthy(key: str, value: Any) -> bool:
     if key == "us_fed_rate_pair":
         return isinstance(value, (tuple, list)) and len(value) >= 1 and abs(float(value[0])) > 1e-12
 
-    if key in ("eu_ecb_rate", "gb_boe_rate", "jp_boj_rate"):
+    if key in ("eu_ecb_rate", "gb_boe_rate"):
         try:
             return abs(float(value)) > 1e-12
         except (TypeError, ValueError):
@@ -2243,7 +2140,6 @@ def _macro_cross_canonical(raw: Any) -> str:
     if value in ("cross_down", "bearish_cross", "death_cross", "watch_short"):
         return "death_cross"
     return "none"
-
 
 
 def _load_scraper_td_seed_for_macro() -> Dict[str, Any]:
@@ -2383,20 +2279,17 @@ def build_macro() -> Dict:
         "uk_pmi": fetch_uk_pmi,
         "eu_ecb_rate": fetch_ecb_rate,
         "gb_boe_rate": fetch_boe_rate,
-        "jp_boj_rate": fetch_boj_rate,
         "vix": fetch_vix,
         "spx": fetch_spx,
-        "nikkei": fetch_nikkei,
     }
 
     fallbacks = {
         "us_fed_rate_pair": (0.0, None), "us_yield_data": (0.0, 0.0),
         "tips_yield": (0.0, False), "gold_macro": dict(_NESTED_DEFAULTS.get("gold", {})), "pmi": (PMI_NEUTRAL, False, "fallback"),
         "eu_pmi": (PMI_NEUTRAL, False, "fallback"), "eu_country_pmi": {}, "uk_pmi": (PMI_NEUTRAL, False, "fallback"),
-        "eu_ecb_rate": 0.0, "gb_boe_rate": 0.0, "jp_boj_rate": 0.0,
+        "eu_ecb_rate": 0.0, "gb_boe_rate": 0.0,
         "vix": (VIX_NEUTRAL_FALLBACK, False),
         "spx": (0.0, 0.0, False),
-        "nikkei": (0.0, 0.0, False),
     }
 
     to_fetch, cached_results = {}, {}
@@ -2474,7 +2367,7 @@ def build_macro() -> Dict:
     eu_country_pmi = results.get("eu_country_pmi", {})
     if not isinstance(eu_country_pmi, dict):
         eu_country_pmi = {}
-    ecb, boe, boj = _scalar("eu_ecb_rate"), _scalar("gb_boe_rate"), _scalar("jp_boj_rate")
+    ecb, boe = _scalar("eu_ecb_rate"), _scalar("gb_boe_rate")
     vix_value, vix_valid = _tup("vix", (VIX_NEUTRAL_FALLBACK, False))
 
     spx_raw = results.get("spx", (0.0, 0.0, False))
@@ -2482,12 +2375,6 @@ def build_macro() -> Dict:
         spx_curr, spx_prev, spx_valid = spx_raw
     else:
         spx_curr, spx_prev, spx_valid = 0.0, 0.0, False
-
-    nikkei_raw = results.get("nikkei", (0.0, 0.0, False))
-    if isinstance(nikkei_raw, (tuple, list)) and len(nikkei_raw) == 3:
-        nikkei_curr, nikkei_prev, nikkei_valid = nikkei_raw
-    else:
-        nikkei_curr, nikkei_prev, nikkei_valid = 0.0, 0.0, False
 
     gold_macro = results.get("gold_macro")
     if not isinstance(gold_macro, dict):
@@ -2521,18 +2408,15 @@ def build_macro() -> Dict:
             "country_pmi_source": eu_country_pmi.get("source", "unavailable"),
         },
         "gb": {"rate": boe, "pmi": uk_pmi_v, "pmi_valid": uk_pmi_valid, "pmi_source": uk_pmi_src},
-        "jp": {"rate": boj, "rate_source": _source_label_for_component("jp_boj_rate"), "pmi": PMI_NEUTRAL, "pmi_valid": False, "pmi_source": "unavailable"},
         "vix": vix_value, "vix_valid": vix_valid, "vix_trend": vix_trend,
         "pmi": pmi_value, "pmi_valid": pmi_valid, "pmi_source": pmi_src, "pmi_deltas": pmi_deltas,
         "spx": {"current": spx_curr, "prev": spx_prev, "valid": spx_valid, "source": _source_label_for_component("spx")},
-        "nikkei": {"current": nikkei_curr, "prev": nikkei_prev, "valid": nikkei_valid, "source": _source_label_for_component("nikkei")},
         "gold": gold_macro,
         "surprises": surprises,
         "prev": {
             "us_rate":        fed_prev,
             "eu_rate":        cached_prev.get("eu_rate"),
             "gb_rate":        cached_prev.get("gb_rate"),
-            "jp_rate":        cached_prev.get("jp_rate"),
             "prev_pmi": {
                 "us": cached_prev.get("prev_pmi", {}).get("us"),
                 "eu": cached_prev.get("prev_pmi", {}).get("eu"),
@@ -2543,7 +2427,6 @@ def build_macro() -> Dict:
         "diff": {
             "eurusd": round(ecb - fed, 4),
             "gbpusd": round(boe - fed, 4),
-            "usdjpy": round(fed - boj, 4),
         },
     }
 
@@ -2552,7 +2435,7 @@ def build_macro() -> Dict:
     prev_hist = cached_prev.get("rate_history", {})
     macro["rate_history"] = {
         r: _rotate(_sanitize(prev_hist.get(r, []), v), v)
-        for r, v in [("us", fed), ("eu", ecb), ("gb", boe), ("jp", boj)]
+        for r, v in [("us", fed), ("eu", ecb), ("gb", boe)]
     }
 
     macro["ema_20_50_state"] = {}
@@ -2640,12 +2523,10 @@ def build_macro() -> Dict:
         "fed_rate":   _FETCH_SOURCES.get("fed_rate", "fallback"),
         "ecb_rate":   _FETCH_SOURCES.get("ecb_rate", "fallback"),
         "boe_rate":   _FETCH_SOURCES.get("boe_rate", "fallback"),
-        "boj_rate":   _FETCH_SOURCES.get("boj_rate", "fallback"),
         "yield_data": _FETCH_SOURCES.get("yield_data", "fallback"),
         "tips":       _FETCH_SOURCES.get("tips", "fallback"),
         "vix":        _FETCH_SOURCES.get("vix", "fallback"),
         "spx":        _FETCH_SOURCES.get("spx", "fallback"),
-        "nikkei":     _FETCH_SOURCES.get("nikkei", "fallback"),
         "gold_macro": _FETCH_SOURCES.get("gold_macro", "fallback"),
         "us_pmi":     pmi_src,
         "eu_pmi":     eu_pmi_src,
@@ -2663,12 +2544,11 @@ def build_macro() -> Dict:
     if MACRO_DEBUG:
         macro["debug"] = {
             "run_id": run_id,
-            "rate_inputs": {"fed": fed, "fed_prev": fed_prev, "ecb": ecb, "boe": boe, "boj": boj},
+            "rate_inputs": {"fed": fed, "fed_prev": fed_prev, "ecb": ecb, "boe": boe},
             "yield_inputs": {"spread": yield_spread, "y10": yield_10y, "tips": tips_10y, "tips_valid": tips_valid},
             "risk_inputs": {"vix": vix_value, "vix_ema": vix_ema, "vix_trend": vix_trend, "vix_valid": vix_valid},
             "growth_inputs": {"pmi": pmi_value, "pmi_valid": pmi_valid, "pmi_source": pmi_src, "pmi_deltas": pmi_deltas},
             "spx_inputs": {"current": spx_curr, "prev": spx_prev, "valid": spx_valid},
-            "nikkei_inputs": {"current": nikkei_curr, "prev": nikkei_prev, "valid": nikkei_valid},
             "surprises": surprises,
             "momentum_summary": _momentum_summary(macro) if _MOMENTUM_OK else {},
             "momentum_diagnostics": macro.get("price_momentum_diagnostics", {}),
@@ -2678,11 +2558,10 @@ def build_macro() -> Dict:
         log.info(f"[{run_id}] MACRO_DEBUG: debug block attached ({len(macro['debug'])} keys)")
 
     log.info(
-        f"[{run_id}] macro built -- fed={fed} ecb={ecb} boe={boe} boj={boj} "
+        f"[{run_id}] macro built -- fed={fed} ecb={ecb} boe={boe} "
         f"spread={yield_spread} vix={vix_value}(ema={vix_ema})(t={vix_trend:+.1f})(valid={vix_valid}) "
         f"pmi={pmi_value}(d={pmi_deltas['us']:+.1f})(valid={pmi_valid}) "
         f"spx={spx_curr}(v={spx_valid}) "
-        f"nikkei={nikkei_curr}(v={nikkei_valid}) "
         f"surprises={surprises} "
         f"regime={regime_str} dq={dq['score']}({dq['grade']})"
     )
@@ -2961,7 +2840,7 @@ def _smooth_score(current, pair, macro):
     return _smooth_score_double_ema(current, pair, macro)
 
 _FACTOR_KEYS = ("rate", "curve", "risk", "diff", "momentum", "real_yield",
-                "growth", "usd", "liquidity", "nikkei")
+                "growth", "usd", "liquidity")
 
 _NEUTRAL_BIAS = {
     "score": 0.0, "confidence": "low", "regime": "unknown",
@@ -2993,7 +2872,6 @@ def should_trade(score: float, macro: Dict) -> bool:
         return False
 
     return True
-
 
 
 def _gold_state(macro: Dict, key: str) -> Dict[str, Any]:
@@ -3062,7 +2940,6 @@ def get_pair_bias(pair: str, macro: Dict) -> Dict:
                   and "rate" in macro["us"] and "yield_spread" in macro["us"]
                   and isinstance(macro.get("eu"), dict) and "rate" in macro["eu"]
                   and isinstance(macro.get("gb"), dict) and "rate" in macro["gb"]
-                  and isinstance(macro.get("jp"), dict) and "rate" in macro["jp"]
                   and "vix" in macro and "diff" in macro)
     except Exception:
         _valid = False
@@ -3086,7 +2963,7 @@ def get_pair_bias(pair: str, macro: Dict) -> Dict:
     spx_f = _spx_trend_factor(macro)
 
     us_rate, eu_rate = macro["us"]["rate"], macro["eu"]["rate"]
-    gb_rate, jp_rate = macro["gb"]["rate"], macro["jp"]["rate"]
+    gb_rate = macro["gb"]["rate"]
 
     if pair == "xauusd":
         pmi_valid = macro.get("pmi_valid", True)
@@ -3126,7 +3003,6 @@ def get_pair_bias(pair: str, macro: Dict) -> Dict:
             "gold_vol": _gold_vol_factor(macro),
             "energy_inflation": _gold_energy_inflation_factor(macro),
             "liquidity": _liquidity_factor_gold(macro),
-            "nikkei": 0.0,
         }
         vix_now = macro.get("vix", VIX_NEUTRAL_FALLBACK)
         factors = _stress_deactivate(factors, vix_now)
@@ -3190,7 +3066,6 @@ def get_pair_bias(pair: str, macro: Dict) -> Dict:
             "risk": round(risk_sign + 0.15 * spx_f, 3),                              
             "diff": 0.0, "momentum": mom, "real_yield": 0.0,
             "growth": round(gf, 3), "usd": round(-usd_f, 3), "liquidity": 0.0,
-            "nikkei": 0.0,
         }
     elif pair == "gbpusd":
         gf, gwm, ppv = _fx_growth("gb", "GBP")
@@ -3203,26 +3078,6 @@ def get_pair_bias(pair: str, macro: Dict) -> Dict:
             "risk": round(risk_sign + 0.15 * spx_f, 3),
             "diff": 0.0, "momentum": mom, "real_yield": 0.0,
             "growth": round(gf, 3), "usd": round(-usd_f, 3), "liquidity": 0.0,
-            "nikkei": 0.0,
-        }
-    elif pair == "usdjpy":
-        us_pmi_valid = macro.get("pmi_valid", False)
-        gwm = 1.0 if us_pmi_valid else 0.3; ppv = us_pmi_valid
-        w_fx = dict(w); w_fx["growth"] = round(w_fx["growth"] * gwm, 4)
-                                                                      
-                                                                                     
-        w_fx["nikkei"] = 0.6
-        nikkei_f = _nikkei_confirmation_factor(macro)
-        gf = _growth_factor_fx_usd(macro) + _surprise_adjustment(macro, "USD", "JPY")
-        factors = {
-            "rate": _rate_factor_spread(us_rate, jp_rate, rh.get("us", []), rh.get("jp", [])),
-            "curve": round(curve * 0.5, 3),
-                                                                                        
-                                                                              
-            "risk": round(risk_fx + 0.08 * spx_f, 3),
-            "diff": 0.0, "momentum": mom, "real_yield": 0.0,
-            "growth": round(gf, 3), "usd": round(usd_f, 3), "liquidity": 0.0,
-            "nikkei": nikkei_f,
         }
     else:
         factors = {k: 0.0 for k in _FACTOR_KEYS}
@@ -3368,7 +3223,7 @@ def _mc_round_price(pair: str, value: Any) -> Optional[float]:
     if x is None:
         return None
     pair_l = _mc_pair(pair)
-    digits = 3 if "jpy" in pair_l else 2 if "xau" in pair_l else 6
+    digits = 2 if "xau" in pair_l else 6
     return round(x, digits)
 
 

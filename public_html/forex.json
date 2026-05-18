@@ -1,58 +1,65 @@
 {
-  "scrape_time": "2026-05-18T22:57:12.902044Z",
+  "scrape_time": "2026-05-18T23:10:03.572037Z",
   "status": {
-    "scrape_time": "2026-05-18T22:57:12.902044Z",
-    "total_sources": 7,
+    "scrape_time": "2026-05-18T23:10:03.572037Z",
+    "total_sources": 8,
     "failed_sources": 0,
     "sources": {
       "ForexFactory-Calendar": {
         "success": true,
         "items": 77,
         "error": null,
-        "duration": 0.07,
-        "latency_ms": 75
-      },
-      "Kitco": {
-        "success": true,
-        "items": 5,
-        "error": null,
-        "duration": 0.19,
-        "latency_ms": 192
+        "duration": 0.0,
+        "latency_ms": 0
       },
       "TradingEconomics-Gold": {
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 0.34,
-        "latency_ms": 337
+        "duration": 0.2,
+        "latency_ms": 204
       },
-      "Mining.com": {
+      "Kitco": {
         "success": true,
-        "items": 19,
+        "items": 5,
         "error": null,
-        "duration": 1.15,
-        "latency_ms": 1147
-      },
-      "Stooq": {
-        "success": true,
-        "items": 19,
-        "error": null,
-        "duration": 1.15,
-        "latency_ms": 1153
+        "duration": 0.42,
+        "latency_ms": 421
       },
       "secondary": {
         "success": true,
         "items": 180,
         "error": null,
-        "duration": 1.67,
-        "latency_ms": 1671
+        "duration": 1.68,
+        "latency_ms": 1685
+      },
+      "Mining.com": {
+        "success": true,
+        "items": 19,
+        "error": null,
+        "duration": 1.69,
+        "latency_ms": 1688
       },
       "investingLive": {
         "success": true,
         "items": 100,
         "error": null,
-        "duration": 3.65,
-        "latency_ms": 3652
+        "duration": 3.86,
+        "latency_ms": 3862
+      },
+      "TradingEconomics-FX": {
+        "success": true,
+        "items": 9,
+        "error": null,
+        "duration": 5.34,
+        "latency_ms": 5339
+      },
+      "Stooq": {
+        "success": true,
+        "items": 17,
+        "error": null,
+        "duration": 15.88,
+        "latency_ms": 15879
       }
     }
   },
@@ -135,7 +142,7 @@
         },
         "technical_context": {
           "pair": "eurusd",
-          "current_price": 1.16589,
+          "current_price": 1.16573,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -330,7 +337,7 @@
         },
         "technical_context": {
           "pair": "gbpusd",
-          "current_price": 1.34354,
+          "current_price": 1.34344,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -403,201 +410,6 @@
               "close_structure": null,
               "ema20_vs_ema50": null,
               "price": 1.34361,
-              "current_vs_ema20": null,
-              "current_vs_ema50": null,
-              "price_vs_fast": null,
-              "price_vs_slow": null,
-              "current_structure": null,
-              "trend_bias": "neutral_bias",
-              "suggestion": "warming_up",
-              "warming_up": true,
-              "bars_available": 1,
-              "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=1",
-              "last_completed_hour": "2026-05-18T21:00:00Z",
-              "current_source": "stooq_latest",
-              "history_source": "stooq_h1",
-              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
-              "ok": false,
-              "h1_rsi_period": 14,
-              "h1_rsi": null,
-              "h1_rsi14": null,
-              "rsi14": null,
-              "h1_rsi_label": "unavailable",
-              "h1_rsi_signal": "neutral",
-              "h1_rsi_status": "warming_up",
-              "h1_rsi_bars_needed": 15,
-              "current_vs_fast": null,
-              "current_vs_slow": null,
-              "source": "stooq_h1"
-            }
-          },
-          "summary": {
-            "bias": "neutral",
-            "bullish_votes": 0,
-            "bearish_votes": 0,
-            "d1_rsi_ok": false,
-            "h1_rsi_ok": false,
-            "d1_ema_ok": false,
-            "h1_ema_ok": false
-          },
-          "sources": {
-            "pivot": "unavailable",
-            "h1": "stooq_h1",
-            "d1_ema": "unavailable"
-          }
-        }
-      },
-      "usdjpy": {
-        "score": 0.0,
-        "regime": "neutral",
-        "confidence": "low",
-        "factors": {
-          "rate": 1.445,
-          "curve": 0.125,
-          "risk": -0.191,
-          "diff": 0.0,
-          "momentum": 0.0,
-          "real_yield": 0.0,
-          "growth": 0.315,
-          "usd": 0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
-        },
-        "weighted_factors": {
-          "rate": 1.445,
-          "curve": 0.0,
-          "risk": -0.153,
-          "diff": 0.0,
-          "momentum": 0.0,
-          "real_yield": 0.0,
-          "growth": 0.016,
-          "usd": 0.186,
-          "liquidity": 0.0,
-          "nikkei": 0.0
-        },
-        "regime_confidence": 0.33,
-        "signal_horizon": "long",
-        "price_context": {
-          "price_state": "unavailable",
-          "rejection_level": "",
-          "macro_alignment": "unavailable",
-          "conviction_mult": 0.0,
-          "score_adj": 0.0,
-          "price_used": 0.0,
-          "tolerance": 0.0,
-          "state_basis": "none",
-          "state_quality": "none",
-          "nearest_level": {
-            "name": "",
-            "value": 0.0,
-            "distance": 0.0,
-            "side": "at"
-          },
-          "PP": 0.0,
-          "R1": 0.0,
-          "R2": 0.0,
-          "R3": 0.0,
-          "S1": 0.0,
-          "S2": 0.0,
-          "S3": 0.0,
-          "range": 0.0,
-          "close": 0.0,
-          "macro_score": 0.0,
-          "ohlc_source": "unavailable",
-          "ohlc_date": "",
-          "rsi": null,
-          "rsi_period": 14,
-          "rsi_state": "unavailable",
-          "rsi_bias": "unavailable",
-          "rsi_alignment": "unavailable",
-          "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
-        },
-        "technical_summary": {
-          "bias": "neutral",
-          "bullish_votes": 0,
-          "bearish_votes": 0,
-          "d1_rsi_ok": false,
-          "h1_rsi_ok": false,
-          "d1_ema_ok": false,
-          "h1_ema_ok": false
-        },
-        "technical_context": {
-          "pair": "usdjpy",
-          "current_price": 158.829,
-          "daily": {
-            "timeframe": "D1",
-            "ohlc": {
-              "date": "",
-              "source": "unavailable",
-              "close": 0.0,
-              "range": 0.0
-            },
-            "pivots": {
-              "PP": 0.0,
-              "R1": 0.0,
-              "R2": 0.0,
-              "R3": 0.0,
-              "S1": 0.0,
-              "S2": 0.0,
-              "S3": 0.0
-            },
-            "price_state": "unavailable",
-            "nearest_level": {
-              "name": "",
-              "value": 0.0,
-              "distance": 0.0,
-              "side": "at"
-            },
-            "rsi14": {
-              "pair": "usdjpy",
-              "timeframe": "D1",
-              "period": 14,
-              "value": null,
-              "state": "unavailable",
-              "bias": "unavailable",
-              "alignment": "unavailable",
-              "source": "unavailable",
-              "ok": false
-            },
-            "ema_20_50": {
-              "pair": "usdjpy",
-              "timeframe": "D1",
-              "ok": false,
-              "source": "unavailable",
-              "reason": "no_daily_ema_history"
-            }
-          },
-          "h1": {
-            "timeframe": "H1",
-            "rsi14": {
-              "pair": "usdjpy",
-              "timeframe": "H1",
-              "period": 14,
-              "value": null,
-              "state": "unavailable",
-              "bias": "neutral",
-              "source": "stooq_h1",
-              "ok": false
-            },
-            "ema_20_50": {
-              "pair": "usdjpy",
-              "timeframe": "H1",
-              "fast_period": 20,
-              "slow_period": 50,
-              "ema20": null,
-              "ema50": null,
-              "fast_ema": null,
-              "slow_ema": null,
-              "cross": "none",
-              "ema_cross_signal": "none",
-              "last_close": 158.8245,
-              "close_vs_ema20": null,
-              "close_vs_ema50": null,
-              "close_structure": null,
-              "ema20_vs_ema50": null,
-              "price": 158.8035,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -732,7 +544,7 @@
         },
         "technical_context": {
           "pair": "xauusd",
-          "current_price": 4575.24,
+          "current_price": 4580.14,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
@@ -1070,7 +882,6 @@
       "tips_valid": true,
       "ecb_rate": 2.0,
       "boe_rate": 3.75,
-      "boj_rate": 0.75,
       "eu_pmi": 52.2,
       "eu_pmi_valid": true,
       "uk_pmi": 53.6,
@@ -1091,12 +902,6 @@
       "prev": 7403.05,
       "valid": true,
       "source": "Stooq/^spx"
-    },
-    "nikkei": {
-      "current": 60815.95,
-      "prev": 60815.95,
-      "valid": true,
-      "source": "Stooq/^nkx"
     },
     "surprises": {},
     "sources": {
@@ -1124,7 +929,7 @@
     "technical_context": {
       "eurusd": {
         "pair": "eurusd",
-        "current_price": 1.16589,
+        "current_price": 1.16573,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1243,7 +1048,7 @@
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34354,
+        "current_price": 1.34344,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1362,7 +1167,7 @@
       },
       "usdjpy": {
         "pair": "usdjpy",
-        "current_price": 158.829,
+        "current_price": 158.804,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -1481,7 +1286,7 @@
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4575.24,
+        "current_price": 4580.14,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -2052,7 +1857,7 @@
         "title": "Euro rises as Trump delays Iran strike, USD weakens",
         "link": "https://www.fxstreet.com/news/euro-rises-as-trump-delays-iran-strike-usd-weakens-202605182219",
         "published_at": "2026-05-18T22:19:26+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "FXStreet",
         "summary": "The Euro advances late in the North American session, up by 0.26% amid a volatile session characterized by geopolitical headlines and broad US Dollar weakness across the board. At the time of writing, the EUR/USD pair trades at 1.1654 after bouncing off daily lows of 1.1608.",
         "sentiment": "bullish",
@@ -2093,7 +1898,7 @@
         "title": "EURUSD bangs against target resistance at 1.1655. Can the buyers get through the target.",
         "link": "https://investinglive.com/technical-analysis/eurusd-bangs-against-target-resistance-at-11655-can-the-buyers-get-through-the-target-20260518/",
         "published_at": "2026-05-18T17:45:48+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "investingLive",
         "summary": "In the morning kickstart video, I commented on the 1.1655 level as a key target.  The infograph highlights my key technical comment on that pair (see highlighted yellow are on the infograph below from the start of the trading day):The price did move higher and tested that level in the North American",
         "sentiment": "bullish",
@@ -2134,7 +1939,7 @@
         "title": "EUR/USD Mid-Day Outlook",
         "link": "https://www.actionforex.com/technical-outlook/eurusd-outlook/640942-eur-usd-mid-day-outlook-2320/",
         "published_at": "2026-05-18T13:01:05+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "ActionForex",
         "summary": "Daily Pivots: (S1) 1.1603; (P) 1.1637; (R1) 1.1658; More\u2026. Intraday bias in EUR/USD is turned neutral with current recovery, and some consolidations could be seen above 1.1607 temporary low. Risk will stay on the downside as long as 55 4H EMA (now at 1.1700) holds. Rebound from 1.1408 could have com",
         "sentiment": "neutral",
@@ -2172,51 +1977,10 @@
         "is_new": false
       },
       {
-        "title": "Euro: Bearish Dollar consensus limits downside \u2013 Societe Generale",
-        "link": "https://www.fxstreet.com/news/euro-bearish-dollar-consensus-limits-downside-societe-generale-202605181247",
-        "published_at": "2026-05-18T12:47:05+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
-        "source": "FXStreet",
-        "summary": "Kit Juckes at Societe Generale highlights that EUR/USD has lost downward momentum after slipping from 1.18 to 1.16, despite risk-off conditions and tumbling sentiment indicators.",
-        "sentiment": "bearish",
-        "sent_score": -1,
-        "symbols": [
-          "EUR",
-          "USD"
-        ],
-        "impact": "low",
-        "pair_macro_bias": -0.0,
-        "macro_conf": "low",
-        "macro_factors": {
-          "rate": -0.82,
-          "curve": 0.013,
-          "risk": 0.191,
-          "diff": 0.0,
-          "momentum": 0.0,
-          "real_yield": 0.0,
-          "growth": -0.08,
-          "usd": -0.266,
-          "liquidity": 0.0,
-          "nikkei": 0.0
-        },
-        "fused_score": -1.0,
-        "fused_sentiment": "bearish",
-        "fusion_components": {
-          "sentiment": -1,
-          "sent_clamped": -1.0,
-          "macro_score": -0.0,
-          "weights": {
-            "macro": 0.0,
-            "sent": 1.0
-          }
-        },
-        "is_new": false
-      },
-      {
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2224,8 +1988,7 @@
         "symbols": [
           "EUR",
           "GBP",
-          "USD",
-          "JPY"
+          "USD"
         ],
         "impact": "low",
         "pair_macro_bias": -0.0,
@@ -2259,7 +2022,7 @@
         "title": "Broader energy shock may pressure Europe and lift dollar, Goldman says",
         "link": "https://www.investing.com/news/forex-news/broader-energy-shock-may-pressure-europe-and-lift-dollar-goldman-says-4694730",
         "published_at": "2026-05-18T07:27:00+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "Investing.com",
         "summary": "",
         "sentiment": "neutral",
@@ -2296,6 +2059,234 @@
           }
         },
         "is_new": false
+      },
+      {
+        "title": "Euro Bounces Back as Middle East Hopes Rise",
+        "link": "https://tradingeconomics.com/euro-area/currency/news/551610",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bullish",
+        "sent_score": 1,
+        "symbols": [
+          "EUR"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.191,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 1.0,
+        "fused_sentiment": "bullish",
+        "fusion_components": {
+          "sentiment": 1,
+          "sent_clamped": 1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "eur",
+        "te_pairs": [
+          "eurusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Euro Hovers Near April Lows as Iran War Weighs on Growth",
+        "link": "https://tradingeconomics.com/euro-area/currency/news/551529",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "EUR"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.191,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "eur",
+        "te_pairs": [
+          "eurusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Dollar Index Retreats to 99",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551631",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.191,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Dollar Little Changed to Kick Off the Week",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551581",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.191,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Dollar Strengthens on Fed Rate Hike Bets",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551374",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "high",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.191,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "eurusd"
       }
     ],
     "gbpusd": [
@@ -2303,7 +2294,7 @@
         "title": "GBP/USD Mid-Day Outlook",
         "link": "https://www.actionforex.com/technical-outlook/gbpusd-outlook/640931-gbp-usd-mid-day-outlook-2310/",
         "published_at": "2026-05-18T12:49:13+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "ActionForex",
         "summary": "Daily Pivots: (S1) 1.3290; (P) 1.3347; (R1) 1.3379; More\u2026 Intraday bias in GBP/USD is turned neutral first with current recovery, and some consolidations would be seen above 1.3300 temporary low. Further fall is expected as long as 55 4H EMA (now at 1.3483) holds. Below 1.3300 will target a retest o",
         "sentiment": "neutral",
@@ -2344,7 +2335,7 @@
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2352,8 +2343,7 @@
         "symbols": [
           "EUR",
           "GBP",
-          "USD",
-          "JPY"
+          "USD"
         ],
         "impact": "low",
         "pair_macro_bias": -0.0,
@@ -2382,34 +2372,31 @@
           }
         },
         "is_new": false
-      }
-    ],
-    "usdjpy": [
+      },
       {
-        "title": "USD/JPY Mid-Day Outlook",
-        "link": "https://www.actionforex.com/technical-outlook/usdjpy-outlook/640934-usd-jpy-mid-day-outlook-2317/",
-        "published_at": "2026-05-18T12:52:55+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
-        "source": "ActionForex",
-        "summary": "Daily Pivots: (S1) 158.35; (P) 158.59; (R1) 158.99; More\u2026 Intraday bias in USD/JPY remains on the upside at this point. Rise from 155.01 should target 160.71 high. But strong resistance is expected from there to start the third leg of the near term corrective pattern. On the downside, break of 157.3",
+        "title": "Sterling Tries to Recover but Political Risks Linger",
+        "link": "https://tradingeconomics.com/united-kingdom/currency/news/551601",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
         "sentiment": "neutral",
         "sent_score": 0,
         "symbols": [
-          "USD",
-          "JPY"
+          "GBP"
         ],
         "impact": "low",
-        "pair_macro_bias": 0.0,
+        "pair_macro_bias": -0.0,
         "macro_conf": "low",
         "macro_factors": {
-          "rate": 1.445,
-          "curve": 0.125,
-          "risk": -0.191,
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.096,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
-          "growth": 0.315,
-          "usd": 0.266,
+          "growth": -0.08,
+          "usd": -0.266,
           "liquidity": 0.0,
           "nikkei": 0.0
         },
@@ -2418,41 +2405,43 @@
         "fusion_components": {
           "sentiment": 0,
           "sent_clamped": 0.0,
-          "macro_score": 0.0,
+          "macro_score": -0.0,
           "weights": {
             "macro": 0.0,
             "sent": 1.0
           }
         },
-        "is_new": false
+        "is_new": false,
+        "te_source": "gbp",
+        "te_pairs": [
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
       },
       {
-        "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
-        "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
-        "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
-        "source": "investingLive",
-        "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
+        "title": "Sterling Little-Changed Amid Political and Geopolitical Turmoil",
+        "link": "https://tradingeconomics.com/united-kingdom/currency/news/551506",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
         "sentiment": "neutral",
         "sent_score": 0,
         "symbols": [
-          "EUR",
-          "GBP",
-          "USD",
-          "JPY"
+          "GBP"
         ],
         "impact": "low",
-        "pair_macro_bias": 0.0,
+        "pair_macro_bias": -0.0,
         "macro_conf": "low",
         "macro_factors": {
-          "rate": 1.445,
-          "curve": 0.125,
-          "risk": -0.191,
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.096,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
-          "growth": 0.315,
-          "usd": 0.266,
+          "growth": -0.08,
+          "usd": -0.266,
           "liquidity": 0.0,
           "nikkei": 0.0
         },
@@ -2461,54 +2450,156 @@
         "fusion_components": {
           "sentiment": 0,
           "sent_clamped": 0.0,
-          "macro_score": 0.0,
+          "macro_score": -0.0,
           "weights": {
             "macro": 0.0,
             "sent": 1.0
           }
         },
-        "is_new": false
+        "is_new": false,
+        "te_source": "gbp",
+        "te_pairs": [
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
       },
       {
-        "title": "USD/JPY Rises for Sixth Straight Day: Yen Back on the Cusp of Intervention",
-        "link": "https://www.actionforex.com/contributors/technical-analysis/640917-usd-jpy-rises-for-sixth-straight-day-yen-back-on-the-cusp-of-intervention/",
-        "published_at": "2026-05-18T08:59:22+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
-        "source": "ActionForex",
-        "summary": "USD/JPY climbed to 158.93 on Monday, marking the yen\u2019s sixth consecutive session of decline. The Japanese currency is under pressure from a stronger dollar amid rising expectations that the Federal Reserve may raise interest rates this year to curb inflation. US inflation is accelerating due to the ",
-        "sentiment": "bullish",
-        "sent_score": 2,
+        "title": "Dollar Index Retreats to 99",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551631",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
         "symbols": [
-          "USD",
-          "JPY"
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.096,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "Dollar Little Changed to Kick Off the Week",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551581",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.096,
+          "diff": 0.0,
+          "momentum": 0.0,
+          "real_yield": 0.0,
+          "growth": -0.08,
+          "usd": -0.266,
+          "liquidity": 0.0,
+          "nikkei": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "Dollar Strengthens on Fed Rate Hike Bets",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551374",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
         ],
         "impact": "high",
-        "pair_macro_bias": 0.0,
+        "pair_macro_bias": -0.0,
         "macro_conf": "low",
         "macro_factors": {
-          "rate": 1.445,
-          "curve": 0.125,
-          "risk": -0.191,
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.096,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
-          "growth": 0.315,
-          "usd": 0.266,
+          "growth": -0.08,
+          "usd": -0.266,
           "liquidity": 0.0,
           "nikkei": 0.0
         },
-        "fused_score": 2.0,
-        "fused_sentiment": "bullish",
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
         "fusion_components": {
-          "sentiment": 2,
-          "sent_clamped": 2.0,
-          "macro_score": 0.0,
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
           "weights": {
             "macro": 0.0,
             "sent": 1.0
           }
         },
-        "is_new": false
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
       }
     ],
     "xauusd": [
@@ -2516,7 +2607,7 @@
         "title": "ICYMI - Goldman cuts US recession odds to 25% as Hormuz closure impact stays contained",
         "link": "https://investinglive.com/news/cymi-goldman-cuts-us-recession-odds-to-25-as-hormuz-closure-impact-stays-contained-20260518/",
         "published_at": "2026-05-18T21:27:22+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "investingLive",
         "summary": "Goldman Sachs cuts its 12-month US recession probability to 25% from 30%, with chief economist Jan Hatzius citing resilient activity and easing financial conditions despite the Strait of Hormuz closure.Summary:US recession probability cut to 25% from 30%, with economic activity holding up and financ",
         "sentiment": "bearish",
@@ -2608,7 +2699,7 @@
         "title": "Gold steadies as USD slips, Fed hike bets cap upside",
         "link": "https://www.fxstreet.com/news/gold-steadies-as-usd-slips-fed-hike-bets-cap-upside-202605181714",
         "published_at": "2026-05-18T17:14:03+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "FXStreet",
         "summary": "Gold (XAU/USD) price steadies on Monday after reaching a daily low beneath $4,500, as the US Dollar is on the back foot amid fears that the energy shock spurred by the Middle East conflict could trigger a second wave of inflation.",
         "sentiment": "neutral",
@@ -2655,7 +2746,7 @@
         "title": "Gold Price Forecast: XAU/USD buyers are losing the battle",
         "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-buyers-are-losing-the-battle-202605181703",
         "published_at": "2026-05-18T17:03:31+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "FXStreet",
         "summary": "XAU/USD bottomed at $4,480 at the beginning of the week, its lowest since late March, as a dismal market sentiment fueled demand for the US Dollar (USD).",
         "sentiment": "neutral",
@@ -2840,7 +2931,7 @@
         "title": "Gold back to $5,400? Here\u2019s why Goldman Sachs still sees bullish potential ahead",
         "link": "https://www.fxstreet.com/news/gold-back-to-5-400-heres-why-goldman-sachs-still-sees-bullish-potential-ahead-202605181321",
         "published_at": "2026-05-18T13:21:30+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "FXStreet",
         "summary": "Central banks are expected to increase their Gold purchases in 2026, analysts at Goldman Sachs say, supporting a much-needed boost to the precious metal toward the end of the year.",
         "sentiment": "bullish",
@@ -2886,7 +2977,7 @@
         "title": "Gold silver prices firmer but gains remains capped by higher oil prices as Strait of Hormuz remains closed - AM Report",
         "link": "https://www.kitco.com/news/article/2026-05-18/gold-silver-prices-firmer-gains-remains-capped-higher-oil-prices-strait",
         "published_at": "2026-05-18T09:20:52-04:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "bullish",
@@ -2932,7 +3023,7 @@
         "title": "Gold is on a Selling Spree",
         "link": "https://www.actionforex.com/contributors/fundamental-analysis/640924-gold-is-on-a-selling-spree/",
         "published_at": "2026-05-18T11:43:55+00:00",
-        "scraped_at": "2026-05-18T22:57:12.902044Z",
+        "scraped_at": "2026-05-18T23:10:03.572037Z",
         "source": "ActionForex",
         "summary": "Investors are offloading the precious metal due to rising bond yields. The factors that have driven the dollar higher since March have returned. The US dollar posted its best weekly gain in the last two months on the realisation that the conflict in the Middle East is set to continue. The US-China s",
         "sentiment": "neutral",

@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-18T22:57:12.902044Z",
+  "scrape_time": "2026-05-18T23:10:03.572037Z",
   "events": [
     {
       "title": "Rightmove HPI m/m",
@@ -579,12 +579,16 @@
       "currency": "GBP",
       "impact": "High",
       "event_time": "2026-05-21T12:30:00+00:00",
-      "actual": "",
+      "actual": "53.7",
       "forecast": "52.8",
       "previous": "53.6",
       "pairs": [
         "gbpusd"
-      ]
+      ],
+      "actual_source": "Stooq",
+      "actual_source_symbol": "pmmnuk.m",
+      "actual_source_url": "https://stooq.com/q/?s=pmmnuk.m",
+      "actual_source_time": "2026-04-30T23:00:00+00:00"
     },
     {
       "title": "Flash Services PMI",
@@ -723,7 +727,7 @@
       "currency": "USD",
       "impact": "Medium",
       "event_time": "2026-05-21T17:45:00+00:00",
-      "actual": "",
+      "actual": "54.5",
       "forecast": "53.7",
       "previous": "54.0",
       "pairs": [
@@ -731,7 +735,11 @@
         "gbpusd",
         "usdjpy",
         "xauusd"
-      ]
+      ],
+      "actual_source": "Stooq",
+      "actual_source_symbol": "pmmnus.m",
+      "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
+      "actual_source_time": "2026-04-30T23:00:00+00:00"
     },
     {
       "title": "Flash Services PMI",
@@ -993,6 +1001,24 @@
       "pairs": [
         "eurusd"
       ]
+    },
+    {
+      "title": "Stooq Eurozone Manufacturing PMI",
+      "currency": "EUR",
+      "impact": "Medium",
+      "event_time": "2026-04-30T23:00:00+00:00",
+      "actual": "52.2",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ],
+      "source": "Stooq",
+      "actual_source": "Stooq",
+      "actual_source_symbol": "pmmneu.m",
+      "actual_source_url": "https://stooq.com/q/?s=pmmneu.m",
+      "actual_source_time": "2026-04-30T23:00:00+00:00",
+      "note": "Synthetic PMI fallback row added by scraper.py before macro.py reads calendar.json"
     }
   ],
   "events_by_pair": {
@@ -1407,7 +1433,7 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "",
+        "actual": "54.5",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
@@ -1415,7 +1441,11 @@
           "gbpusd",
           "usdjpy",
           "xauusd"
-        ]
+        ],
+        "actual_source": "Stooq",
+        "actual_source_symbol": "pmmnus.m",
+        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
+        "actual_source_time": "2026-04-30T23:00:00+00:00"
       },
       {
         "title": "Flash Services PMI",
@@ -1617,6 +1647,24 @@
         "pairs": [
           "eurusd"
         ]
+      },
+      {
+        "title": "Stooq Eurozone Manufacturing PMI",
+        "currency": "EUR",
+        "impact": "Medium",
+        "event_time": "2026-04-30T23:00:00+00:00",
+        "actual": "52.2",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ],
+        "source": "Stooq",
+        "actual_source": "Stooq",
+        "actual_source_symbol": "pmmneu.m",
+        "actual_source_url": "https://stooq.com/q/?s=pmmneu.m",
+        "actual_source_time": "2026-04-30T23:00:00+00:00",
+        "note": "Synthetic PMI fallback row added by scraper.py before macro.py reads calendar.json"
       }
     ],
     "gbpusd": [
@@ -1958,12 +2006,16 @@
         "currency": "GBP",
         "impact": "High",
         "event_time": "2026-05-21T12:30:00+00:00",
-        "actual": "",
+        "actual": "53.7",
         "forecast": "52.8",
         "previous": "53.6",
         "pairs": [
           "gbpusd"
-        ]
+        ],
+        "actual_source": "Stooq",
+        "actual_source_symbol": "pmmnuk.m",
+        "actual_source_url": "https://stooq.com/q/?s=pmmnuk.m",
+        "actual_source_time": "2026-04-30T23:00:00+00:00"
       },
       {
         "title": "Flash Services PMI",
@@ -2078,7 +2130,7 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "",
+        "actual": "54.5",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
@@ -2086,7 +2138,11 @@
           "gbpusd",
           "usdjpy",
           "xauusd"
-        ]
+        ],
+        "actual_source": "Stooq",
+        "actual_source_symbol": "pmmnus.m",
+        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
+        "actual_source_time": "2026-04-30T23:00:00+00:00"
       },
       {
         "title": "Flash Services PMI",
@@ -2179,449 +2235,6 @@
         "previous": "12.6B",
         "pairs": [
           "gbpusd"
-        ]
-      },
-      {
-        "title": "Revised UoM Consumer Sentiment",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-22T18:00:00+00:00",
-        "actual": "",
-        "forecast": "48.3",
-        "previous": "48.2",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "CB Leading Index m/m",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-22T18:00:00+00:00",
-        "actual": "",
-        "forecast": "-0.1%",
-        "previous": "-0.6%",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Member Waller Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-22T18:00:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Revised UoM Inflation Expectations",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-22T18:00:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "4.5%",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      }
-    ],
-    "usdjpy": [
-      {
-        "title": "NAHB Housing Market Index",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-18T18:00:00+00:00",
-        "actual": "",
-        "forecast": "34",
-        "previous": "34",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Member Goolsbee Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-18T23:35:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "TIC Long-Term Purchases",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-19T00:00:00+00:00",
-        "actual": "",
-        "forecast": "87.2B",
-        "previous": "58.6B",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Prelim GDP Price Index y/y",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-19T03:50:00+00:00",
-        "actual": "",
-        "forecast": "3.1%",
-        "previous": "3.4%",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Prelim GDP q/q",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-19T03:50:00+00:00",
-        "actual": "",
-        "forecast": "0.4%",
-        "previous": "0.1%",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Revised Industrial Production m/m",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-19T08:30:00+00:00",
-        "actual": "",
-        "forecast": "-0.5%",
-        "previous": "-0.5%",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Tertiary Industry Activity m/m",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-19T08:30:00+00:00",
-        "actual": "",
-        "forecast": "-0.4%",
-        "previous": "-0.4%",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "FOMC Member Waller Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-19T16:00:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "ADP Weekly Employment Change",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-19T16:15:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "33.0K",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Pending Home Sales m/m",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-19T18:00:00+00:00",
-        "actual": "",
-        "forecast": "1.0%",
-        "previous": "1.5%",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "API Weekly Statistical Bulletin",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-20T00:30:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Member Paulson Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-20T03:00:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Member Barr Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-20T17:15:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Crude Oil Inventories",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-20T18:30:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "-4.3M",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Meeting Minutes",
-        "currency": "USD",
-        "impact": "High",
-        "event_time": "2026-05-20T22:00:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Core Machinery Orders m/m",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-21T03:50:00+00:00",
-        "actual": "",
-        "forecast": "-8.1%",
-        "previous": "13.6%",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Trade Balance",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-21T03:50:00+00:00",
-        "actual": "",
-        "forecast": "-0.23T",
-        "previous": "0.09T",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Flash Manufacturing PMI",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-21T04:30:00+00:00",
-        "actual": "",
-        "forecast": "54.5",
-        "previous": "54.9",
-        "pairs": [
-          "usdjpy"
-        ]
-      },
-      {
-        "title": "Philly Fed Manufacturing Index",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-21T16:30:00+00:00",
-        "actual": "",
-        "forecast": "17.8",
-        "previous": "26.7",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Unemployment Claims",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-21T16:30:00+00:00",
-        "actual": "",
-        "forecast": "210K",
-        "previous": "211K",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Building Permits",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-21T16:30:00+00:00",
-        "actual": "",
-        "forecast": "1.38M",
-        "previous": "1.37M",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Housing Starts",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-21T16:30:00+00:00",
-        "actual": "",
-        "forecast": "1.42M",
-        "previous": "1.50M",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Flash Manufacturing PMI",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "",
-        "forecast": "53.7",
-        "previous": "54.0",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Flash Services PMI",
-        "currency": "USD",
-        "impact": "Medium",
-        "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "",
-        "forecast": "51.1",
-        "previous": "51.3",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "Natural Gas Storage",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-21T18:30:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "85B",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "FOMC Member Barkin Speaks",
-        "currency": "USD",
-        "impact": "Low",
-        "event_time": "2026-05-21T20:20:00+00:00",
-        "actual": "",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd",
-          "gbpusd",
-          "usdjpy",
-          "xauusd"
-        ]
-      },
-      {
-        "title": "National Core CPI y/y",
-        "currency": "JPY",
-        "impact": "Low",
-        "event_time": "2026-05-22T03:30:00+00:00",
-        "actual": "",
-        "forecast": "1.7%",
-        "previous": "1.8%",
-        "pairs": [
-          "usdjpy"
         ]
       },
       {
@@ -2916,7 +2529,7 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "",
+        "actual": "54.5",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
@@ -2924,7 +2537,11 @@
           "gbpusd",
           "usdjpy",
           "xauusd"
-        ]
+        ],
+        "actual_source": "Stooq",
+        "actual_source_symbol": "pmmnus.m",
+        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
+        "actual_source_time": "2026-04-30T23:00:00+00:00"
       },
       {
         "title": "Flash Services PMI",

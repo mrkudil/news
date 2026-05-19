@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T05:51:12.316829+00:00",
+  "timestamp": "2026-05-19T06:04:22.624087+00:00",
   "macro": {
     "timestamp": "2026-05-19T05:45:41.663183+00:00",
     "run_id": "51c298ee",
@@ -330,9 +330,9 @@
     },
     "_regime": "neutral",
     "_prev_scores": {
-      "eurusd": -0.977,
+      "eurusd": -0.98,
       "gbpusd": -0.013,
-      "xauusd": -2.795
+      "xauusd": -2.796
     },
     "_factor_history": {
       "eurusd": {},
@@ -480,7 +480,10 @@
         "rsi_bias": "unavailable",
         "rsi_alignment": "unavailable",
         "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
       },
       "gbpusd": {
         "price_state": "unavailable",
@@ -516,7 +519,10 @@
         "rsi_bias": "unavailable",
         "rsi_alignment": "unavailable",
         "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
       },
       "xauusd": {
         "price_state": "unavailable",
@@ -552,13 +558,16 @@
         "rsi_bias": "unavailable",
         "rsi_alignment": "unavailable",
         "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
       }
     },
     "technical_context": {
       "eurusd": {
         "pair": "eurusd",
-        "current_price": 1.16387,
+        "current_price": 1.16409,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -607,7 +616,7 @@
             "slow_ema": 1.16455,
             "ema20_vs_ema50": "at",
             "trend_bias": "neutral_bias",
-            "price": 1.16388,
+            "price": 1.16406,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -621,7 +630,7 @@
             "completed_closes": 1,
             "last_completed_hour": "2026-05-19T00:00:00Z",
             "last_close": 1.16455,
-            "current_price": 1.16388,
+            "current_price": 1.16406,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 0,
@@ -704,7 +713,7 @@
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34096,
+        "current_price": 1.34104,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -753,7 +762,7 @@
             "slow_ema": 1.34183,
             "ema20_vs_ema50": "at",
             "trend_bias": "neutral_bias",
-            "price": 1.34096,
+            "price": 1.34115,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -767,7 +776,7 @@
             "completed_closes": 1,
             "last_completed_hour": "2026-05-19T00:00:00Z",
             "last_close": 1.34183,
-            "current_price": 1.34096,
+            "current_price": 1.34115,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 0,
@@ -850,7 +859,7 @@
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4539.19,
+        "current_price": 4539.34,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -899,7 +908,7 @@
             "slow_ema": 4549.8,
             "ema20_vs_ema50": "at",
             "trend_bias": "neutral_bias",
-            "price": 4539.3,
+            "price": 4536.47,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -913,7 +922,7 @@
             "completed_closes": 1,
             "last_completed_hour": "2026-05-19T00:00:00Z",
             "last_close": 4549.8,
-            "current_price": 4539.3,
+            "current_price": 4536.47,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 0,
@@ -1009,7 +1018,7 @@
         "slow_ema": 1.16455,
         "ema20_vs_ema50": "at",
         "trend_bias": "neutral_bias",
-        "price": 1.16388,
+        "price": 1.16406,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -1023,7 +1032,7 @@
         "completed_closes": 1,
         "last_completed_hour": "2026-05-19T00:00:00Z",
         "last_close": 1.16455,
-        "current_price": 1.16388,
+        "current_price": 1.16406,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 0,
@@ -1042,7 +1051,7 @@
         "slow_ema": 1.34183,
         "ema20_vs_ema50": "at",
         "trend_bias": "neutral_bias",
-        "price": 1.34096,
+        "price": 1.34115,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -1056,7 +1065,7 @@
         "completed_closes": 1,
         "last_completed_hour": "2026-05-19T00:00:00Z",
         "last_close": 1.34183,
-        "current_price": 1.34096,
+        "current_price": 1.34115,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 0,
@@ -1075,7 +1084,7 @@
         "slow_ema": 4549.8,
         "ema20_vs_ema50": "at",
         "trend_bias": "neutral_bias",
-        "price": 4539.3,
+        "price": 4536.47,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -1089,7 +1098,7 @@
         "completed_closes": 1,
         "last_completed_hour": "2026-05-19T00:00:00Z",
         "last_close": 4549.8,
-        "current_price": 4539.3,
+        "current_price": 4536.47,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 0,
@@ -1366,7 +1375,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -1560,7 +1572,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -1766,7 +1781,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -1962,7 +1980,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -2156,7 +2177,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -2362,7 +2386,10 @@
           "rsi_bias": "unavailable",
           "rsi_alignment": "unavailable",
           "rsi_confluence_mult": 0.0,
-          "combined_conviction_mult": 0.0
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
         },
         "technical_summary": {
           "bias": "neutral",
@@ -2498,45 +2525,45 @@
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
-      "xauusd": 4539.19,
-      "eurusd": 1.16387,
-      "gbpusd": 1.34096
+      "xauusd": 4539.34,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34104
     },
     "_price_session_ohlc": {
       "xauusd": {
-        "open": 4539.19,
-        "high": 4539.19,
-        "low": 4539.19,
-        "close": 4539.19,
+        "open": 4539.34,
+        "high": 4539.34,
+        "low": 4539.34,
+        "close": 4539.34,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "eurusd": {
-        "open": 1.16387,
-        "high": 1.16387,
-        "low": 1.16387,
-        "close": 1.16387,
+        "open": 1.16409,
+        "high": 1.16409,
+        "low": 1.16409,
+        "close": 1.16409,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "gbpusd": {
-        "open": 1.34096,
-        "high": 1.34096,
-        "low": 1.34096,
-        "close": 1.34096,
+        "open": 1.34104,
+        "high": 1.34104,
+        "low": 1.34104,
+        "close": 1.34104,
         "_date": "2026-05-19",
         "_synthetic": true
       }
     },
     "_price_session_high": {
-      "xauusd": 4539.19,
-      "eurusd": 1.16387,
-      "gbpusd": 1.34096
+      "xauusd": 4539.34,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34104
     },
     "_price_session_low": {
-      "xauusd": 4539.19,
-      "eurusd": 1.16387,
-      "gbpusd": 1.34096
+      "xauusd": 4539.34,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34104
     },
     "_price_date": {
       "xauusd": "2026-05-19",

@@ -1,17 +1,17 @@
 {
   "stooq_price_XAUUSD": {
-    "price": 4495.78,
+    "price": 4500.87,
     "source": "Stooq",
-    "t": 1779202845.8840055
+    "t": 1779204033.6301548
   },
   "stooq_price_EURUSD": {
-    "price": 1.15962,
+    "price": 1.15958,
     "source": "Stooq",
-    "t": 1779202846.9949458
+    "t": 1779204033.8012934
   },
   "stooq_price_GBPUSD": {
-    "price": 1.33938,
+    "price": 1.33923,
     "source": "Stooq",
-    "t": 1779202848.0782807
+    "t": 1779204034.807725
   }
 }

@@ -6,12 +6,15 @@
     "GBPUSD": 1,
     "XAUUSD": 1
   },
-  "last_request_ts": "2026-05-19T07:01:05.240835Z",
+  "last_request_ts": "2026-05-19T12:01:06.552613Z",
   "cooldown_until": null,
   "used_windows": [],
   "attempted_windows": [
     "london:EURUSD:2026-05-19T07:00Z",
     "london:GBPUSD:2026-05-19T07:00Z",
-    "london:XAUUSD:2026-05-19T07:00Z"
+    "london:XAUUSD:2026-05-19T07:00Z",
+    "new_york:EURUSD:2026-05-19T12:00Z",
+    "new_york:GBPUSD:2026-05-19T12:00Z",
+    "new_york:XAUUSD:2026-05-19T12:00Z"
   ]
 }

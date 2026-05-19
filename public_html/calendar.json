@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T14:50:27.929152Z",
+  "scrape_time": "2026-05-19T14:55:28.824949Z",
   "events": [
     {
       "title": "Rightmove HPI m/m",
@@ -373,7 +373,7 @@
       "impact": "Low",
       "event_time": "2026-05-20T18:30:00+00:00",
       "actual": "",
-      "forecast": "",
+      "forecast": "-2.5M",
       "previous": "-4.3M",
       "pairs": [
         "eurusd",
@@ -1082,7 +1082,7 @@
         "impact": "Low",
         "event_time": "2026-05-20T18:30:00+00:00",
         "actual": "",
-        "forecast": "",
+        "forecast": "-2.5M",
         "previous": "-4.3M",
         "pairs": [
           "eurusd",
@@ -1778,7 +1778,7 @@
         "impact": "Low",
         "event_time": "2026-05-20T18:30:00+00:00",
         "actual": "",
-        "forecast": "",
+        "forecast": "-2.5M",
         "previous": "-4.3M",
         "pairs": [
           "eurusd",
@@ -2210,7 +2210,7 @@
         "impact": "Low",
         "event_time": "2026-05-20T18:30:00+00:00",
         "actual": "",
-        "forecast": "",
+        "forecast": "-2.5M",
         "previous": "-4.3M",
         "pairs": [
           "eurusd",

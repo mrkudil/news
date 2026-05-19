@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T18:45:28.263103+00:00",
+  "timestamp": "2026-05-19T18:48:09.830863+00:00",
   "macro": {
     "timestamp": "2026-05-19T15:00:43.813277+00:00",
     "run_id": "29bcaf4b",
@@ -509,7 +509,7 @@
             "slow_ema": 1.163464,
             "ema20_vs_ema50": "below",
             "trend_bias": "neutral_bias",
-            "price": 1.1608,
+            "price": 1.1609,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -523,7 +523,7 @@
             "completed_closes": 3,
             "last_completed_hour": "2026-05-19T12:00:00Z",
             "last_close": 1.16008,
-            "current_price": 1.1608,
+            "current_price": 1.1609,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 3,
@@ -607,7 +607,7 @@
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34008,
+        "current_price": 1.34045,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -656,11 +656,11 @@
             "slow_ema": 1.340426,
             "ema20_vs_ema50": "below",
             "trend_bias": "neutral_bias",
-            "price": 1.34032,
-            "current_vs_ema20": "below",
-            "current_vs_ema50": "below",
-            "price_vs_fast": "below",
-            "price_vs_slow": "below",
+            "price": 1.34055,
+            "current_vs_ema20": "above",
+            "current_vs_ema50": "above",
+            "price_vs_fast": "above",
+            "price_vs_slow": "above",
             "cross": "none",
             "ema_cross_signal": "none",
             "warming_up": false,
@@ -670,7 +670,7 @@
             "completed_closes": 3,
             "last_completed_hour": "2026-05-19T12:00:00Z",
             "last_close": 1.33966,
-            "current_price": 1.34032,
+            "current_price": 1.34055,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 3,
@@ -754,7 +754,7 @@
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4494.89,
+        "current_price": 4498.91,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -803,7 +803,7 @@
             "slow_ema": 4546.26,
             "ema20_vs_ema50": "below",
             "trend_bias": "neutral_bias",
-            "price": 4499.97,
+            "price": 4498.63,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -817,7 +817,7 @@
             "completed_closes": 3,
             "last_completed_hour": "2026-05-19T12:00:00Z",
             "last_close": 4504.66,
-            "current_price": 4499.97,
+            "current_price": 4498.63,
             "suggestion": "warming_up",
             "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
             "twelvedata_requests_today": 3,
@@ -914,7 +914,7 @@
         "slow_ema": 1.163464,
         "ema20_vs_ema50": "below",
         "trend_bias": "neutral_bias",
-        "price": 1.1608,
+        "price": 1.1609,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -928,7 +928,7 @@
         "completed_closes": 3,
         "last_completed_hour": "2026-05-19T12:00:00Z",
         "last_close": 1.16008,
-        "current_price": 1.1608,
+        "current_price": 1.1609,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 3,
@@ -947,11 +947,11 @@
         "slow_ema": 1.340426,
         "ema20_vs_ema50": "below",
         "trend_bias": "neutral_bias",
-        "price": 1.34032,
-        "current_vs_ema20": "below",
-        "current_vs_ema50": "below",
-        "price_vs_fast": "below",
-        "price_vs_slow": "below",
+        "price": 1.34055,
+        "current_vs_ema20": "above",
+        "current_vs_ema50": "above",
+        "price_vs_fast": "above",
+        "price_vs_slow": "above",
         "cross": "none",
         "ema_cross_signal": "none",
         "warming_up": false,
@@ -961,7 +961,7 @@
         "completed_closes": 3,
         "last_completed_hour": "2026-05-19T12:00:00Z",
         "last_close": 1.33966,
-        "current_price": 1.34032,
+        "current_price": 1.34055,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 3,
@@ -980,7 +980,7 @@
         "slow_ema": 4546.26,
         "ema20_vs_ema50": "below",
         "trend_bias": "neutral_bias",
-        "price": 4499.97,
+        "price": 4498.63,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -994,7 +994,7 @@
         "completed_closes": 3,
         "last_completed_hour": "2026-05-19T12:00:00Z",
         "last_close": 4504.66,
-        "current_price": 4499.97,
+        "current_price": 4498.63,
         "suggestion": "warming_up",
         "notes": "repair_skipped:history_too_short:3:twelvedata_budget_or_cooldown EMA50 is still warming up; not enough completed Daily closes yet.",
         "twelvedata_requests_today": 3,
@@ -2453,16 +2453,16 @@
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
-      "xauusd": 4494.89,
+      "xauusd": 4498.91,
       "eurusd": 1.16083,
-      "gbpusd": 1.34008
+      "gbpusd": 1.34045
     },
     "_price_session_ohlc": {
       "xauusd": {
-        "open": 4494.89,
-        "high": 4494.89,
-        "low": 4494.89,
-        "close": 4494.89,
+        "open": 4498.91,
+        "high": 4498.91,
+        "low": 4498.91,
+        "close": 4498.91,
         "_date": "2026-05-19",
         "_synthetic": true
       },
@@ -2475,23 +2475,23 @@
         "_synthetic": true
       },
       "gbpusd": {
-        "open": 1.34008,
-        "high": 1.34008,
-        "low": 1.34008,
-        "close": 1.34008,
+        "open": 1.34045,
+        "high": 1.34045,
+        "low": 1.34045,
+        "close": 1.34045,
         "_date": "2026-05-19",
         "_synthetic": true
       }
     },
     "_price_session_high": {
-      "xauusd": 4494.89,
+      "xauusd": 4498.91,
       "eurusd": 1.16083,
-      "gbpusd": 1.34008
+      "gbpusd": 1.34045
     },
     "_price_session_low": {
-      "xauusd": 4494.89,
+      "xauusd": 4498.91,
       "eurusd": 1.16083,
-      "gbpusd": 1.34008
+      "gbpusd": 1.34045
     },
     "_price_date": {
       "xauusd": "2026-05-19",

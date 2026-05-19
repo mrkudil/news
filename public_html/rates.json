@@ -1,0 +1,42 @@
+{
+  "fetched_at": "2026-05-19T03:27:46.818166Z",
+  "source": "Stooq",
+  "stale": false,
+  "ttl_s": 900.0,
+  "attribution": "https://stooq.com",
+  "rates": [
+    {
+      "label": "XAU/USD",
+      "rate": "4549.71",
+      "prev": "4549.71",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "EUR/USD",
+      "rate": "1.16455",
+      "prev": "1.16455",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "GBP/USD",
+      "rate": "1.34183",
+      "prev": "1.34183",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    }
+  ]
+}

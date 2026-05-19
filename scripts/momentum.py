@@ -62,7 +62,6 @@ _LAST_MOMENTUM_DIAGNOSTICS: Dict[str, Dict[str, Union[str, float, bool]]] = {}
 _LAST_EMA_DIAGNOSTICS: Dict[str, Dict[str, Union[str, float, bool]]] = {}
 _LAST_EMA_STATE: Dict[str, Dict[str, Any]] = {}
 _LAST_H1_EMA_STATE: Dict[str, Dict[str, Any]] = {}   # H1 state before scraper D1 override
-_LAST_H1_TD_EMA: Dict[str, Dict[str, Any]] = {}      # TD /ema endpoint values per pair
 _MOMENTUM_STARTUP_LOGGED = False
 
 UTC = timezone.utc
@@ -218,9 +217,6 @@ SOURCE_SCRAPER_TD_DAILY = "scraper_td_daily"
 
 TD_REQUEST_LIMIT_PER_DAY = _env_positive_int("MOMENTUM_TD_REQUEST_LIMIT_PER_DAY", 4)
 TD_REQUESTS_PER_RUN_MAX = _env_positive_int("MOMENTUM_TD_REQUESTS_PER_RUN_MAX", 1)
-# When True, H1 EMA20/50 values are fetched directly from the Twelve Data /ema
-# endpoint and override locally-computed EMA values in _compute_ema_state.
-TD_H1_EMA_ENABLED: bool = _env_bool("MOMENTUM_TD_H1_EMA_ENABLED", True)
 TD_MIN_SECONDS_BETWEEN = _env_positive_int("MOMENTUM_TD_MIN_SECONDS_BETWEEN", 10)
 TD_429_COOLDOWN_MINUTES = _env_positive_int("MOMENTUM_TD_429_COOLDOWN_MINUTES", 60)
 TD_SEED_WINDOW_MINUTES = _env_positive_int("MOMENTUM_TD_SEED_WINDOW_MINUTES", 20)
@@ -1028,147 +1024,6 @@ def _fetch_twelvedata_hourly_closes_direct(pair: str, lookback_hours: int) -> Tu
         return [], f"twelvedata_error:{exc}"
 
 
-def _fetch_td_h1_ema_single(
-    pair: str,
-    time_period: int,
-    outputsize: int = 2,
-) -> Tuple[List[Dict[str, Any]], str]:
-    """Fetch pre-computed H1 EMA values from the Twelve Data /ema endpoint.
-
-    URL format (per-pair, per-period):
-      https://api.twelvedata.com/ema?symbol=EUR/USD&interval=1h
-        &time_period=20&series_type=close&timezone=UTC&apikey=KEY
-
-    Returns (ema_rows, status) where each row is ``{"datetime": str, "ema": float}``,
-    ordered oldest-first.  At least *outputsize* rows are requested so both the
-    latest value and its predecessor are available for cross detection.
-    """
-    if not TWELVEDATA_API_KEY:
-        return [], "no_api_key"
-    symbol = TD_SYMBOLS.get(pair)
-    if not symbol:
-        return [], "unsupported_pair"
-
-    try:
-        session = _build_session()
-        resp = session.get(
-            f"{TWELVEDATA_BASE}/ema",
-            params={
-                "symbol":      symbol,
-                "interval":    "1h",
-                "time_period": time_period,
-                "series_type": "close",
-                "timezone":    "UTC",
-                "outputsize":  max(outputsize, 2),
-                "apikey":      TWELVEDATA_API_KEY,
-            },
-            timeout=DEFAULT_TIMEOUT,
-        )
-
-        if resp.status_code == 429:
-            _set_td_cooldown(TD_429_COOLDOWN_MINUTES, "429_td_h1_ema")
-            return [], "rate_limited"
-
-        resp.raise_for_status()
-        data = resp.json()
-
-        if isinstance(data, dict) and data.get("status") == "error":
-            code = str(data.get("code", "error"))
-            msg  = str(data.get("message", "unknown"))
-            if code == "429":
-                _set_td_cooldown(TD_429_COOLDOWN_MINUTES, msg)
-                return [], "rate_limited"
-            return [], f"api_error:{code}:{msg}"
-
-        raw_values = data.get("values") if isinstance(data, dict) else None
-        if not isinstance(raw_values, list) or not raw_values:
-            return [], "no_values"
-
-        rows: List[Dict[str, Any]] = []
-        for entry in raw_values:
-            if not isinstance(entry, dict):
-                continue
-            dt_raw  = entry.get("datetime", "")
-            ema_raw = entry.get("ema")
-            try:
-                ema_val = float(ema_raw)
-            except (TypeError, ValueError):
-                continue
-            rows.append({"datetime": str(dt_raw), "ema": ema_val})
-
-        # TD returns newest-first; reverse to oldest-first for consistency.
-        rows.reverse()
-        if not rows:
-            return [], "no_valid_rows"
-        return rows, "ok"
-
-    except requests.RequestException as exc:
-        return [], f"http_error:{exc}"
-    except ValueError as exc:
-        return [], f"decode_error:{exc}"
-    except Exception as exc:
-        return [], f"error:{exc}"
-
-
-def _fetch_td_h1_ema_pair(pair: str) -> Dict[str, Any]:
-    """Fetch H1 EMA{EMA_SIGNAL_FAST} and EMA{EMA_SIGNAL_SLOW} for *pair* from
-    the Twelve Data /ema endpoint.
-
-    Pairs and their endpoint URLs (fast = EMA20, slow = EMA50):
-      EURUSD EMA20: .../ema?symbol=EUR/USD&interval=1h&time_period=20&...
-      EURUSD EMA50: .../ema?symbol=EUR/USD&interval=1h&time_period=50&...
-      GBPUSD EMA20: .../ema?symbol=GBP/USD&interval=1h&time_period=20&...
-      GBPUSD EMA50: .../ema?symbol=GBP/USD&interval=1h&time_period=50&...
-      XAUUSD EMA20: .../ema?symbol=XAU/USD&interval=1h&time_period=20&...
-      XAUUSD EMA50: .../ema?symbol=XAU/USD&interval=1h&time_period=50&...
-
-    Returns a dict with:
-        fast_val   – latest EMA{fast} value (float | None)
-        fast_prev  – previous bar EMA{fast} value (float | None)
-        slow_val   – latest EMA{slow} value (float | None)
-        slow_prev  – previous bar EMA{slow} value (float | None)
-        status_fast / status_slow – fetch status strings
-        ok         – True when both fast_val and slow_val are populated
-    """
-    fp = EMA_SIGNAL_FAST   # e.g. 20
-    sp = EMA_SIGNAL_SLOW   # e.g. 50
-    result: Dict[str, Any] = {
-        "fast_val":    None,
-        "fast_prev":   None,
-        "slow_val":    None,
-        "slow_prev":   None,
-        "status_fast": "not_fetched",
-        "status_slow": "not_fetched",
-        "ok":          False,
-    }
-
-    fast_rows, fast_status = _fetch_td_h1_ema_single(pair, fp)
-    result["status_fast"] = fast_status
-    if len(fast_rows) >= 2:
-        result["fast_val"]  = fast_rows[-1]["ema"]
-        result["fast_prev"] = fast_rows[-2]["ema"]
-    elif len(fast_rows) == 1:
-        result["fast_val"]  = fast_rows[0]["ema"]
-        result["fast_prev"] = fast_rows[0]["ema"]   # no prev — use same value; cross stays "none"
-
-    slow_rows, slow_status = _fetch_td_h1_ema_single(pair, sp)
-    result["status_slow"] = slow_status
-    if len(slow_rows) >= 2:
-        result["slow_val"]  = slow_rows[-1]["ema"]
-        result["slow_prev"] = slow_rows[-2]["ema"]
-    elif len(slow_rows) == 1:
-        result["slow_val"]  = slow_rows[0]["ema"]
-        result["slow_prev"] = slow_rows[0]["ema"]
-
-    result["ok"] = (result["fast_val"] is not None and result["slow_val"] is not None)
-    log.debug(
-        "momentum: TD H1 EMA pair=%s fast_ema%d=%s slow_ema%d=%s status=%s/%s",
-        pair, fp, result["fast_val"], sp, result["slow_val"],
-        fast_status, slow_status,
-    )
-    return result
-
-
 def _fetch_td_hourly_closes(
     pair: str,
     lookback_hours: int = 120,
@@ -1617,7 +1472,6 @@ def _compute_ema_state(
     current_source: str,
     repair_note: str,
     bars: Optional[int] = None,
-    td_ema: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Derive the fast/slow EMA structural state for one pair from pre-built rows.
 
@@ -1625,12 +1479,6 @@ def _compute_ema_state(
     EMA_SIGNAL_SLOW values.  EMA_SIGNAL_FAST is now 20 by default; the
     output automatically uses 'ema20', 'close_vs_ema20', 'above_ema20_ema50',
     etc. — no code changes required.
-
-    When *td_ema* is supplied (from ``_fetch_td_h1_ema_pair``) and ``td_ema["ok"]``
-    is True, the Twelve Data pre-computed EMA values override the locally derived
-    fast/slow EMA values and their previous-bar counterparts (used for cross
-    detection).  All other fields (RSI, close comparisons, price comparisons, etc.)
-    continue to use the local H1 close history.
 
     Always returns a dict (never None).  Three possible states, mirroring ema.py:
 
@@ -1712,7 +1560,6 @@ def _compute_ema_state(
             "current_source":  current_source,
             "history_source":  _history_src,
             "repair_note":     repair_note,
-            "td_ema_source":   None,
             "ok":              False,
         }
         result.update(rsi_payload(closes, MOMENTUM_RSI_PERIOD))
@@ -1750,35 +1597,6 @@ def _compute_ema_state(
     _price_f    = float(current_price) if current_price is not None else _last_close
 
     # ------------------------------------------------------------------
-    # TD /ema endpoint override — when td_ema is provided and valid, replace
-    # the locally computed EMA values with the Twelve Data pre-computed ones.
-    # The previous-bar values (used for cross detection) are also overridden
-    # so that cross state reflects actual TD-computed EMA movement.
-    # ------------------------------------------------------------------
-    _td_fast_prev = float(fast_series[-2]) if len(fast_series) >= 2 else _fast_val
-    _td_slow_prev = float(slow_series[-2]) if len(slow_series) >= 2 else _slow_val
-    _td_ema_source: Optional[str] = None
-
-    if td_ema is not None and td_ema.get("ok"):
-        _td_fast_val  = td_ema.get("fast_val")
-        _td_slow_val  = td_ema.get("slow_val")
-        _td_fp        = td_ema.get("fast_prev")
-        _td_sp        = td_ema.get("slow_prev")
-        if _td_fast_val is not None and _td_slow_val is not None:
-            _fast_val     = float(_td_fast_val)
-            _slow_val     = float(_td_slow_val)
-            _td_fast_prev = float(_td_fp) if _td_fp is not None else _fast_val
-            _td_slow_prev = float(_td_sp) if _td_sp is not None else _slow_val
-            _td_ema_source = "td_h1_ema_endpoint"
-            log.debug(
-                "momentum: _compute_ema_state pair=%s using TD H1 EMA override "
-                "fast=%.6f slow=%.6f (local were %.6f / %.6f)",
-                pair,
-                _fast_val, _slow_val,
-                float(fast_series[-1]), float(slow_series[-1]),
-            )
-
-    # ------------------------------------------------------------------
     # Stage 2 — warming up: EMAs computed but slow EMA not yet reliable.
     # Mirrors ema.py: MIN_EMA50_CLOSES gate suppresses all comparisons.
     # ------------------------------------------------------------------
@@ -1792,7 +1610,7 @@ def _compute_ema_state(
     # ------------------------------------------------------------------
     # Stage 3 — ready: full output with all comparative fields.
     # ------------------------------------------------------------------
-    _cross        = _cross_state(_td_fast_prev, _td_slow_prev, _fast_val, _slow_val)
+    _cross        = _cross_state(float(fast_series[-2]), float(slow_series[-2]), _fast_val, _slow_val)
     _price_vs_fast = _position_vs_ref(_price_f,    _fast_val)
     _price_vs_slow = _position_vs_ref(_price_f,    _slow_val)
     _close_vs_fast = _position_vs_ref(_last_close, _fast_val)
@@ -1851,7 +1669,6 @@ def _compute_ema_state(
             else (SOURCE_HOURLY if rows else SOURCE_UNAVAILABLE)
         ),
         "repair_note":     repair_note,
-        "td_ema_source":   _td_ema_source,   # "td_h1_ema_endpoint" when TD /ema was used
         "ok":              True,
     }
     result.update(rsi_payload(closes, MOMENTUM_RSI_PERIOD))
@@ -2362,21 +2179,6 @@ def fetch_price_momentum(
     # are stored with ok=False so consumers can detect the state.
     _LAST_EMA_STATE.clear()
     _LAST_H1_EMA_STATE.clear()
-    _LAST_H1_TD_EMA.clear()
-
-    # Fetch H1 EMA20/50 directly from Twelve Data /ema endpoint when enabled.
-    # Errors are non-fatal; local computation is used as the fallback.
-    td_ema_map: Dict[str, Dict[str, Any]] = {}
-    if TD_H1_EMA_ENABLED and TWELVEDATA_API_KEY:
-        for pair in pair_list:
-            try:
-                td_result = _fetch_td_h1_ema_pair(pair)
-                td_ema_map[pair] = td_result
-                _LAST_H1_TD_EMA[pair] = td_result
-            except Exception as _td_exc:
-                log.warning("momentum: TD H1 EMA fetch failed pair=%s: %s", pair, _td_exc)
-                td_ema_map[pair] = {"ok": False}
-
     for pair in pair_list:
         _state = _compute_ema_state(
             pair,
@@ -2384,7 +2186,6 @@ def fetch_price_momentum(
             current_prices.get(pair),
             current_sources.get(pair, SOURCE_UNAVAILABLE),
             repair_notes.get(pair, ""),
-            td_ema=td_ema_map.get(pair),
         )
         # Preserve raw H1 state before scraper may replace it with D1 data.
         _LAST_H1_EMA_STATE[pair] = dict(_state)
@@ -2425,16 +2226,6 @@ def detect_h1_ema_cross_and_price_state(
         return None
 
     histories, current_prices, current_sources, repair_notes = _update_histories([code])
-
-    # Fetch TD H1 EMA20/50 for this pair when enabled.
-    _td_ema: Optional[Dict[str, Any]] = None
-    if TD_H1_EMA_ENABLED and TWELVEDATA_API_KEY:
-        try:
-            _td_ema = _fetch_td_h1_ema_pair(code)
-            _LAST_H1_TD_EMA[code] = _td_ema
-        except Exception as _td_exc:
-            log.warning("momentum: TD H1 EMA fetch (detect) failed pair=%s: %s", code, _td_exc)
-
     result = _compute_ema_state(
         code,
         histories.get(code, []),
@@ -2442,7 +2233,6 @@ def detect_h1_ema_cross_and_price_state(
         current_sources.get(code, SOURCE_UNAVAILABLE),
         repair_notes.get(code, ""),
         bars=bars,
-        td_ema=_td_ema,
     )
     # _compute_ema_state always returns a dict; update diagnostics regardless.
     _LAST_EMA_DIAGNOSTICS[code] = dict(result)
@@ -2468,16 +2258,6 @@ def get_last_ema_state() -> Dict[str, Dict[str, Any]]:
     triggering a second round of Stooq fetches.
     """
     return {k: dict(v) for k, v in _LAST_EMA_STATE.items()}
-
-
-def get_last_h1_td_ema() -> Dict[str, Dict[str, Any]]:
-    """Return the raw TD /ema endpoint results from the most recent run.
-
-    Each value is the dict returned by ``_fetch_td_h1_ema_pair`` for that pair,
-    including ``fast_val``, ``slow_val``, ``fast_prev``, ``slow_prev``,
-    ``status_fast``, ``status_slow``, and ``ok``.
-    """
-    return {k: dict(v) for k, v in _LAST_H1_TD_EMA.items()}
 
 
 # ---------------------------------------------------------------------------

@@ -1,10 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "eurusd:confirmed_long:2026-05-18": "2026-05-19T06:11:57.702043Z",
-  "gbpusd:confirmed_long:2026-05-18": "2026-05-19T06:11:58.286212Z"
-=======
-  "eurusd:confirmed_long:2026-05-18": "2026-05-19T06:12:37.335163Z",
-  "gbpusd:confirmed_long:2026-05-18": "2026-05-19T06:12:37.803054Z",
-  "xauusd:confirmed_long:2026-05-18": "2026-05-19T06:12:38.324620Z"
->>>>>>> Stashed changes
+  "eurusd:confirmed_long:2026-05-18": "2026-05-19T06:14:57.953280Z",
+  "gbpusd:confirmed_long:2026-05-18": "2026-05-19T06:14:58.639308Z",
+  "xauusd:confirmed_long:2026-05-18": "2026-05-19T06:14:59.222509Z"
 }

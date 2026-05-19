@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-05-19T06:11:56.956300Z",
-=======
-  "generated_at": "2026-05-19T06:12:36.693793Z",
->>>>>>> Stashed changes
+  "generated_at": "2026-05-19T06:14:57.304649Z",
   "pairs": {
     "eurusd": {
       "price_state": "accept_above_pp",
@@ -39,14 +35,7 @@
       "rsi_bias": "neutral",
       "rsi_alignment": "neutral",
       "rsi_confluence_mult": 1.0,
-<<<<<<< Updated upstream
-      "combined_conviction_mult": 1.0,
-      "rsi_h1": 49.52,
-      "rsi_h1_state": "neutral",
-      "rsi_h1_bias": "neutral"
-=======
       "combined_conviction_mult": 1.0
->>>>>>> Stashed changes
     },
     "gbpusd": {
       "price_state": "accept_above_pp",
@@ -82,14 +71,7 @@
       "rsi_bias": "bearish",
       "rsi_alignment": "against",
       "rsi_confluence_mult": 0.95,
-<<<<<<< Updated upstream
-      "combined_conviction_mult": 0.95,
-      "rsi_h1": 54.43,
-      "rsi_h1_state": "neutral",
-      "rsi_h1_bias": "neutral"
-=======
       "combined_conviction_mult": 0.95
->>>>>>> Stashed changes
     },
     "xauusd": {
       "price_state": "accept_above_pp",

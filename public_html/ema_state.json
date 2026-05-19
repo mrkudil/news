@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-05-19T06:11:59.033446Z",
-=======
-  "generated_at": "2026-05-19T06:12:39.007214Z",
->>>>>>> Stashed changes
+  "generated_at": "2026-05-19T06:14:59.832229Z",
   "ema_periods": {
     "fast": 20,
     "slow": 50
@@ -26,11 +22,7 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-<<<<<<< Updated upstream
-      "current_price": 1.16411,
-=======
-      "current_price": 1.16412,
->>>>>>> Stashed changes
+      "current_price": 1.16406,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,
@@ -55,11 +47,7 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-<<<<<<< Updated upstream
-      "current_price": 1.34081,
-=======
-      "current_price": 1.34075,
->>>>>>> Stashed changes
+      "current_price": 1.34083,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,
@@ -84,11 +72,7 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-<<<<<<< Updated upstream
-      "current_price": 4539.28,
-=======
-      "current_price": 4539.34,
->>>>>>> Stashed changes
+      "current_price": 4542.18,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,

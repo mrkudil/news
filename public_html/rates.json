@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-19T13:40:26.925186Z",
+  "fetched_at": "2026-05-19T14:00:37.993584Z",
   "source": "Stooq",
   "stale": false,
   "ttl_s": 900.0,
@@ -7,9 +7,9 @@
   "rates": [
     {
       "label": "XAU/USD",
-      "rate": "4477.80",
-      "prev": "4501.76",
-      "chg_pct": -0.5322,
+      "rate": "4498.04",
+      "prev": "4477.80",
+      "chg_pct": 0.452,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -18,20 +18,20 @@
     },
     {
       "label": "EUR/USD",
-      "rate": "1.16068",
-      "prev": "1.16069",
-      "chg_pct": -0.0009,
+      "rate": "1.16123",
+      "prev": "1.16068",
+      "chg_pct": 0.0474,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
       "stale_label": "fresh",
-      "changed": false
+      "changed": true
     },
     {
       "label": "GBP/USD",
-      "rate": "1.33924",
-      "prev": "1.33905",
-      "chg_pct": 0.0142,
+      "rate": "1.34007",
+      "prev": "1.33924",
+      "chg_pct": 0.062,
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,

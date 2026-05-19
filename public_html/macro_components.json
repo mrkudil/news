@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T19:45:37.923907Z",
+  "scrape_time": "2026-05-19T19:50:23.399418Z",
   "indicators": {
     "fed_rate": 3.64,
     "yield_spread": 0.5,
@@ -100,7 +100,7 @@
       },
       "technical_context": {
         "pair": "eurusd",
-        "current_price": 1.16042,
+        "current_price": 1.16068,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -149,7 +149,7 @@
             "slow_ema": 1.169281,
             "ema20_vs_ema50": "above",
             "trend_bias": "bullish_bias",
-            "price": 1.16068,
+            "price": 1.16079,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -167,7 +167,7 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "above",
-            "current_price": 1.16068,
+            "current_price": 1.16079,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
@@ -332,7 +332,7 @@
       },
       "technical_context": {
         "pair": "gbpusd",
-        "current_price": 1.33995,
+        "current_price": 1.34036,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -381,7 +381,7 @@
             "slow_ema": 1.347363,
             "ema20_vs_ema50": "above",
             "trend_bias": "bullish_bias",
-            "price": 1.34016,
+            "price": 1.34038,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -399,7 +399,7 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "above",
-            "current_price": 1.34016,
+            "current_price": 1.34038,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
@@ -576,7 +576,7 @@
       },
       "technical_context": {
         "pair": "xauusd",
-        "current_price": 4486.41,
+        "current_price": 4486.33,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
@@ -625,7 +625,7 @@
             "slow_ema": 4689.56,
             "ema20_vs_ema50": "below",
             "trend_bias": "bearish_bias",
-            "price": 4487.05,
+            "price": 4487.93,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -643,7 +643,7 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "below",
-            "current_price": 4487.05,
+            "current_price": 4487.93,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
@@ -1051,7 +1051,7 @@
       "slow_ema": 1.169281,
       "ema20_vs_ema50": "above",
       "trend_bias": "bullish_bias",
-      "price": 1.16068,
+      "price": 1.16079,
       "current_vs_ema20": "below",
       "current_vs_ema50": "below",
       "price_vs_fast": "below",
@@ -1069,7 +1069,7 @@
       "close_vs_slow": "below",
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
-      "current_price": 1.16068,
+      "current_price": 1.16079,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
@@ -1091,7 +1091,7 @@
       "slow_ema": 1.347363,
       "ema20_vs_ema50": "above",
       "trend_bias": "bullish_bias",
-      "price": 1.34016,
+      "price": 1.34038,
       "current_vs_ema20": "below",
       "current_vs_ema50": "below",
       "price_vs_fast": "below",
@@ -1109,7 +1109,7 @@
       "close_vs_slow": "below",
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
-      "current_price": 1.34016,
+      "current_price": 1.34038,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
@@ -1131,7 +1131,7 @@
       "slow_ema": 4689.56,
       "ema20_vs_ema50": "below",
       "trend_bias": "bearish_bias",
-      "price": 4487.05,
+      "price": 4487.93,
       "current_vs_ema20": "below",
       "current_vs_ema50": "below",
       "price_vs_fast": "below",
@@ -1149,7 +1149,7 @@
       "close_vs_slow": "below",
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "below",
-      "current_price": 4487.05,
+      "current_price": 4487.93,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
@@ -1229,7 +1229,7 @@
   "technical_context": {
     "eurusd": {
       "pair": "eurusd",
-      "current_price": 1.16042,
+      "current_price": 1.16068,
       "daily": {
         "timeframe": "D1",
         "ohlc": {
@@ -1278,7 +1278,7 @@
           "slow_ema": 1.169281,
           "ema20_vs_ema50": "above",
           "trend_bias": "bullish_bias",
-          "price": 1.16068,
+          "price": 1.16079,
           "current_vs_ema20": "below",
           "current_vs_ema50": "below",
           "price_vs_fast": "below",
@@ -1296,7 +1296,7 @@
           "close_vs_slow": "below",
           "close_structure": "below_fast_slow",
           "ema_fast_vs_slow": "above",
-          "current_price": 1.16068,
+          "current_price": 1.16079,
           "current_vs_fast": "below",
           "current_vs_slow": "below",
           "current_structure": "below_fast_slow",
@@ -1386,7 +1386,7 @@
     },
     "gbpusd": {
       "pair": "gbpusd",
-      "current_price": 1.33995,
+      "current_price": 1.34036,
       "daily": {
         "timeframe": "D1",
         "ohlc": {
@@ -1435,7 +1435,7 @@
           "slow_ema": 1.347363,
           "ema20_vs_ema50": "above",
           "trend_bias": "bullish_bias",
-          "price": 1.34016,
+          "price": 1.34038,
           "current_vs_ema20": "below",
           "current_vs_ema50": "below",
           "price_vs_fast": "below",
@@ -1453,7 +1453,7 @@
           "close_vs_slow": "below",
           "close_structure": "below_fast_slow",
           "ema_fast_vs_slow": "above",
-          "current_price": 1.34016,
+          "current_price": 1.34038,
           "current_vs_fast": "below",
           "current_vs_slow": "below",
           "current_structure": "below_fast_slow",
@@ -1543,7 +1543,7 @@
     },
     "xauusd": {
       "pair": "xauusd",
-      "current_price": 4486.41,
+      "current_price": 4486.33,
       "daily": {
         "timeframe": "D1",
         "ohlc": {
@@ -1592,7 +1592,7 @@
           "slow_ema": 4689.56,
           "ema20_vs_ema50": "below",
           "trend_bias": "bearish_bias",
-          "price": 4487.05,
+          "price": 4487.93,
           "current_vs_ema20": "below",
           "current_vs_ema50": "below",
           "price_vs_fast": "below",
@@ -1610,7 +1610,7 @@
           "close_vs_slow": "below",
           "close_structure": "below_fast_slow",
           "ema_fast_vs_slow": "below",
-          "current_price": 4487.05,
+          "current_price": 4487.93,
           "current_vs_fast": "below",
           "current_vs_slow": "below",
           "current_structure": "below_fast_slow",
@@ -1771,45 +1771,45 @@
   },
   "price_daily": {},
   "price_current": {
-    "xauusd": 4486.41,
-    "eurusd": 1.16042,
-    "gbpusd": 1.33995
+    "xauusd": 4486.33,
+    "eurusd": 1.16068,
+    "gbpusd": 1.34036
   },
   "price_session_ohlc": {
     "xauusd": {
-      "open": 4486.41,
-      "high": 4486.41,
-      "low": 4486.41,
-      "close": 4486.41,
+      "open": 4486.33,
+      "high": 4486.33,
+      "low": 4486.33,
+      "close": 4486.33,
       "_date": "2026-05-19",
       "_synthetic": true
     },
     "eurusd": {
-      "open": 1.16042,
-      "high": 1.16042,
-      "low": 1.16042,
-      "close": 1.16042,
+      "open": 1.16068,
+      "high": 1.16068,
+      "low": 1.16068,
+      "close": 1.16068,
       "_date": "2026-05-19",
       "_synthetic": true
     },
     "gbpusd": {
-      "open": 1.33995,
-      "high": 1.33995,
-      "low": 1.33995,
-      "close": 1.33995,
+      "open": 1.34036,
+      "high": 1.34036,
+      "low": 1.34036,
+      "close": 1.34036,
       "_date": "2026-05-19",
       "_synthetic": true
     }
   },
   "price_session_high": {
-    "xauusd": 4486.41,
-    "eurusd": 1.16042,
-    "gbpusd": 1.33995
+    "xauusd": 4486.33,
+    "eurusd": 1.16068,
+    "gbpusd": 1.34036
   },
   "price_session_low": {
-    "xauusd": 4486.41,
-    "eurusd": 1.16042,
-    "gbpusd": 1.33995
+    "xauusd": 4486.33,
+    "eurusd": 1.16068,
+    "gbpusd": 1.34036
   },
   "price_date": {
     "xauusd": "2026-05-19",

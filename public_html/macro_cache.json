@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "timestamp": "2026-05-19T14:55:33.661507+00:00",
+=======
+  "timestamp": "2026-05-19T14:56:00.398278+00:00",
+>>>>>>> Stashed changes
   "macro": {
     "timestamp": "2026-05-19T06:21:23.122629+00:00",
     "run_id": "2c348e43",
@@ -2486,6 +2490,7 @@
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
+<<<<<<< Updated upstream
       "xauusd": 4489.05,
       "eurusd": 1.15969,
       "gbpusd": 1.33857
@@ -2496,27 +2501,54 @@
         "high": 4489.05,
         "low": 4489.05,
         "close": 4489.05,
+=======
+      "xauusd": 4490.87,
+      "eurusd": 1.15973,
+      "gbpusd": 1.33885
+    },
+    "_price_session_ohlc": {
+      "xauusd": {
+        "open": 4490.87,
+        "high": 4490.87,
+        "low": 4490.87,
+        "close": 4490.87,
+>>>>>>> Stashed changes
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "eurusd": {
+<<<<<<< Updated upstream
         "open": 1.15969,
         "high": 1.15969,
         "low": 1.15969,
         "close": 1.15969,
+=======
+        "open": 1.15973,
+        "high": 1.15973,
+        "low": 1.15973,
+        "close": 1.15973,
+>>>>>>> Stashed changes
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "gbpusd": {
+<<<<<<< Updated upstream
         "open": 1.33857,
         "high": 1.33857,
         "low": 1.33857,
         "close": 1.33857,
+=======
+        "open": 1.33885,
+        "high": 1.33885,
+        "low": 1.33885,
+        "close": 1.33885,
+>>>>>>> Stashed changes
         "_date": "2026-05-19",
         "_synthetic": true
       }
     },
     "_price_session_high": {
+<<<<<<< Updated upstream
       "xauusd": 4489.05,
       "eurusd": 1.15969,
       "gbpusd": 1.33857
@@ -2525,6 +2557,16 @@
       "xauusd": 4489.05,
       "eurusd": 1.15969,
       "gbpusd": 1.33857
+=======
+      "xauusd": 4490.87,
+      "eurusd": 1.15973,
+      "gbpusd": 1.33885
+    },
+    "_price_session_low": {
+      "xauusd": 4490.87,
+      "eurusd": 1.15973,
+      "gbpusd": 1.33885
+>>>>>>> Stashed changes
     },
     "_price_date": {
       "xauusd": "2026-05-19",

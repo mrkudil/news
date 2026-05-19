@@ -976,7 +976,11 @@
     },
     {
       "hour": "2026-05-19T12:00:00Z",
+<<<<<<< Updated upstream
       "close": 1.33874
+=======
+      "close": 1.33885
+>>>>>>> Stashed changes
     }
   ],
   "XAUUSD": [
@@ -1466,7 +1470,11 @@
     },
     {
       "hour": "2026-05-19T12:00:00Z",
+<<<<<<< Updated upstream
       "close": 4489.14
+=======
+      "close": 4490.65
+>>>>>>> Stashed changes
     }
   ]
 }

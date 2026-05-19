@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "fetched_at": "2026-05-19T14:55:28.824949Z",
+=======
+  "fetched_at": "2026-05-19T14:55:54.995846Z",
+>>>>>>> Stashed changes
   "source": "Stooq",
   "stale": false,
   "ttl_s": 900.0,
@@ -7,9 +11,15 @@
   "rates": [
     {
       "label": "XAU/USD",
+<<<<<<< Updated upstream
       "rate": "4489.05",
       "prev": "4489.09",
       "chg_pct": -0.0009,
+=======
+      "rate": "4490.87",
+      "prev": "4489.09",
+      "chg_pct": 0.0397,
+>>>>>>> Stashed changes
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -18,9 +28,15 @@
     },
     {
       "label": "EUR/USD",
+<<<<<<< Updated upstream
       "rate": "1.15969",
       "prev": "1.15985",
       "chg_pct": -0.0138,
+=======
+      "rate": "1.15973",
+      "prev": "1.15985",
+      "chg_pct": -0.0103,
+>>>>>>> Stashed changes
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,
@@ -29,9 +45,15 @@
     },
     {
       "label": "GBP/USD",
+<<<<<<< Updated upstream
       "rate": "1.33857",
       "prev": "1.33856",
       "chg_pct": 0.0007,
+=======
+      "rate": "1.33885",
+      "prev": "1.33856",
+      "chg_pct": 0.0217,
+>>>>>>> Stashed changes
       "source": "Stooq",
       "stale_age_s": 0.0,
       "stale_pct": 0.0,

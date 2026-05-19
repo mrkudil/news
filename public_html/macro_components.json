@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T18:55:38.903216Z",
+  "scrape_time": "2026-05-19T19:00:50.029821Z",
   "indicators": {
     "fed_rate": 3.64,
     "yield_spread": 0.5,
@@ -77,25 +77,25 @@
         "S3": 1.157167,
         "range": 0.00517,
         "close": 1.16564,
-        "macro_score": -1.95,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 45.03,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "neutral",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       },
       "technical_summary": {
         "bias": "bearish",
-        "bullish_votes": 0,
+        "bullish_votes": 1,
         "bearish_votes": 2,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "technical_context": {
@@ -104,14 +104,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 1.16564,
+            "range": 0.00517
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 1.164203,
+            "R1": 1.167507,
+            "R2": 1.169373,
+            "R3": 1.172677,
+            "S1": 1.162337,
+            "S2": 1.159033,
+            "S3": 1.157167
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "eurusd",
             "timeframe": "D1",
@@ -120,15 +133,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "eurusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "EURUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.169706,
+            "ema50": 1.169281,
+            "ema_fast": 1.169706,
+            "ema_slow": 1.169281,
+            "fast_ema": 1.169706,
+            "slow_ema": 1.169281,
+            "ema20_vs_ema50": "above",
+            "trend_bias": "bullish_bias",
+            "price": 1.16044,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 1.16564,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "above",
+            "current_price": 1.16044,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bullish_at_ema",
+            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -193,17 +239,17 @@
         },
         "summary": {
           "bias": "bearish",
-          "bullish_votes": 0,
+          "bullish_votes": 1,
           "bearish_votes": 2,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     },
@@ -260,25 +306,25 @@
         "S3": 1.319917,
         "range": 0.01438,
         "close": 1.34344,
-        "macro_score": 1.236,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 43.0,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "bearish",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       },
       "technical_summary": {
         "bias": "bullish",
-        "bullish_votes": 1,
+        "bullish_votes": 2,
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "technical_context": {
@@ -287,14 +333,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 1.34344,
+            "range": 0.01438
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 1.339533,
+            "R1": 1.348677,
+            "R2": 1.353913,
+            "R3": 1.363057,
+            "S1": 1.334297,
+            "S2": 1.325153,
+            "S3": 1.319917
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "gbpusd",
             "timeframe": "D1",
@@ -303,15 +362,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "gbpusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "GBPUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.347739,
+            "ema50": 1.347363,
+            "ema_fast": 1.347739,
+            "ema_slow": 1.347363,
+            "fast_ema": 1.347739,
+            "slow_ema": 1.347363,
+            "ema20_vs_ema50": "above",
+            "trend_bias": "bullish_bias",
+            "price": 1.33999,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 1.34344,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "above",
+            "current_price": 1.33999,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bullish_at_ema",
+            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -376,17 +468,17 @@
         },
         "summary": {
           "bias": "bullish",
-          "bullish_votes": 1,
+          "bullish_votes": 2,
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     },
@@ -455,25 +547,25 @@
         "S3": 4393.051567,
         "range": 107.52297,
         "close": 4566.17371,
-        "macro_score": -2.696,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 54.81,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "neutral",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       },
       "technical_summary": {
         "bias": "bearish",
         "bullish_votes": 0,
-        "bearish_votes": 2,
+        "bearish_votes": 3,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "technical_context": {
@@ -482,14 +574,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 4566.17,
+            "range": 107.52
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 4542.5,
+            "R1": 4608.1,
+            "R2": 4650.02,
+            "R3": 4715.62,
+            "S1": 4500.57,
+            "S2": 4434.98,
+            "S3": 4393.05
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "xauusd",
             "timeframe": "D1",
@@ -498,15 +603,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "xauusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "XAUUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 4636.03,
+            "ema50": 4689.56,
+            "ema_fast": 4636.026715,
+            "ema_slow": 4689.557341,
+            "fast_ema": 4636.03,
+            "slow_ema": 4689.56,
+            "ema20_vs_ema50": "below",
+            "trend_bias": "bearish_bias",
+            "price": 4492.42,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 4566.17371,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "below",
+            "current_price": 4492.42,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bearish",
+            "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -572,16 +710,16 @@
         "summary": {
           "bias": "bearish",
           "bullish_votes": 0,
-          "bearish_votes": 2,
+          "bearish_votes": 3,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     }
@@ -874,25 +1012,124 @@
   },
   "daily_ema_20_50_state": {
     "eurusd": {
-      "pair": "eurusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "EURUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 1.169706,
+      "ema50": 1.169281,
+      "ema_fast": 1.169706,
+      "ema_slow": 1.169281,
+      "fast_ema": 1.169706,
+      "slow_ema": 1.169281,
+      "ema20_vs_ema50": "above",
+      "trend_bias": "bullish_bias",
+      "price": 1.16044,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "no_cross",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 119,
+      "last_completed_hour": "2026-05-18T00:00:00Z",
+      "last_close": 1.16564,
+      "close_vs_fast": "below",
+      "close_vs_slow": "below",
+      "close_structure": "below_fast_slow",
+      "ema_fast_vs_slow": "above",
+      "current_price": 1.16044,
+      "current_vs_fast": "below",
+      "current_vs_slow": "below",
+      "current_structure": "below_fast_slow",
+      "suggestion": "bullish_at_ema",
+      "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+      "twelvedata_requests_today": 3,
+      "source_basis": "local_closes + stooq_latest"
     },
     "gbpusd": {
-      "pair": "gbpusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "GBPUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 1.347739,
+      "ema50": 1.347363,
+      "ema_fast": 1.347739,
+      "ema_slow": 1.347363,
+      "fast_ema": 1.347739,
+      "slow_ema": 1.347363,
+      "ema20_vs_ema50": "above",
+      "trend_bias": "bullish_bias",
+      "price": 1.33999,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "no_cross",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 119,
+      "last_completed_hour": "2026-05-18T00:00:00Z",
+      "last_close": 1.34344,
+      "close_vs_fast": "below",
+      "close_vs_slow": "below",
+      "close_structure": "below_fast_slow",
+      "ema_fast_vs_slow": "above",
+      "current_price": 1.33999,
+      "current_vs_fast": "below",
+      "current_vs_slow": "below",
+      "current_structure": "below_fast_slow",
+      "suggestion": "bullish_at_ema",
+      "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+      "twelvedata_requests_today": 3,
+      "source_basis": "local_closes + stooq_latest"
     },
     "xauusd": {
-      "pair": "xauusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "XAUUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 4636.03,
+      "ema50": 4689.56,
+      "ema_fast": 4636.026715,
+      "ema_slow": 4689.557341,
+      "fast_ema": 4636.03,
+      "slow_ema": 4689.56,
+      "ema20_vs_ema50": "below",
+      "trend_bias": "bearish_bias",
+      "price": 4492.42,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "no_cross",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 119,
+      "last_completed_hour": "2026-05-18T00:00:00Z",
+      "last_close": 4566.17371,
+      "close_vs_fast": "below",
+      "close_vs_slow": "below",
+      "close_structure": "below_fast_slow",
+      "ema_fast_vs_slow": "below",
+      "current_price": 4492.42,
+      "current_vs_fast": "below",
+      "current_vs_slow": "below",
+      "current_structure": "below_fast_slow",
+      "suggestion": "bearish",
+      "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+      "twelvedata_requests_today": 3,
+      "source_basis": "local_closes + stooq_latest"
     }
   },
   "h1_rsi_state": {
@@ -936,7 +1173,7 @@
       "state": "unavailable",
       "bias": "unavailable",
       "alignment": "unavailable",
-      "source": "pivot_levels",
+      "source": "twelvedata",
       "ok": false
     },
     "gbpusd": {
@@ -947,7 +1184,7 @@
       "state": "unavailable",
       "bias": "unavailable",
       "alignment": "unavailable",
-      "source": "pivot_levels",
+      "source": "twelvedata",
       "ok": false
     },
     "xauusd": {
@@ -958,7 +1195,7 @@
       "state": "unavailable",
       "bias": "unavailable",
       "alignment": "unavailable",
-      "source": "pivot_levels",
+      "source": "twelvedata",
       "ok": false
     }
   },
@@ -969,14 +1206,27 @@
       "daily": {
         "timeframe": "D1",
         "ohlc": {
-          "date": null,
-          "source": null,
-          "close": null,
-          "range": null
+          "date": "2026-05-18",
+          "source": "twelvedata",
+          "close": 1.16564,
+          "range": 0.00517
         },
-        "pivots": {},
-        "price_state": null,
-        "nearest_level": null,
+        "pivots": {
+          "PP": 1.164203,
+          "R1": 1.167507,
+          "R2": 1.169373,
+          "R3": 1.172677,
+          "S1": 1.162337,
+          "S2": 1.159033,
+          "S3": 1.157167
+        },
+        "price_state": "unavailable",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
         "rsi14": {
           "pair": "eurusd",
           "timeframe": "D1",
@@ -985,15 +1235,48 @@
           "state": "unavailable",
           "bias": "unavailable",
           "alignment": "unavailable",
-          "source": "pivot_levels",
+          "source": "twelvedata",
           "ok": false
         },
         "ema_20_50": {
-          "pair": "eurusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "EURUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 1.169706,
+          "ema50": 1.169281,
+          "ema_fast": 1.169706,
+          "ema_slow": 1.169281,
+          "fast_ema": 1.169706,
+          "slow_ema": 1.169281,
+          "ema20_vs_ema50": "above",
+          "trend_bias": "bullish_bias",
+          "price": 1.16044,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "no_cross",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 119,
+          "last_completed_hour": "2026-05-18T00:00:00Z",
+          "last_close": 1.16564,
+          "close_vs_fast": "below",
+          "close_vs_slow": "below",
+          "close_structure": "below_fast_slow",
+          "ema_fast_vs_slow": "above",
+          "current_price": 1.16044,
+          "current_vs_fast": "below",
+          "current_vs_slow": "below",
+          "current_structure": "below_fast_slow",
+          "suggestion": "bullish_at_ema",
+          "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+          "twelvedata_requests_today": 3,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1058,17 +1341,17 @@
       },
       "summary": {
         "bias": "bearish",
-        "bullish_votes": 0,
+        "bullish_votes": 1,
         "bearish_votes": 2,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "sources": {
-        "pivot": "pivot_levels",
+        "pivot": "twelvedata",
         "h1": "stooq_h1+td_seeded",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     },
     "gbpusd": {
@@ -1077,14 +1360,27 @@
       "daily": {
         "timeframe": "D1",
         "ohlc": {
-          "date": null,
-          "source": null,
-          "close": null,
-          "range": null
+          "date": "2026-05-18",
+          "source": "twelvedata",
+          "close": 1.34344,
+          "range": 0.01438
         },
-        "pivots": {},
-        "price_state": null,
-        "nearest_level": null,
+        "pivots": {
+          "PP": 1.339533,
+          "R1": 1.348677,
+          "R2": 1.353913,
+          "R3": 1.363057,
+          "S1": 1.334297,
+          "S2": 1.325153,
+          "S3": 1.319917
+        },
+        "price_state": "unavailable",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
         "rsi14": {
           "pair": "gbpusd",
           "timeframe": "D1",
@@ -1093,15 +1389,48 @@
           "state": "unavailable",
           "bias": "unavailable",
           "alignment": "unavailable",
-          "source": "pivot_levels",
+          "source": "twelvedata",
           "ok": false
         },
         "ema_20_50": {
-          "pair": "gbpusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "GBPUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 1.347739,
+          "ema50": 1.347363,
+          "ema_fast": 1.347739,
+          "ema_slow": 1.347363,
+          "fast_ema": 1.347739,
+          "slow_ema": 1.347363,
+          "ema20_vs_ema50": "above",
+          "trend_bias": "bullish_bias",
+          "price": 1.33999,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "no_cross",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 119,
+          "last_completed_hour": "2026-05-18T00:00:00Z",
+          "last_close": 1.34344,
+          "close_vs_fast": "below",
+          "close_vs_slow": "below",
+          "close_structure": "below_fast_slow",
+          "ema_fast_vs_slow": "above",
+          "current_price": 1.33999,
+          "current_vs_fast": "below",
+          "current_vs_slow": "below",
+          "current_structure": "below_fast_slow",
+          "suggestion": "bullish_at_ema",
+          "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+          "twelvedata_requests_today": 3,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1166,17 +1495,17 @@
       },
       "summary": {
         "bias": "bullish",
-        "bullish_votes": 1,
+        "bullish_votes": 2,
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "sources": {
-        "pivot": "pivot_levels",
+        "pivot": "twelvedata",
         "h1": "stooq_h1+td_seeded",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     },
     "xauusd": {
@@ -1185,14 +1514,27 @@
       "daily": {
         "timeframe": "D1",
         "ohlc": {
-          "date": null,
-          "source": null,
-          "close": null,
-          "range": null
+          "date": "2026-05-18",
+          "source": "twelvedata",
+          "close": 4566.17,
+          "range": 107.52
         },
-        "pivots": {},
-        "price_state": null,
-        "nearest_level": null,
+        "pivots": {
+          "PP": 4542.5,
+          "R1": 4608.1,
+          "R2": 4650.02,
+          "R3": 4715.62,
+          "S1": 4500.57,
+          "S2": 4434.98,
+          "S3": 4393.05
+        },
+        "price_state": "unavailable",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
         "rsi14": {
           "pair": "xauusd",
           "timeframe": "D1",
@@ -1201,15 +1543,48 @@
           "state": "unavailable",
           "bias": "unavailable",
           "alignment": "unavailable",
-          "source": "pivot_levels",
+          "source": "twelvedata",
           "ok": false
         },
         "ema_20_50": {
-          "pair": "xauusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "XAUUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 4636.03,
+          "ema50": 4689.56,
+          "ema_fast": 4636.026715,
+          "ema_slow": 4689.557341,
+          "fast_ema": 4636.03,
+          "slow_ema": 4689.56,
+          "ema20_vs_ema50": "below",
+          "trend_bias": "bearish_bias",
+          "price": 4492.42,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "no_cross",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 119,
+          "last_completed_hour": "2026-05-18T00:00:00Z",
+          "last_close": 4566.17371,
+          "close_vs_fast": "below",
+          "close_vs_slow": "below",
+          "close_structure": "below_fast_slow",
+          "ema_fast_vs_slow": "below",
+          "current_price": 4492.42,
+          "current_vs_fast": "below",
+          "current_vs_slow": "below",
+          "current_structure": "below_fast_slow",
+          "suggestion": "bearish",
+          "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+          "twelvedata_requests_today": 3,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1275,16 +1650,16 @@
       "summary": {
         "bias": "bearish",
         "bullish_votes": 0,
-        "bearish_votes": 2,
+        "bearish_votes": 3,
         "d1_rsi_ok": false,
         "h1_rsi_ok": true,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": true
       },
       "sources": {
-        "pivot": "pivot_levels",
+        "pivot": "twelvedata",
         "h1": "stooq_h1+td_seeded",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     }
   },
@@ -1305,8 +1680,8 @@
     "pivot_module": "pivot",
     "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
     "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
-    "pivot_levels_file": "unavailable",
-    "ema_state_file": "unavailable"
+    "pivot_levels_file": "public_html/pivot_levels.json",
+    "ema_state_file": "/home/runner/work/News/News/public_html/ema_state.json"
   },
   "data_quality": {
     "score": 0.825,
@@ -1433,17 +1808,17 @@
       "S3": 1.157167,
       "range": 0.00517,
       "close": 1.16564,
-      "macro_score": -1.95,
+      "macro_score": 0.0,
       "ohlc_source": "twelvedata",
       "ohlc_date": "2026-05-18",
-      "rsi": 45.03,
+      "rsi": null,
       "rsi_period": 14,
-      "rsi_state": "neutral",
-      "rsi_bias": "neutral",
-      "rsi_alignment": "neutral",
-      "rsi_confluence_mult": 1.0,
+      "rsi_state": "unavailable",
+      "rsi_bias": "unavailable",
+      "rsi_alignment": "unavailable",
+      "rsi_confluence_mult": 0.0,
       "combined_conviction_mult": 0.0,
-      "reason": "live_price_required"
+      "reason": "missing_live_price"
     },
     "gbpusd": {
       "price_state": "unavailable",
@@ -1470,17 +1845,17 @@
       "S3": 1.319917,
       "range": 0.01438,
       "close": 1.34344,
-      "macro_score": 1.236,
+      "macro_score": 0.0,
       "ohlc_source": "twelvedata",
       "ohlc_date": "2026-05-18",
-      "rsi": 43.0,
+      "rsi": null,
       "rsi_period": 14,
-      "rsi_state": "neutral",
-      "rsi_bias": "bearish",
-      "rsi_alignment": "neutral",
-      "rsi_confluence_mult": 1.0,
+      "rsi_state": "unavailable",
+      "rsi_bias": "unavailable",
+      "rsi_alignment": "unavailable",
+      "rsi_confluence_mult": 0.0,
       "combined_conviction_mult": 0.0,
-      "reason": "live_price_required"
+      "reason": "missing_live_price"
     },
     "xauusd": {
       "price_state": "unavailable",
@@ -1507,17 +1882,17 @@
       "S3": 4393.051567,
       "range": 107.52297,
       "close": 4566.17371,
-      "macro_score": -2.696,
+      "macro_score": 0.0,
       "ohlc_source": "twelvedata",
       "ohlc_date": "2026-05-18",
-      "rsi": 54.81,
+      "rsi": null,
       "rsi_period": 14,
-      "rsi_state": "neutral",
-      "rsi_bias": "neutral",
-      "rsi_alignment": "neutral",
-      "rsi_confluence_mult": 1.0,
+      "rsi_state": "unavailable",
+      "rsi_bias": "unavailable",
+      "rsi_alignment": "unavailable",
+      "rsi_confluence_mult": 0.0,
       "combined_conviction_mult": 0.0,
-      "reason": "live_price_required"
+      "reason": "missing_live_price"
     }
   }
 }

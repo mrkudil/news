@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T18:57:01.402676Z",
+  "generated_at": "2026-05-19T19:00:56.036105Z",
   "ema_periods": {
     "fast": 20,
     "slow": 50
@@ -22,13 +22,13 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
       "ema_cross_signal": "no_cross",
-      "current_price": 1.16044,
+      "current_price": 1.16063,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
       "trend_bias": "bullish_bias",
       "suggestion": "bullish_at_ema",
-      "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+      "notes": "repair_skipped:gap_36h:twelvedata_budget_or_cooldown Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     },
@@ -47,13 +47,13 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
       "ema_cross_signal": "no_cross",
-      "current_price": 1.33999,
+      "current_price": 1.34016,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
       "trend_bias": "bullish_bias",
       "suggestion": "bullish_at_ema",
-      "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+      "notes": "repair_skipped:gap_36h:twelvedata_budget_or_cooldown Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     },
@@ -72,13 +72,13 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "below",
       "ema_cross_signal": "no_cross",
-      "current_price": 4492.42,
+      "current_price": 4495.92,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
       "trend_bias": "bearish_bias",
       "suggestion": "bearish",
-      "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+      "notes": "repair_skipped:gap_36h:twelvedata_budget_or_cooldown Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     }

@@ -1,7 +1,7 @@
 {
-  "scrape_time": "2026-05-19T18:55:38.903216Z",
+  "scrape_time": "2026-05-19T19:00:50.029821Z",
   "status": {
-    "scrape_time": "2026-05-19T18:55:38.903216Z",
+    "scrape_time": "2026-05-19T19:00:50.029821Z",
     "total_sources": 8,
     "failed_sources": 0,
     "sources": {
@@ -9,57 +9,57 @@
         "success": true,
         "items": 69,
         "error": null,
-        "duration": 0.07,
-        "latency_ms": 68
+        "duration": 0.0,
+        "latency_ms": 0
       },
       "TradingEconomics-Gold": {
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 0.38,
-        "latency_ms": 379
+        "duration": 0.21,
+        "latency_ms": 208
       },
       "Kitco": {
         "success": true,
         "items": 5,
         "error": null,
-        "duration": 0.52,
-        "latency_ms": 520
-      },
-      "Mining.com": {
-        "success": true,
-        "items": 20,
-        "error": null,
-        "duration": 1.07,
-        "latency_ms": 1069
-      },
-      "secondary": {
-        "success": true,
-        "items": 180,
-        "error": null,
-        "duration": 1.36,
-        "latency_ms": 1358
+        "duration": 0.45,
+        "latency_ms": 454
       },
       "Stooq": {
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 1.47,
-        "latency_ms": 1475
+        "duration": 0.0,
+        "latency_ms": 1
+      },
+      "secondary": {
+        "success": true,
+        "items": 180,
+        "error": null,
+        "duration": 1.58,
+        "latency_ms": 1579
+      },
+      "Mining.com": {
+        "success": true,
+        "items": 20,
+        "error": null,
+        "duration": 1.61,
+        "latency_ms": 1614
       },
       "investingLive": {
         "success": true,
         "items": 100,
         "error": null,
-        "duration": 4.37,
-        "latency_ms": 4369
+        "duration": 2.94,
+        "latency_ms": 2943
       },
       "TradingEconomics-FX": {
         "success": true,
         "items": 9,
         "error": null,
-        "duration": 4.13,
-        "latency_ms": 4126
+        "duration": 4.92,
+        "latency_ms": 4918
       }
     }
   },
@@ -118,25 +118,25 @@
           "S3": 1.157167,
           "range": 0.00517,
           "close": 1.16564,
-          "macro_score": -1.95,
+          "macro_score": 0.0,
           "ohlc_source": "twelvedata",
           "ohlc_date": "2026-05-18",
-          "rsi": 45.03,
+          "rsi": null,
           "rsi_period": 14,
-          "rsi_state": "neutral",
-          "rsi_bias": "neutral",
-          "rsi_alignment": "neutral",
-          "rsi_confluence_mult": 1.0,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
           "combined_conviction_mult": 0.0,
-          "reason": "live_price_required"
+          "reason": "missing_live_price"
         },
         "technical_summary": {
           "bias": "bearish",
-          "bullish_votes": 0,
+          "bullish_votes": 1,
           "bearish_votes": 2,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "technical_context": {
@@ -145,14 +145,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "2026-05-18",
+              "source": "twelvedata",
+              "close": 1.16564,
+              "range": 0.00517
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 1.164203,
+              "R1": 1.167507,
+              "R2": 1.169373,
+              "R3": 1.172677,
+              "S1": 1.162337,
+              "S2": 1.159033,
+              "S3": 1.157167
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "eurusd",
               "timeframe": "D1",
@@ -161,15 +174,48 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "twelvedata",
               "ok": false
             },
             "ema_20_50": {
-              "pair": "eurusd",
-              "timeframe": "D1",
-              "ok": false,
-              "source": "unavailable",
-              "reason": "no_daily_ema_history"
+              "pair": "EURUSD",
+              "timeframe": "Daily",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 1.169706,
+              "ema50": 1.169281,
+              "ema_fast": 1.169706,
+              "ema_slow": 1.169281,
+              "fast_ema": 1.169706,
+              "slow_ema": 1.169281,
+              "ema20_vs_ema50": "above",
+              "trend_bias": "bullish_bias",
+              "price": 1.16044,
+              "current_vs_ema20": "below",
+              "current_vs_ema50": "below",
+              "price_vs_fast": "below",
+              "price_vs_slow": "below",
+              "cross": "none",
+              "ema_cross_signal": "no_cross",
+              "warming_up": false,
+              "ok": true,
+              "source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "completed_closes": 119,
+              "last_completed_hour": "2026-05-18T00:00:00Z",
+              "last_close": 1.16564,
+              "close_vs_fast": "below",
+              "close_vs_slow": "below",
+              "close_structure": "below_fast_slow",
+              "ema_fast_vs_slow": "above",
+              "current_price": 1.16044,
+              "current_vs_fast": "below",
+              "current_vs_slow": "below",
+              "current_structure": "below_fast_slow",
+              "suggestion": "bullish_at_ema",
+              "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+              "twelvedata_requests_today": 3,
+              "source_basis": "local_closes + stooq_latest"
             }
           },
           "h1": {
@@ -234,17 +280,17 @@
           },
           "summary": {
             "bias": "bearish",
-            "bullish_votes": 0,
+            "bullish_votes": 1,
             "bearish_votes": 2,
             "d1_rsi_ok": false,
             "h1_rsi_ok": true,
-            "d1_ema_ok": false,
+            "d1_ema_ok": true,
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "twelvedata",
             "h1": "stooq_h1+td_seeded",
-            "d1_ema": "unavailable"
+            "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
           }
         }
       },
@@ -301,25 +347,25 @@
           "S3": 1.319917,
           "range": 0.01438,
           "close": 1.34344,
-          "macro_score": 1.236,
+          "macro_score": 0.0,
           "ohlc_source": "twelvedata",
           "ohlc_date": "2026-05-18",
-          "rsi": 43.0,
+          "rsi": null,
           "rsi_period": 14,
-          "rsi_state": "neutral",
-          "rsi_bias": "bearish",
-          "rsi_alignment": "neutral",
-          "rsi_confluence_mult": 1.0,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
           "combined_conviction_mult": 0.0,
-          "reason": "live_price_required"
+          "reason": "missing_live_price"
         },
         "technical_summary": {
           "bias": "bullish",
-          "bullish_votes": 1,
+          "bullish_votes": 2,
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "technical_context": {
@@ -328,14 +374,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "2026-05-18",
+              "source": "twelvedata",
+              "close": 1.34344,
+              "range": 0.01438
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 1.339533,
+              "R1": 1.348677,
+              "R2": 1.353913,
+              "R3": 1.363057,
+              "S1": 1.334297,
+              "S2": 1.325153,
+              "S3": 1.319917
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "gbpusd",
               "timeframe": "D1",
@@ -344,15 +403,48 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "twelvedata",
               "ok": false
             },
             "ema_20_50": {
-              "pair": "gbpusd",
-              "timeframe": "D1",
-              "ok": false,
-              "source": "unavailable",
-              "reason": "no_daily_ema_history"
+              "pair": "GBPUSD",
+              "timeframe": "Daily",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 1.347739,
+              "ema50": 1.347363,
+              "ema_fast": 1.347739,
+              "ema_slow": 1.347363,
+              "fast_ema": 1.347739,
+              "slow_ema": 1.347363,
+              "ema20_vs_ema50": "above",
+              "trend_bias": "bullish_bias",
+              "price": 1.33999,
+              "current_vs_ema20": "below",
+              "current_vs_ema50": "below",
+              "price_vs_fast": "below",
+              "price_vs_slow": "below",
+              "cross": "none",
+              "ema_cross_signal": "no_cross",
+              "warming_up": false,
+              "ok": true,
+              "source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "completed_closes": 119,
+              "last_completed_hour": "2026-05-18T00:00:00Z",
+              "last_close": 1.34344,
+              "close_vs_fast": "below",
+              "close_vs_slow": "below",
+              "close_structure": "below_fast_slow",
+              "ema_fast_vs_slow": "above",
+              "current_price": 1.33999,
+              "current_vs_fast": "below",
+              "current_vs_slow": "below",
+              "current_structure": "below_fast_slow",
+              "suggestion": "bullish_at_ema",
+              "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+              "twelvedata_requests_today": 3,
+              "source_basis": "local_closes + stooq_latest"
             }
           },
           "h1": {
@@ -417,17 +509,17 @@
           },
           "summary": {
             "bias": "bullish",
-            "bullish_votes": 1,
+            "bullish_votes": 2,
             "bearish_votes": 0,
             "d1_rsi_ok": false,
             "h1_rsi_ok": true,
-            "d1_ema_ok": false,
+            "d1_ema_ok": true,
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "twelvedata",
             "h1": "stooq_h1+td_seeded",
-            "d1_ema": "unavailable"
+            "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
           }
         }
       },
@@ -496,25 +588,25 @@
           "S3": 4393.051567,
           "range": 107.52297,
           "close": 4566.17371,
-          "macro_score": -2.696,
+          "macro_score": 0.0,
           "ohlc_source": "twelvedata",
           "ohlc_date": "2026-05-18",
-          "rsi": 54.81,
+          "rsi": null,
           "rsi_period": 14,
-          "rsi_state": "neutral",
-          "rsi_bias": "neutral",
-          "rsi_alignment": "neutral",
-          "rsi_confluence_mult": 1.0,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
           "combined_conviction_mult": 0.0,
-          "reason": "live_price_required"
+          "reason": "missing_live_price"
         },
         "technical_summary": {
           "bias": "bearish",
           "bullish_votes": 0,
-          "bearish_votes": 2,
+          "bearish_votes": 3,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "technical_context": {
@@ -523,14 +615,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "2026-05-18",
+              "source": "twelvedata",
+              "close": 4566.17,
+              "range": 107.52
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 4542.5,
+              "R1": 4608.1,
+              "R2": 4650.02,
+              "R3": 4715.62,
+              "S1": 4500.57,
+              "S2": 4434.98,
+              "S3": 4393.05
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "xauusd",
               "timeframe": "D1",
@@ -539,15 +644,48 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "twelvedata",
               "ok": false
             },
             "ema_20_50": {
-              "pair": "xauusd",
-              "timeframe": "D1",
-              "ok": false,
-              "source": "unavailable",
-              "reason": "no_daily_ema_history"
+              "pair": "XAUUSD",
+              "timeframe": "Daily",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 4636.03,
+              "ema50": 4689.56,
+              "ema_fast": 4636.026715,
+              "ema_slow": 4689.557341,
+              "fast_ema": 4636.03,
+              "slow_ema": 4689.56,
+              "ema20_vs_ema50": "below",
+              "trend_bias": "bearish_bias",
+              "price": 4492.42,
+              "current_vs_ema20": "below",
+              "current_vs_ema50": "below",
+              "price_vs_fast": "below",
+              "price_vs_slow": "below",
+              "cross": "none",
+              "ema_cross_signal": "no_cross",
+              "warming_up": false,
+              "ok": true,
+              "source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+              "completed_closes": 119,
+              "last_completed_hour": "2026-05-18T00:00:00Z",
+              "last_close": 4566.17371,
+              "close_vs_fast": "below",
+              "close_vs_slow": "below",
+              "close_structure": "below_fast_slow",
+              "ema_fast_vs_slow": "below",
+              "current_price": 4492.42,
+              "current_vs_fast": "below",
+              "current_vs_slow": "below",
+              "current_structure": "below_fast_slow",
+              "suggestion": "bearish",
+              "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+              "twelvedata_requests_today": 3,
+              "source_basis": "local_closes + stooq_latest"
             }
           },
           "h1": {
@@ -613,16 +751,16 @@
           "summary": {
             "bias": "bearish",
             "bullish_votes": 0,
-            "bearish_votes": 2,
+            "bearish_votes": 3,
             "d1_rsi_ok": false,
             "h1_rsi_ok": true,
-            "d1_ema_ok": false,
+            "d1_ema_ok": true,
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "twelvedata",
             "h1": "stooq_h1+td_seeded",
-            "d1_ema": "unavailable"
+            "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
           }
         }
       }
@@ -860,8 +998,8 @@
       "pivot_module": "pivot",
       "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
       "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
-      "pivot_levels_file": "unavailable",
-      "ema_state_file": "unavailable"
+      "pivot_levels_file": "public_html/pivot_levels.json",
+      "ema_state_file": "/home/runner/work/News/News/public_html/ema_state.json"
     },
     "technical_context": {
       "eurusd": {
@@ -870,14 +1008,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 1.16564,
+            "range": 0.00517
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 1.164203,
+            "R1": 1.167507,
+            "R2": 1.169373,
+            "R3": 1.172677,
+            "S1": 1.162337,
+            "S2": 1.159033,
+            "S3": 1.157167
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "eurusd",
             "timeframe": "D1",
@@ -886,15 +1037,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "eurusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "EURUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.169706,
+            "ema50": 1.169281,
+            "ema_fast": 1.169706,
+            "ema_slow": 1.169281,
+            "fast_ema": 1.169706,
+            "slow_ema": 1.169281,
+            "ema20_vs_ema50": "above",
+            "trend_bias": "bullish_bias",
+            "price": 1.16044,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 1.16564,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "above",
+            "current_price": 1.16044,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bullish_at_ema",
+            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -959,17 +1143,17 @@
         },
         "summary": {
           "bias": "bearish",
-          "bullish_votes": 0,
+          "bullish_votes": 1,
           "bearish_votes": 2,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       },
       "gbpusd": {
@@ -978,14 +1162,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 1.34344,
+            "range": 0.01438
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 1.339533,
+            "R1": 1.348677,
+            "R2": 1.353913,
+            "R3": 1.363057,
+            "S1": 1.334297,
+            "S2": 1.325153,
+            "S3": 1.319917
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "gbpusd",
             "timeframe": "D1",
@@ -994,15 +1191,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "gbpusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "GBPUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.347739,
+            "ema50": 1.347363,
+            "ema_fast": 1.347739,
+            "ema_slow": 1.347363,
+            "fast_ema": 1.347739,
+            "slow_ema": 1.347363,
+            "ema20_vs_ema50": "above",
+            "trend_bias": "bullish_bias",
+            "price": 1.33999,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 1.34344,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "above",
+            "current_price": 1.33999,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bullish_at_ema",
+            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -1067,17 +1297,17 @@
         },
         "summary": {
           "bias": "bullish",
-          "bullish_votes": 1,
+          "bullish_votes": 2,
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       },
       "xauusd": {
@@ -1086,14 +1316,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "2026-05-18",
+            "source": "twelvedata",
+            "close": 4566.17,
+            "range": 107.52
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 4542.5,
+            "R1": 4608.1,
+            "R2": 4650.02,
+            "R3": 4715.62,
+            "S1": 4500.57,
+            "S2": 4434.98,
+            "S3": 4393.05
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "xauusd",
             "timeframe": "D1",
@@ -1102,15 +1345,48 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "twelvedata",
             "ok": false
           },
           "ema_20_50": {
-            "pair": "xauusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "XAUUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 4636.03,
+            "ema50": 4689.56,
+            "ema_fast": 4636.026715,
+            "ema_slow": 4689.557341,
+            "fast_ema": 4636.03,
+            "slow_ema": 4689.56,
+            "ema20_vs_ema50": "below",
+            "trend_bias": "bearish_bias",
+            "price": 4492.42,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "no_cross",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 119,
+            "last_completed_hour": "2026-05-18T00:00:00Z",
+            "last_close": 4566.17371,
+            "close_vs_fast": "below",
+            "close_vs_slow": "below",
+            "close_structure": "below_fast_slow",
+            "ema_fast_vs_slow": "below",
+            "current_price": 4492.42,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "current_structure": "below_fast_slow",
+            "suggestion": "bearish",
+            "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+            "twelvedata_requests_today": 3,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -1176,40 +1452,139 @@
         "summary": {
           "bias": "bearish",
           "bullish_votes": 0,
-          "bearish_votes": 2,
+          "bearish_votes": 3,
           "d1_rsi_ok": false,
           "h1_rsi_ok": true,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "twelvedata",
           "h1": "stooq_h1+td_seeded",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     },
     "daily_ema_20_50_state": {
       "eurusd": {
-        "pair": "eurusd",
-        "timeframe": "D1",
-        "ok": false,
-        "source": "unavailable",
-        "reason": "no_daily_ema_history"
+        "pair": "EURUSD",
+        "timeframe": "Daily",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.169706,
+        "ema50": 1.169281,
+        "ema_fast": 1.169706,
+        "ema_slow": 1.169281,
+        "fast_ema": 1.169706,
+        "slow_ema": 1.169281,
+        "ema20_vs_ema50": "above",
+        "trend_bias": "bullish_bias",
+        "price": 1.16044,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "below",
+        "price_vs_fast": "below",
+        "price_vs_slow": "below",
+        "cross": "none",
+        "ema_cross_signal": "no_cross",
+        "warming_up": false,
+        "ok": true,
+        "source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "completed_closes": 119,
+        "last_completed_hour": "2026-05-18T00:00:00Z",
+        "last_close": 1.16564,
+        "close_vs_fast": "below",
+        "close_vs_slow": "below",
+        "close_structure": "below_fast_slow",
+        "ema_fast_vs_slow": "above",
+        "current_price": 1.16044,
+        "current_vs_fast": "below",
+        "current_vs_slow": "below",
+        "current_structure": "below_fast_slow",
+        "suggestion": "bullish_at_ema",
+        "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+        "twelvedata_requests_today": 3,
+        "source_basis": "local_closes + stooq_latest"
       },
       "gbpusd": {
-        "pair": "gbpusd",
-        "timeframe": "D1",
-        "ok": false,
-        "source": "unavailable",
-        "reason": "no_daily_ema_history"
+        "pair": "GBPUSD",
+        "timeframe": "Daily",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.347739,
+        "ema50": 1.347363,
+        "ema_fast": 1.347739,
+        "ema_slow": 1.347363,
+        "fast_ema": 1.347739,
+        "slow_ema": 1.347363,
+        "ema20_vs_ema50": "above",
+        "trend_bias": "bullish_bias",
+        "price": 1.33999,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "below",
+        "price_vs_fast": "below",
+        "price_vs_slow": "below",
+        "cross": "none",
+        "ema_cross_signal": "no_cross",
+        "warming_up": false,
+        "ok": true,
+        "source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "completed_closes": 119,
+        "last_completed_hour": "2026-05-18T00:00:00Z",
+        "last_close": 1.34344,
+        "close_vs_fast": "below",
+        "close_vs_slow": "below",
+        "close_structure": "below_fast_slow",
+        "ema_fast_vs_slow": "above",
+        "current_price": 1.33999,
+        "current_vs_fast": "below",
+        "current_vs_slow": "below",
+        "current_structure": "below_fast_slow",
+        "suggestion": "bullish_at_ema",
+        "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+        "twelvedata_requests_today": 3,
+        "source_basis": "local_closes + stooq_latest"
       },
       "xauusd": {
-        "pair": "xauusd",
-        "timeframe": "D1",
-        "ok": false,
-        "source": "unavailable",
-        "reason": "no_daily_ema_history"
+        "pair": "XAUUSD",
+        "timeframe": "Daily",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 4636.03,
+        "ema50": 4689.56,
+        "ema_fast": 4636.026715,
+        "ema_slow": 4689.557341,
+        "fast_ema": 4636.03,
+        "slow_ema": 4689.56,
+        "ema20_vs_ema50": "below",
+        "trend_bias": "bearish_bias",
+        "price": 4492.42,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "below",
+        "price_vs_fast": "below",
+        "price_vs_slow": "below",
+        "cross": "none",
+        "ema_cross_signal": "no_cross",
+        "warming_up": false,
+        "ok": true,
+        "source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+        "completed_closes": 119,
+        "last_completed_hour": "2026-05-18T00:00:00Z",
+        "last_close": 4566.17371,
+        "close_vs_fast": "below",
+        "close_vs_slow": "below",
+        "close_structure": "below_fast_slow",
+        "ema_fast_vs_slow": "below",
+        "current_price": 4492.42,
+        "current_vs_fast": "below",
+        "current_vs_slow": "below",
+        "current_structure": "below_fast_slow",
+        "suggestion": "bearish",
+        "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+        "twelvedata_requests_today": 3,
+        "source_basis": "local_closes + stooq_latest"
       }
     },
     "h1_ema_20_50_state": {
@@ -1364,7 +1739,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "twelvedata",
         "ok": false
       },
       "gbpusd": {
@@ -1375,7 +1750,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "twelvedata",
         "ok": false
       },
       "xauusd": {
@@ -1386,7 +1761,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "twelvedata",
         "ok": false
       }
     },
@@ -1448,17 +1823,17 @@
         "S3": 1.157167,
         "range": 0.00517,
         "close": 1.16564,
-        "macro_score": -1.95,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 45.03,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "neutral",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       },
       "gbpusd": {
         "price_state": "unavailable",
@@ -1485,17 +1860,17 @@
         "S3": 1.319917,
         "range": 0.01438,
         "close": 1.34344,
-        "macro_score": 1.236,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 43.0,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "bearish",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       },
       "xauusd": {
         "price_state": "unavailable",
@@ -1522,17 +1897,17 @@
         "S3": 4393.051567,
         "range": 107.52297,
         "close": 4566.17371,
-        "macro_score": -2.696,
+        "macro_score": 0.0,
         "ohlc_source": "twelvedata",
         "ohlc_date": "2026-05-18",
-        "rsi": 54.81,
+        "rsi": null,
         "rsi_period": 14,
-        "rsi_state": "neutral",
-        "rsi_bias": "neutral",
-        "rsi_alignment": "neutral",
-        "rsi_confluence_mult": 1.0,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        "reason": "live_price_required"
+        "reason": "missing_live_price"
       }
     }
   },
@@ -1542,7 +1917,7 @@
         "title": "Euro weakens as strong ADP data and Trump\u2019s Iran comments boost US Dollar",
         "link": "https://www.fxstreet.com/news/euro-weakens-as-strong-adp-data-and-trumps-iran-comments-boost-us-dollar-202605191627",
         "published_at": "2026-05-19T16:27:28+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "FXStreet",
         "summary": "The EUR/USD pair weakens toward the 1.1600 region on Tuesday as the United States (US) Dollar (USD) strengthens following solid labor-market data and rising Treasury yields, while mixed developments in the Eurozone limit support for the shared currency.",
         "sentiment": "bullish",
@@ -1576,13 +1951,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "EURUSD seller take the pair to the lowest level since April 8th. Sellers in control.",
         "link": "https://investinglive.com/technical-analysis/eurusd-seller-take-the-pair-to-the-lowest-level-since-april-8th-sellers-in-control-20260519/",
         "published_at": "2026-05-19T16:03:42+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "The EURUSD is extending lower, falling to a new session low at 1.1593 after failing to sustain an earlier upside break in the early Asian-Pacific session. In the early trading today, the pair traded as high as 1.1661 briefly pushing above a key swing area ceiling near 1.1655, a level that had capped",
         "sentiment": "bearish",
@@ -1616,13 +1991,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Canadian Dollar gains against Euro despite softer domestic inflation data",
         "link": "https://www.fxstreet.com/news/canadian-dollar-gains-against-euro-despite-softer-domestic-inflation-data-202605191504",
         "published_at": "2026-05-19T15:04:51+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "FXStreet",
         "summary": "The Euro (EUR) weakens against the Canadian Dollar (CAD) on Tuesday as rising Oil prices linked to the US-Iran conflict continue to support the commodity-linked Loonie, even as the latest Canadian inflation data came in softer than expected.",
         "sentiment": "bullish",
@@ -1656,13 +2031,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "EUR/USD Daily Outlook",
         "link": "https://www.actionforex.com/technical-outlook/eurusd-outlook/641057-eur-usd-daily-outlook-2400/",
         "published_at": "2026-05-19T12:14:11+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "ActionForex",
         "summary": "Intraday bias in EUR/USD remains neutral as consolidations continue above 1.1607 temporary low. Risk will stay on the downside as long as 55 4H EMA (now at 1.1686) holds. Rebound from 1.1408 could have completed as a corrective three-wave move. Break of 1.1607 will bring deeper fall to retest 1.1408",
         "sentiment": "neutral",
@@ -1696,13 +2071,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "investingLive European FX news wrap: UK jobs data disappoints, US dollar remains supported",
         "link": "https://investinglive.com/news/investinglive-european-fx-news-wrap-uk-jobs-data-disappoints-us-dollar-remains-supported-20260519/",
         "published_at": "2026-05-19T11:39:20+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "Nasdaq's bullish momentum stalls as downside risks mount: pause or start of a correction?Euro area trade surplus narrows in March as energy deficit widens on Middle East conflictOil prices remain persistently elevated amid prolonged US-Iran stalemateThere is potential for a strong dollar rally this ",
         "sentiment": "neutral",
@@ -1736,13 +2111,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Euro Near One-Month Low Amid Middle East Risks",
         "link": "https://tradingeconomics.com/euro-area/currency/news/551881",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -1775,7 +2150,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "eur",
         "te_pairs": [
           "eurusd"
@@ -1786,7 +2161,7 @@
         "title": "DXY Rises to 6-Week High",
         "link": "https://tradingeconomics.com/united-states/currency/news/552004",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bullish",
@@ -1819,7 +2194,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "usd",
         "te_pairs": [
           "eurusd",
@@ -1831,7 +2206,7 @@
         "title": "Dollar Steadies Following Sharp Decline",
         "link": "https://tradingeconomics.com/united-states/currency/news/551753",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -1864,7 +2239,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "usd",
         "te_pairs": [
           "eurusd",
@@ -1876,7 +2251,7 @@
         "title": "EURUSD bangs against target resistance at 1.1655. Can the buyers get through the target.",
         "link": "https://investinglive.com/technical-analysis/eurusd-bangs-against-target-resistance-at-11655-can-the-buyers-get-through-the-target-20260518/",
         "published_at": "2026-05-18T17:45:48+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "In the morning kickstart video, I commented on the 1.1655 level as a key target.  The infograph highlights my key technical comment on that pair (see highlighted yellow are on the infograph below from the start of the trading day):The price did move higher and tested that level in the North American",
         "sentiment": "bullish",
@@ -1910,13 +2285,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -1951,7 +2326,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       }
     ],
     "gbpusd": [
@@ -1959,7 +2334,7 @@
         "title": "The GBPUSD stays below MA resistance.  Risk is defined.",
         "link": "https://investinglive.com/technical-analysis/the-gbpusd-stays-below-ma-resistance-risk-is-defined-20260519/",
         "published_at": "2026-05-19T14:39:37+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "The GBPUSD remains under pressure after last week\u2019s sharp political-driven selloff sent the pair tumbling nearly 350 pips from the 1.3652 high to the low near 1.3300 reached yesterday. Although buyers attempted a rebound, the recovery stalled at key technical resistance levels, allowing sellers to r",
         "sentiment": "bearish",
@@ -1993,13 +2368,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "British Pound: Fiscal relief supports recovery versus US Dollar \u2013 MUFG",
         "link": "https://www.fxstreet.com/news/british-pound-fiscal-relief-supports-recovery-versus-us-dollar-mufg-202605191252",
         "published_at": "2026-05-19T12:52:06+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "FXStreet",
         "summary": "MUFG's Lee Hardman highlights a sharp GBP rebound, with GBP/USD back above 1.3400 as reports suggest Andy Burnham would keep existing United Kingdom (UK) fiscal rules.",
         "sentiment": "bullish",
@@ -2033,13 +2408,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "GBP/USD Daily Outlook",
         "link": "https://www.actionforex.com/technical-outlook/gbpusd-outlook/641049-gbp-usd-daily-outlook-2404/",
         "published_at": "2026-05-19T12:08:57+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "ActionForex",
         "summary": "Intraday bias in GBP/USD remains neutral for the moment and some consolidations would be seen above 1.330. Further fall is expected as long as 55 4H EMA (now at 1.3469) holds. Below 1.3300 will target a retest on 1.3158 support first. However, sustained break of the EMA will dampen the bearish case ",
         "sentiment": "neutral",
@@ -2073,13 +2448,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "GBP/USD: Sellers Rretain Control Below Key SMAs",
         "link": "https://www.actionforex.com/contributors/technical-analysis/641007-gbp-usd-sellers-rretain-control-below-key-smas/",
         "published_at": "2026-05-19T08:24:25+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "ActionForex",
         "summary": "GBP/USD stays cautious below SMAs at 1.3420 as UK unemployment rate rises. Short-term bias is bearish; fresh sellers await below 1.3200. GBP/USD remains capped below its 50- and 200-day simple moving averages (SMAs) near 1.3420 as investors digest discouraging political and macroeconomic development",
         "sentiment": "bearish",
@@ -2113,13 +2488,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Sterling Dips to $1.34 Amid Weak Jobs Data",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551860",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -2152,7 +2527,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "gbp",
         "te_pairs": [
           "gbpusd"
@@ -2163,7 +2538,7 @@
         "title": "DXY Rises to 6-Week High",
         "link": "https://tradingeconomics.com/united-states/currency/news/552004",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bullish",
@@ -2208,7 +2583,7 @@
         "title": "Dollar Steadies Following Sharp Decline",
         "link": "https://tradingeconomics.com/united-states/currency/news/551753",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -2253,7 +2628,7 @@
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2294,7 +2669,7 @@
         "title": "Sterling Tries to Recover but Political Risks Linger",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551601",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2327,7 +2702,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "gbp",
         "te_pairs": [
           "gbpusd"
@@ -2338,7 +2713,7 @@
         "title": "Sterling Little-Changed Amid Political and Geopolitical Turmoil",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551506",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2371,7 +2746,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "gbp",
         "te_pairs": [
           "gbpusd"
@@ -2381,10 +2756,55 @@
     ],
     "xauusd": [
       {
+        "title": "Central banks are buying more gold than expected, and purchases will increase further through 2026 \u2013 Goldman Sachs",
+        "link": "https://www.kitco.com/news/article/2026-05-19/central-banks-are-buying-more-gold-expected-and-purchases-will-increase",
+        "published_at": "2026-05-19T14:40:14-04:00",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
+        "source": "Kitco",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": -1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": 0.075,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
         "title": "Gold price plunges as Oil shock sends yields soaring",
         "link": "https://www.fxstreet.com/news/gold-price-plunges-as-oil-shock-sends-yields-soaring-202605191759",
         "published_at": "2026-05-19T17:59:56+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "FXStreet",
         "summary": "Gold (XAU/USD) price falls over 1.3% on Tuesday as the Greenback posts solid gains underpinned by US Treasury yields,  with the 10-year note yield near a 16-month peak. At the time of writing, XAU/USD trades at $4,506 after reaching a high of $4,589.",
         "sentiment": "bearish",
@@ -2423,7 +2843,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Jeff Currie sees gold price pullback before $10,000 run",
@@ -2468,7 +2888,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Westgold sells Chalice project to Corazon for $18M",
@@ -2513,13 +2933,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold prices remain below $4,500 as U.S. pending home sales rise 1.4% in April",
         "link": "https://www.kitco.com/news/article/2026-05-19/gold-prices-remain-below-4500-us-pending-home-sales-rise-14-april",
         "published_at": "2026-05-19T11:44:59-04:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "neutral",
@@ -2558,7 +2978,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Barrick intensifies Ebola screening at Kibali gold mine after Congo outbreak",
@@ -2603,13 +3023,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold will hit $5,800 ATH by December, but silver has highest upside, platinum has breakout potential \u2013 MKS PAMP\u2019s Shiels",
         "link": "https://www.kitco.com/news/article/2026-05-19/gold-will-hit-5800-ath-december-silver-has-highest-upside-platinum-has",
         "published_at": "2026-05-19T10:55:53-04:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "bullish",
@@ -2648,13 +3068,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold breaks below $4,540, silver tests $75 as yields rise, Hormuz talks cap oil - Kitco AM Report",
         "link": "https://www.kitco.com/news/article/2026-05-19/gold-breaks-below-4540-silver-tests-75-yields-rise-hormuz-talks-cap-oil",
         "published_at": "2026-05-19T09:46:04-04:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "neutral",
@@ -2693,13 +3113,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold slides to late-March lows amid firm US Dollar and elevated Treasury yields",
         "link": "https://www.fxstreet.com/news/gold-softens-as-firm-us-dollar-higher-yields-and-rising-fed-hike-bets-weigh-202605191157",
         "published_at": "2026-05-19T13:44:10+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "FXStreet",
         "summary": "Gold (XAU/USD) trades on the back foot on Tuesday as traders closely monitor developments surrounding the US-Iran negotiations and amid a broad macroeconomic background linked to the prolonged conflict that continues to weigh on the precious metal.",
         "sentiment": "bearish",
@@ -2739,13 +3159,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold Recovers Some Losses: What\u2019s Driving the Market?",
         "link": "https://www.actionforex.com/contributors/technical-analysis/641013-gold-recovers-some-losses-whats-driving-the-market/",
         "published_at": "2026-05-19T09:30:44+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
+        "scraped_at": "2026-05-19T19:00:50.029821Z",
         "source": "ActionForex",
         "summary": "Gold rose to 4,600 USD per ounce on Tuesday, continuing its recovery from the previous session, and is now trading around 4,548 USD. Market sentiment was supported by hopes of a possible resumption of negotiations between the US and Iran, which has somewhat eased concerns over inflation and the ener",
         "sentiment": "bearish",
@@ -2784,53 +3204,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
-      },
-      {
-        "title": "Gold Price Forecast: XAU/USD sellers retain control whilst below 21-day SMA near $4,650",
-        "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-sellers-retain-control-whilst-below-21-day-sma-near-4-650-202605190244",
-        "published_at": "2026-05-19T02:44:31+00:00",
-        "scraped_at": "2026-05-19T18:55:38.903216Z",
-        "source": "FXStreet",
-        "summary": "Gold\u00a0is back in the red around $4,550 in Asia on Tuesday, having faced rejection once again just shy of the $4,600 mark, as markets digest the latest developments around the conflict between the United States (US) and Iran.",
-        "sentiment": "bearish",
-        "sent_score": -1,
-        "symbols": [
-          "USD",
-          "XAU"
-        ],
-        "impact": "low",
-        "pair_macro_bias": -0.0,
-        "macro_conf": "low",
-        "macro_factors": {
-          "rate": 0.0,
-          "curve": -0.25,
-          "risk": -0.515,
-          "diff": 0.0,
-          "momentum": -1.0,
-          "real_yield": -1.4,
-          "real_yield_momentum": -0.833,
-          "growth": -0.904,
-          "usd": -0.57,
-          "broad_usd": -1.5,
-          "inflation_expectations": -0.125,
-          "treasury_vol": 1.5,
-          "gold_vol": 0.075,
-          "energy_inflation": 1.0,
-          "liquidity": -0.0
-        },
-        "fused_score": -1.0,
-        "fused_sentiment": "bearish",
-        "fusion_components": {
-          "sentiment": -1,
-          "sent_clamped": -1.0,
-          "macro_score": -0.0,
-          "weights": {
-            "macro": 0.0,
-            "sent": 1.0
-          }
-        },
-        "is_new": true
+        "is_new": false
       }
     ]
   }

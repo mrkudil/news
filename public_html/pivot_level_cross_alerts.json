@@ -1,4 +1,31 @@
 {
-  "pairs": {},
+  "pairs": {
+    "eurusd": {
+      "last_price": 1.16564,
+      "sides": {
+        "R3": "below",
+        "R2": "below",
+        "R1": "below",
+        "PP": "above",
+        "S1": "above",
+        "S2": "above",
+        "S3": "above"
+      },
+      "updated_at": "2026-05-19T06:11:56.954738Z"
+    },
+    "gbpusd": {
+      "last_price": 1.34344,
+      "sides": {
+        "R3": "below",
+        "R2": "below",
+        "R1": "below",
+        "PP": "above",
+        "S1": "above",
+        "S2": "above",
+        "S3": "above"
+      },
+      "updated_at": "2026-05-19T06:11:56.954771Z"
+    }
+  },
   "alerts": {}
 }

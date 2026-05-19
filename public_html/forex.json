@@ -1,7 +1,7 @@
 {
-  "scrape_time": "2026-05-19T06:07:41.106882Z",
+  "scrape_time": "2026-05-19T06:11:28.795510Z",
   "status": {
-    "scrape_time": "2026-05-19T06:07:41.106882Z",
+    "scrape_time": "2026-05-19T06:11:28.795510Z",
     "total_sources": 8,
     "failed_sources": 0,
     "sources": {
@@ -9,57 +9,57 @@
         "success": true,
         "items": 69,
         "error": null,
-        "duration": 0.07,
-        "latency_ms": 72
+        "duration": 0.0,
+        "latency_ms": 0
       },
       "TradingEconomics-Gold": {
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 0.21,
-        "latency_ms": 214
+        "duration": 0.27,
+        "latency_ms": 270
       },
       "Kitco": {
         "success": true,
         "items": 5,
         "error": null,
-        "duration": 0.44,
-        "latency_ms": 444
-      },
-      "Mining.com": {
-        "success": true,
-        "items": 19,
-        "error": null,
-        "duration": 1.12,
-        "latency_ms": 1119
-      },
-      "secondary": {
-        "success": true,
-        "items": 180,
-        "error": null,
-        "duration": 1.47,
-        "latency_ms": 1473
+        "duration": 0.34,
+        "latency_ms": 335
       },
       "Stooq": {
         "success": true,
         "items": 3,
         "error": null,
-        "duration": 2.32,
-        "latency_ms": 2315
+        "duration": 0.0,
+        "latency_ms": 1
+      },
+      "Mining.com": {
+        "success": true,
+        "items": 19,
+        "error": null,
+        "duration": 1.23,
+        "latency_ms": 1235
+      },
+      "secondary": {
+        "success": true,
+        "items": 180,
+        "error": null,
+        "duration": 1.53,
+        "latency_ms": 1525
       },
       "investingLive": {
         "success": true,
         "items": 100,
         "error": null,
-        "duration": 3.7,
-        "latency_ms": 3700
+        "duration": 3.71,
+        "latency_ms": 3707
       },
       "TradingEconomics-FX": {
         "success": true,
         "items": 9,
         "error": null,
-        "duration": 4.92,
-        "latency_ms": 4916
+        "duration": 4.41,
+        "latency_ms": 4414
       }
     }
   },
@@ -118,7 +118,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 0.137,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -147,14 +147,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "eurusd",
               "timeframe": "D1",
@@ -163,7 +176,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -245,7 +258,7 @@
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "unavailable",
             "h1": "stooq_h1+td_seeded",
             "d1_ema": "unavailable"
           }
@@ -304,7 +317,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 1.236,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -333,14 +346,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "gbpusd",
               "timeframe": "D1",
@@ -349,7 +375,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -431,7 +457,7 @@
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "unavailable",
             "h1": "stooq_h1+td_seeded",
             "d1_ema": "unavailable"
           }
@@ -502,7 +528,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -2.521,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -531,14 +557,27 @@
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "xauusd",
               "timeframe": "D1",
@@ -547,7 +586,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -629,7 +668,7 @@
             "h1_ema_ok": true
           },
           "sources": {
-            "pivot": "pivot_levels",
+            "pivot": "unavailable",
             "h1": "stooq_h1+td_seeded",
             "d1_ema": "unavailable"
           }
@@ -872,8 +911,8 @@
       "pivot_module": "pivot",
       "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
       "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
-      "pivot_levels_file": "unavailable",
-      "ema_state_file": "unavailable"
+      "pivot_levels_file": "public_html/pivot_levels.json",
+      "ema_state_file": "/home/runner/work/News/News/public_html/ema_state.json"
     },
     "technical_context": {
       "eurusd": {
@@ -882,14 +921,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "eurusd",
             "timeframe": "D1",
@@ -898,7 +950,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -980,7 +1032,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -991,14 +1043,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "gbpusd",
             "timeframe": "D1",
@@ -1007,7 +1072,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -1089,7 +1154,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -1100,14 +1165,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "xauusd",
             "timeframe": "D1",
@@ -1116,7 +1194,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -1198,7 +1276,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -1382,7 +1460,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "gbpusd": {
@@ -1393,7 +1471,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "xauusd": {
@@ -1404,7 +1482,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       }
     },
@@ -1466,7 +1544,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": 0.137,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,
@@ -1505,7 +1583,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": 1.236,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,
@@ -1544,7 +1622,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": -2.521,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,
@@ -1566,7 +1644,7 @@
         "title": "EURUSD Zigzag Correction Points to Elliott Wave Support at 1.148\u20131.160",
         "link": "https://www.actionforex.com/contributors/technical-analysis/640987-eurusd-zigzag-correction-points-to-elliott-wave-support-at-1-148-1-160/",
         "published_at": "2026-05-19T04:58:26+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "ActionForex",
         "summary": "EURUSD is unfolding a corrective zigzag structure from the April 17, 2026 high. First, wave A ended at 1.1655, establishing the initial leg of the decline. Then, wave B rallied to 1.1796, as shown on the one\u2011hour chart. From that point onward, wave C began to progress lower, subdividing into five sm",
         "sentiment": "neutral",
@@ -1600,13 +1678,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Euro weakens below 1.1650 as Iran uncertainty supports US Dollar",
         "link": "https://www.fxstreet.com/news/euro-weakens-below-11650-as-iran-uncertainty-supports-us-dollar-202605190153",
         "published_at": "2026-05-19T01:53:37+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "The EUR/USD pair trades in negative territory around 1.1645 during the early Asian trading hours on Tuesday. The Euro (EUR) softens against the US Dollar (USD) amid persistent uncertainty in the Middle East surrounding Iran.",
         "sentiment": "bearish",
@@ -1640,13 +1718,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Dollar Steadies Following Sharp Decline",
         "link": "https://tradingeconomics.com/united-states/currency/news/551753",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -1679,7 +1757,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "usd",
         "te_pairs": [
           "eurusd",
@@ -1691,7 +1769,7 @@
         "title": "Euro rises as Trump delays Iran strike, USD weakens",
         "link": "https://www.fxstreet.com/news/euro-rises-as-trump-delays-iran-strike-usd-weakens-202605182219",
         "published_at": "2026-05-18T22:19:26+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "The Euro advances late in the North American session, up by 0.26% amid a volatile session characterized by geopolitical headlines and broad US Dollar weakness across the board. At the time of writing, the EUR/USD pair trades at 1.1654 after bouncing off daily lows of 1.1608.",
         "sentiment": "bullish",
@@ -1725,13 +1803,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "EURUSD bangs against target resistance at 1.1655. Can the buyers get through the target.",
         "link": "https://investinglive.com/technical-analysis/eurusd-bangs-against-target-resistance-at-11655-can-the-buyers-get-through-the-target-20260518/",
         "published_at": "2026-05-18T17:45:48+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "investingLive",
         "summary": "In the morning kickstart video, I commented on the 1.1655 level as a key target.  The infograph highlights my key technical comment on that pair (see highlighted yellow are on the infograph below from the start of the trading day):The price did move higher and tested that level in the North American",
         "sentiment": "bullish",
@@ -1765,13 +1843,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "EUR/USD Mid-Day Outlook",
         "link": "https://www.actionforex.com/technical-outlook/eurusd-outlook/640942-eur-usd-mid-day-outlook-2320/",
         "published_at": "2026-05-18T13:01:05+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "ActionForex",
         "summary": "Daily Pivots: (S1) 1.1603; (P) 1.1637; (R1) 1.1658; More\u2026. Intraday bias in EUR/USD is turned neutral with current recovery, and some consolidations could be seen above 1.1607 temporary low. Risk will stay on the downside as long as 55 4H EMA (now at 1.1700) holds. Rebound from 1.1408 could have com",
         "sentiment": "neutral",
@@ -1805,13 +1883,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -1846,13 +1924,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Broader energy shock may pressure Europe and lift dollar, Goldman says",
         "link": "https://www.investing.com/news/forex-news/broader-energy-shock-may-pressure-europe-and-lift-dollar-goldman-says-4694730",
         "published_at": "2026-05-18T07:27:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "Investing.com",
         "summary": "",
         "sentiment": "neutral",
@@ -1887,13 +1965,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Euro Bounces Back as Middle East Hopes Rise",
         "link": "https://tradingeconomics.com/euro-area/currency/news/551610",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bullish",
@@ -1926,7 +2004,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "eur",
         "te_pairs": [
           "eurusd"
@@ -1937,7 +2015,7 @@
         "title": "Euro Hovers Near April Lows as Iran War Weighs on Growth",
         "link": "https://tradingeconomics.com/euro-area/currency/news/551529",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -1970,7 +2048,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "eur",
         "te_pairs": [
           "eurusd"
@@ -1983,7 +2061,7 @@
         "title": "British Pound softens as UK political turmoil, hawkish Fed bets weigh",
         "link": "https://www.fxstreet.com/news/british-pound-softens-as-uk-political-turmoil-hawkish-fed-bets-weigh-202605190242",
         "published_at": "2026-05-19T02:42:06+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "The GBP/USD pair loses ground to near 1.3415 during the Asian trading hours on Tuesday. The British Pound (GBP) edges lower against the Greenback amid UK political turmoil. Traders will take more cues from the UK employment report, which is due later on Tuesday.",
         "sentiment": "bearish",
@@ -2017,13 +2095,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Dollar Steadies Following Sharp Decline",
         "link": "https://tradingeconomics.com/united-states/currency/news/551753",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "bearish",
@@ -2068,7 +2146,7 @@
         "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
         "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
         "published_at": "2026-05-18T12:26:10+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "investingLive",
         "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
         "sentiment": "neutral",
@@ -2109,7 +2187,7 @@
         "title": "Sterling Tries to Recover but Political Risks Linger",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551601",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2142,7 +2220,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "gbp",
         "te_pairs": [
           "gbpusd"
@@ -2153,7 +2231,7 @@
         "title": "Sterling Little-Changed Amid Political and Geopolitical Turmoil",
         "link": "https://tradingeconomics.com/united-kingdom/currency/news/551506",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2186,7 +2264,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "gbp",
         "te_pairs": [
           "gbpusd"
@@ -2197,7 +2275,7 @@
         "title": "Dollar Index Retreats to 99",
         "link": "https://tradingeconomics.com/united-states/currency/news/551631",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2230,7 +2308,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "usd",
         "te_pairs": [
           "eurusd",
@@ -2242,7 +2320,7 @@
         "title": "Dollar Little Changed to Kick Off the Week",
         "link": "https://tradingeconomics.com/united-states/currency/news/551581",
         "published_at": "2026-05-18T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2275,7 +2353,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true,
+        "is_new": false,
         "te_source": "usd",
         "te_pairs": [
           "eurusd",
@@ -2289,7 +2367,7 @@
         "title": "India Gold price today: Gold falls, according to FXStreet data",
         "link": "https://www.fxstreet.com/news/india-gold-price-today-gold-falls-according-to-fxstreet-data-202605190435",
         "published_at": "2026-05-19T04:35:25+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "Gold prices fell in India on Tuesday, according to data compiled by FXStreet.",
         "sentiment": "bearish",
@@ -2328,13 +2406,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold weakens as stalled US\u2011Iran talks and Fed hike bets bolster US Dollar",
         "link": "https://www.fxstreet.com/news/gold-weakens-as-stalled-us-iran-talks-and-fed-hike-bets-bolster-us-dollar-202605190417",
         "published_at": "2026-05-19T04:17:39+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "Gold (XAU/USD) attracts fresh sellers following an Asian session move up to the $4,590 region, stalling the previous day's modest recovery from the lowest level since March 30.",
         "sentiment": "bearish",
@@ -2374,13 +2452,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold Price Forecast: XAU/USD sellers retain control whilst below 21-day SMA near $4,650",
         "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-sellers-retain-control-whilst-below-21-day-sma-near-4-650-202605190244",
         "published_at": "2026-05-19T02:44:31+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "Gold\u00a0is back in the red around $4,550 in Asia on Tuesday, having faced rejection once again just shy of the $4,600 mark, as markets digest the latest developments around the conflict between the United States (US) and Iran.",
         "sentiment": "bearish",
@@ -2420,13 +2498,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold Eases Amid Middle East Uncertainty",
         "link": "https://tradingeconomics.com/commodity/gold/news/551794",
         "published_at": "2026-05-19T00:00:00+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "TradingEconomics",
         "summary": "",
         "sentiment": "neutral",
@@ -2465,13 +2543,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold rebounds above $4,550 on weaker US Dollar",
         "link": "https://www.fxstreet.com/news/gold-rebounds-above-4-550-on-weaker-us-dollar-202605182311",
         "published_at": "2026-05-18T23:11:53+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "Gold price (XAU/USD) recovers some lost ground from a one-and-a-half-month low to around $4,565 during the early Asian session on Tuesday. The precious metal edges higher amid a weaker US Dollar (USD).",
         "sentiment": "neutral",
@@ -2511,13 +2589,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "ICYMI - Goldman cuts US recession odds to 25% as Hormuz closure impact stays contained",
         "link": "https://investinglive.com/news/cymi-goldman-cuts-us-recession-odds-to-25-as-hormuz-closure-impact-stays-contained-20260518/",
         "published_at": "2026-05-18T21:27:22+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "investingLive",
         "summary": "Goldman Sachs cuts its 12-month US recession probability to 25% from 30%, with chief economist Jan Hatzius citing resilient activity and easing financial conditions despite the Strait of Hormuz closure.Summary:US recession probability cut to 25% from 30%, with economic activity holding up and financ",
         "sentiment": "bearish",
@@ -2556,13 +2634,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold price hold steadies, silver rebounds as Hormuz risk keeps oil, yields in focus - PM Report",
         "link": "https://www.kitco.com/news/article/2026-05-18/gold-price-hold-steadies-silver-rebounds-hormuz-risk-keeps-oil-yields-focus",
         "published_at": "2026-05-18T17:10:52-04:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "Kitco",
         "summary": "",
         "sentiment": "bullish",
@@ -2601,7 +2679,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Ghana seeks 30% of large gold mines\u2019 output for local refineries",
@@ -2646,13 +2724,13 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Gold Price Forecast: XAU/USD buyers are losing the battle",
         "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-buyers-are-losing-the-battle-202605181703",
         "published_at": "2026-05-18T17:03:31+00:00",
-        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "scraped_at": "2026-05-19T06:11:28.795510Z",
         "source": "FXStreet",
         "summary": "XAU/USD bottomed at $4,480 at the beginning of the week, its lowest since late March, as a dismal market sentiment fueled demand for the US Dollar (USD).",
         "sentiment": "neutral",
@@ -2692,7 +2770,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       },
       {
         "title": "Zambia forms gold venture to formalize mining, build processing",
@@ -2737,7 +2815,7 @@
             "sent": 1.0
           }
         },
-        "is_new": true
+        "is_new": false
       }
     ]
   }

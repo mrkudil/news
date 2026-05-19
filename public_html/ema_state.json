@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T06:08:50.799869Z",
+  "generated_at": "2026-05-19T06:11:59.033446Z",
   "ema_periods": {
     "fast": 20,
     "slow": 50
@@ -22,13 +22,13 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-      "current_price": 1.16406,
+      "current_price": 1.16411,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,
       "trend_bias": "neutral_bias",
       "suggestion": "warming_up",
-      "notes": "repair_skipped:missing_history:twelvedata_api_error:You have run out of API credits for the current minute. 15 API credits were used, with the current limit being 8. Wait fNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
+      "notes": "repair_skipped:missing_history:twelvedata_budget_or_cooldownNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     },
@@ -47,13 +47,13 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-      "current_price": 1.34056,
+      "current_price": 1.34081,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,
       "trend_bias": "neutral_bias",
       "suggestion": "warming_up",
-      "notes": "repair_skipped:missing_history:twelvedata_api_error:You have run out of API credits for the current minute. 16 API credits were used, with the current limit being 8. Wait fNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
+      "notes": "repair_skipped:missing_history:twelvedata_budget_or_cooldownNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     },
@@ -72,13 +72,13 @@
       "close_structure": null,
       "ema_fast_vs_slow": null,
       "ema_cross_signal": null,
-      "current_price": 4539.41,
+      "current_price": 4539.28,
       "current_vs_fast": null,
       "current_vs_slow": null,
       "current_structure": null,
       "trend_bias": "neutral_bias",
       "suggestion": "warming_up",
-      "notes": "repair_skipped:missing_history:twelvedata_api_error:You have run out of API credits for the current minute. 17 API credits were used, with the current limit being 8. Wait fNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
+      "notes": "repair_skipped:missing_history:twelvedata_budget_or_cooldownNo completed Daily close history available yet. EMA50 is still warming up; not enough completed Daily closes yet.",
       "twelvedata_requests_today": 3,
       "source_basis": "local_closes + stooq_latest"
     }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T06:08:29.338988+00:00",
+  "timestamp": "2026-05-19T06:11:33.511442+00:00",
   "macro": {
     "timestamp": "2026-05-19T06:07:44.136446+00:00",
     "run_id": "9323a796",
@@ -333,7 +333,7 @@
     },
     "_regime": "neutral",
     "_prev_scores": {
-      "eurusd": 0.123,
+      "eurusd": 0.122,
       "gbpusd": 1.236,
       "xauusd": -2.521
     },
@@ -457,8 +457,8 @@
       "pivot_module": "pivot",
       "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
       "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
-      "pivot_levels_file": "unavailable",
-      "ema_state_file": "unavailable"
+      "pivot_levels_file": "public_html/pivot_levels.json",
+      "ema_state_file": "/home/runner/work/News/News/public_html/ema_state.json"
     },
     "technical_context": {
       "eurusd": {
@@ -467,14 +467,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "eurusd",
             "timeframe": "D1",
@@ -483,7 +496,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -565,7 +578,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -576,14 +589,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "gbpusd",
             "timeframe": "D1",
@@ -592,7 +618,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -674,7 +700,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -685,14 +711,27 @@
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "xauusd",
             "timeframe": "D1",
@@ -701,7 +740,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -783,7 +822,7 @@
           "h1_ema_ok": true
         },
         "sources": {
-          "pivot": "pivot_levels",
+          "pivot": "unavailable",
           "h1": "stooq_h1+td_seeded",
           "d1_ema": "unavailable"
         }
@@ -967,7 +1006,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "gbpusd": {
@@ -978,7 +1017,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "xauusd": {
@@ -989,7 +1028,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       }
     },
@@ -1079,7 +1118,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 0.137,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1265,7 +1304,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 1.236,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1463,7 +1502,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -2.521,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1651,7 +1690,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 0.137,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1837,7 +1876,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": 1.236,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -2035,7 +2074,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -2.521,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -2195,7 +2234,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": 0.137,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,
@@ -2234,7 +2273,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": 1.236,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,
@@ -2273,7 +2312,7 @@
         "S3": 0.0,
         "range": 0.0,
         "close": 0.0,
-        "macro_score": -2.521,
+        "macro_score": 0.0,
         "ohlc_source": "unavailable",
         "ohlc_date": "",
         "rsi": null,

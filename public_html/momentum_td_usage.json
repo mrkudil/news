@@ -1,10 +1,1 @@
-{
-  "date": "2026-05-19",
-  "count": 3,
-  "last_request_ts": "2026-05-19T06:08:16.399358Z",
-  "cooldown_until": null,
-  "last_error": null,
-  "used_windows": [],
-  "attempted_windows": [],
-  "bootstrap_anytime_used": 3
-}
+{"date": "2026-05-19", "count": 7, "last_request_ts": "2026-05-19T06:11:54Z", "cooldown_until": null, "last_error": null, "used_windows": [], "attempted_windows": [], "bootstrap_anytime_used": 3}

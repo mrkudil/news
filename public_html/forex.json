@@ -1,0 +1,2744 @@
+{
+  "scrape_time": "2026-05-19T06:07:41.106882Z",
+  "status": {
+    "scrape_time": "2026-05-19T06:07:41.106882Z",
+    "total_sources": 8,
+    "failed_sources": 0,
+    "sources": {
+      "ForexFactory-Calendar": {
+        "success": true,
+        "items": 69,
+        "error": null,
+        "duration": 0.07,
+        "latency_ms": 72
+      },
+      "TradingEconomics-Gold": {
+        "success": true,
+        "items": 3,
+        "error": null,
+        "duration": 0.21,
+        "latency_ms": 214
+      },
+      "Kitco": {
+        "success": true,
+        "items": 5,
+        "error": null,
+        "duration": 0.44,
+        "latency_ms": 444
+      },
+      "Mining.com": {
+        "success": true,
+        "items": 19,
+        "error": null,
+        "duration": 1.12,
+        "latency_ms": 1119
+      },
+      "secondary": {
+        "success": true,
+        "items": 180,
+        "error": null,
+        "duration": 1.47,
+        "latency_ms": 1473
+      },
+      "Stooq": {
+        "success": true,
+        "items": 3,
+        "error": null,
+        "duration": 2.32,
+        "latency_ms": 2315
+      },
+      "investingLive": {
+        "success": true,
+        "items": 100,
+        "error": null,
+        "duration": 3.7,
+        "latency_ms": 3700
+      },
+      "TradingEconomics-FX": {
+        "success": true,
+        "items": 9,
+        "error": null,
+        "duration": 4.92,
+        "latency_ms": 4916
+      }
+    }
+  },
+  "macro": {
+    "pair_biases": {
+      "eurusd": {
+        "score": 0.0,
+        "regime": "neutral",
+        "confidence": "low",
+        "factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "weighted_factors": {
+          "rate": -0.82,
+          "curve": 0.0,
+          "risk": 0.201,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.009,
+          "usd": -0.169,
+          "liquidity": 0.0
+        },
+        "regime_confidence": 0.33,
+        "signal_horizon": "long",
+        "price_context": {
+          "price_state": "unavailable",
+          "rejection_level": "",
+          "macro_alignment": "unavailable",
+          "conviction_mult": 0.0,
+          "score_adj": 0.0,
+          "price_used": 0.0,
+          "tolerance": 0.0,
+          "state_basis": "none",
+          "state_quality": "none",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
+          "PP": 0.0,
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "range": 0.0,
+          "close": 0.0,
+          "macro_score": 0.137,
+          "ohlc_source": "unavailable",
+          "ohlc_date": "",
+          "rsi": null,
+          "rsi_period": 14,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
+        },
+        "technical_summary": {
+          "bias": "bullish",
+          "bullish_votes": 1,
+          "bearish_votes": 0,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "technical_context": {
+          "pair": "eurusd",
+          "current_price": 1.16406,
+          "daily": {
+            "timeframe": "D1",
+            "ohlc": {
+              "date": null,
+              "source": null,
+              "close": null,
+              "range": null
+            },
+            "pivots": {},
+            "price_state": null,
+            "nearest_level": null,
+            "rsi14": {
+              "pair": "eurusd",
+              "timeframe": "D1",
+              "period": 14,
+              "value": null,
+              "state": "unavailable",
+              "bias": "unavailable",
+              "alignment": "unavailable",
+              "source": "pivot_levels",
+              "ok": false
+            },
+            "ema_20_50": {
+              "pair": "eurusd",
+              "timeframe": "D1",
+              "ok": false,
+              "source": "unavailable",
+              "reason": "no_daily_ema_history"
+            }
+          },
+          "h1": {
+            "timeframe": "H1",
+            "rsi14": {
+              "pair": "eurusd",
+              "timeframe": "H1",
+              "period": 14,
+              "value": 50.19,
+              "state": "neutral",
+              "bias": "neutral",
+              "source": "stooq_h1+td_seeded",
+              "ok": true
+            },
+            "ema_20_50": {
+              "pair": "eurusd",
+              "timeframe": "H1",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 1.16435,
+              "ema50": 1.16387,
+              "fast_ema": 1.16435,
+              "slow_ema": 1.16387,
+              "cross": "none",
+              "ema_cross_signal": "none",
+              "last_close": 1.16423,
+              "close_vs_ema20": "below",
+              "close_vs_ema50": "above",
+              "close_structure": "below_ema20_above_ema50",
+              "ema20_vs_ema50": "above",
+              "price": 1.16411,
+              "current_vs_ema20": "below",
+              "current_vs_ema50": "above",
+              "price_vs_fast": "below",
+              "price_vs_slow": "above",
+              "current_structure": "below_ema20_above_ema50",
+              "trend_bias": "bullish_bias",
+              "suggestion": "bullish_pullback",
+              "warming_up": false,
+              "bars_available": 119,
+              "bars_needed": 50,
+              "warm_up_reason": null,
+              "last_completed_hour": "2026-05-19T05:00:00Z",
+              "current_source": "stooq_latest",
+              "history_source": "stooq_h1+td_seeded",
+              "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+              "td_ema_source": "td_h1_ema_endpoint",
+              "ok": true,
+              "h1_rsi_period": 14,
+              "h1_rsi": 50.19,
+              "h1_rsi14": 50.19,
+              "rsi14": 50.19,
+              "h1_rsi_label": "neutral",
+              "h1_rsi_signal": "neutral",
+              "h1_rsi_status": "ok",
+              "h1_rsi_bars_needed": 15,
+              "ema_fast": 1.16435,
+              "ema_slow": 1.16387,
+              "current_vs_fast": "below",
+              "current_vs_slow": "above",
+              "source": "stooq_h1+td_seeded"
+            }
+          },
+          "summary": {
+            "bias": "bullish",
+            "bullish_votes": 1,
+            "bearish_votes": 0,
+            "d1_rsi_ok": false,
+            "h1_rsi_ok": true,
+            "d1_ema_ok": false,
+            "h1_ema_ok": true
+          },
+          "sources": {
+            "pivot": "pivot_levels",
+            "h1": "stooq_h1+td_seeded",
+            "d1_ema": "unavailable"
+          }
+        }
+      },
+      "gbpusd": {
+        "score": 0.0,
+        "regime": "neutral",
+        "confidence": "low",
+        "factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "weighted_factors": {
+          "rate": 0.055,
+          "curve": 0.0,
+          "risk": 0.101,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.008,
+          "usd": -0.169,
+          "liquidity": 0.0
+        },
+        "regime_confidence": 0.33,
+        "signal_horizon": "long",
+        "price_context": {
+          "price_state": "unavailable",
+          "rejection_level": "",
+          "macro_alignment": "unavailable",
+          "conviction_mult": 0.0,
+          "score_adj": 0.0,
+          "price_used": 0.0,
+          "tolerance": 0.0,
+          "state_basis": "none",
+          "state_quality": "none",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
+          "PP": 0.0,
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "range": 0.0,
+          "close": 0.0,
+          "macro_score": 1.236,
+          "ohlc_source": "unavailable",
+          "ohlc_date": "",
+          "rsi": null,
+          "rsi_period": 14,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
+        },
+        "technical_summary": {
+          "bias": "bullish",
+          "bullish_votes": 2,
+          "bearish_votes": 0,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "technical_context": {
+          "pair": "gbpusd",
+          "current_price": 1.34056,
+          "daily": {
+            "timeframe": "D1",
+            "ohlc": {
+              "date": null,
+              "source": null,
+              "close": null,
+              "range": null
+            },
+            "pivots": {},
+            "price_state": null,
+            "nearest_level": null,
+            "rsi14": {
+              "pair": "gbpusd",
+              "timeframe": "D1",
+              "period": 14,
+              "value": null,
+              "state": "unavailable",
+              "bias": "unavailable",
+              "alignment": "unavailable",
+              "source": "pivot_levels",
+              "ok": false
+            },
+            "ema_20_50": {
+              "pair": "gbpusd",
+              "timeframe": "D1",
+              "ok": false,
+              "source": "unavailable",
+              "reason": "no_daily_ema_history"
+            }
+          },
+          "h1": {
+            "timeframe": "H1",
+            "rsi14": {
+              "pair": "gbpusd",
+              "timeframe": "H1",
+              "period": 14,
+              "value": 58.75,
+              "state": "bullish",
+              "bias": "bullish",
+              "source": "stooq_h1+td_seeded",
+              "ok": true
+            },
+            "ema_20_50": {
+              "pair": "gbpusd",
+              "timeframe": "H1",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 1.34061,
+              "ema50": 1.33808,
+              "fast_ema": 1.34061,
+              "slow_ema": 1.33808,
+              "cross": "none",
+              "ema_cross_signal": "none",
+              "last_close": 1.34166,
+              "close_vs_ema20": "above",
+              "close_vs_ema50": "above",
+              "close_structure": "above_ema20_ema50",
+              "ema20_vs_ema50": "above",
+              "price": 1.34075,
+              "current_vs_ema20": "above",
+              "current_vs_ema50": "above",
+              "price_vs_fast": "above",
+              "price_vs_slow": "above",
+              "current_structure": "above_ema20_ema50",
+              "trend_bias": "bullish_bias",
+              "suggestion": "bullish_aligned",
+              "warming_up": false,
+              "bars_available": 119,
+              "bars_needed": 50,
+              "warm_up_reason": null,
+              "last_completed_hour": "2026-05-19T05:00:00Z",
+              "current_source": "stooq_latest",
+              "history_source": "stooq_h1+td_seeded",
+              "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+              "td_ema_source": "td_h1_ema_endpoint",
+              "ok": true,
+              "h1_rsi_period": 14,
+              "h1_rsi": 58.75,
+              "h1_rsi14": 58.75,
+              "rsi14": 58.75,
+              "h1_rsi_label": "bullish",
+              "h1_rsi_signal": "bullish",
+              "h1_rsi_status": "ok",
+              "h1_rsi_bars_needed": 15,
+              "ema_fast": 1.34061,
+              "ema_slow": 1.33808,
+              "current_vs_fast": "above",
+              "current_vs_slow": "above",
+              "source": "stooq_h1+td_seeded"
+            }
+          },
+          "summary": {
+            "bias": "bullish",
+            "bullish_votes": 2,
+            "bearish_votes": 0,
+            "d1_rsi_ok": false,
+            "h1_rsi_ok": true,
+            "d1_ema_ok": false,
+            "h1_ema_ok": true
+          },
+          "sources": {
+            "pivot": "pivot_levels",
+            "h1": "stooq_h1+td_seeded",
+            "d1_ema": "unavailable"
+          }
+        }
+      },
+      "xauusd": {
+        "score": -0.0,
+        "regime": "neutral",
+        "confidence": "low",
+        "factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "weighted_factors": {
+          "rate": 0.0,
+          "curve": -0.0,
+          "risk": -0.412,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.75,
+          "real_yield_momentum": -0.833,
+          "growth": -0.045,
+          "usd": -0.484,
+          "broad_usd": -1.65,
+          "inflation_expectations": -0.087,
+          "treasury_vol": 0.675,
+          "gold_vol": -0.009,
+          "energy_inflation": 0.35,
+          "liquidity": -0.0
+        },
+        "regime_confidence": 0.33,
+        "signal_horizon": "long",
+        "price_context": {
+          "price_state": "unavailable",
+          "rejection_level": "",
+          "macro_alignment": "unavailable",
+          "conviction_mult": 0.0,
+          "score_adj": 0.0,
+          "price_used": 0.0,
+          "tolerance": 0.0,
+          "state_basis": "none",
+          "state_quality": "none",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
+          "PP": 0.0,
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "range": 0.0,
+          "close": 0.0,
+          "macro_score": -2.521,
+          "ohlc_source": "unavailable",
+          "ohlc_date": "",
+          "rsi": null,
+          "rsi_period": 14,
+          "rsi_state": "unavailable",
+          "rsi_bias": "unavailable",
+          "rsi_alignment": "unavailable",
+          "rsi_confluence_mult": 0.0,
+          "combined_conviction_mult": 0.0,
+          "rsi_h1": null,
+          "rsi_h1_state": "unavailable",
+          "rsi_h1_bias": "unavailable"
+        },
+        "technical_summary": {
+          "bias": "neutral",
+          "bullish_votes": 1,
+          "bearish_votes": 1,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "technical_context": {
+          "pair": "xauusd",
+          "current_price": 4539.55,
+          "daily": {
+            "timeframe": "D1",
+            "ohlc": {
+              "date": null,
+              "source": null,
+              "close": null,
+              "range": null
+            },
+            "pivots": {},
+            "price_state": null,
+            "nearest_level": null,
+            "rsi14": {
+              "pair": "xauusd",
+              "timeframe": "D1",
+              "period": 14,
+              "value": null,
+              "state": "unavailable",
+              "bias": "unavailable",
+              "alignment": "unavailable",
+              "source": "pivot_levels",
+              "ok": false
+            },
+            "ema_20_50": {
+              "pair": "xauusd",
+              "timeframe": "D1",
+              "ok": false,
+              "source": "unavailable",
+              "reason": "no_daily_ema_history"
+            }
+          },
+          "h1": {
+            "timeframe": "H1",
+            "rsi14": {
+              "pair": "xauusd",
+              "timeframe": "H1",
+              "period": 14,
+              "value": 44.9,
+              "state": "bearish",
+              "bias": "bearish",
+              "source": "stooq_h1+td_seeded",
+              "ok": true
+            },
+            "ema_20_50": {
+              "pair": "xauusd",
+              "timeframe": "H1",
+              "fast_period": 20,
+              "slow_period": 50,
+              "ema20": 4551.44513,
+              "ema50": 4550.41046,
+              "fast_ema": 4551.44513,
+              "slow_ema": 4550.41046,
+              "cross": "none",
+              "ema_cross_signal": "none",
+              "last_close": 4541.86365,
+              "close_vs_ema20": "below",
+              "close_vs_ema50": "below",
+              "close_structure": "below_ema20_ema50",
+              "ema20_vs_ema50": "above",
+              "price": 4540.11,
+              "current_vs_ema20": "below",
+              "current_vs_ema50": "below",
+              "price_vs_fast": "below",
+              "price_vs_slow": "below",
+              "current_structure": "below_ema20_ema50",
+              "trend_bias": "bullish_bias",
+              "suggestion": "bullish_pullback",
+              "warming_up": false,
+              "bars_available": 119,
+              "bars_needed": 50,
+              "warm_up_reason": null,
+              "last_completed_hour": "2026-05-19T05:00:00Z",
+              "current_source": "stooq_latest",
+              "history_source": "stooq_h1+td_seeded",
+              "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+              "td_ema_source": "td_h1_ema_endpoint",
+              "ok": true,
+              "h1_rsi_period": 14,
+              "h1_rsi": 44.9,
+              "h1_rsi14": 44.9,
+              "rsi14": 44.9,
+              "h1_rsi_label": "bearish",
+              "h1_rsi_signal": "bearish",
+              "h1_rsi_status": "ok",
+              "h1_rsi_bars_needed": 15,
+              "ema_fast": 4551.44513,
+              "ema_slow": 4550.41046,
+              "current_vs_fast": "below",
+              "current_vs_slow": "below",
+              "source": "stooq_h1+td_seeded"
+            }
+          },
+          "summary": {
+            "bias": "neutral",
+            "bullish_votes": 1,
+            "bearish_votes": 1,
+            "d1_rsi_ok": false,
+            "h1_rsi_ok": true,
+            "d1_ema_ok": false,
+            "h1_ema_ok": true
+          },
+          "sources": {
+            "pivot": "pivot_levels",
+            "h1": "stooq_h1+td_seeded",
+            "d1_ema": "unavailable"
+          }
+        }
+      }
+    },
+    "ema_20_50_state": {
+      "eurusd": {
+        "pair": "eurusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.16435,
+        "ema50": 1.16387,
+        "fast_ema": 1.16435,
+        "slow_ema": 1.16387,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 1.16423,
+        "close_vs_ema20": "below",
+        "close_vs_ema50": "above",
+        "close_structure": "below_ema20_above_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 1.16411,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "above",
+        "price_vs_fast": "below",
+        "price_vs_slow": "above",
+        "current_structure": "below_ema20_above_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_pullback",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 50.19,
+        "h1_rsi14": 50.19,
+        "rsi14": 50.19,
+        "h1_rsi_label": "neutral",
+        "h1_rsi_signal": "neutral",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 1.16435,
+        "ema_slow": 1.16387,
+        "current_vs_fast": "below",
+        "current_vs_slow": "above",
+        "source": "stooq_h1+td_seeded"
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.34061,
+        "ema50": 1.33808,
+        "fast_ema": 1.34061,
+        "slow_ema": 1.33808,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 1.34166,
+        "close_vs_ema20": "above",
+        "close_vs_ema50": "above",
+        "close_structure": "above_ema20_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 1.34075,
+        "current_vs_ema20": "above",
+        "current_vs_ema50": "above",
+        "price_vs_fast": "above",
+        "price_vs_slow": "above",
+        "current_structure": "above_ema20_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_aligned",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 58.75,
+        "h1_rsi14": 58.75,
+        "rsi14": 58.75,
+        "h1_rsi_label": "bullish",
+        "h1_rsi_signal": "bullish",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 1.34061,
+        "ema_slow": 1.33808,
+        "current_vs_fast": "above",
+        "current_vs_slow": "above",
+        "source": "stooq_h1+td_seeded"
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 4551.44513,
+        "ema50": 4550.41046,
+        "fast_ema": 4551.44513,
+        "slow_ema": 4550.41046,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 4541.86365,
+        "close_vs_ema20": "below",
+        "close_vs_ema50": "below",
+        "close_structure": "below_ema20_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 4540.11,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "below",
+        "price_vs_fast": "below",
+        "price_vs_slow": "below",
+        "current_structure": "below_ema20_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_pullback",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 44.9,
+        "h1_rsi14": 44.9,
+        "rsi14": 44.9,
+        "h1_rsi_label": "bearish",
+        "h1_rsi_signal": "bearish",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 4551.44513,
+        "ema_slow": 4550.41046,
+        "current_vs_fast": "below",
+        "current_vs_slow": "below",
+        "source": "stooq_h1+td_seeded"
+      }
+    },
+    "data_quality": {
+      "score": 0.825,
+      "grade": "B",
+      "penalties": {
+        "us_hist_thin": 0.03,
+        "us_hist_stale": 0.015,
+        "eu_hist_thin": 0.03,
+        "eu_hist_stale": 0.015,
+        "gb_hist_thin": 0.03,
+        "gb_hist_stale": 0.015,
+        "momentum_partial": 0.04
+      },
+      "categories": {
+        "minor": [
+          "us_hist_thin",
+          "us_hist_stale",
+          "eu_hist_thin",
+          "eu_hist_stale",
+          "gb_hist_thin",
+          "gb_hist_stale",
+          "momentum_partial"
+        ]
+      }
+    },
+    "regime": "neutral",
+    "regime_duration": 0,
+    "regime_confidence": 0.33,
+    "signal_horizon": "long",
+    "prev_rates": {
+      "us_rate": 3.64,
+      "eu_rate": null,
+      "gb_rate": null,
+      "prev_pmi": {
+        "us": null,
+        "eu": null,
+        "gb": null
+      },
+      "prev_vix": null,
+      "us_yield_spread": null
+    },
+    "indicators": {
+      "fed_rate": 3.64,
+      "yield_spread": 0.5,
+      "yield_10y": 4.59,
+      "tips_10y": 2.1,
+      "tips_valid": true,
+      "ecb_rate": 2.0,
+      "boe_rate": 3.75,
+      "eu_pmi": 52.2,
+      "eu_pmi_valid": true,
+      "uk_pmi": 53.7,
+      "uk_pmi_valid": true,
+      "us_pmi": 54.5,
+      "us_pmi_valid": true,
+      "vix": 17.82,
+      "vix_valid": true,
+      "vix_trend": 0.0,
+      "pmi_deltas": {
+        "us": 0.0,
+        "eu": 0.0,
+        "gb": 0.0
+      }
+    },
+    "spx": {
+      "current": 7403.05,
+      "prev": 7403.05,
+      "valid": true,
+      "source": "Stooq/^spx"
+    },
+    "surprises": {
+      "GBP": 0.01,
+      "USD": 0.009
+    },
+    "sources": {
+      "fed_rate": "FRED/FEDFUNDS",
+      "ecb_rate": "ECB/DFR",
+      "boe_rate": "BoE/official",
+      "yield_data": "FRED",
+      "tips": "FRED/DFII10",
+      "vix": "Stooq/vi.c",
+      "spx": "Stooq/^spx",
+      "gold_macro": "enhanced(valid=6/6)",
+      "us_pmi": "calendar/forexfactory",
+      "eu_pmi": "calendar/forexfactory",
+      "uk_pmi": "calendar/forexfactory",
+      "momentum": "stooq_h1+td_seeded",
+      "momentum_module": "momentum",
+      "pivot_module": "pivot",
+      "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
+      "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
+      "pivot_levels_file": "unavailable",
+      "ema_state_file": "unavailable"
+    },
+    "technical_context": {
+      "eurusd": {
+        "pair": "eurusd",
+        "current_price": 1.16406,
+        "daily": {
+          "timeframe": "D1",
+          "ohlc": {
+            "date": null,
+            "source": null,
+            "close": null,
+            "range": null
+          },
+          "pivots": {},
+          "price_state": null,
+          "nearest_level": null,
+          "rsi14": {
+            "pair": "eurusd",
+            "timeframe": "D1",
+            "period": 14,
+            "value": null,
+            "state": "unavailable",
+            "bias": "unavailable",
+            "alignment": "unavailable",
+            "source": "pivot_levels",
+            "ok": false
+          },
+          "ema_20_50": {
+            "pair": "eurusd",
+            "timeframe": "D1",
+            "ok": false,
+            "source": "unavailable",
+            "reason": "no_daily_ema_history"
+          }
+        },
+        "h1": {
+          "timeframe": "H1",
+          "rsi14": {
+            "pair": "eurusd",
+            "timeframe": "H1",
+            "period": 14,
+            "value": 50.19,
+            "state": "neutral",
+            "bias": "neutral",
+            "source": "stooq_h1+td_seeded",
+            "ok": true
+          },
+          "ema_20_50": {
+            "pair": "eurusd",
+            "timeframe": "H1",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.16435,
+            "ema50": 1.16387,
+            "fast_ema": 1.16435,
+            "slow_ema": 1.16387,
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "last_close": 1.16423,
+            "close_vs_ema20": "below",
+            "close_vs_ema50": "above",
+            "close_structure": "below_ema20_above_ema50",
+            "ema20_vs_ema50": "above",
+            "price": 1.16411,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "above",
+            "price_vs_fast": "below",
+            "price_vs_slow": "above",
+            "current_structure": "below_ema20_above_ema50",
+            "trend_bias": "bullish_bias",
+            "suggestion": "bullish_pullback",
+            "warming_up": false,
+            "bars_available": 119,
+            "bars_needed": 50,
+            "warm_up_reason": null,
+            "last_completed_hour": "2026-05-19T05:00:00Z",
+            "current_source": "stooq_latest",
+            "history_source": "stooq_h1+td_seeded",
+            "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+            "td_ema_source": "td_h1_ema_endpoint",
+            "ok": true,
+            "h1_rsi_period": 14,
+            "h1_rsi": 50.19,
+            "h1_rsi14": 50.19,
+            "rsi14": 50.19,
+            "h1_rsi_label": "neutral",
+            "h1_rsi_signal": "neutral",
+            "h1_rsi_status": "ok",
+            "h1_rsi_bars_needed": 15,
+            "ema_fast": 1.16435,
+            "ema_slow": 1.16387,
+            "current_vs_fast": "below",
+            "current_vs_slow": "above",
+            "source": "stooq_h1+td_seeded"
+          }
+        },
+        "summary": {
+          "bias": "bullish",
+          "bullish_votes": 1,
+          "bearish_votes": 0,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "sources": {
+          "pivot": "pivot_levels",
+          "h1": "stooq_h1+td_seeded",
+          "d1_ema": "unavailable"
+        }
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "current_price": 1.34056,
+        "daily": {
+          "timeframe": "D1",
+          "ohlc": {
+            "date": null,
+            "source": null,
+            "close": null,
+            "range": null
+          },
+          "pivots": {},
+          "price_state": null,
+          "nearest_level": null,
+          "rsi14": {
+            "pair": "gbpusd",
+            "timeframe": "D1",
+            "period": 14,
+            "value": null,
+            "state": "unavailable",
+            "bias": "unavailable",
+            "alignment": "unavailable",
+            "source": "pivot_levels",
+            "ok": false
+          },
+          "ema_20_50": {
+            "pair": "gbpusd",
+            "timeframe": "D1",
+            "ok": false,
+            "source": "unavailable",
+            "reason": "no_daily_ema_history"
+          }
+        },
+        "h1": {
+          "timeframe": "H1",
+          "rsi14": {
+            "pair": "gbpusd",
+            "timeframe": "H1",
+            "period": 14,
+            "value": 58.75,
+            "state": "bullish",
+            "bias": "bullish",
+            "source": "stooq_h1+td_seeded",
+            "ok": true
+          },
+          "ema_20_50": {
+            "pair": "gbpusd",
+            "timeframe": "H1",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.34061,
+            "ema50": 1.33808,
+            "fast_ema": 1.34061,
+            "slow_ema": 1.33808,
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "last_close": 1.34166,
+            "close_vs_ema20": "above",
+            "close_vs_ema50": "above",
+            "close_structure": "above_ema20_ema50",
+            "ema20_vs_ema50": "above",
+            "price": 1.34075,
+            "current_vs_ema20": "above",
+            "current_vs_ema50": "above",
+            "price_vs_fast": "above",
+            "price_vs_slow": "above",
+            "current_structure": "above_ema20_ema50",
+            "trend_bias": "bullish_bias",
+            "suggestion": "bullish_aligned",
+            "warming_up": false,
+            "bars_available": 119,
+            "bars_needed": 50,
+            "warm_up_reason": null,
+            "last_completed_hour": "2026-05-19T05:00:00Z",
+            "current_source": "stooq_latest",
+            "history_source": "stooq_h1+td_seeded",
+            "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+            "td_ema_source": "td_h1_ema_endpoint",
+            "ok": true,
+            "h1_rsi_period": 14,
+            "h1_rsi": 58.75,
+            "h1_rsi14": 58.75,
+            "rsi14": 58.75,
+            "h1_rsi_label": "bullish",
+            "h1_rsi_signal": "bullish",
+            "h1_rsi_status": "ok",
+            "h1_rsi_bars_needed": 15,
+            "ema_fast": 1.34061,
+            "ema_slow": 1.33808,
+            "current_vs_fast": "above",
+            "current_vs_slow": "above",
+            "source": "stooq_h1+td_seeded"
+          }
+        },
+        "summary": {
+          "bias": "bullish",
+          "bullish_votes": 2,
+          "bearish_votes": 0,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "sources": {
+          "pivot": "pivot_levels",
+          "h1": "stooq_h1+td_seeded",
+          "d1_ema": "unavailable"
+        }
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "current_price": 4539.55,
+        "daily": {
+          "timeframe": "D1",
+          "ohlc": {
+            "date": null,
+            "source": null,
+            "close": null,
+            "range": null
+          },
+          "pivots": {},
+          "price_state": null,
+          "nearest_level": null,
+          "rsi14": {
+            "pair": "xauusd",
+            "timeframe": "D1",
+            "period": 14,
+            "value": null,
+            "state": "unavailable",
+            "bias": "unavailable",
+            "alignment": "unavailable",
+            "source": "pivot_levels",
+            "ok": false
+          },
+          "ema_20_50": {
+            "pair": "xauusd",
+            "timeframe": "D1",
+            "ok": false,
+            "source": "unavailable",
+            "reason": "no_daily_ema_history"
+          }
+        },
+        "h1": {
+          "timeframe": "H1",
+          "rsi14": {
+            "pair": "xauusd",
+            "timeframe": "H1",
+            "period": 14,
+            "value": 44.9,
+            "state": "bearish",
+            "bias": "bearish",
+            "source": "stooq_h1+td_seeded",
+            "ok": true
+          },
+          "ema_20_50": {
+            "pair": "xauusd",
+            "timeframe": "H1",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 4551.44513,
+            "ema50": 4550.41046,
+            "fast_ema": 4551.44513,
+            "slow_ema": 4550.41046,
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "last_close": 4541.86365,
+            "close_vs_ema20": "below",
+            "close_vs_ema50": "below",
+            "close_structure": "below_ema20_ema50",
+            "ema20_vs_ema50": "above",
+            "price": 4540.11,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "current_structure": "below_ema20_ema50",
+            "trend_bias": "bullish_bias",
+            "suggestion": "bullish_pullback",
+            "warming_up": false,
+            "bars_available": 119,
+            "bars_needed": 50,
+            "warm_up_reason": null,
+            "last_completed_hour": "2026-05-19T05:00:00Z",
+            "current_source": "stooq_latest",
+            "history_source": "stooq_h1+td_seeded",
+            "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+            "td_ema_source": "td_h1_ema_endpoint",
+            "ok": true,
+            "h1_rsi_period": 14,
+            "h1_rsi": 44.9,
+            "h1_rsi14": 44.9,
+            "rsi14": 44.9,
+            "h1_rsi_label": "bearish",
+            "h1_rsi_signal": "bearish",
+            "h1_rsi_status": "ok",
+            "h1_rsi_bars_needed": 15,
+            "ema_fast": 4551.44513,
+            "ema_slow": 4550.41046,
+            "current_vs_fast": "below",
+            "current_vs_slow": "below",
+            "source": "stooq_h1+td_seeded"
+          }
+        },
+        "summary": {
+          "bias": "neutral",
+          "bullish_votes": 1,
+          "bearish_votes": 1,
+          "d1_rsi_ok": false,
+          "h1_rsi_ok": true,
+          "d1_ema_ok": false,
+          "h1_ema_ok": true
+        },
+        "sources": {
+          "pivot": "pivot_levels",
+          "h1": "stooq_h1+td_seeded",
+          "d1_ema": "unavailable"
+        }
+      }
+    },
+    "daily_ema_20_50_state": {
+      "eurusd": {
+        "pair": "eurusd",
+        "timeframe": "D1",
+        "ok": false,
+        "source": "unavailable",
+        "reason": "no_daily_ema_history"
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "timeframe": "D1",
+        "ok": false,
+        "source": "unavailable",
+        "reason": "no_daily_ema_history"
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "timeframe": "D1",
+        "ok": false,
+        "source": "unavailable",
+        "reason": "no_daily_ema_history"
+      }
+    },
+    "h1_ema_20_50_state": {
+      "eurusd": {
+        "pair": "eurusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.16435,
+        "ema50": 1.16387,
+        "fast_ema": 1.16435,
+        "slow_ema": 1.16387,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 1.16423,
+        "close_vs_ema20": "below",
+        "close_vs_ema50": "above",
+        "close_structure": "below_ema20_above_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 1.16411,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "above",
+        "price_vs_fast": "below",
+        "price_vs_slow": "above",
+        "current_structure": "below_ema20_above_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_pullback",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 50.19,
+        "h1_rsi14": 50.19,
+        "rsi14": 50.19,
+        "h1_rsi_label": "neutral",
+        "h1_rsi_signal": "neutral",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 1.16435,
+        "ema_slow": 1.16387,
+        "current_vs_fast": "below",
+        "current_vs_slow": "above",
+        "source": "stooq_h1+td_seeded"
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 1.34061,
+        "ema50": 1.33808,
+        "fast_ema": 1.34061,
+        "slow_ema": 1.33808,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 1.34166,
+        "close_vs_ema20": "above",
+        "close_vs_ema50": "above",
+        "close_structure": "above_ema20_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 1.34075,
+        "current_vs_ema20": "above",
+        "current_vs_ema50": "above",
+        "price_vs_fast": "above",
+        "price_vs_slow": "above",
+        "current_structure": "above_ema20_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_aligned",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 58.75,
+        "h1_rsi14": 58.75,
+        "rsi14": 58.75,
+        "h1_rsi_label": "bullish",
+        "h1_rsi_signal": "bullish",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 1.34061,
+        "ema_slow": 1.33808,
+        "current_vs_fast": "above",
+        "current_vs_slow": "above",
+        "source": "stooq_h1+td_seeded"
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "timeframe": "H1",
+        "fast_period": 20,
+        "slow_period": 50,
+        "ema20": 4551.44513,
+        "ema50": 4550.41046,
+        "fast_ema": 4551.44513,
+        "slow_ema": 4550.41046,
+        "cross": "none",
+        "ema_cross_signal": "none",
+        "last_close": 4541.86365,
+        "close_vs_ema20": "below",
+        "close_vs_ema50": "below",
+        "close_structure": "below_ema20_ema50",
+        "ema20_vs_ema50": "above",
+        "price": 4540.11,
+        "current_vs_ema20": "below",
+        "current_vs_ema50": "below",
+        "price_vs_fast": "below",
+        "price_vs_slow": "below",
+        "current_structure": "below_ema20_ema50",
+        "trend_bias": "bullish_bias",
+        "suggestion": "bullish_pullback",
+        "warming_up": false,
+        "bars_available": 119,
+        "bars_needed": 50,
+        "warm_up_reason": null,
+        "last_completed_hour": "2026-05-19T05:00:00Z",
+        "current_source": "stooq_latest",
+        "history_source": "stooq_h1+td_seeded",
+        "repair_note": "td_seeded:twelvedata_ok_bootstrap:missing_history",
+        "td_ema_source": "td_h1_ema_endpoint",
+        "ok": true,
+        "h1_rsi_period": 14,
+        "h1_rsi": 44.9,
+        "h1_rsi14": 44.9,
+        "rsi14": 44.9,
+        "h1_rsi_label": "bearish",
+        "h1_rsi_signal": "bearish",
+        "h1_rsi_status": "ok",
+        "h1_rsi_bars_needed": 15,
+        "ema_fast": 4551.44513,
+        "ema_slow": 4550.41046,
+        "current_vs_fast": "below",
+        "current_vs_slow": "below",
+        "source": "stooq_h1+td_seeded"
+      }
+    },
+    "daily_rsi_state": {
+      "eurusd": {
+        "pair": "eurusd",
+        "timeframe": "D1",
+        "period": 14,
+        "value": null,
+        "state": "unavailable",
+        "bias": "unavailable",
+        "alignment": "unavailable",
+        "source": "pivot_levels",
+        "ok": false
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "timeframe": "D1",
+        "period": 14,
+        "value": null,
+        "state": "unavailable",
+        "bias": "unavailable",
+        "alignment": "unavailable",
+        "source": "pivot_levels",
+        "ok": false
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "timeframe": "D1",
+        "period": 14,
+        "value": null,
+        "state": "unavailable",
+        "bias": "unavailable",
+        "alignment": "unavailable",
+        "source": "pivot_levels",
+        "ok": false
+      }
+    },
+    "h1_rsi_state": {
+      "eurusd": {
+        "pair": "eurusd",
+        "timeframe": "H1",
+        "period": 14,
+        "value": 50.19,
+        "state": "neutral",
+        "bias": "neutral",
+        "source": "stooq_h1+td_seeded",
+        "ok": true
+      },
+      "gbpusd": {
+        "pair": "gbpusd",
+        "timeframe": "H1",
+        "period": 14,
+        "value": 58.75,
+        "state": "bullish",
+        "bias": "bullish",
+        "source": "stooq_h1+td_seeded",
+        "ok": true
+      },
+      "xauusd": {
+        "pair": "xauusd",
+        "timeframe": "H1",
+        "period": 14,
+        "value": 44.9,
+        "state": "bearish",
+        "bias": "bearish",
+        "source": "stooq_h1+td_seeded",
+        "ok": true
+      }
+    },
+    "price_context": {
+      "eurusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": 0.137,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
+      },
+      "gbpusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": 1.236,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
+      },
+      "xauusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": -2.521,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0,
+        "rsi_h1": null,
+        "rsi_h1_state": "unavailable",
+        "rsi_h1_bias": "unavailable"
+      }
+    }
+  },
+  "feeds": {
+    "eurusd": [
+      {
+        "title": "EURUSD Zigzag Correction Points to Elliott Wave Support at 1.148\u20131.160",
+        "link": "https://www.actionforex.com/contributors/technical-analysis/640987-eurusd-zigzag-correction-points-to-elliott-wave-support-at-1-148-1-160/",
+        "published_at": "2026-05-19T04:58:26+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "ActionForex",
+        "summary": "EURUSD is unfolding a corrective zigzag structure from the April 17, 2026 high. First, wave A ended at 1.1655, establishing the initial leg of the decline. Then, wave B rallied to 1.1796, as shown on the one\u2011hour chart. From that point onward, wave C began to progress lower, subdividing into five sm",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "EUR",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Euro weakens below 1.1650 as Iran uncertainty supports US Dollar",
+        "link": "https://www.fxstreet.com/news/euro-weakens-below-11650-as-iran-uncertainty-supports-us-dollar-202605190153",
+        "published_at": "2026-05-19T01:53:37+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "The EUR/USD pair trades in negative territory around 1.1645 during the early Asian trading hours on Tuesday. The Euro (EUR) softens against the US Dollar (USD) amid persistent uncertainty in the Middle East surrounding Iran.",
+        "sentiment": "bearish",
+        "sent_score": -2,
+        "symbols": [
+          "EUR",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": -2.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -2,
+          "sent_clamped": -2.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Dollar Steadies Following Sharp Decline",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551753",
+        "published_at": "2026-05-19T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bearish",
+        "sent_score": -2,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": -2.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -2,
+          "sent_clamped": -2.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Euro rises as Trump delays Iran strike, USD weakens",
+        "link": "https://www.fxstreet.com/news/euro-rises-as-trump-delays-iran-strike-usd-weakens-202605182219",
+        "published_at": "2026-05-18T22:19:26+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "The Euro advances late in the North American session, up by 0.26% amid a volatile session characterized by geopolitical headlines and broad US Dollar weakness across the board. At the time of writing, the EUR/USD pair trades at 1.1654 after bouncing off daily lows of 1.1608.",
+        "sentiment": "bullish",
+        "sent_score": 1,
+        "symbols": [
+          "EUR",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 1.0,
+        "fused_sentiment": "bullish",
+        "fusion_components": {
+          "sentiment": 1,
+          "sent_clamped": 1.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "EURUSD bangs against target resistance at 1.1655. Can the buyers get through the target.",
+        "link": "https://investinglive.com/technical-analysis/eurusd-bangs-against-target-resistance-at-11655-can-the-buyers-get-through-the-target-20260518/",
+        "published_at": "2026-05-18T17:45:48+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "investingLive",
+        "summary": "In the morning kickstart video, I commented on the 1.1655 level as a key target.  The infograph highlights my key technical comment on that pair (see highlighted yellow are on the infograph below from the start of the trading day):The price did move higher and tested that level in the North American",
+        "sentiment": "bullish",
+        "sent_score": 2,
+        "symbols": [
+          "EUR",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 2.0,
+        "fused_sentiment": "bullish",
+        "fusion_components": {
+          "sentiment": 2,
+          "sent_clamped": 2.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "EUR/USD Mid-Day Outlook",
+        "link": "https://www.actionforex.com/technical-outlook/eurusd-outlook/640942-eur-usd-mid-day-outlook-2320/",
+        "published_at": "2026-05-18T13:01:05+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "ActionForex",
+        "summary": "Daily Pivots: (S1) 1.1603; (P) 1.1637; (R1) 1.1658; More\u2026. Intraday bias in EUR/USD is turned neutral with current recovery, and some consolidations could be seen above 1.1607 temporary low. Risk will stay on the downside as long as 55 4H EMA (now at 1.1700) holds. Rebound from 1.1408 could have com",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "EUR",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
+        "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
+        "published_at": "2026-05-18T12:26:10+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "investingLive",
+        "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "EUR",
+          "GBP",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Broader energy shock may pressure Europe and lift dollar, Goldman says",
+        "link": "https://www.investing.com/news/forex-news/broader-energy-shock-may-pressure-europe-and-lift-dollar-goldman-says-4694730",
+        "published_at": "2026-05-18T07:27:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "Investing.com",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "EUR",
+          "USD",
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Euro Bounces Back as Middle East Hopes Rise",
+        "link": "https://tradingeconomics.com/euro-area/currency/news/551610",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bullish",
+        "sent_score": 1,
+        "symbols": [
+          "EUR"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 1.0,
+        "fused_sentiment": "bullish",
+        "fusion_components": {
+          "sentiment": 1,
+          "sent_clamped": 1.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "eur",
+        "te_pairs": [
+          "eurusd"
+        ],
+        "pair": "eurusd"
+      },
+      {
+        "title": "Euro Hovers Near April Lows as Iran War Weighs on Growth",
+        "link": "https://tradingeconomics.com/euro-area/currency/news/551529",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "EUR"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": -0.82,
+          "curve": 0.013,
+          "risk": 0.251,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.184,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "eur",
+        "te_pairs": [
+          "eurusd"
+        ],
+        "pair": "eurusd"
+      }
+    ],
+    "gbpusd": [
+      {
+        "title": "British Pound softens as UK political turmoil, hawkish Fed bets weigh",
+        "link": "https://www.fxstreet.com/news/british-pound-softens-as-uk-political-turmoil-hawkish-fed-bets-weigh-202605190242",
+        "published_at": "2026-05-19T02:42:06+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "The GBP/USD pair loses ground to near 1.3415 during the Asian trading hours on Tuesday. The British Pound (GBP) edges lower against the Greenback amid UK political turmoil. Traders will take more cues from the UK employment report, which is due later on Tuesday.",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "GBP",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Dollar Steadies Following Sharp Decline",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551753",
+        "published_at": "2026-05-19T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "bearish",
+        "sent_score": -2,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": -2.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -2,
+          "sent_clamped": -2.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "What are the bias, risks, and key targets for the EURUSD, USDJPY, and GBPUSD right now?",
+        "link": "https://investinglive.com/technical-analysis/what-is-the-bias-risks-and-targets-for-the-eurusd-usdjpy-and-gbpusd-right-now-20260518/",
+        "published_at": "2026-05-18T12:26:10+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "investingLive",
+        "summary": "As the new trading day gets underway, markets are off to a relatively cautious and choppy start. Oil prices are modestly lower and trading near session lows after giving back an earlier spike higher. U.S. yields are also slightly lower \u2014 down around 1 basis point across much of the curve after tradi",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "EUR",
+          "GBP",
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": false
+      },
+      {
+        "title": "Sterling Tries to Recover but Political Risks Linger",
+        "link": "https://tradingeconomics.com/united-kingdom/currency/news/551601",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "GBP"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "gbp",
+        "te_pairs": [
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "Sterling Little-Changed Amid Political and Geopolitical Turmoil",
+        "link": "https://tradingeconomics.com/united-kingdom/currency/news/551506",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "GBP"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "gbp",
+        "te_pairs": [
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "Dollar Index Retreats to 99",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551631",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      },
+      {
+        "title": "Dollar Little Changed to Kick Off the Week",
+        "link": "https://tradingeconomics.com/united-states/currency/news/551581",
+        "published_at": "2026-05-18T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD"
+        ],
+        "impact": "low",
+        "pair_macro_bias": 0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.055,
+          "curve": 0.013,
+          "risk": 0.126,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": 0.0,
+          "growth": -0.159,
+          "usd": -0.242,
+          "liquidity": 0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": 0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true,
+        "te_source": "usd",
+        "te_pairs": [
+          "eurusd",
+          "gbpusd"
+        ],
+        "pair": "gbpusd"
+      }
+    ],
+    "xauusd": [
+      {
+        "title": "India Gold price today: Gold falls, according to FXStreet data",
+        "link": "https://www.fxstreet.com/news/india-gold-price-today-gold-falls-according-to-fxstreet-data-202605190435",
+        "published_at": "2026-05-19T04:35:25+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "Gold prices fell in India on Tuesday, according to data compiled by FXStreet.",
+        "sentiment": "bearish",
+        "sent_score": -2,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": -2.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -2,
+          "sent_clamped": -2.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold weakens as stalled US\u2011Iran talks and Fed hike bets bolster US Dollar",
+        "link": "https://www.fxstreet.com/news/gold-weakens-as-stalled-us-iran-talks-and-fed-hike-bets-bolster-us-dollar-202605190417",
+        "published_at": "2026-05-19T04:17:39+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "Gold (XAU/USD) attracts fresh sellers following an Asian session move up to the $4,590 region, stalling the previous day's modest recovery from the lowest level since March 30.",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "USD",
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold Price Forecast: XAU/USD sellers retain control whilst below 21-day SMA near $4,650",
+        "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-sellers-retain-control-whilst-below-21-day-sma-near-4-650-202605190244",
+        "published_at": "2026-05-19T02:44:31+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "Gold\u00a0is back in the red around $4,550 in Asia on Tuesday, having faced rejection once again just shy of the $4,600 mark, as markets digest the latest developments around the conflict between the United States (US) and Iran.",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "USD",
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold Eases Amid Middle East Uncertainty",
+        "link": "https://tradingeconomics.com/commodity/gold/news/551794",
+        "published_at": "2026-05-19T00:00:00+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "TradingEconomics",
+        "summary": "",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold rebounds above $4,550 on weaker US Dollar",
+        "link": "https://www.fxstreet.com/news/gold-rebounds-above-4-550-on-weaker-us-dollar-202605182311",
+        "published_at": "2026-05-18T23:11:53+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "Gold price (XAU/USD) recovers some lost ground from a one-and-a-half-month low to around $4,565 during the early Asian session on Tuesday. The precious metal edges higher amid a weaker US Dollar (USD).",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD",
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "ICYMI - Goldman cuts US recession odds to 25% as Hormuz closure impact stays contained",
+        "link": "https://investinglive.com/news/cymi-goldman-cuts-us-recession-odds-to-25-as-hormuz-closure-impact-stays-contained-20260518/",
+        "published_at": "2026-05-18T21:27:22+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "investingLive",
+        "summary": "Goldman Sachs cuts its 12-month US recession probability to 25% from 30%, with chief economist Jan Hatzius citing resilient activity and easing financial conditions despite the Strait of Hormuz closure.Summary:US recession probability cut to 25% from 30%, with economic activity holding up and financ",
+        "sentiment": "bearish",
+        "sent_score": -1,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": -1.0,
+        "fused_sentiment": "bearish",
+        "fusion_components": {
+          "sentiment": -1,
+          "sent_clamped": -1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold price hold steadies, silver rebounds as Hormuz risk keeps oil, yields in focus - PM Report",
+        "link": "https://www.kitco.com/news/article/2026-05-18/gold-price-hold-steadies-silver-rebounds-hormuz-risk-keeps-oil-yields-focus",
+        "published_at": "2026-05-18T17:10:52-04:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "Kitco",
+        "summary": "",
+        "sentiment": "bullish",
+        "sent_score": 1,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 1.0,
+        "fused_sentiment": "bullish",
+        "fusion_components": {
+          "sentiment": 1,
+          "sent_clamped": 1.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Ghana seeks 30% of large gold mines\u2019 output for local refineries",
+        "link": "https://www.mining.com/web/ghana-seeks-30-of-large-gold-mines-output-for-local-refineries/",
+        "published_at": "2026-05-18T19:28:53+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "Mining.com",
+        "summary": "Africa\u2019s largest bullion producer is seeking an additional 10% on top of the current 20% that large mines must sell to the state-owned Ghana Gold Board.",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Gold Price Forecast: XAU/USD buyers are losing the battle",
+        "link": "https://www.fxstreet.com/analysis/gold-price-forecast-xau-usd-buyers-are-losing-the-battle-202605181703",
+        "published_at": "2026-05-18T17:03:31+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "FXStreet",
+        "summary": "XAU/USD bottomed at $4,480 at the beginning of the week, its lowest since late March, as a dismal market sentiment fueled demand for the US Dollar (USD).",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "USD",
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      },
+      {
+        "title": "Zambia forms gold venture to formalize mining, build processing",
+        "link": "https://www.mining.com/web/zambia-forms-gold-venture-to-formalize-mining-build-processing/",
+        "published_at": "2026-05-18T16:31:13+00:00",
+        "scraped_at": "2026-05-19T06:07:41.106882Z",
+        "source": "Mining.com",
+        "summary": "The new vehicle will operate in a part of North-Western Province that was the site of a disorderly gold rush that began last year.",
+        "sentiment": "neutral",
+        "sent_score": 0,
+        "symbols": [
+          "XAU"
+        ],
+        "impact": "low",
+        "pair_macro_bias": -0.0,
+        "macro_conf": "low",
+        "macro_factors": {
+          "rate": 0.0,
+          "curve": -0.25,
+          "risk": -0.515,
+          "diff": 0.0,
+          "momentum": 1.0,
+          "real_yield": -1.4,
+          "real_yield_momentum": -0.833,
+          "growth": -0.904,
+          "usd": -0.57,
+          "broad_usd": -1.5,
+          "inflation_expectations": -0.125,
+          "treasury_vol": 1.5,
+          "gold_vol": -0.035,
+          "energy_inflation": 1.0,
+          "liquidity": -0.0
+        },
+        "fused_score": 0.0,
+        "fused_sentiment": "neutral",
+        "fusion_components": {
+          "sentiment": 0,
+          "sent_clamped": 0.0,
+          "macro_score": -0.0,
+          "weights": {
+            "macro": 0.0,
+            "sent": 1.0
+          }
+        },
+        "is_new": true
+      }
+    ]
+  }
+}

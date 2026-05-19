@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForexFlow - EMA Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b0d10; --card: #14171d; --border: #1e2229; --text: #e2e4e8;
+      --muted: #6b7280; --accent: #00b4d8; --green: #10b981; --red: #ef4444;
+      --amber: #f59e0b; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg); color: var(--text); font-family: system-ui,-apple-system,sans-serif; line-height: 1.4; overflow-x: hidden; }
+
+    nav { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 1rem; background: #0f1115; border-bottom: 1px solid var(--border); }
+    .brand { font-weight: 700; letter-spacing: 1px; color: var(--text); display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; font-size: 0.88rem; }
+    .brand::before { content: ''; width: 15px; height: 15px; background: var(--accent); clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); }
+    .nav-links { display: flex; gap: 0.15rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.76rem; font-weight: 500; transition: all 0.15s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text); background: #1e2229; }
+    .nav-links a.active { color: var(--accent); background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.3); }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; color: var(--muted); }
+    .live-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; margin-right: 4px; box-shadow: 0 0 4px var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.35} }
+    #utc-time { font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 0.72rem; }
+
+    .ticker-wrap { overflow: hidden; width: 100%; background: #080d12; border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 28px; }
+    .ticker-label { flex-shrink: 0; padding: 0 9px; font-family: var(--font-mono); font-size: 7.5px; letter-spacing: .15em; color: var(--accent); border-right: 1px solid var(--border); height: 100%; display: flex; align-items: center; }
+    .ticker-track { overflow: hidden; flex: 1; }
+    .ticker-inner { display: inline-flex; animation: fxscroll 40s linear infinite; white-space: nowrap; }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes fxscroll { from{transform:translateX(0)}to{transform:translateX(-50%)} }
+    .tick { display: inline-flex; align-items: center; gap: 5px; padding: 0 12px; border-right: 1px solid var(--border); font-family: var(--font-mono); font-size: 9px; height: 28px; }
+    .tick-pair { color: var(--text); font-weight: 700; }
+    .tick-rate { color: var(--muted); }
+    .tick-chg.up { color: var(--green); }
+    .tick-chg.dn { color: var(--red); }
+
+    /* session strip */
+    #sessions { display: flex; border-bottom: 1px solid var(--border); max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .session-pill { display: flex; align-items: center; gap: 0.35rem; padding: 0.38rem 0.75rem; font-size: 0.72rem; color: var(--muted); border-right: 1px solid var(--border); white-space: nowrap; }
+    .session-pill:first-child { padding-left: 0; }
+    .session-pill:last-child { border-right: none; }
+    .session-dot { width: 6px; height: 6px; border-radius: 50%; background: #2a3040; flex-shrink: 0; }
+    .session-pill.active { color: var(--text); }
+    .session-pill.active .session-dot { background: var(--green); box-shadow: 0 0 4px var(--green); }
+    .session-name { font-weight: 600; }
+    .session-status { color: var(--muted); font-size: 0.63rem; font-family: var(--font-mono); }
+    .session-pill.active .session-status { color: var(--green); }
+
+    main { padding: 0.6rem 1rem 1.25rem; max-width: 1200px; margin: 0 auto; }
+
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap; }
+    .topbar-left { display: flex; align-items: center; gap: 0.4rem; }
+    .info-pill { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.65rem; color: var(--accent); background: rgba(0,180,216,0.07); border: 1px solid rgba(0,180,216,0.2); border-radius: 4px; padding: 0.18rem 0.45rem; cursor: default; position: relative; }
+    .info-pill:hover .info-tooltip { display: block; }
+    .info-tooltip { display: none; position: absolute; top: calc(100% + 5px); left: 0; z-index: 20; background: #1a1f28; border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.7rem; font-size: 0.7rem; color: var(--muted); line-height: 1.55; width: 280px; white-space: normal; pointer-events: none; }
+    .info-tooltip strong { color: var(--accent); }
+    #cooldown-pill { display: none; font-size: 0.65rem; color: var(--amber); background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 4px; padding: 0.18rem 0.45rem; }
+    .scrape-age { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); white-space: nowrap; }
+    .scrape-age strong { color: var(--text); }
+
+    /* summary strip */
+    .summary-strip { display: flex; background: var(--card); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; margin-bottom: 0.6rem; }
+    .sum-item { flex: 1; padding: 0.45rem 0.7rem; border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; min-width: 0; }
+    .sum-item:last-child { border-right: none; }
+    .sum-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); white-space: nowrap; }
+    .sum-value { font-size: 0.95rem; font-weight: 700; font-family: var(--font-mono); }
+    .sum-value.bull { color: var(--green); }
+    .sum-value.bear { color: var(--red); }
+    .sum-value.wait { color: var(--amber); }
+
+    /* ema grid */
+    .ema-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.6rem; }
+    .ema-card { background: var(--card); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+
+    /* card head */
+    .card-head { display: flex; align-items: center; gap: 0.5rem; padding: 0.48rem 0.7rem; background: #101419; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .pair-title { font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+    .card-price { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+    .card-price.bull { color: var(--green); }
+    .card-price.bear { color: var(--red); }
+    .card-price.wait { color: var(--amber); }
+    .card-sub { color: var(--muted); font-size: 0.6rem; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .badge-row { display: flex; gap: 0.25rem; flex-shrink: 0; margin-left: auto; }
+    .badge { font-size: 0.59rem; font-family: var(--font-mono); padding: 0.12rem 0.35rem; border-radius: 3px; border: 1px solid var(--border); background: #171c24; color: var(--muted); text-transform: uppercase; white-space: nowrap; }
+    .badge.bull { color: var(--green); border-color: rgba(16,185,129,.35); background: rgba(16,185,129,.08); }
+    .badge.bear { color: var(--red);   border-color: rgba(239,68,68,.35);  background: rgba(239,68,68,.08); }
+    .badge.wait { color: var(--amber); border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.08); }
+
+    /* card body */
+    .card-body { padding: 0.5rem 0.7rem 0.55rem; display: grid; gap: 0.45rem; }
+    .narrative { font-size: 0.71rem; font-weight: 700; }
+    .narrative.bull { color: var(--green); }
+    .narrative.bear { color: var(--red); }
+    .narrative.wait { color: var(--amber); }
+
+    /* metrics row */
+    .metric-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0.35rem; }
+    .metric { background: #0f141b; border: 1px solid #1a2030; border-radius: 4px; padding: 0.35rem 0.45rem; min-width: 0; }
+    .metric-k { color: var(--muted); font-size: 0.56rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 0.08rem; }
+    .metric-v { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; overflow-wrap: anywhere; }
+
+    /* status grid */
+    .status-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.3rem; }
+    .status-item { display: flex; align-items: center; justify-content: space-between; gap: 0.25rem; background: #0f141b; border: 1px solid #1a2030; border-radius: 4px; padding: 0.3rem 0.45rem; }
+    .status-key { font-size: 0.57rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+    .status-val { font-size: 0.62rem; font-family: var(--font-mono); font-weight: 700; white-space: nowrap; }
+    .sv-bull { color: var(--green); }
+    .sv-bear { color: var(--red); }
+    .sv-wait { color: var(--amber); }
+
+    /* card foot */
+    .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; padding: 0.3rem 0.7rem; border-top: 1px solid var(--border); background: #0e1218; font-size: 0.59rem; color: var(--muted); flex-wrap: wrap; }
+    .note-tag { font-size: 0.57rem; font-family: var(--font-mono); padding: 0.08rem 0.3rem; border-radius: 3px; text-transform: uppercase; letter-spacing: .05em; flex-shrink: 0; }
+    .note-tag-ok      { color: var(--green);  background: rgba(16,185,129,.08);  border: 1px solid rgba(16,185,129,.2); }
+    .note-tag-td     { color: var(--accent); background: rgba(0,180,216,.08);   border: 1px solid rgba(0,180,216,.2); }
+    .note-tag-session { color: #a78bfa;       background: rgba(167,139,250,.08); border: 1px solid rgba(167,139,250,.3); }
+    .note-tag-warn    { color: var(--amber);  background: rgba(245,158,11,.08);  border: 1px solid rgba(245,158,11,.2); }
+
+
+    .provider-src { font-family: var(--font-mono); font-size: 0.56rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+    .source-badge { font-family: var(--font-mono); font-size: 0.56rem; padding: 0.08rem 0.3rem; border-radius: 3px; border: 1px solid var(--border); background:#111722; color: var(--muted); text-transform: uppercase; }
+    .source-badge.td { color: var(--accent); border-color: rgba(0,180,216,.25); background: rgba(0,180,216,.07); }
+    .source-badge.broker { color: var(--amber); border-color: rgba(245,158,11,.25); background: rgba(245,158,11,.07); }
+    .source-badge.local { color: var(--green); border-color: rgba(16,185,129,.25); background: rgba(16,185,129,.07); }
+    .loader,.error { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
+    .error { color: var(--red); background: rgba(239,68,68,.07); border-radius: 6px; display: none; margin: 0.5rem 0; }
+    #refresh-bar { text-align: center; padding: 0.5rem; color: var(--muted); font-size: 0.65rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+    .trademark { font-size: 0.6rem; color: #6b7280; margin-top: 0.15rem; }
+
+    @media (max-width: 1080px) { .ema-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      nav { flex-wrap: wrap; }
+      .nav-right { margin-left: 0; width: 100%; justify-content: space-between; }
+      #sessions { padding: 0 0.75rem; overflow-x: auto; }
+      main { padding: 0.5rem 0.75rem 1rem; }
+      .summary-strip { flex-wrap: wrap; }
+      .sum-item { flex: 1 1 45%; border-bottom: 1px solid var(--border); }
+      .metric-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .status-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .info-tooltip { width: 220px; }
+    }
+    @media (max-width: 480px) {
+      .summary-strip { display: grid; grid-template-columns: 1fr 1fr; }
+      .sum-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .badge-row { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">FOREXFLOW</div>
+    <div class="nav-links">
+      <a href="index.html">NEWS</a>
+      <a href="macro.html">MACRO</a>
+      <a href="pivots.html">PIVOTS</a>
+      <a href="ema.html" class="active">EMA</a>
+    </div>
+    <div class="nav-right">
+      <span><span class="live-dot"></span>LIVE</span>
+      <span id="utc-time">--:--:-- MYT</span>
+    </div>
+  </nav>
+
+  <div class="ticker-wrap">
+    <span class="ticker-label">RATES</span>
+    <div class="ticker-track"><div class="ticker-inner" id="ticker-inner"><span class="tick"><span class="tick-pair" style="color:var(--muted)">FETCHING RATES…</span></span></div></div>
+ </div>
+
+  <div id="sessions">
+ <div class="session-pill" data-session="sydney"><span class="session-dot"></span><span class="session-name">Sydney</span> <span class="session-status">--</span></div>
+ <div class="session-pill" data-session="tokyo"><span class="session-dot"></span><span class="session-name">Tokyo</span> <span class="session-status">--</span></div>
+ <div class="session-pill" data-session="london"><span class="session-dot"></span><span class="session-name">London</span> <span class="session-status">--</span></div>
+ <div class="session-pill" data-session="ny"><span class="session-dot"></span><span class="session-name">New York</span> <span class="session-status">--</span></div>
+ </div>
+ <main>
+    <div class="topbar">
+      <div class="topbar-left">
+        <span class="info-pill">ⓘ Model basis
+          <span class="info-tooltip"><strong>Data sources:</strong> Daily closes are seeded/repaired from Twelve Data as the main broker-grade source. At each FX session open (Sydney, Tokyo, London, New York), a Twelve Data session correction is applied per pair — shown as <em>Data Session</em>. Outside windows, gap repair triggers if history is stale. Current price comes from Stooq snapshots. The slow EMA period determines the warm-up bar count before values display.</span>
+        </span>
+        <span id="cooldown-pill">⚠ Data Provider Cooldown Active</span>
+      </div>
+      <span id="analysis-scrape-age" class="scrape-age">Generated <strong>--</strong></span>
+    </div>
+
+    <div id="loader" class="loader">Loading EMA dashboard…</div>
+    <div id="error-box" class="error"></div>
+    <div id="summary-strip" class="summary-strip" style="display:none;"></div>
+ <section id="ema-grid" class="ema-grid" style="display:none;"></section>
+  </main>
+
+  <footer id="refresh-bar">
+    <div>Auto-refreshing in <span id="countdown">60</span>s</div>
+    <div class="trademark">© 2026 Alderson. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const DECIMALS    = { EURUSD:5, GBPUSD:5, USDJPY:3, XAUUSD:2 };
+    const PAIR_LABELS = { EURUSD:'EUR/USD', GBPUSD:'GBP/USD', USDJPY:'USD/JPY', XAUUSD:'XAU/USD' };
+    const ORDER       = ['EURUSD','GBPUSD','USDJPY','XAUUSD'];
+    const SESSIONS    = { sydney:{open:22,close:7}, tokyo:{open:0,close:9}, london:{open:8,close:17}, ny:{open:13,close:22} };
+
+    let latestAnalysisScrapeTime = null;
+    let countdown = 60;
+
+    const fetchJSON = async url => {
+      try { const r = await fetch(url,{cache:'no-cache'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return await r.json(); }
+      catch(e) { console.error(`Fetch ${url}:`,e); return null; }
+    };
+
+    const fmt = (v,d=4) => Number(v).toFixed(d);
+    const pad = n => n.toString().padStart(2,'0');
+
+    function pretty(value, pairKey='', defaultDecimals=4) {
+      if (value==null||Number.isNaN(Number(value))) return '--';
+      return fmt(Number(value), DECIMALS[pairKey]??defaultDecimals);
+    }
+
+    function titleCase(value) {
+      return String(value||'').replace(/_/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase());
+    }
+
+    function firstDefined(obj, keys, defaultValue=null) {
+      if (!obj) return defaultValue;
+      for (const key of keys) {
+        const value = obj[key];
+        if (value !== undefined && value !== null && String(value).trim() !== '') return value;
+      }
+      return defaultValue;
+    }
+    function normaliseCross(raw) {
+      const s = String(raw || '').toLowerCase();
+      if (['cross_up','bullish_cross','golden_cross','watch_long'].includes(s)) return 'cross_up';
+      if (['cross_down','bearish_cross','death_cross','watch_short'].includes(s)) return 'cross_down';
+      return 'none';
+    }
+    function normaliseSuggestion(raw) {
+      const s = String(raw || '').toLowerCase();
+      if (s === 'cross_up' || s === 'golden_cross' || s === 'bullish_cross') return 'bullish_cross';
+      if (s === 'cross_down' || s === 'death_cross' || s === 'bearish_cross') return 'bearish_cross';
+      return s;
+    }
+    function sourceLabel(raw) {
+      const s = String(raw || '').toLowerCase();
+      if (!s || s === '--') return '--';
+      return s.replace(/_/g, ' ').toUpperCase();
+    }
+    function sourceBadge(raw) {
+      const label = sourceLabel(raw);
+      if (!label || label === '--') return '';
+      const l = label.toLowerCase();
+      const cls = l.includes('session') ? 'broker'
+                : (l.includes('twelve') || l.includes('td')) ? 'td'
+                : l.includes('local') ? 'local' : '';
+      return `<span class="source-badge ${cls}">${label}</span>`;
+    }
+    function providerPolicy(payload) {
+      return firstDefined(payload, ['provider_policy'], '') ||
+             firstDefined(payload?.sources, ['provider_policy'], '') ||
+             'EMA: Twelve Data main source';
+    }
+    function itemValue(item, keys, defaultValue=null) {
+      return firstDefined(item, keys, defaultValue);
+    }
+    function itemNum(item, keys, defaultValue=null) {
+      const v = itemValue(item, keys, defaultValue);
+      const n = Number(v);
+      return Number.isFinite(n) ? n : defaultValue;
+    }
+function toMYT(isoStr) {
+      try {
+        const d = new Date(isoStr), myt = new Date(d.getTime()+8*3600*1000);
+        const hh=String(myt.getUTCHours()).padStart(2,'0'), mm=String(myt.getUTCMinutes()).padStart(2,'0');
+        const dd=myt.getUTCDate(), mon=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][myt.getUTCMonth()];
+        return `${dd} ${mon} ${hh}:${mm} MYT`;
+      } catch(_) { return '--'; }
+    }
+
+    function relTimeMYT(isoStr) {
+      try {
+        if (!isoStr) return '--';
+        const diff = Math.floor((Date.now()-new Date(isoStr).getTime())/1000);
+        if (!Number.isFinite(diff)) return '--';
+        const myt = toMYT(isoStr);
+        if (diff<=0) return `just now (${myt})`;
+        if (diff<60) return `${diff}s ago (${myt})`;
+        const m=Math.floor(diff/60);
+        if (m<60) return `${m}m ago (${myt})`;
+        const h=Math.floor(m/60), rm=m%60;
+        const rel = h<24 ? (rm?`${h}h ${rm}m ago`:`${h}h ago`) : `${Math.floor(h/24)}d ago`;
+        return `${rel} (${myt})`;
+      } catch(_) { return '--'; }
+    }
+
+    const CLEAR = Symbol('clear');
+    function updateScrapeAge(generatedIso=undefined) {
+      if (generatedIso === CLEAR) { latestAnalysisScrapeTime = null; }
+      else if (generatedIso !== undefined) { latestAnalysisScrapeTime = generatedIso; }
+      const el=document.getElementById('analysis-scrape-age');
+      if (el) el.innerHTML=`Generated <strong>${relTimeMYT(latestAnalysisScrapeTime)}</strong>`;
+    }
+
+    function updateClock() {
+      const now=new Date(), myt=new Date(now.getTime()+8*3600*1000);
+      document.getElementById('utc-time').textContent=myt.toISOString().split('T')[1].split('.')[0]+' MYT';
+      const h=now.getUTCHours(), m=now.getUTCMinutes(), currentMin=h*60+m;
+      Object.entries(SESSIONS).forEach(([key,{open,close}])=>{
+        const openMin=open*60, closeMin=close*60;
+        let isOpen,minsLeft;
+        if(open<close){ isOpen=currentMin>=openMin&&currentMin<closeMin; minsLeft=isOpen?closeMin-currentMin:(openMin+1440-currentMin)%1440; }
+        else          { isOpen=currentMin>=openMin||currentMin<closeMin; minsLeft=isOpen?(currentMin>=openMin?(1440-currentMin)+closeMin:closeMin-currentMin):openMin-currentMin; }
+        const hL=Math.floor(minsLeft/60), mL=minsLeft%60;
+        const pill=document.querySelector(`[data-session="${key}"]`);
+        if (!pill) return;
+        const statusEl=pill.querySelector('.session-status');
+        if(isOpen){ pill.classList.add('active'); statusEl.textContent=`${hL}h ${pad(mL)}m`; }
+        else      { pill.classList.remove('active'); statusEl.textContent='Closed'; }
+      });
+    }
+
+    function renderTicker(rates) {
+      const wrap=document.getElementById('ticker-inner');
+      if (!wrap) return;
+      if (!Array.isArray(rates)||!rates.length) { wrap.innerHTML='<span class="tick"><span class="tick-pair" style="color:var(--muted)">UNAVAILABLE</span></span>'; return; }
+      let html='';
+      for(let dup=0;dup<2;dup++) rates.forEach(r=>{
+        const chg=parseFloat(r.chg_pct||0);
+        html+=`<span class="tick"><span class="tick-pair">${r.label}</span><span class="tick-rate">${r.rate}</span><span class="tick-chg ${chg>=0?'up':'dn'}">${chg>=0?'+':''}${chg.toFixed(2)}%</span></span>`;
+      });
+      wrap.innerHTML=html;
+    }
+    function noteTag(notes) {
+      const prefix=(notes||'').split(' ')[0];
+      if (!prefix) return '';
+      if (prefix==='local_ok')                       return '<span class="note-tag note-tag-ok">Local OK</span>';
+      if (prefix.startsWith('session_corrected'))    return '<span class="note-tag note-tag-session">Data Session</span>';
+      if (prefix.startsWith('twelvedata_') || (notes||'').includes('twelvedata')) return '<span class="note-tag note-tag-td">Twelve Data</span>';
+      if (prefix.startsWith('session_fetch_failed')) return '<span class="note-tag note-tag-warn">Session Failed</span>';
+      if (prefix.startsWith('repair_skipped'))       return '<span class="note-tag note-tag-warn">Repair Skipped</span>';
+      if (prefix.startsWith('deferred'))             return '<span class="note-tag note-tag-warn">Deferred</span>';
+      return '';
+    }
+
+    const SUGGESTION_LABELS = {
+      warming_up:       'Warming Up',
+      bullish:          'Bullish',
+      bearish:          'Bearish',
+      bullish_cross:    'Bull Cross',
+      bearish_cross:    'Bear Cross',
+      cross_up:         '🟢 Bull Cross',
+      cross_down:       '🔴 Bear Cross',
+      golden_cross:     '🟢 Bull Cross',
+      death_cross:      '🔴 Bear Cross',
+      no_cross:         'No Cross',
+      bullish_pullback: 'Bull Pullback',
+      bearish_pullback: 'Bear Pullback',
+      bullish_at_ema:   'Bull @ EMA',
+      bearish_at_ema:   'Bear @ EMA',
+      neutral:          'Neutral',
+    };
+    const suggestionLabel = v => SUGGESTION_LABELS[String(v||'').toLowerCase()] || titleCase(v);
+
+    function statusClass(v) {
+      const s=String(v||'').toLowerCase();
+      if (s.includes('bull')||s==='above'||s==='cross_up'||s==='golden_cross')   return 'bull';
+      if (s.includes('bear')||s==='below'||s==='cross_down'||s==='death_cross')  return 'bear';
+      return 'wait';
+    }
+
+    function svClass(v) { const c=statusClass(v); return c==='bull'?'sv-bull':c==='bear'?'sv-bear':'sv-wait'; }
+
+    function toneFromResult(item) {
+      const s=String(item.suggestion||'').toLowerCase();
+      if (s==='bullish_at_ema'||s==='bearish_at_ema') return 'wait';
+      if (statusClass(item.suggestion)==='bull'||statusClass(item.trend_bias)==='bull') return 'bull';
+      if (statusClass(item.suggestion)==='bear'||statusClass(item.trend_bias)==='bear') return 'bear';
+      return 'wait';
+    }
+
+    function buildNarrative(item, pairKey) {
+      const fast = itemValue(item, ['fast_period'], 20), slow = itemValue(item, ['slow_period'], 50);
+      const suggestion = normaliseSuggestion(itemValue(item, ['suggestion', 'ema_cross_signal', 'cross'], 'neutral'));
+      const cross = normaliseCross(itemValue(item, ['ema_cross_signal', 'cross', 'suggestion'], 'none'));
+      const trendBias = itemValue(item, ['trend_bias', 'bias'], 'neutral_bias');
+      const closeStructure = itemValue(item, ['close_structure'], '');
+      const currentStructure = itemValue(item, ['current_structure'], '');
+      const closeVsFast = itemValue(item, ['close_vs_fast', 'price_vs_fast'], '');
+      const closeVsSlow = itemValue(item, ['close_vs_slow', 'price_vs_slow'], '');
+      if (suggestion === 'warming_up' || item.warming_up === true || item.ok === false) return { tone:'wait', title:'Warming Up — Collecting Daily History' };
+      if (cross === 'cross_up')   return { tone:'bull', title:`🟢 Bullish EMA${fast} × EMA${slow} Cross Confirmed` };
+      if (cross === 'cross_down') return { tone:'bear', title:`🔴 Bearish EMA${fast} × EMA${slow} Cross Confirmed` };
+      if (trendBias === 'bullish_bias' && (closeStructure === 'above_fast_slow' || (closeVsFast === 'above' && closeVsSlow === 'above')) && currentStructure !== 'below_fast_slow')
+        return { tone:'bull', title:'Clean Bullish Alignment — Close & Price Above Both EMAs' };
+      if (trendBias === 'bearish_bias' && (closeStructure === 'below_fast_slow' || (closeVsFast === 'below' && closeVsSlow === 'below')) && currentStructure !== 'above_fast_slow')
+        return { tone:'bear', title:'Clean Bearish Alignment — Close & Price Below Both EMAs' };
+      if (suggestion === 'bullish_pullback') return { tone:'bull', title:`Bullish Pullback — Close Below EMA${fast} But Above EMA${slow}` };
+      if (suggestion === 'bearish_pullback') return { tone:'bear', title:`Bearish Pullback — Close Above EMA${fast} But Below EMA${slow}` };
+      if (suggestion === 'bullish_at_ema') return { tone:'wait', title:`Bullish Stack — Close Testing EMA Level` };
+      if (suggestion === 'bearish_at_ema') return { tone:'wait', title:`Bearish Stack — Close Testing EMA Level` };
+      return { tone:toneFromResult({ ...item, suggestion, trend_bias: trendBias }), title:'Mixed / Transitional Structure' };
+    }
+
+
+    function normalisePairKey(raw) {
+      return String(raw || '').replace(/[^a-zA-Z]/g, '').toUpperCase();
+    }
+    function normaliseResultsMap(results) {
+      const out = {};
+      if (Array.isArray(results)) {
+        results.forEach(item => {
+          const key = normalisePairKey(item?.pair || item?.pairKey || item?.symbol || '');
+          if (key) out[key] = item;
+        });
+      } else if (results && typeof results === 'object') {
+        Object.entries(results).forEach(([rawKey, item]) => {
+          const key = normalisePairKey(item?.pair || item?.pairKey || rawKey);
+          if (key) out[key] = item || {};
+        });
+      }
+      return out;
+    }
+    function renderSummary(items, payload) {
+      const ready   = items.filter(x=>x.suggestion!=='warming_up').length;
+      const warming = items.filter(x=>x.suggestion==='warming_up').length;
+      const bullish = items.filter(x=>statusClass(x.trend_bias)==='bull').length;
+      const dataReqs = payload.twelvedata_requests_today ?? payload.data_requests_today ?? 0;
+      const html = [
+        ['Pairs',      items.length, ''],
+        ['Ready',      ready,        ready===items.length?'bull':''],
+        ['Warming Up', warming,      warming?'wait':''],
+        ['Bullish',    bullish,      bullish?'bull':''],
+        ['Data Requests',`${dataReqs}/800`, payload.twelvedata_cooldown_active?'wait':''],
+        ['Provider', providerPolicy(payload).includes('Twelve Data')?'TWELVE DATA':'DATA', ''],
+      ].map(([l,v,c])=>`<div class="sum-item"><span class="sum-label">${l}</span><span class="sum-value ${c}">${v}</span></div>`).join('');
+      const el=document.getElementById('summary-strip');
+      el.innerHTML=html; el.style.display='flex';
+      document.getElementById('cooldown-pill').style.display=payload.twelvedata_cooldown_active?'inline-flex':'none';
+    }
+
+    function renderCards(payload) {
+      const results = normaliseResultsMap(payload && payload.results ? payload.results : {});
+      const orderedKeys = [...ORDER, ...Object.keys(results).filter(p => !ORDER.includes(p)).sort()];
+      const items = orderedKeys.filter(p => results[p]).map(p => ({ pairKey:p, ...results[p] }));
+      if (!items.length) throw new Error('No pair results found in ema_state.json');
+
+      renderSummary(items,payload);
+      const grid=document.getElementById('ema-grid');
+      grid.innerHTML=items.map(({pairKey,...item})=>{
+        const fast = Number(itemValue(item, ['fast_period'], 20));
+        const slow = Number(itemValue(item, ['slow_period'], 50));
+        const emaFast = itemNum(item, ['ema_fast', 'ema20', 'ema_20', 'fast_ema'], null);
+        const emaSlow = itemNum(item, ['ema_slow', 'ema50', 'ema_50', 'slow_ema'], null);
+        const lastClose = itemNum(item, ['last_close', 'close', 'price'], null);
+        const currentPrice = itemNum(item, ['current_price', 'price', 'last_close'], null);
+        const completedBars = Number(itemValue(item, ['completed_closes','completed_daily_closes','bars'], 0));
+        const sourceBasis = itemValue(item, ['source_basis','source','data_source','history_source'], '');
+        const cross = normaliseCross(itemValue(item, ['ema_cross_signal','cross','suggestion'], 'none'));
+        const suggestion = normaliseSuggestion(itemValue(item, ['suggestion','ema_cross_signal','cross'], 'neutral'));
+        const trendBias = itemValue(item, ['trend_bias','bias'], 'neutral_bias');
+        const closeVsFast = itemValue(item, ['close_vs_fast','price_vs_fast'], 'n/a');
+        const closeVsSlow = itemValue(item, ['close_vs_slow','price_vs_slow'], 'n/a');
+        const currentVsFast = itemValue(item, ['current_vs_fast','price_vs_fast','close_vs_fast'], 'n/a');
+        const currentVsSlow = itemValue(item, ['current_vs_slow','price_vs_slow','close_vs_slow'], 'n/a');
+        const fastVsSlow = itemValue(item, ['ema_fast_vs_slow','fast_vs_slow'], 'n/a');
+        const spread = (emaFast != null && emaSlow != null) ? Number(emaFast) - Number(emaSlow) : null;
+        const readyText = completedBars >= slow && item.warming_up !== true && item.ok !== false ? 'Ready' : 'Warming';
+        const narrative = buildNarrative({ ...item, suggestion, trend_bias: trendBias, ema_cross_signal: cross }, pairKey);
+        const priceTone = statusClass(suggestion || trendBias);
+        const crossLabel = cross === 'cross_up' ? '🟢 Bullish Cross' : (cross === 'cross_down' ? '🔴 Bearish Cross' : titleCase(itemValue(item, ['ema_cross_signal','cross'], 'none')));
+        const sourceBadgeHTML = sourceBadge(sourceBasis);
+        const providerText = providerPolicy(payload);
+        return `
+          <article class="ema-card">
+            <div class="card-head">
+              <span class="pair-title">${PAIR_LABELS[pairKey]||pairKey}</span>
+              <span class="card-price ${priceTone}">${pretty(currentPrice,pairKey)}</span>
+              <span class="card-sub">${completedBars} Daily closes · ${item.last_completed_hour?toMYT(item.last_completed_hour):'--'}</span>
+              <div class="badge-row">
+                <span class="badge ${statusClass(trendBias)}">${titleCase(trendBias)}</span>
+                <span class="badge ${statusClass(suggestion)}">${suggestionLabel(suggestion)}</span>
+                <span class="badge ${statusClass(readyText)}">${readyText}</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="narrative ${narrative.tone}">${narrative.title}</div>
+              <div class="metric-row">
+                <div class="metric"><div class="metric-k">EMA ${fast}</div><div class="metric-v">${completedBars>=fast?pretty(emaFast,pairKey):'--'}</div></div>
+                <div class="metric"><div class="metric-k">EMA ${slow}</div><div class="metric-v">${completedBars>=slow?pretty(emaSlow,pairKey):'--'}</div></div>
+                <div class="metric"><div class="metric-k">Daily Close</div><div class="metric-v">${completedBars>0?pretty(lastClose,pairKey):'--'}</div></div>
+                <div class="metric"><div class="metric-k">EMA Spread</div><div class="metric-v">${spread==null?'--':(spread>=0?'+':'')+pretty(spread,pairKey,4)}</div></div>
+              </div>
+              <div class="status-grid">
+                <div class="status-item"><span class="status-key">Close vs E${fast}</span><span class="status-val ${svClass(closeVsFast)}">${titleCase(closeVsFast)}</span></div>
+                <div class="status-item"><span class="status-key">Close vs E${slow}</span><span class="status-val ${svClass(closeVsSlow)}">${titleCase(closeVsSlow)}</span></div>
+                <div class="status-item"><span class="status-key">Price vs E${fast}</span><span class="status-val ${svClass(currentVsFast)}">${titleCase(currentVsFast)}</span></div>
+                <div class="status-item"><span class="status-key">Price vs E${slow}</span><span class="status-val ${svClass(currentVsSlow)}">${titleCase(currentVsSlow)}</span></div>
+                <div class="status-item"><span class="status-key">E${fast} vs E${slow}</span><span class="status-val ${svClass(fastVsSlow)}">${titleCase(fastVsSlow)}</span></div>
+                <div class="status-item"><span class="status-key">Cross</span><span class="status-val ${svClass(cross)}">${crossLabel}</span></div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <span style="display:flex;align-items:center;gap:0.3rem;flex-wrap:wrap;">${noteTag(item.notes)}${sourceBadgeHTML}</span>
+              <span class="provider-src" title="${providerText}">${providerText.replace('EMA: ','')}</span>
+              <span>Data today: ${item.twelvedata_requests_today ?? payload.twelvedata_requests_today ?? 0}/800</span>
+            </div>
+          </article>`;
+      }).join('');
+      grid.style.display='grid';
+      document.getElementById('loader').style.display='none';
+      document.getElementById('error-box').style.display='none';
+    }
+
+    let isRefreshing = false;
+
+    async function refreshData() {
+      if (isRefreshing) return;
+      isRefreshing = true;
+      try {
+      const [state,rates] = await Promise.all([fetchJSON('ema_state.json'), fetchJSON('rates.json')]);
+      renderTicker(rates&&Array.isArray(rates.rates)?rates.rates:[]);
+
+      if (!state||!state.results||Object.keys(state.results).length===0) {
+        latestAnalysisScrapeTime = null;
+        updateScrapeAge();
+        document.getElementById('loader').style.display='none';
+        document.getElementById('summary-strip').style.display='none';
+        document.getElementById('ema-grid').style.display='none';
+        const err=document.getElementById('error-box');
+        err.textContent='ema_state.json is missing or has no results yet. Wait for the EMA workflow to seed enough Daily closes from Twelve Data.';
+        err.style.display='block';
+        countdown=60; return;
+      }
+
+      updateScrapeAge(state.generated_at || state.scrape_time || state.timestamp || state.updated_at || rates?.fetched_at || null);
+      try {
+        renderCards(state);
+      } catch(renderErr) {
+        document.getElementById('loader').style.display='none';
+        const errBox=document.getElementById('error-box');
+        errBox.textContent='Render error: '+renderErr.message;
+        errBox.style.display='block';
+        countdown=60; return;
+      }
+
+      const errors=state.errors||{};
+      const errKeys=Object.keys(errors);
+      const errBox=document.getElementById('error-box');
+      if (errKeys.length) { errBox.textContent='Backend warnings: '+errKeys.map(k=>`${k}: ${errors[k]}`).join(' | '); errBox.style.display='block'; }
+      countdown=60;
+      } finally {
+        isRefreshing = false;
+      }
+    }
+
+    function tick() {
+      document.getElementById('countdown').textContent=countdown;
+      if(countdown<=0) refreshData(); else countdown-=1;
+    }
+
+    updateClock();
+    updateScrapeAge();
+    setInterval(()=>{ updateClock(); updateScrapeAge(); },1000);
+    refreshData().then(()=>{ setInterval(tick,1000); });
+  </script>
+</body></html>

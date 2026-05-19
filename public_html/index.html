@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>News Terminal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #070b0f;
+      --panel:   #0c1117;
+      --panel2:  #101820;
+      --border:  #1a2535;
+      --border2: #243040;
+      --accent:  #00e5a0;
+      --accent2: #00aaff;
+      --red:     #ff4f6a;
+      --amber:   #f5a623;
+      --text:    #c8d8e8;
+      --dim:     #526070;
+      --muted:   #3a4d60;
+      --silver:  #a8b8c8;
+      --white:   #f0f6ff;
+      --safe-b:  env(safe-area-inset-bottom, 0px);
+      --heat-strong-bull: rgba(0,229,160,0.13);
+      --heat-mild-bull:   rgba(0,229,160,0.06);
+      --heat-strong-bear: rgba(255,79,106,0.13);
+      --heat-mild-bear:   rgba(255,79,106,0.06);
+    }
+
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.5; overflow: hidden; -webkit-text-size-adjust: 100%; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
+
+    .shell { display: grid; grid-template-rows: 44px 36px 1fr; grid-template-areas: "topbar" "ticker" "body"; height: 100vh; height: 100dvh; }
+
+    .topbar { grid-area: topbar; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: var(--panel); border-bottom: 1px solid var(--border); gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+    .logo-hex { width: 22px; height: 22px; background: var(--accent); clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); }
+    .logo-name { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: var(--white); }
+    .logo-slash { color: var(--silver); margin: 0 4px; }
+    .logo-sub { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--silver); letter-spacing: 0.1em; }
+    .nav-tabs { display: flex; gap: 2px; margin-left: 12px; flex-shrink: 0; }
+    .nav-tab { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; padding: 6px 14px; border-radius: 2px; text-decoration: none; color: var(--silver); border: 1px solid transparent; transition: all 0.15s; }
+    .nav-tab:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+    .nav-tab.active { color: var(--accent); border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.06); }
+    .topbar-center { flex: 1; display: flex; justify-content: center; }
+    .session-badges { display: flex; gap: 8px; }
+    .session-badge { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; border: 1px solid var(--border2); color: var(--silver); }
+    .session-badge.active { border-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.06); }
+    .session-time { opacity: 0.75; margin-left: 4px; letter-spacing: 0.05em; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .live-pill { display: flex; align-items: center; gap: 5px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--accent); }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: blink 1.4s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .utc-clock { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--silver); }
+
+    .ticker-wrap { grid-area: ticker; overflow: hidden; background: #080d12; border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+    .ticker-label { flex-shrink: 0; padding: 0 12px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--accent); border-right: 1px solid var(--border); height: 100%; display: flex; align-items: center; gap: 8px; }
+    .ticker-stale { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.1em; padding: 2px 5px; border-radius: 2px; background: rgba(245,166,35,0.12); color: var(--amber); border: 1px solid rgba(245,166,35,0.3); display: none; }
+    .ticker-stale.visible { display: inline-flex; }
+    .ticker-track { overflow: hidden; flex: 1; }
+    .ticker-inner { display: inline-flex; gap: 0; animation: fxscroll 40s linear infinite; white-space: nowrap; }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes fxscroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .tick { display: inline-flex; align-items: center; gap: 6px; padding: 0 20px; border-right: 1px solid var(--border); font-family: 'Space Mono', monospace; font-size: 10px; }
+    .tick-pair { color: var(--white); font-weight: 700; letter-spacing: 0.04em; }
+    .tick-rate { color: var(--silver); }
+    .tick-chg.up { color: var(--accent); }
+    .tick-chg.dn { color: var(--red); }
+
+    .body { grid-area: body; display: grid; grid-template-columns: 280px 1fr 220px; overflow: hidden; }
+
+    .sidebar { background: var(--panel); border-left: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+    .sidebar-header { padding: 12px 14px 8px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--silver); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .sidebar-list { overflow-y: auto; flex: 1; }
+    .pair-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; cursor: pointer; border: none; background: none; width: 100%; text-align: left; border-right: 2px solid transparent; border-bottom: 1px solid var(--border); transition: background 0.12s, border-color 0.12s; gap: 8px; }
+    .pair-item:hover { background: rgba(255,255,255,0.03); }
+    .pair-item.active { background: rgba(0,229,160,0.05); border-right-color: var(--accent); }
+    .pair-item-left { display: flex; flex-direction: column; gap: 1px; width: 100%; }
+    .pair-sym { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+    .pair-rate-small { font-family: 'Space Mono', monospace; font-size: 9px; color: #cdd9e6; }
+    .ema-badge { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 0.08em; padding: 1px 5px; border-radius: 2px; border: 1px solid var(--border2); color: var(--dim); background: rgba(0,0,0,0.15); flex-shrink: 0; transition: color 0.3s, border-color 0.3s; white-space: nowrap; }
+    .ema-badge.bull { color: var(--accent); border-color: rgba(0,229,160,0.35); }
+    .ema-badge.bear { color: var(--red);    border-color: rgba(255,79,106,0.4); }
+    .pair-macro-row { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+    .macro-label { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 0.1em; color: var(--silver); min-width: 30px; }
+    .macro-bar-wrap { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; position: relative; }
+    .macro-bar-center { position: absolute; left: 50%; top: 0; width: 1px; height: 100%; background: var(--border2); }
+    .macro-bar-fill { position: absolute; top: 0; height: 100%; border-radius: 2px; transition: all 0.3s ease; }
+    .macro-bar-fill.bull { background: var(--accent); left: 50%; }
+    .macro-bar-fill.bear { background: var(--red); right: 50%; }
+    .macro-score-val { font-family: 'Space Mono', monospace; font-size: 7px; min-width: 26px; text-align: right; }
+    .macro-score-val.bull { color: var(--accent); }
+    .macro-score-val.bear { color: var(--red); }
+    .macro-score-val.neutral { color: var(--silver); }
+    .sidebar-footer { border-top: 1px solid var(--border); padding: 10px 14px; flex-shrink: 0; }
+    .news-count { font-family: 'Space Mono', monospace; font-size: 9px; color: #cfdae7; letter-spacing: 0.1em; }
+
+    .macro-panel { border-top: 1px solid var(--border); padding: 10px 14px 12px; flex-shrink: 0; }
+    .macro-panel-title { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.15em; color: var(--silver); margin-bottom: 8px; }
+    .macro-indicators { display: flex; flex-direction: column; gap: 5px; }
+    .macro-ind-row { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 6px; }
+    .macro-ind-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.08em; color: var(--silver); }
+    .macro-ind-bar-wrap { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .macro-ind-bar { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+    .macro-ind-val { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--silver); text-align: right; white-space: nowrap; }
+    .macro-ind-val.rate-high { color: var(--red); }
+    .macro-ind-val.rate-low  { color: var(--accent); }
+    .macro-ind-val.vix-risk  { color: var(--red); }
+    .macro-ind-val.vix-calm  { color: var(--accent); }
+
+    .dq-badge { display: flex; align-items: center; gap: 5px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 2px; transition: all 0.3s ease; }
+    .dq-badge.grade-a { color: var(--accent); border: 1px solid rgba(0,229,160,0.3); background: rgba(0,229,160,0.06); }
+    .dq-badge.grade-b { color: var(--accent2); border: 1px solid rgba(0,170,255,0.3); background: rgba(0,170,255,0.06); }
+    .dq-badge.grade-c { color: var(--amber); border: 1px solid rgba(245,166,35,0.3); background: rgba(245,166,35,0.06); }
+    .dq-badge.grade-d { color: var(--red); border: 1px solid rgba(255,79,106,0.3); background: rgba(255,79,106,0.06); }
+    .dq-bar { width: 40px; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .dq-bar-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+
+    .regime-pill { display: flex; align-items: center; gap: 5px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 2px; transition: all 0.3s ease; }
+    .regime-pill.risk-on { color: var(--accent); border: 1px solid rgba(0,229,160,0.3); background: rgba(0,229,160,0.06); }
+    .regime-pill.risk-off { color: var(--red); border: 1px solid rgba(255,79,106,0.3); background: rgba(255,79,106,0.06); }
+    .regime-pill.risk-neutral { color: var(--silver); border: 1px solid var(--border2); background: rgba(58,77,96,0.15); }
+    .regime-dot { width: 5px; height: 5px; border-radius: 50%; }
+    .risk-on .regime-dot { background: var(--accent); }
+    .risk-off .regime-dot { background: var(--red); }
+    .risk-neutral .regime-dot { background: var(--silver); }
+
+
+    /* Signal horizon pill — short/medium/long */
+    .horizon-pill { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.1em; padding: 2px 7px; border-radius: 2px; border: 1px solid var(--border2); color: var(--silver); transition: all 0.3s ease; }
+    .horizon-pill.short  { color: var(--red);    border-color: rgba(255,79,106,0.4);  background: rgba(255,79,106,0.06); }
+    .horizon-pill.medium { color: var(--amber);  border-color: rgba(245,166,35,0.4);  background: rgba(245,166,35,0.06); }
+    .horizon-pill.long   { color: var(--accent); border-color: rgba(0,229,160,0.35);  background: rgba(0,229,160,0.06); }
+
+    /* Regime confidence mini-bar inside heat bar */
+    .regime-conf-wrap { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border-right: 1px solid var(--border); height: 36px; flex-shrink: 0; }
+    .regime-conf-label { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--silver); letter-spacing: 0.08em; white-space: nowrap; }
+    .regime-conf-bar  { width: 36px; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .regime-conf-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+    .content { display: flex; flex-direction: column; overflow: hidden; background: var(--bg); }
+    .content-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 18px; height: 44px; border-bottom: 1px solid var(--border); background: var(--panel); flex-shrink: 0; gap: 12px; }
+    .content-title { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+    .content-title h1 { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 0.06em; white-space: nowrap; }
+    .content-title .live-rate { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); }
+    .content-title .count-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--silver); letter-spacing: 0.1em; white-space: nowrap; }
+    .filter-strip { display: flex; gap: 4px; flex-shrink: 0; }
+    .f-btn { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; padding: 4px 10px; border: 1px solid var(--border2); background: none; color: var(--silver); border-radius: 2px; cursor: pointer; transition: all 0.12s; }
+    .f-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .f-btn.active { border-color: var(--accent2); color: var(--accent2); background: rgba(0,170,255,0.07); }
+    .sort-toggle { display: flex; gap: 3px; flex-shrink: 0; margin-left: 4px; border-left: 1px solid var(--border); padding-left: 10px; }
+    .sort-btn { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.08em; padding: 4px 8px; border: 1px solid var(--border2); background: none; color: var(--silver); border-radius: 2px; cursor: pointer; transition: all 0.12s; white-space: nowrap; }
+    .sort-btn:hover { color: var(--amber); border-color: var(--amber); }
+    .sort-btn.active { color: var(--amber); border-color: var(--amber); background: rgba(245,166,35,0.07); }
+
+    /* ———— MACRO HEAT BAR ——————————————————————————————————————————————————————————————————————————————————————————————————————————
+       Layout: [CONF BADGE] [BIAS SCORE] MACRO [chip] [chip] [chip] ——Â¦
+       Screenshot rules:
+         ——Â¢ border color  = value sign (green / red / dim)
+         ——Â¢ text color    = same as border (both key label AND value number)
+         ——Â¢ zero chips    = dim border + dim text
+    ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+    .macro-heat-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      height: 36px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .macro-heat-bar::-webkit-scrollbar { display: none; }
+    .macro-heat-bar.hidden { display: none; }
+
+    /* CONF BADGE — e.g. "HIGH CONFIDENCE", "MEDIUM CONFIDENCE" */
+    .heat-conf-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      padding: 0 12px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      border-right: 1px solid var(--border);
+    }
+    .heat-conf-badge.conf-high   { color: var(--accent);  border: 1px solid var(--accent);  border-right: 1px solid var(--border); }
+    .heat-conf-badge.conf-medium { color: var(--amber);   border: 1px solid var(--amber);   border-right: 1px solid var(--border); }
+    .heat-conf-badge.conf-low    { color: var(--dim);     border: 1px solid var(--dim);     border-right: 1px solid var(--border); }
+
+    /* BIAS SCORE — e.g. "BIAS +1.03" */
+    .heat-score {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      padding: 0 12px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      border-right: 1px solid var(--border);
+    }
+    .heat-score.bull    { color: var(--accent); border: 1px solid var(--accent); border-right: 1px solid var(--border); }
+    .heat-score.bear    { color: var(--red);    border: 1px solid var(--red);    border-right: 1px solid var(--border); }
+    .heat-score.neutral { color: var(--dim);    border: 1px solid var(--dim);    border-right: 1px solid var(--border); }
+
+    /* "MACRO" plain text label */
+    .heat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--silver);
+      padding: 0 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Factor chips container */
+    .heat-factors {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .heat-factors::-webkit-scrollbar { display: none; }
+
+    /* ———— THE KEY FIX:
+       .heat-factor-chip border + ALL text = same color per sign.
+       - .bull  ——€ → green border, green text
+       - .bear  ——€ → red border,   red text
+       - .neutral (zero) ——€ → dim border, dim text
+    ———— */
+    .heat-factor-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid var(--dim);
+      color: var(--dim);
+      background: transparent;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.12s;
+    }
+    .heat-factor-chip:hover { background: rgba(255,255,255,0.03); }
+    .mom-src { font-size: 7px; opacity: 0.7; margin-left: 3px; letter-spacing: 0; }
+    .mom-src.kalman { color: inherit; }
+    .mom-src.price  { color: var(--amber); }
+    .mom-src.blind  { color: var(--red); }
+
+    /* positive sign ——€ → green */
+    .heat-factor-chip.bull {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    /* negative sign ——€ → red */
+    .heat-factor-chip.bear {
+      border-color: var(--red);
+      color: var(--red);
+    }
+    /* zero / neutral ——€ → dim (default above) */
+    /* rejection / caution ——€ → amber */
+    .heat-factor-chip.warn {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .news-wrap { flex: 1; overflow-y: auto; padding: 1px; -webkit-overflow-scrolling: touch; }
+    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .news-card { background: var(--panel); padding: 16px 18px; display: flex; flex-direction: column; gap: 9px; text-decoration: none; color: inherit; transition: background 0.12s; position: relative; overflow: hidden; animation: fadein 0.3s ease both; }
+    @keyframes fadein { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    .news-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background 0.15s; }
+    .news-card:hover { background: var(--panel2); }
+    .news-card:hover::before { background: var(--accent2); }
+    .news-card.featured { grid-column: span 2; }
+    .news-card.featured::before { background: var(--accent); }
+    .news-card::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; transition: background 0.2s; }
+    .news-card.fused-strong-bull { background: var(--heat-strong-bull); }
+    .news-card.fused-strong-bull::after { background: var(--accent); }
+    .news-card.fused-mild-bull { background: var(--heat-mild-bull); }
+    .news-card.fused-mild-bull::after { background: rgba(0,229,160,0.4); }
+    .news-card.fused-strong-bear { background: var(--heat-strong-bear); }
+    .news-card.fused-strong-bear::after { background: var(--red); }
+    .news-card.fused-mild-bear { background: var(--heat-mild-bear); }
+    .news-card.fused-mild-bear::after { background: rgba(255,79,106,0.4); }
+    .card-top { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .src-chip { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 2px; background: rgba(0,170,255,0.08); color: var(--accent2); border: 1px solid rgba(0,170,255,0.18); }
+    .impact-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.07em; padding: 2px 7px; border-radius: 2px; }
+    .impact-tag.high { background: rgba(255,79,106,0.08); color: var(--red); border: 1px solid rgba(255,79,106,0.2); }
+    .impact-tag.med  { background: rgba(245,166,35,0.08); color: var(--amber); border: 1px solid rgba(245,166,35,0.2); }
+    .impact-tag.low  { background: rgba(58,77,96,0.3); color: var(--silver); border: 1px solid var(--border2); }
+    .sentiment-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.07em; padding: 2px 7px; border-radius: 2px; display: inline-flex; align-items: center; gap: 4px; }
+    .sentiment-tag.bullish { background: rgba(0,229,160,0.08); color: var(--accent); border: 1px solid rgba(0,229,160,0.2); }
+    .sentiment-tag.bearish { background: rgba(255,79,106,0.08); color: var(--red); border: 1px solid rgba(255,79,106,0.2); }
+    .sentiment-tag.neutral { background: rgba(58,77,96,0.2); color: var(--silver); border: 1px solid var(--border2); }
+    .conf-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; margin-left: 2px; opacity: 0.35; }
+    .conf-dot.lit { opacity: 1; }
+    .conf-dot.c-green { background: var(--accent); }
+    .conf-dot.c-red { background: var(--red); }
+    .conf-dot.c-dim { background: var(--silver); }
+    .card-time { margin-left: auto; font-family: 'Space Mono', monospace; font-size: 9px; color: #d7e4f0; }
+    .fused-badge { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 2px; display: inline-flex; align-items: center; gap: 3px; border: 1px solid transparent; flex-shrink: 0; }
+    .fused-badge.bull { background: rgba(0,229,160,0.08); color: var(--accent); border-color: rgba(0,229,160,0.2); }
+    .fused-badge.bear { background: rgba(255,79,106,0.08); color: var(--red); border-color: rgba(255,79,106,0.2); }
+    .fused-badge.neutral { background: rgba(58,77,96,0.15); color: var(--silver); border-color: var(--border2); }
+    .card-title { font-size: 13px; font-weight: 400; line-height: 1.55; color: #f4f8ff; transition: color 0.12s; }
+    .news-card:hover .card-title { color: var(--white); }
+    .news-card.featured .card-title { font-size: 14px; font-weight: 500; }
+    .card-bottom { display: flex; align-items: center; gap: 7px; margin-top: 2px; }
+    .pair-tag { font-family: 'Space Mono', monospace; font-size: 9px; padding: 2px 6px; border: 1px solid var(--border2); border-radius: 2px; color: var(--silver); }
+    .featured-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--accent); padding: 2px 6px; border: 1px solid rgba(0,229,160,0.25); border-radius: 2px; background: rgba(0,229,160,0.05); }
+    .card-arrow { margin-left: auto; font-size: 12px; color: var(--silver); transition: color 0.12s, transform 0.12s; }
+    .news-card:hover .card-arrow { color: var(--accent2); transform: translateX(3px); }
+    .no-results { grid-column: span 2; padding: 60px 20px; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; color: #d3deea; letter-spacing: 0.1em; }
+
+    .alert-container { position: fixed; top: 50px; right: 12px; z-index: 1000; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+    .alert-toast { pointer-events: auto; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.04em; padding: 10px 14px; border-radius: 3px; background: var(--panel2); border: 1px solid var(--border2); color: var(--text); max-width: 320px; animation: slideIn 0.3s ease, fadeOut 0.5s ease 5s forwards; display: flex; align-items: flex-start; gap: 8px; }
+    .alert-toast.bullish { border-color: rgba(0,229,160,0.4); }
+    .alert-toast.bearish { border-color: rgba(255,79,106,0.4); }
+    .alert-icon { font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+    .alert-body { display: flex; flex-direction: column; gap: 2px; }
+    .alert-pair { font-weight: 700; font-size: 9px; letter-spacing: 0.08em; }
+    .alert-title { font-family: 'DM Sans', sans-serif; font-size: 11px; line-height: 1.4; color: var(--text); }
+    @keyframes slideIn { from{transform:translateX(100%);opacity:0} to{transform:translateX(0);opacity:1} }
+    @keyframes fadeOut { to{opacity:0;transform:translateY(-8px)} }
+
+    .cal-panel { background: var(--panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; padding: 0 14px; height: 44px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .cal-header-title { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--silver); }
+    .cal-impact-filters { display: flex; gap: 4px; }
+    .cal-f-btn { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.08em; padding: 3px 7px; border: 1px solid var(--border2); background: none; color: var(--silver); border-radius: 2px; cursor: pointer; transition: all 0.12s; }
+    .cal-f-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    .cal-f-btn.active { border-color: var(--accent2); color: var(--accent2); background: rgba(0,170,255,0.07); }
+    .cal-f-btn.f-high.active { border-color: var(--red); color: var(--red); background: rgba(255,79,106,0.07); }
+    .cal-f-btn.f-med.active  { border-color: var(--amber); color: var(--amber); background: rgba(245,166,35,0.07); }
+    .cal-scroll { flex: 1; overflow-y: auto; }
+
+    .cal-day-group { display: block; }
+    .cal-day-label { position: sticky; top: 0; z-index: 2; padding: 6px 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--accent2); background: #090e14; border-bottom: 1px solid var(--border); }
+    .cal-event { display: grid; grid-template-columns: 44px 16px 1fr; gap: 0 8px; align-items: start; padding: 9px 14px; border-bottom: 1px solid var(--border); transition: background 0.1s; animation: fadein 0.25s ease both; }
+    .cal-event:hover { background: rgba(255,255,255,0.025); }
+    .cal-event.past { opacity: 0.45; }
+    .cal-event.past .cal-title { color: var(--silver); }
+    .cal-time { font-family: 'Space Mono', monospace; font-size: 9px; color: #d6e2ee; padding-top: 1px; line-height: 1.3; white-space: nowrap; }
+    .cal-time.allday { color: var(--silver); font-size: 8px; }
+    .cal-bar { width: 3px; border-radius: 2px; min-height: 32px; align-self: stretch; flex-shrink: 0; }
+    .cal-bar.high { background: var(--red); }
+    .cal-bar.med  { background: var(--amber); }
+    .cal-bar.low  { background: var(--silver); }
+    .cal-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .cal-currency { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.1em; padding: 1px 5px; border-radius: 2px; display: inline-flex; align-self: flex-start; }
+    .cal-currency.EUR { background: rgba(0,170,255,0.1); color: var(--accent2); border: 1px solid rgba(0,170,255,0.2); }
+    .cal-currency.GBP { background: rgba(245,166,35,0.08); color: var(--amber); border: 1px solid rgba(245,166,35,0.2); }
+    .cal-currency.USD { background: rgba(0,229,160,0.07); color: var(--accent); border: 1px solid rgba(0,229,160,0.18); }
+    .cal-currency.JPY { background: rgba(255,79,106,0.07); color: var(--red); border: 1px solid rgba(255,79,106,0.2); }
+    .cal-currency.XAU { background: rgba(245,166,35,0.1); color: var(--amber); border: 1px solid rgba(245,166,35,0.25); }
+    .cal-currency.other { background: rgba(58,77,96,0.2); color: var(--silver); border: 1px solid var(--border2); }
+    .cal-title { font-size: 11px; font-weight: 400; color: #edf4fb; line-height: 1.4; word-break: break-word; }
+    .cal-meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 1px; }
+    .cal-meta-item { font-family: 'Space Mono', monospace; font-size: 8px; color: #d0dbe7; }
+    .cal-meta-item span { color: #dde7f1; }
+    .cal-actual-val { color: var(--accent) !important; }
+    .cal-actual-val.miss { color: var(--red) !important; }
+    .cal-now-line { display: flex; align-items: center; gap: 8px; padding: 4px 14px; background: rgba(0,229,160,0.04); border-top: 1px solid rgba(0,229,160,0.2); border-bottom: 1px solid rgba(0,229,160,0.2); }
+    .cal-now-line-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: blink 1.4s ease-in-out infinite; }
+    .cal-now-line-label { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--accent); letter-spacing: 0.12em; }
+    .cal-empty { padding: 40px 16px; text-align: center; font-family: 'Space Mono', monospace; font-size: 10px; color: #d0dbe8; letter-spacing: 0.1em; line-height: 1.8; }
+
+    .mobile-nav { display: none; border-top: 1px solid var(--border); background: var(--panel); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .mobile-nav::-webkit-scrollbar { display: none; }
+    .mob-tab { flex: 1 0 auto; min-width: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 8px 10px; border: none; background: none; cursor: pointer; border-top: 2px solid transparent; transition: background 0.12s, border-color 0.12s; color: var(--silver); -webkit-tap-highlight-color: transparent; }
+    .mob-tab:active { background: rgba(255,255,255,0.04); }
+    .mob-tab.active { border-top-color: var(--accent); color: var(--accent); background: rgba(0,229,160,0.04); }
+    .mob-tab-sym { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; color: inherit; }
+    .mob-tab-count { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--silver); letter-spacing: 0.06em; }
+    .mob-tab.active .mob-tab-count { color: var(--silver); }
+    .mob-cal-tab { flex: 1 0 auto; min-width: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 8px 10px; border: none; background: none; cursor: pointer; border-top: 2px solid transparent; transition: background 0.12s, border-color 0.12s; color: var(--silver); -webkit-tap-highlight-color: transparent; }
+    .mob-cal-tab.active { border-top-color: var(--amber); color: var(--amber); background: rgba(245,166,35,0.04); }
+    .mob-cal-tab-sym { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; color: inherit; }
+    .mob-cal-tab-count { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--silver); letter-spacing: 0.06em; }
+
+    @media (max-width: 768px) {
+      .shell { grid-template-rows: 44px 32px 1fr auto; grid-template-areas: "topbar" "ticker" "body" "mobnav"; height: 100dvh; overflow: hidden; }
+      .body { grid-template-columns: 1fr; position: relative; }
+      .sidebar { display: none; }
+      .cal-panel { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10; }
+      .cal-panel.mob-visible { display: flex; }
+      .topbar { padding: 0 12px; gap: 8px; }
+      .topbar-center { display: none; }
+      .logo-slash, .logo-sub { display: none; }
+      .nav-tabs { margin-left: 8px; }
+      .nav-tab { font-size: 8px; padding: 5px 10px; }
+      .logo-name { font-size: 11px; letter-spacing: 0.08em; }
+      .regime-pill { font-size: 8px; padding: 2px 7px; }
+      .dq-badge { font-size: 8px; padding: 2px 6px; }
+      .ticker-label { padding: 0 8px; font-size: 8px; }
+      .tick { padding: 0 12px; font-size: 9px; gap: 4px; }
+      .content-bar { flex-wrap: wrap; height: auto; padding: 8px 12px; gap: 6px; }
+      .content-title { gap: 6px; }
+      .content-title h1 { font-size: 11px; }
+      .content-title .count-label { font-size: 8px; }
+      .filter-strip { overflow-x: auto; flex-shrink: 1; scrollbar-width: none; -webkit-overflow-scrolling: touch; gap: 6px; }
+      .filter-strip::-webkit-scrollbar { display: none; }
+      .sort-toggle { display: none; }
+      .f-btn { padding: 6px 12px; font-size: 9px; white-space: nowrap; flex-shrink: 0; min-height: 32px; }
+      .macro-heat-bar { padding: 0 8px; gap: 5px; }
+      .heat-factor-chip { font-size: 8px; padding: 3px 7px; }
+      .news-grid { grid-template-columns: 1fr; }
+      .news-card.featured { grid-column: span 1; }
+      .news-wrap { padding: 0; }
+      .news-card { padding: 14px 14px; gap: 8px; }
+      .news-card.featured .card-title { font-size: 13px; }
+      .card-title { font-size: 13px; line-height: 1.5; }
+      .no-results { grid-column: span 1; padding: 40px 16px; font-size: 10px; }
+      .mobile-nav { grid-area: mobnav; display: flex; padding-bottom: var(--safe-b); }
+    }
+    @media (max-width: 400px) {
+      .topbar { padding: 0 10px; }
+      .logo-hex { width: 18px; height: 18px; }
+      .logo-name { font-size: 10px; }
+      .topbar-right { gap: 8px; }
+      .live-pill { font-size: 8px; gap: 4px; }
+      .live-dot { width: 4px; height: 4px; }
+      .utc-clock { font-size: 8px; }
+      .regime-pill { display: none; }
+      .dq-badge { display: none; }
+      .horizon-pill { display: none; }
+      .content-bar { padding: 6px 10px; }
+      .content-title h1 { font-size: 10px; }
+      .f-btn { padding: 5px 10px; font-size: 8px; min-height: 28px; }
+      .news-card { padding: 12px 12px; }
+      .card-title { font-size: 12px; }
+      .src-chip, .impact-tag, .card-time, .pair-tag { font-size: 8px; }
+      .mob-tab { min-width: 56px; padding: 7px 6px; }
+      .mob-tab-sym { font-size: 9px; }
+      .mob-tab-count { font-size: 7px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .body { grid-template-columns: 240px 1fr 190px; }
+      .pair-sym { font-size: 10px; }
+    }
+    @media (min-width: 769px) { .mobile-nav { display: none !important; } }
+    @media (pointer: coarse) {
+      .f-btn { min-height: 36px; padding: 6px 14px; }
+      .pair-item { padding: 12px 14px; min-height: 44px; }
+      .mob-tab { min-height: 48px; }
+      .mob-cal-tab { min-height: 48px; }
+    }
+  
+/* Dashboard update: Pivot H1 EMA alignment + Gold macro mini-panel */
+.ema-badge.with { color: var(--accent); border-color: rgba(0,229,160,0.35); background: rgba(0,229,160,0.05); }
+.ema-badge.against { color: var(--red); border-color: rgba(255,79,106,0.4); background: rgba(255,79,106,0.05); }
+.ema-badge.missing { color: var(--amber); border-color: rgba(245,166,35,0.35); background: rgba(245,166,35,0.05); }
+.gold-mini-title { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: var(--amber); }
+.gold-mini-note { font-family: 'Space Mono', monospace; font-size: 7px; color: var(--muted); line-height: 1.35; margin-top: 5px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="logo">
+      <div class="logo-hex"></div>
+      <a href="index.html" class="logo-name" style="text-decoration:none;color:inherit">FOREXFLOW</a>
+      <span class="logo-slash">/</span>
+      <span class="logo-sub">NEWS TERMINAL</span>
+    </div>
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab active">NEWS</a>
+      <a href="macro.html" class="nav-tab">MACRO</a>
+      <a href="pivots.html" class="nav-tab">PIVOTS</a>
+    </div>
+    <div class="topbar-center">
+      <div class="session-badges">
+        <span class="session-badge" id="session-badge-sydney">SYDNEY <span class="session-time" id="session-time-sydney"></span></span>
+        <span class="session-badge" id="session-badge-tokyo">TOKYO <span class="session-time" id="session-time-tokyo"></span></span>
+        <span class="session-badge" id="session-badge-london">LONDON <span class="session-time" id="session-time-london"></span></span>
+        <span class="session-badge" id="session-badge-newyork">NEW YORK <span class="session-time" id="session-time-newyork"></span></span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="regime-pill risk-neutral" id="regime-pill"><div class="regime-dot"></div><span id="regime-label">&mdash;</span></div>
+      <div class="dq-badge grade-b" id="dq-badge" title="Data quality score"><span id="dq-grade">&mdash;</span><div class="dq-bar"><div class="dq-bar-fill" id="dq-bar-fill" style="width:0%;background:var(--dim)"></div></div></div>
+      <div class="horizon-pill" id="horizon-pill" title="Signal horizon">&#x25CF;&nbsp;&mdash;</div>
+      <div class="live-pill" title="Auto-refreshing data every 5 minutes"><div class="live-dot"></div>AUTO</div>
+      <div class="utc-clock" id="clock">--:--:-- UTC</div>
+    </div>
+  </header>
+  <div class="alert-container" id="alert-container"></div>
+  <div class="ticker-wrap">
+    <div class="ticker-label">ALL RATES<span class="ticker-stale" id="ticker-stale" title="Rates delayed">DELAYED</span></div>
+    <div class="ticker-track"><div class="ticker-inner" id="ticker-inner"><span class="tick"><span class="tick-pair" style="color:var(--dim);letter-spacing:0.1em">FETCHING RATES&hellip;</span></span></div></div>
+  </div>
+  <div class="body">
+    <aside class="cal-panel" id="cal-panel">
+      <div class="cal-header">
+        <span class="cal-header-title">ECONOMIC CALENDAR</span>
+        <div class="cal-impact-filters">
+          <button class="cal-f-btn active" data-cal-filter="all">ALL</button>
+          <button class="cal-f-btn f-high" data-cal-filter="High">HIGH</button>
+          <button class="cal-f-btn f-med" data-cal-filter="Medium">MED</button>
+        </div>
+      </div>
+      <div class="cal-scroll" id="cal-scroll"><div class="cal-empty">LOADING&hellip;</div></div>
+    </aside>
+    <main class="content">
+      <div class="content-bar">
+        <div class="content-title">
+          <h1 id="view-title">ALL PAIRS</h1>
+          <span class="live-rate" id="view-rate"></span>
+          <span class="count-label" id="view-count"></span>
+        </div>
+        <div class="filter-strip">
+          <button class="f-btn active" data-filter="all">ALL</button>
+          <button class="f-btn" data-filter="high">HIGH</button>
+          <button class="f-btn" data-filter="med">MED</button>
+          <button class="f-btn" data-filter="low">LOW</button>
+        </div>
+        <div class="sort-toggle">
+          <button class="sort-btn active" data-sort="date" title="Sort by date">DATE</button>
+          <button class="sort-btn" data-sort="fused" title="Sort by conviction">CONVICTION</button>
+        </div>
+      </div>
+      <!-- heat bar: [CONF BADGE] [BIAS SCORE] [REG CONF] MACRO [chip chip chip —€¦] -->
+      <div class="macro-heat-bar hidden" id="macro-heat-bar">
+        <span class="heat-conf-badge conf-low" id="heat-conf"></span>
+        <span class="heat-score neutral" id="heat-score">&mdash;</span>
+        <div class="heat-factors" id="heat-factors"></div>
+      </div>
+      <div class="news-wrap"><div class="news-grid" id="news-grid"><div class="no-results">LOADING&hellip;</div></div></div>
+    </main>
+    <aside class="sidebar">
+      <div class="sidebar-header">INSTRUMENTS</div>
+      <div class="sidebar-list" id="sidebar-list"></div>
+      <div class="macro-panel" id="macro-panel" style="display:none">
+        <div class="macro-panel-title">MACRO INDICATORS</div>
+        <div class="macro-indicators" id="macro-indicators"></div>
+      </div>
+      <div class="sidebar-footer"><div class="news-count" id="news-count">&mdash; ARTICLES</div></div>
+    </aside>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav"></nav>
+</div>
+<script>
+/* ForexFlow News Terminal — app.js */
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+
+var FEEDS = {};
+var CAL_EVENTS = [];
+var MACRO_DATA = {};
+var EMA_DATA = {};
+var PIVOT_LEVELS = {};   // pivot_levels.json — fallback price context for all pairs
+var SCRAPE_TIME = null;
+var LAST_RATES = [];
+var LAST_HASH = "";
+var LAST_CAL_HASH = "";
+var LAST_EMA_HASH = "";
+var ALERTED_KEYS = new Set();
+var ALERT_COOLDOWN = {};
+var ALERT_COOLDOWN_MS = 300000;
+
+var activePair = "all";
+var activeFilter = "all";
+var activeSort = "date";
+var activeCalFilter = "all";
+
+try {
+  var stored = localStorage.getItem("ff_alerted");
+  if (stored) JSON.parse(stored).forEach(function (k) { ALERTED_KEYS.add(k); });
+} catch (e) { /* localStorage unavailable */ }
+
+function persistAlerts() {
+  try {
+    var arr = Array.from(ALERTED_KEYS);
+    if (arr.length > 200) arr = arr.slice(arr.length - 200);
+    localStorage.setItem("ff_alerted", JSON.stringify(arr));
+  } catch (e) { /* ignore */ }
+}
+
+// ---------------------------------------------------------------------------
+// Utilities
+// ---------------------------------------------------------------------------
+
+function fmt(p) {
+  return p.slice(0, 3).toUpperCase() + "/" + p.slice(3).toUpperCase();
+}
+
+function totalArticles() {
+  return Object.values(FEEDS).reduce(function (s, a) { return s + a.length; }, 0);
+}
+
+function escapeHTML(str) {
+  if (!str) return "";
+  return str.replace(/[&<>"']/g, function (m) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+  });
+}
+
+function hashData(data) {
+  var total = Object.values(data.feeds || {}).reduce(function (s, a) { return s + a.length; }, 0);
+  var mac = (data.macro && data.macro.indicators && data.macro.indicators.vix != null)
+    ? String(data.macro.indicators.vix) : "";
+  return (data.scrape_time || "") + "_" + total + "_" + mac;
+}
+
+function normalizeTitle(t) {
+  return t.toLowerCase()
+    .replace(/\b(fed|fomc|federal reserve)\b/g, "fed")
+    .replace(/\b(boj|bank of japan)\b/g, "boj")
+    .replace(/\b(ecb|european central bank)\b/g, "ecb")
+    .replace(/\b(gdp|gross domestic product)\b/g, "gdp")
+    .replace(/\b(cpi|consumer price index)\b/g, "cpi")
+    .replace(/\b(nfp|non-farm payrolls?)\b/g, "nfp")
+    .replace(/\b\d{4,}\b/g, "")
+    .replace(/\s+/g, " ").trim().slice(0, 80);
+}
+
+var renderTimeout;
+function safeRender() {
+  clearTimeout(renderTimeout);
+  renderTimeout = setTimeout(render, 50);
+}
+
+function relTime(isoStr) {
+  if (!isoStr) return "";
+  try {
+    var diff = Math.floor((Date.now() - new Date(isoStr).getTime()) / 1000);
+    if (diff < 0) return "just now";
+    if (diff < 60) return diff + "s ago";
+    var m = Math.floor(diff / 60);
+    if (m < 60) return m + "m ago";
+    var h = Math.floor(m / 60), rm = m % 60;
+    if (h < 24) return rm ? h + "h " + rm + "m ago" : h + "h ago";
+    return Math.floor(h / 24) + "d ago";
+  } catch (e) { return isoStr.slice(0, 10); }
+}
+
+// ---------------------------------------------------------------------------
+// Macro helpers
+// ---------------------------------------------------------------------------
+
+function getMacroBias(pair) {
+  if (!MACRO_DATA || !MACRO_DATA.pair_biases) return null;
+  return MACRO_DATA.pair_biases[pair] || null;
+}
+
+function getFusedScore(item) {
+  if (typeof item.fused_score === "number") return item.fused_score;
+  if (typeof item.sent_score === "number") return Math.max(-3, Math.min(3, item.sent_score));
+  return 0;
+}
+
+function fusedClass(score) {
+  if (score >= 1.5) return "fused-strong-bull";
+  if (score >= 0.5) return "fused-mild-bull";
+  if (score <= -1.5) return "fused-strong-bear";
+  if (score <= -0.5) return "fused-mild-bear";
+  return "";
+}
+
+function fusedBadgeClass(score) {
+  return score > 0.3 ? "bull" : score < -0.3 ? "bear" : "neutral";
+}
+
+
+function confidenceToFloat(conf) {
+  if (typeof conf === "number") return conf;
+  if (typeof conf === "string") {
+    switch (conf.toLowerCase()) {
+      case "high":   return 0.9;
+      case "medium": return 0.6;
+      case "low":    return 0.3;
+    }
+  }
+  return 0.0;
+}
+
+function confDotsHTML(sentiment, conf) {
+  var c = confidenceToFloat(conf);
+  var color = sentiment === "bullish" ? "c-green" : sentiment === "bearish" ? "c-red" : "c-dim";
+  var lit = c >= 0.75 ? 3 : c >= 0.55 ? 2 : c >= 0.3 ? 1 : 0;
+  var html = "";
+  for (var i = 0; i < 3; i++) {
+    html += '<span class="conf-dot ' + color + (i < lit ? " lit" : "") + '"></span>';
+  }
+  return html;
+}
+
+
+function getPriceContext(pair) {
+  var bias = getMacroBias(pair);
+  var ctx = bias && bias.price_context ? bias.price_context : null;
+  // Fall back to pivot_levels.json when embedded context is absent or unavailable
+  if ((!ctx || ctx.price_state === "unavailable" || ctx.ohlc_source === "unavailable")
+      && PIVOT_LEVELS && PIVOT_LEVELS[pair] && PIVOT_LEVELS[pair].price_state !== "unavailable") {
+    return PIVOT_LEVELS[pair];
+  }
+  return ctx;
+}
+function getPairEmaState(pair) {
+  var ctx = getPriceContext(pair) || {};
+  if (ctx.h1_ema && typeof ctx.h1_ema === "object") return ctx.h1_ema;
+  if (MACRO_DATA && MACRO_DATA.ema_20_50_state && MACRO_DATA.ema_20_50_state[pair]) return MACRO_DATA.ema_20_50_state[pair];
+  if (EMA_DATA && EMA_DATA.results && EMA_DATA.results[pair]) return EMA_DATA.results[pair];
+  return null;
+}
+function getH1Alignment(pair) {
+  var ctx = getPriceContext(pair) || {};
+  return ctx.h1_ema_alignment || "";
+}
+function h1AlignChipClass(align) {
+  align = String(align || "").toLowerCase();
+  if (align === "with") return "bull";
+  if (align === "against") return "bear";
+  if (align === "missing") return "warn";
+  return "";
+}
+function h1AlignLabel(align) {
+  align = String(align || "").toLowerCase();
+  if (align === "with") return "H1 EMA ✓";
+  if (align === "against") return "H1 EMA ✕";
+  if (align === "missing") return "H1 EMA ?";
+  if (align === "disabled") return "H1 EMA OFF";
+  return "H1 EMA";
+}
+function goldMacroState(key) {
+  var g = MACRO_DATA && MACRO_DATA.gold ? MACRO_DATA.gold : {};
+  var v = g && typeof g[key] === "object" ? g[key] : null;
+  return v || null;
+}
+function goldFactorClass(key, value) {
+  if (value === null || value === undefined || isNaN(value)) return "";
+  var v = Number(value);
+  if (Math.abs(v) < 0.000001) return "";
+  var bullishWhenDown = key === "real_yield_momentum" || key === "broad_usd";
+  var bullish = bullishWhenDown ? v < 0 : v > 0;
+  return bullish ? "bull" : "bear";
+}
+function goldFactorLabel(key) {
+  return {
+    real_yield_momentum: "RYΔ",
+    broad_usd: "USDΔ",
+    inflation_expectations: "5Y5Y",
+    treasury_vol: "MOVE",
+    gold_vol: "GVZ",
+    energy_inflation: "WTI"
+  }[key] || key.toUpperCase();
+}
+function goldMacroHeatChips() {
+  if (!MACRO_DATA || !MACRO_DATA.gold) return "";
+  var keys = ["real_yield_momentum", "broad_usd", "inflation_expectations", "treasury_vol", "gold_vol", "energy_inflation"];
+  var html = "";
+  keys.forEach(function (key) {
+    var st = goldMacroState(key);
+    if (!st || st.valid !== true) return;
+    var chg = Number(st.change);
+    var cur = Number(st.current);
+    var val = isNaN(chg) ? cur : chg;
+    if (isNaN(val)) return;
+    var cls = goldFactorClass(key, val);
+    var sign = val > 0 ? "+" : "";
+    var title = goldFactorLabel(key) + " current " + (isNaN(cur) ? "--" : cur.toFixed(2)) + " / Δ " + sign + val.toFixed(2) + (st.source ? " · " + st.source : "");
+    html += '<span class="heat-factor-chip ' + cls + '" title="' + escapeHTML(title) + '">' + goldFactorLabel(key) + ' <span>' + sign + val.toFixed(2) + '</span></span>';
+  });
+  return html;
+}
+
+// ---------------------------------------------------------------------------
+// Macro heat bar
+// ———— Layout (matches screenshot exactly):
+//    [CONF BADGE] [BIAS SCORE] MACRO [chip] [chip] [chip] ——Â¦
+//
+// Chip color rules (border + ALL text same color per sign):
+//   value > +0.1  ——€ → .bull  ——€ → green border + green text
+//   value < -0.1  ——€ → .bear  ——€ → red border   + red text
+//   zero/neutral  ——€ → (no extra class) ——€ → dim border + dim text
+// ---------------------------------------------------------------------------
+
+function updateMacroHeatBar(pair) {
+  var bar      = document.getElementById("macro-heat-bar");
+  var factorsEl = document.getElementById("heat-factors");
+  var confEl   = document.getElementById("heat-conf");
+  var scoreEl  = document.getElementById("heat-score");
+  if (!bar || !factorsEl || !confEl || !scoreEl) return;
+
+  if (pair === "all") { bar.classList.add("hidden"); return; }
+  bar.classList.remove("hidden");
+
+  var bias = getMacroBias(pair);
+  if (!bias) {
+    confEl.className = "heat-conf-badge conf-low";
+    confEl.textContent = "LOW CONF";
+    scoreEl.className = "heat-score neutral";
+    scoreEl.textContent = "BIAS \u2014";
+    factorsEl.innerHTML =
+      '<span style="font-family:\'Space Mono\',monospace;font-size:8px;color:var(--muted)">NO MACRO DATA</span>';
+    return;
+  }
+
+  // ———— CONFIDENCE BADGE ————————————————————————————————————————————————————————————————————————————————————————————————————————————
+  var rawConf  = (bias.confidence || "low").toLowerCase();
+  var confLabel = rawConf === "high" ? "HIGH CONF"
+                : rawConf === "medium" ? "MED CONF"
+                : "LOW CONF";
+  var confCls  = rawConf === "high" ? "conf-high"
+               : rawConf === "medium" ? "conf-medium"
+               : "conf-low";
+  confEl.className = "heat-conf-badge " + confCls;
+  confEl.textContent = confLabel;
+
+  // —”€—”€ BIAS SCORE BADGE —”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€—”€
+  var score = bias.score || 0;
+  scoreEl.className = "heat-score " + (score > 0.3 ? "bull" : score < -0.3 ? "bear" : "neutral");
+  scoreEl.textContent = "BIAS " + (score > 0 ? "+" : "") + score.toFixed(2);
+
+  // Regime confidence bar
+  var regConfFill = document.getElementById("regime-conf-fill");
+  var regConfPct  = document.getElementById("regime-conf-pct");
+  if (regConfFill && regConfPct) {
+    var rc = typeof bias.regime_confidence === "number" ? bias.regime_confidence : null;
+    if (rc !== null) {
+      var rcPct = Math.round(rc * 100);
+      regConfFill.style.width = rcPct + "%";
+      regConfFill.style.background = rc >= 0.75 ? "var(--accent)" : rc >= 0.5 ? "var(--amber)" : "var(--dim)";
+      regConfPct.textContent = rcPct + "%";
+    } else {
+      regConfFill.style.width = "0%"; regConfPct.textContent = "\u2014";
+    }
+  }
+
+  // Factor chips
+  var rawFactors = bias.factors || {};
+  var html = "";
+
+  // Price context — conviction multiplier and structure state
+  var priceCtx = getPriceContext(pair);
+  if (priceCtx && priceCtx.price_state && priceCtx.price_state !== "unavailable") {
+    var convMult  = (typeof priceCtx.conviction_mult === "number") ? priceCtx.conviction_mult : 1.0;
+    var pState    = priceCtx.price_state || "";
+    var alignment = priceCtx.macro_alignment || "";
+    var convCls   = convMult >= 1.0 ? "bull" : convMult >= 0.75 ? "" : "bear";
+    var stateCls  = pState.indexOf("breakout_up") >= 0 || pState.indexOf("accept_above") >= 0 ? "bull"
+                  : pState.indexOf("breakout_down") >= 0 || pState.indexOf("accept_below") >= 0 ? "bear"
+                  : pState === "rejection" ? "warn"
+                  : "";
+    var stateIcon = alignment === "with" ? "\u2713" : alignment === "against" ? "\u2717" : "\u25cf";
+    var nearestName =
+      (priceCtx.nearest_level && priceCtx.nearest_level.name)
+        ? String(priceCtx.nearest_level.name).toUpperCase()
+        : "PP";
+    var stateLabel = (() => {
+      switch (pState) {
+        case "accept_above_pp": return "ACCEPT ABOVE PP";
+        case "accept_below_pp": return "ACCEPT BELOW PP";
+        case "breakout_up":     return "BREAKOUT ABOVE " + nearestName;
+        case "breakout_down":   return "BREAKOUT BELOW " + nearestName;
+        case "rejection":       return "REJECTION AT " + nearestName;
+        case "balance":         return "BALANCE AROUND PP";
+        default:
+          return pState.replace(/_/g, " ").replace(/pp/g, "PP").toUpperCase();
+      }
+    })();
+
+    html += '<span class="heat-factor-chip ' + stateCls + '" title="Price structure: ' + pState + ' / alignment: ' + alignment + '">'
+          + stateIcon + ' ' + escapeHTML(stateLabel)
+          + '</span>';
+    html += '<span class="heat-factor-chip ' + convCls + '" title="Conviction multiplier — scales macro score by price structure">'
+          + 'CONV <span>\u00d7' + convMult.toFixed(2) + '</span>'
+          + '</span>';
+
+    var h1Align = priceCtx.h1_ema_alignment || "";
+    if (h1Align) {
+      var h1Dir = priceCtx.h1_ema_direction || "neutral";
+      var h1Mult = Number(priceCtx.h1_ema_conviction_mult || 1.0);
+      var h1Cls = h1AlignChipClass(h1Align);
+      html += '<span class="heat-factor-chip ' + h1Cls + '" title="Pivot + H1 EMA20/50 alignment from momentum.py: ' + h1Align + ' / ' + h1Dir + '">'
+            + h1AlignLabel(h1Align) + '<span>\u00d7' + (isNaN(h1Mult) ? '1.00' : h1Mult.toFixed(2)) + '</span>'
+            + '</span>';
+    }
+  }
+
+  // ── EMA position + cross chips ─────────────────────────────────────────
+  // Shows compact chips: [20 ↑] [50 ↓] and [↑× 20 CROSS NEW] on fresh crosses.
+  // Period numbers are derived dynamically from the ema_20_50_state keys so
+  // they reflect whatever EMA_SIGNAL_FAST / EMA_SIGNAL_SLOW is configured.
+  var emaState = getPairEmaState(pair);
+  if (emaState && emaState.ok !== false) {
+    var emaCross   = emaState.cross || "none";
+    var emaBias    = emaState.trend_bias || "neutral_bias";
+    var fastEmaVal = emaState.fast_ema;
+    var slowEmaVal = emaState.slow_ema;
+
+    // Resolve period numbers from dynamic keys e.g. "ema20", "ema50"
+    var fastPeriod = null, slowPeriod = null;
+    if (fastEmaVal !== null && slowEmaVal !== null) {
+      Object.keys(emaState).forEach(function (k) {
+        var m = k.match(/^ema(\d+)$/);
+        if (!m) return;
+        var p = parseInt(m[1]);
+        var v = emaState[k];
+        if (Math.abs(v - fastEmaVal) < 0.000001) fastPeriod = p;
+        if (Math.abs(v - slowEmaVal) < 0.000001) slowPeriod = p;
+      });
+    }
+    // Fallbacks when keys don't exist (older data shape)
+    if (fastPeriod === null) fastPeriod = "F";
+    if (slowPeriod === null) slowPeriod = "S";
+
+    var vsfast = emaState.price_vs_fast || null;
+    var vsslow = emaState.price_vs_slow || null;
+    // Also try dynamic key names e.g. current_vs_ema20
+    if (!vsfast && typeof fastPeriod === "number") vsfast = emaState["current_vs_ema" + fastPeriod] || null;
+    if (!vsslow && typeof slowPeriod === "number") vsslow = emaState["current_vs_ema" + slowPeriod] || null;
+
+    var emaChips = "";
+
+    // ── Cross chip — most prominent, shown first ──
+    if (emaCross === "bullish_cross") {
+      var xTitle = "Bullish cross: fast EMA" + fastPeriod + " crossed above slow EMA" + slowPeriod;
+      emaChips += '<span class="heat-factor-chip bull" title="' + xTitle + '" style="font-weight:700">'
+                + '\u2191\u00d7 ' + fastPeriod + ' CROSS'
+                + '<span style="font-size:7px;opacity:0.7;margin-left:3px">NEW</span>'
+                + '</span>';
+    } else if (emaCross === "bearish_cross") {
+      var xTitle = "Bearish cross: fast EMA" + fastPeriod + " crossed below slow EMA" + slowPeriod;
+      emaChips += '<span class="heat-factor-chip bear" title="' + xTitle + '" style="font-weight:700">'
+                + '\u2193\u00d7 ' + fastPeriod + ' CROSS'
+                + '<span style="font-size:7px;opacity:0.7;margin-left:3px">NEW</span>'
+                + '</span>';
+    }
+
+    // ── Fast EMA chip: "20 ↑" / "20 ↓" ──
+    if (vsfast) {
+      var fBull  = vsfast === "above";
+      var fCls   = fBull ? "bull" : "bear";
+      var fArrow = fBull ? "\u2191" : "\u2193";
+      var fTip   = (fBull ? "Price above EMA" : "Price below EMA") + fastPeriod
+                 + (fastEmaVal !== null ? "  \u00b7  " + fastEmaVal.toFixed(5) : "");
+      emaChips += '<span class="heat-factor-chip ' + fCls + '" title="' + fTip + '">'
+                + fastPeriod + ' ' + fArrow
+                + '</span>';
+    }
+
+    // ── Slow EMA chip: "50 ↑" / "50 ↓" ──
+    if (vsslow) {
+      var sBull  = vsslow === "above";
+      var sCls   = sBull ? "bull" : "bear";
+      var sArrow = sBull ? "\u2191" : "\u2193";
+      var sTip   = (sBull ? "Price above EMA" : "Price below EMA") + slowPeriod
+                 + (slowEmaVal !== null ? "  \u00b7  " + slowEmaVal.toFixed(5) : "");
+      emaChips += '<span class="heat-factor-chip ' + sCls + '" title="' + sTip + '">'
+                + slowPeriod + ' ' + sArrow
+                + '</span>';
+    }
+
+    // ── Fallback when warming up (not enough bars yet) ──
+    if (!vsfast && !vsslow && emaCross === "none") {
+      var wBull = emaBias === "bullish_bias", wBear = emaBias === "bearish_bias";
+      var wCls  = wBull ? "bull" : wBear ? "bear" : "";
+      var wArrow = wBull ? "\u2191" : wBear ? "\u2193" : "\u00b7";
+      emaChips += '<span class="heat-factor-chip ' + wCls + '" title="EMA warming up \u00b7 ' + emaBias + '">'
+                + fastPeriod + '/' + slowPeriod + ' ' + wArrow
+                + '<span style="font-size:7px;opacity:0.6;margin-left:3px">WARM</span>'
+                + '</span>';
+    }
+
+    if (emaChips) html += emaChips;
+  }
+  // ────────────────────────────────────────────────────────────────────────
+
+  if (pair === "xauusd") html += goldMacroHeatChips();
+
+  factorsEl.innerHTML = html ||
+    '<span style="font-family:\'Space Mono\',monospace;font-size:8px;color:var(--muted)">NEUTRAL</span>';
+}
+
+// ---------------------------------------------------------------------------
+// Data quality badge
+// ---------------------------------------------------------------------------
+
+function updateDataQuality() {
+  var badge   = document.getElementById("dq-badge");
+  var gradeEl = document.getElementById("dq-grade");
+  var barFill = document.getElementById("dq-bar-fill");
+  if (!badge || !gradeEl || !barFill) return;
+
+  var dq = MACRO_DATA && MACRO_DATA.data_quality;
+  if (!dq || dq.score === undefined) {
+    badge.className = "dq-badge grade-b";
+    gradeEl.textContent = "\u2014";
+    barFill.style.width = "0%";
+    return;
+  }
+
+  var grade = (dq.grade || "D").toUpperCase();
+  var score = dq.score || 0;
+  badge.className = "dq-badge grade-" + grade.toLowerCase();
+
+  var penalties = dq.penalties || {};
+  var penaltyList = Object.keys(penalties).map(function (k) {
+    return k + ": -" + penalties[k].toFixed(2);
+  }).join("\n");
+  badge.title = "Data Quality: " + score.toFixed(3) + " [" + grade + "]" +
+    (penaltyList ? "\n\nPenalties:\n" + penaltyList : "\nNo penalties");
+
+  gradeEl.textContent = "DQ:" + grade + " " + (score * 100).toFixed(0) + "%";
+  var color = { A: "var(--accent)", B: "var(--accent2)", C: "var(--amber)" }[grade] || "var(--red)";
+  barFill.style.width  = (score * 100).toFixed(1) + "%";
+  barFill.style.background = color;
+}
+
+// ---------------------------------------------------------------------------
+// Macro indicators panel
+// ---------------------------------------------------------------------------
+
+// Signal horizon pill (Fix 5)
+// ---------------------------------------------------------------------------
+
+function updateHorizonPill(pair) {
+  var pill = document.getElementById("horizon-pill");
+  if (!pill) return;
+  // signal_horizon is per-pair on the bias object, not on MACRO_DATA root
+  var bias    = pair && pair !== "all" ? getMacroBias(pair) : null;
+  var horizon = (bias && bias.signal_horizon)
+              || (MACRO_DATA && MACRO_DATA.signal_horizon)
+              || null;
+  if (!horizon) { pill.className = "horizon-pill"; pill.textContent = "● —"; return; }
+  var h = horizon.toLowerCase();
+  pill.className = "horizon-pill " + h;
+  var label = h === "short" ? "● SHORT" : h === "long" ? "● LONG" : "● MED";
+  pill.textContent = label;
+  pill.title = "Signal horizon: " + h + " — " +
+    (h === "short" ? "VIX/SPX dominant" : h === "long" ? "PMI/curve regime" : "Rate/credit driven");
+}
+
+// ---------------------------------------------------------------------------
+function updateMacroPanel() {
+  var panel   = document.getElementById("macro-panel");
+  var indWrap = document.getElementById("macro-indicators");
+  if (!panel || !indWrap) return;
+
+  var ind = MACRO_DATA && MACRO_DATA.indicators;
+  if (!ind) { panel.style.display = "none"; return; }
+  panel.style.display = "";
+
+  // Leading growth proxies
+  var mac = MACRO_DATA || {};
+  var rows = [
+    { label: "FED",    val: ind.fed_rate,     max: 6,   dir: "hawkish" },
+    { label: "ECB",    val: ind.ecb_rate,     max: 5,   dir: "hawkish" },
+    { label: "BoE",    val: ind.boe_rate,     max: 6,   dir: "hawkish" },
+    { label: "BoJ",    val: ind.boj_rate,     max: 1.5, dir: "hawkish" },
+    { label: "SPREAD", val: ind.yield_spread, max: 2,   dir: "curve",   signed: true },
+    { label: "VIX",    val: ind.vix,          max: 40,  dir: "risk" },
+    { label: "US PMI", val: ind.us_pmi,       max: 65,  dir: "pmi",     min: 35 },
+    { label: "10Y",    val: ind.yield_10y,    max: 7,   dir: "hawkish" },
+    { label: "TIPS",   val: ind.tips_10y,     max: 4,   dir: "hawkish" },
+    { label: "SPX",    val: mac.spx && mac.spx.current ? mac.spx.current : null, max: 6500, dir: "spx", min: 3000 },
+    { label: "NIKKEI", val: mac.nikkei && mac.nikkei.current ? mac.nikkei.current : null, max: 45000, dir: "nikkei", min: 25000 },
+  ];
+
+  var gold = mac.gold || {};
+  if (gold && gold.enabled) {
+    rows.push(
+      { label: "RYΔ", val: gold.real_yield_momentum && gold.real_yield_momentum.change, max: 0.35, dir: "gold_down", signed: true },
+      { label: "USDΔ", val: gold.broad_usd && gold.broad_usd.change, max: 1.0, dir: "gold_down", signed: true },
+      { label: "5Y5Y", val: gold.inflation_expectations && gold.inflation_expectations.change, max: 0.25, dir: "gold_up", signed: true },
+      { label: "MOVE", val: gold.treasury_vol && gold.treasury_vol.change, max: 15, dir: "gold_up", signed: true },
+      { label: "GVZ", val: gold.gold_vol && gold.gold_vol.change, max: 8, dir: "gold_up", signed: true },
+      { label: "WTI", val: gold.energy_inflation && gold.energy_inflation.change, max: 6, dir: "gold_up", signed: true }
+    );
+  }
+
+  var html = "";
+  if (gold && gold.enabled) {
+    html += '<div class="gold-mini-title">GOLD MACRO · XAU/USD</div>';
+  }
+  rows.forEach(function (r) {
+    if (r.val === undefined || r.val === null) return;
+    var pct, valCls = "", barColor, rng;
+
+    if (r.dir === "risk") {
+      pct = Math.min(100, (r.val / r.max) * 100);
+      valCls   = r.val > 25 ? "vix-risk" : r.val < 15 ? "vix-calm" : "";
+      barColor = r.val > 25 ? "var(--red)" : r.val < 15 ? "var(--accent)" : "var(--amber)";
+    } else if (r.dir === "pmi") {
+      rng = (r.max || 65) - (r.min || 35);
+      pct = Math.min(100, Math.max(0, ((r.val - (r.min || 35)) / rng) * 100));
+      barColor = r.val > 52 ? "var(--accent)" : r.val < 48 ? "var(--red)" : "var(--amber)";
+      valCls   = r.val > 52 ? "rate-low" : r.val < 48 ? "rate-high" : "";
+    } else if (r.dir === "spx" || r.dir === "nikkei") {
+      rng = (r.max) - (r.min);
+      pct = Math.min(100, Math.max(0, ((r.val - r.min) / rng) * 100));
+      barColor = "var(--accent2)";
+      valCls   = "";
+    } else if (r.dir === "gold_up" || r.dir === "gold_down") {
+      pct = Math.min(100, Math.max(0, (Math.abs(r.val) / r.max) * 100));
+      var bullishGold = r.dir === "gold_down" ? r.val < 0 : r.val > 0;
+      barColor = Math.abs(r.val) < 0.000001 ? "var(--dim)" : bullishGold ? "var(--accent)" : "var(--red)";
+      valCls = Math.abs(r.val) < 0.000001 ? "" : bullishGold ? "rate-low" : "rate-high";
+    } else if (r.signed) {
+      pct = Math.min(100, Math.max(0, ((r.val + r.max) / (r.max * 2)) * 100));
+      barColor = r.val < -0.25 ? "var(--red)" : r.val > 0.25 ? "var(--accent)" : "var(--amber)";
+      valCls   = r.val < -0.25 ? "rate-high" : r.val > 0.25 ? "rate-low" : "";
+    } else {
+      pct = Math.min(100, (r.val / r.max) * 100);
+      barColor = r.val > r.max * 0.75 ? "var(--red)" : r.val < r.max * 0.3 ? "var(--accent)" : "var(--dim)";
+      valCls   = r.val > r.max * 0.75 ? "rate-high" : r.val < r.max * 0.3 ? "rate-low" : "";
+    }
+
+    var isGoldRow = r.dir === "gold_up" || r.dir === "gold_down";
+    var suffix     = (r.dir === "risk" || r.dir === "pmi" || r.dir === "spx" || r.dir === "nikkei" || isGoldRow) ? "" : "%";
+    var displayVal = (r.signed && r.val > 0 ? "+" : "") +
+      Number(r.val).toFixed(r.dir === "risk" ? 0 : (r.dir === "spx" || r.dir === "nikkei") ? 0 : 2) + suffix;
+
+    html += '<div class="macro-ind-row">' +
+      '<span class="macro-ind-label">' + escapeHTML(r.label) + '</span>' +
+      '<div class="macro-ind-bar-wrap"><div class="macro-ind-bar" style="width:' + pct.toFixed(1) + '%;background:' + barColor + '"></div></div>' +
+      '<span class="macro-ind-val ' + valCls + '">' + escapeHTML(displayVal) + '</span>' +
+      '</div>';
+  });
+  if (gold && gold.enabled) {
+    var q = Number(gold.quality || 0);
+    var vc = Number(gold.valid_count || 0);
+    html += '<div class="gold-mini-note">Gold macro: ' + vc + '/6 valid · quality ' + (isNaN(q) ? '--' : Math.round(q * 100) + '%') + '</div>';
+  }
+  indWrap.innerHTML = html;
+}
+
+// ---------------------------------------------------------------------------
+// Client-side sentiment (fallback when server fields missing)
+// ---------------------------------------------------------------------------
+
+var BULLISH_W = { "rally": 3, "rallies": 3, "surge": 3, "surges": 3, "soar": 3, "soars": 3, "jump": 2, "jumps": 2, " gain": 2, " gains": 2, " rise": 2, " rises": 2, "climbs": 2, "bullish": 3, "upbeat": 2, "recovery": 2, "rebound": 2, "boom": 3, "optimism": 2, "strong": 2, "strength": 2, "breakout": 3, "highest": 2, "record": 2, "stimulus": 3, "easing": 2, "dovish": 2, "rate cut": 3, "expansion": 2, "growth": 2, " beat": 2, " beats": 2, "positive": 1, "outperform": 2, "upgrade": 2, "boost": 2, "boosts": 2 };
+var BEARISH_W = { " fall": 2, " falls": 2, "drop": 2, "drops": 2, "decline": 2, "declines": 2, "slump": 3, "slumps": 3, "plunge": 3, "plunges": 3, "crash": 3, "crashes": 3, "bearish": 3, "downbeat": 2, "selloff": 3, "sell-off": 3, "weak": 2, "weakness": 2, "recession": 3, "contraction": 2, "lowest": 2, "crisis": 3, "fears": 2, "tumble": 2, "tumbles": 2, " loss": 2, " losses": 2, "downgrade": 2, " miss": 2, " misses": 2, "negative": 1, "underperform": 2, "rate hike": 2, "hike": 1 };
+var CONTRAST_KW = ["despite", "even as", "but ", "however", "although", "in spite of", "regardless of", "notwithstanding", "yet ", "still "];
+
+function detectSentiment(title, pair) {
+  if (!title) return { sentiment: "neutral", confidence: 0 };
+  var t = " " + title.toLowerCase() + " ";
+  var bull = 0, bear = 0;
+  var hasContrast = CONTRAST_KW.some(function (c) { return t.includes(c); });
+
+  for (var kw in BULLISH_W)  if (t.includes(kw))  bull += BULLISH_W[kw];
+  for (var kw2 in BEARISH_W) if (t.includes(kw2)) bear += BEARISH_W[kw2];
+
+  if (hasContrast && bull > 0 && bear > 0) {
+    if (bull > bear) bear = Math.ceil(bear * 0.6);
+    else if (bear > bull) bull = Math.ceil(bull * 0.6);
+  }
+
+  var total = bull + bear;
+  if (total === 0) return { sentiment: "neutral", confidence: 0 };
+
+  var diff = Math.abs(bull - bear);
+  var confidence = Math.min(1, (diff / Math.max(total, 1)) * 0.6 + Math.min(total, 9) / 9 * 0.4);
+  if (hasContrast) confidence *= 0.7;
+
+  var result;
+  if (bull > bear)      result = { sentiment: "bullish", confidence: confidence };
+  else if (bear > bull) result = { sentiment: "bearish", confidence: confidence };
+  else                  result = { sentiment: "neutral",  confidence: 0.1 };
+
+  if (pair) {
+    var override = contextualBias(title, pair);
+    if (override) { result.sentiment = override; result.confidence = Math.min(1, result.confidence + 0.15); }
+  }
+  return result;
+}
+
+function contextualBias(title, pair) {
+  var t = title.toLowerCase();
+  var rules = {
+    usdjpy: [
+      [["yen strengthen", "yen rally", "safe-haven demand"], "bearish"],
+      [["yen weaken", "yen slide", "yen fall"], "bullish"],
+    ],
+    eurusd: [
+      [["dollar strengthen", "usd strength"], "bearish"],
+      [["euro strengthen", "euro rally"], "bullish"],
+    ],
+    gbpusd: [
+      [["dollar strengthen", "usd strength"], "bearish"],
+      [["pound strengthen", "sterling rally"], "bullish"],
+    ],
+    xauusd: [
+      [["safe-haven", "geopolitical", "uncertainty"], "bullish"],
+      [["risk appetite", "dollar strength"], "bearish"],
+    ],
+  };
+  var pairRules = rules[pair];
+  if (!pairRules) return null;
+  for (var i = 0; i < pairRules.length; i++) {
+    if (pairRules[i][0].some(function (kw) { return t.includes(kw); })) return pairRules[i][1];
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Impact inference
+// ---------------------------------------------------------------------------
+
+var IMPACT_EVENTS = { "rate decision": 3, "rate cut": 3, "rate hike": 3, "fomc decision": 3, "fomc statement": 3, "fomc": 3, " cpi ": 3, "nfp": 3, "non-farm payroll": 3, "interest rate": 3, "boj decision": 3, "ecb decision": 3, "rba decision": 3, "boe decision": 3, "boc decision": 3, "intervention": 3, "emergency": 3, "quantitative easing": 3, "quantitative tightening": 3, "gdp": 2, "pmi": 2, "employment data": 2, "retail sales": 2, "trade balance": 2, "manufacturing data": 2, "housing data": 2, "inflation data": 2, "payroll": 2, "consumer confidence": 2, "unemployment rate": 2, " ism ": 2, "jobs report": 2, "jobs data": 2, "speech": 1, "minutes": 1, "treasury": 1, "bond": 1, "yield": 1, "forecast": 1, "survey": 1, "auction": 1, "official": 1, "testimony": 1, "remarks": 1, "conference": 1 };
+
+function inferImpact(title) {
+  if (!title) return "low";
+  var t = " " + title.toLowerCase() + " ";
+  var score = 0;
+  for (var kw in IMPACT_EVENTS) if (t.includes(kw)) score = Math.max(score, IMPACT_EVENTS[kw]);
+  return score >= 3 ? "high" : score >= 2 ? "med" : "low";
+}
+
+function normaliseImpact(raw) {
+  if (!raw) return "low";
+  var s = raw.toLowerCase().trim();
+  return s === "high" ? "high" : (s === "medium" || s === "med") ? "med" : "low";
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar sentiment
+// ---------------------------------------------------------------------------
+
+function pairSentimentPct(pair) {
+  var articles = FEEDS[pair] || [];
+  if (!articles.length) return { bullPct: 50, label: "\u2014" };
+
+  var bullW = 0, bearW = 0;
+  articles.forEach(function (a) {
+    var sent, conf;
+    if (a.sentiment && a.sentiment !== "neutral") {
+      sent = a.sentiment; conf = confidenceToFloat(a.macro_conf || 0.5);
+    } else {
+      var s = detectSentiment(a.title, pair); sent = s.sentiment; conf = s.confidence;
+    }
+    if (sent === "bullish") bullW += 0.5 + conf * 0.5;
+    else if (sent === "bearish") bearW += 0.5 + conf * 0.5;
+  });
+
+  var total = bullW + bearW;
+  if (total === 0) return { bullPct: 50, label: "\u2014" };
+  var pct = Math.round((bullW / total) * 100);
+  return { bullPct: pct, label: pct >= 50 ? "\u25b2 " + pct + "%" : "\u25bc " + (100 - pct) + "%" };
+}
+
+// ---------------------------------------------------------------------------
+// Header rate
+// ---------------------------------------------------------------------------
+
+var FX_PAIRS = [
+  { label: "EUR/USD", pair: "eurusd" }, { label: "GBP/USD", pair: "gbpusd" },
+  { label: "USD/JPY", pair: "usdjpy" },
+  { label: "XAU/USD", pair: "xauusd" },
+];
+
+function getHeaderRate(pair) {
+  if (pair === "all" || !LAST_RATES.length) return "";
+  var meta = FX_PAIRS.find(function (p) { return p.pair === pair; });
+  if (!meta) return "";
+  var r = LAST_RATES.find(function (x) { return x.label === meta.label; });
+  if (!r) return "";
+  return r.rate + "  " + (r.chg_pct >= 0 ? "+" : "") + r.chg_pct.toFixed(2) + "%";
+}
+
+function isSignificant(chg, threshold) { return Math.abs(chg) >= (threshold || 0.15); }
+
+// ---------------------------------------------------------------------------
+// Regime pill
+// ---------------------------------------------------------------------------
+
+function updateRegime() {
+  var pill  = document.getElementById("regime-pill");
+  var label = document.getElementById("regime-label");
+  if (!pill || !label) return;
+
+  if (MACRO_DATA && MACRO_DATA.pair_biases) {
+    var anyBias = MACRO_DATA.pair_biases.eurusd || MACRO_DATA.pair_biases.xauusd || {};
+    var regime  = anyBias.regime || "";
+    if (regime) {
+      pill.classList.remove("risk-on", "risk-off", "risk-neutral");
+      var stanceLabel = regime.includes("restrictive") ? " \u00b7 TIGHT"
+                      : regime.includes("accommodative") ? " \u00b7 EASY" : "";
+      if (regime.includes("risk_off"))      { pill.classList.add("risk-off");     label.textContent = "RISK OFF" + stanceLabel; }
+      else if (regime.includes("risk_on")) { pill.classList.add("risk-on");      label.textContent = "RISK ON" + stanceLabel; }
+      else                                  { pill.classList.add("risk-neutral"); label.textContent = "NEUTRAL" + stanceLabel; }
+      var _rc = (anyBias && typeof anyBias.regime_confidence === "number") ? anyBias.regime_confidence : null;
+      var regConf = _rc !== null ? " · conf " + Math.round(_rc * 100) + "%" : "";
+      pill.title = "Macro regime: " + regime.toUpperCase().replace(/_/g, " ") + regConf;
+      return;
+    }
+  }
+
+  if (!LAST_RATES.length) return;
+  var gold = LAST_RATES.find(function (r) { return r.label === "XAU/USD"; });
+  var jpy  = LAST_RATES.find(function (r) { return r.label === "USD/JPY"; });
+  var aud  = LAST_RATES.find(function (r) { return r.label === "AUD/USD"; });
+  var chf  = LAST_RATES.find(function (r) { return r.label === "USD/CHF"; });
+
+  var score = 0, signals = 0;
+  if (gold && isSignificant(gold.chg_pct, 0.15)) { signals++; score += gold.chg_pct > 0.3 ? -2 : gold.chg_pct > 0 ? -1 : gold.chg_pct < -0.3 ? 2 : 1; }
+  if (jpy  && isSignificant(jpy.chg_pct,  0.15)) { signals++; score += jpy.chg_pct  > 0.3 ? 2  : jpy.chg_pct  > 0 ? 1  : jpy.chg_pct  < -0.3 ? -2 : -1; }
+  if (aud  && isSignificant(aud.chg_pct,  0.2))  { signals++; score += aud.chg_pct  > 0   ? 1  : -1; }
+  if (chf  && isSignificant(chf.chg_pct,  0.2))  { signals++; score += chf.chg_pct  < 0   ? -1 : 1; }
+
+  pill.classList.remove("risk-on", "risk-off", "risk-neutral");
+  if      (signals < 2 || Math.abs(score) < 2) { pill.classList.add("risk-neutral"); label.textContent = "MIXED"; }
+  else if (score >= 2)                          { pill.classList.add("risk-on");      label.textContent = "RISK ON"; }
+  else if (score <= -2)                         { pill.classList.add("risk-off");     label.textContent = "RISK OFF"; }
+  else                                          { pill.classList.add("risk-neutral"); label.textContent = "MIXED"; }
+}
+
+// ---------------------------------------------------------------------------
+// Alerts
+// ---------------------------------------------------------------------------
+
+var ALERT_KW = ["fed ", "fomc", "boj intervention", "rate decision", "emergency", "breaking"];
+
+function checkAlerts(items) {
+  var container = document.getElementById("alert-container");
+  if (!container) return;
+
+  items.forEach(function (it) {
+    var key = normalizeTitle(it.title || "");
+    if (!key || ALERTED_KEYS.has(key)) return;
+    var now = Date.now();
+    if (ALERT_COOLDOWN[it.pair] && (now - ALERT_COOLDOWN[it.pair] < ALERT_COOLDOWN_MS)) return;
+
+    var s = (it.sentiment && it.sentiment !== "neutral")
+      ? { sentiment: it.sentiment, confidence: confidenceToFloat(it.macro_conf || "medium") }
+      : detectSentiment(it.title, it.pair);
+
+    var impact  = normaliseImpact(it.impact || inferImpact(it.title));
+    var t       = (it.title || "").toLowerCase();
+    var hasKW   = ALERT_KW.some(function (kw) { return t.includes(kw); });
+    var fused   = getFusedScore(it);
+
+    if (!((impact === "high" && s.sentiment !== "neutral" && s.confidence >= 0.4) ||
+           hasKW || Math.abs(fused) >= 1.5)) return;
+
+    ALERTED_KEYS.add(key);
+    ALERT_COOLDOWN[it.pair] = now;
+    persistAlerts();
+
+    var icon       = s.sentiment === "bullish" ? "\ud83d\udfe2" : s.sentiment === "bearish" ? "\ud83d\udd34" : "\ud83d\udd14";
+    var confLabel  = confidenceToFloat(s.confidence || 0) >= 0.75 ? "HIGH" : confidenceToFloat(s.confidence || 0) >= 0.5 ? "MED" : "LOW";
+    var fusedLabel = Math.abs(fused) >= 0.5 ? "  FS:" + (fused > 0 ? "+" : "") + fused.toFixed(2) : "";
+
+    var toast = document.createElement("div");
+    toast.className = "alert-toast " + (s.sentiment !== "neutral" ? s.sentiment : "");
+    toast.innerHTML = '<span class="alert-icon">' + icon + '</span><div class="alert-body">' +
+      '<span class="alert-pair">' + escapeHTML(fmt(it.pair)) + " \u00b7 " +
+      escapeHTML((impact === "high" ? "HIGH" : (impact || "").toUpperCase())) + " \u00b7 " + confLabel + " CONF" +
+      escapeHTML(fusedLabel) + '</span>' +
+      '<span class="alert-title">' + escapeHTML(it.title) + '</span></div>';
+    container.appendChild(toast);
+    setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 6000);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Clock & sessions
+// ---------------------------------------------------------------------------
+
+function updateClock() {
+  var now = new Date();
+  document.getElementById("clock").textContent =
+    String(now.getUTCHours()).padStart(2, "0") + ":" +
+    String(now.getUTCMinutes()).padStart(2, "0") + ":" +
+    String(now.getUTCSeconds()).padStart(2, "0") + " UTC";
+
+  var currentMin = now.getUTCHours() * 60 + now.getUTCMinutes();
+  var SESSION_TIMES = {
+    sydney:  { open: 22 * 60, close: 7 * 60, wrap: true },
+    tokyo:   { open: 0 * 60,  close: 9 * 60, wrap: false },
+    london:  { open: 7 * 60,  close: 16 * 60, wrap: false },
+    newyork: { open: 12 * 60, close: 21 * 60, wrap: false }
+  };
+  for (var key in SESSION_TIMES) {
+    var s = SESSION_TIMES[key];
+    var isOpen, minsLeft;
+    if (!s.wrap) {
+      isOpen = currentMin >= s.open && currentMin < s.close;
+      minsLeft = isOpen ? s.close - currentMin : (s.open + 1440 - currentMin) % 1440;
+    } else {
+      isOpen = currentMin >= s.open || currentMin < s.close;
+      minsLeft = isOpen
+        ? (currentMin >= s.open ? (1440 - currentMin) + s.close : s.close - currentMin)
+        : s.open - currentMin;
+    }
+    var hLeft = Math.floor(minsLeft / 60);
+    var mLeft = minsLeft % 60;
+    var badge = document.getElementById("session-badge-" + key);
+    var timeEl = document.getElementById("session-time-" + key);
+    if (badge) badge.classList.toggle("active", isOpen);
+    if (timeEl) timeEl.textContent = isOpen ? hLeft + "h " + String(mLeft).padStart(2,"0") + "m" : "Closed";
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Ticker
+// ---------------------------------------------------------------------------
+
+function renderTicker(rates) {
+  var wrap = document.getElementById("ticker-inner");
+  if (!wrap || !rates.length) return;
+  var html = "";
+  for (var dup = 0; dup < 2; dup++) {
+    rates.forEach(function (r) {
+      html += '<span class="tick"><span class="tick-pair">' + r.label +
+        '</span><span class="tick-rate">' + r.rate +
+        '</span><span class="tick-chg ' + (r.chg_pct >= 0 ? "up" : "dn") + '">' +
+        (r.chg_pct >= 0 ? "+" : "") + r.chg_pct.toFixed(2) + '%</span></span>';
+    });
+  }
+  wrap.innerHTML = html;
+}
+
+async function loadLiveRates() {
+  try {
+    var resp = await fetch("rates.json", { cache: "no-cache" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data = await resp.json();
+    if (!data.rates || !data.rates.length) throw new Error("empty");
+
+    LAST_RATES = data.rates;
+    renderTicker(data.rates);
+    updateRegime();
+
+    var rateEl = document.getElementById("view-rate");
+    if (rateEl) {
+      rateEl.textContent = getHeaderRate(activePair);
+      if (activePair !== "all") {
+        var meta = FX_PAIRS.find(function (p) { return p.pair === activePair; });
+        var r    = meta && LAST_RATES.find(function (x) { return x.label === meta.label; });
+        rateEl.style.color = r ? (r.chg_pct >= 0 ? "var(--accent)" : "var(--red)") : "";
+      } else { rateEl.style.color = ""; }
+    }
+
+    var badge = document.getElementById("ticker-stale");
+    if (badge) {
+      badge.classList.toggle("visible", !!data.stale);
+      if (data.stale && data.fetched_at) {
+        var mins = Math.round((Date.now() - new Date(data.fetched_at).getTime()) / 60000);
+        badge.title = "Cached \u00b7 " + (mins < 60 ? mins + "m ago" : Math.floor(mins / 60) + "h ago");
+      }
+    }
+  } catch (err) {
+    console.warn("ForexFlow: rates unavailable --", err.message);
+    var w = document.getElementById("ticker-inner");
+    if (w) w.innerHTML = '<span class="tick"><span class="tick-pair" style="color:var(--dim)">RATES UNAVAILABLE</span></span>';
+    var b = document.getElementById("ticker-stale");
+    if (b) { b.title = "Rates unavailable"; }  /* don't force stale badge on network error */
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Calendar
+// ---------------------------------------------------------------------------
+
+function calTimeLabel(isoStr) {
+  if (!isoStr) return null;
+  try {
+    var tPart = isoStr.slice(11, 16);
+    if (/^\d{2}:\d{2}$/.test(tPart)) return tPart;
+    var d = new Date(isoStr);
+    if (isNaN(d)) return null;
+    return String(d.getUTCHours()).padStart(2, "0") + ":" + String(d.getUTCMinutes()).padStart(2, "0");
+  } catch (e) { return null; }
+}
+
+function calDayLabel(isoStr) {
+  if (!isoStr) return "UNKNOWN DATE";
+  try {
+    var parts = isoStr.slice(0, 10).split("-");
+    if (parts.length !== 3) return isoStr.slice(0, 10);
+    var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2], 12));
+    var days   = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    return days[d.getUTCDay()] + " " + (+parts[2]) + " " + months[+parts[1] - 1];
+  } catch (e) { return isoStr.slice(0, 10); }
+}
+
+function actualClass(actual, forecast) {
+  if (!actual || !forecast) return "";
+  var a = parseFloat(actual.replace(/[^0-9.\-]/g, ""));
+  var f = parseFloat(forecast.replace(/[^0-9.\-]/g, ""));
+  return (isNaN(a) || isNaN(f)) ? "" : a >= f ? "cal-actual-val" : "cal-actual-val miss";
+}
+
+function renderCalendar() {
+  var scroll = document.getElementById("cal-scroll");
+  if (!scroll) return;
+
+  var events = CAL_EVENTS;
+  if (activePair !== "all") events = events.filter(function (ev) { return (ev.pairs || []).includes(activePair); });
+  if (activeCalFilter !== "all") events = events.filter(function (ev) { return (ev.impact || "").toLowerCase() === activeCalFilter.toLowerCase(); });
+
+  if (!events.length) {
+    scroll.innerHTML = '<div class="cal-empty">' + (CAL_EVENTS.length ? "NO EVENTS MATCH FILTERS" : "NO CALENDAR DATA<br>run scraper.py first") + "</div>";
+    return;
+  }
+
+  events.sort(function (a, b) {
+    return (a.event_time ? new Date(a.event_time).getTime() : Infinity) -
+           (b.event_time ? new Date(b.event_time).getTime() : Infinity);
+  });
+
+  var groups = {}, groupOrder = [];
+  events.forEach(function (ev) {
+    var day = (ev.event_time || "").slice(0, 10) || "zzzz";
+    if (!groups[day]) { groups[day] = []; groupOrder.push(day); }
+    groups[day].push(ev);
+  });
+
+  var now = Date.now(), nowInserted = false, html = "";
+  var impactCls = function (imp) { var n = normaliseImpact(imp); return n === "high" ? "high" : n === "med" ? "med" : "low"; };
+  var currCls   = function (c) { c = (c || "").toUpperCase(); return ["EUR","GBP","USD","JPY","XAU"].includes(c) ? c : "other"; };
+
+  groupOrder.forEach(function (day) {
+    html += '<div class="cal-day-group"><div class="cal-day-label">' + escapeHTML(calDayLabel(groups[day][0].event_time)) + "</div>";
+    groups[day].forEach(function (ev) {
+      var evTime  = ev.event_time ? new Date(ev.event_time).getTime() : null;
+      var isPast  = evTime && evTime < now;
+      var timeStr = calTimeLabel(ev.event_time);
+      var timeLbl = timeStr
+        ? timeStr + "<br><span style='font-size:7px;color:var(--muted)'>UTC</span>"
+        : '<span class="allday">ALL DAY</span>';
+
+      if (!nowInserted && (!evTime || evTime >= now)) {
+        nowInserted = true;
+        html += '<div class="cal-now-line"><div class="cal-now-line-dot"></div><span class="cal-now-line-label">NOW</span></div>';
+      }
+
+      html += '<div class="cal-event' + (isPast ? " past" : "") + '">' +
+        '<div class="cal-time">' + timeLbl + '</div>' +
+        '<div class="cal-bar ' + impactCls(ev.impact) + '"></div>' +
+        '<div class="cal-info">' +
+          '<span class="cal-currency ' + currCls(ev.currency) + '">' + escapeHTML(ev.currency || "\u2014") + '</span>' +
+          '<div class="cal-title">' + escapeHTML(ev.title || "\u2014") + '</div>';
+
+      if (ev.forecast || ev.previous || ev.actual) {
+        html += '<div class="cal-meta">';
+        if (ev.forecast) html += '<span class="cal-meta-item">F <span>' + escapeHTML(ev.forecast) + '</span></span>';
+        if (ev.previous) html += '<span class="cal-meta-item">P <span>' + escapeHTML(ev.previous) + '</span></span>';
+        if (ev.actual)   html += '<span class="cal-meta-item">A <span class="' + actualClass(ev.actual, ev.forecast) + '">' + escapeHTML(ev.actual) + '</span></span>';
+        html += '</div>';
+      }
+      html += '</div></div>';
+    });
+    html += '</div>';
+  });
+
+  if (!nowInserted) html += '<div class="cal-now-line"><div class="cal-now-line-dot"></div><span class="cal-now-line-label">NOW \u2014 NO UPCOMING EVENTS</span></div>';
+  scroll.innerHTML = html;
+
+  var nowLine = scroll.querySelector(".cal-now-line");
+  if (nowLine) setTimeout(function () { nowLine.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+}
+
+// ---------------------------------------------------------------------------
+// UI bindings
+// ---------------------------------------------------------------------------
+
+function bindCalFilters() {
+  document.querySelectorAll("[data-cal-filter]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll("[data-cal-filter]").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeCalFilter = btn.dataset.calFilter;
+      renderCalendar();
+    });
+  });
+}
+
+function bindSortToggle() {
+  document.querySelectorAll("[data-sort]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll("[data-sort]").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeSort = btn.dataset.sort;
+      safeRender();
+    });
+  });
+}
+
+function bindFilters() {
+  document.querySelectorAll(".f-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".f-btn").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      safeRender();
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Mobile nav + Sidebar + setPair
+// ---------------------------------------------------------------------------
+
+function buildMobileNav() {
+  var nav = document.getElementById("mobile-nav");
+  if (!nav) return;
+  var html = '<button class="mob-tab' + (activePair === "all" ? " active" : "") + '" data-pair="all"><span class="mob-tab-sym">ALL</span><span class="mob-tab-count">' + totalArticles() + '</span></button>';
+  Object.keys(FEEDS).forEach(function (p) {
+    html += '<button class="mob-tab' + (activePair === p ? " active" : "") + '" data-pair="' + p + '"><span class="mob-tab-sym">' + fmt(p) + '</span><span class="mob-tab-count">' + FEEDS[p].length + '</span></button>';
+  });
+  html += '<button class="mob-cal-tab" id="mob-cal-tab"><span class="mob-cal-tab-sym">CAL</span><span class="mob-cal-tab-count">' + CAL_EVENTS.length + '</span></button>';
+  nav.innerHTML = html;
+
+  nav.querySelectorAll(".mob-tab").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var cp = document.getElementById("cal-panel"); if (cp) cp.classList.remove("mob-visible");
+      var ct = document.getElementById("mob-cal-tab"); if (ct) ct.classList.remove("active");
+      nav.querySelectorAll(".mob-tab").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      setPair(btn.dataset.pair);
+    });
+  });
+
+  var calTab = document.getElementById("mob-cal-tab");
+  if (calTab) calTab.addEventListener("click", function () {
+    var cp = document.getElementById("cal-panel"); if (!cp) return;
+    var vis = cp.classList.contains("mob-visible");
+    cp.classList.toggle("mob-visible", !vis);
+    calTab.classList.toggle("active", !vis);
+    nav.querySelectorAll(".mob-tab").forEach(function (b) { b.classList.remove("active"); });
+    if (!vis) renderCalendar();
+  });
+}
+
+function buildSidebar() {
+  var list = document.getElementById("sidebar-list");
+  var html = '<button class="pair-item' + (activePair === "all" ? " active" : "") + '" data-pair="all"><div class="pair-item-left"><span class="pair-sym">ALL PAIRS</span><span class="pair-rate-small">' + totalArticles() + ' articles</span></div></button>';
+
+  Object.keys(FEEDS).forEach(function (p) {
+    var count = FEEDS[p].length;
+
+    // ── EMA 20/50 badge ────────────────────────────────────────────────
+    // Prefer pivot.py integrated H1 EMA alignment when available; fallback to macro EMA state.
+    var emaState = getPairEmaState(p);
+    var h1Align = getH1Alignment(p);
+    var emaBadgeHtml = "";
+    if (emaState || h1Align) {
+      var cross   = emaState ? (emaState.cross || "none") : "none";
+      var bias    = emaState ? (emaState.trend_bias || "neutral_bias") : "neutral_bias";
+      var isCross = cross !== "none";
+      var isBull  = cross === "bullish_cross" || bias === "bullish_bias";
+      var isBear  = cross === "bearish_cross" || bias === "bearish_bias";
+      var badgeCls = h1Align === "with" ? "with" : h1Align === "against" ? "against" : h1Align === "missing" ? "missing" : isBull ? "bull" : isBear ? "bear" : "";
+      var badgeLbl = h1Align ? h1AlignLabel(h1Align)
+                             : isCross ? (isBull ? "\u2191 CROSS" : "\u2193 CROSS")
+                             : (isBull ? "\u2191 EMA" : isBear ? "\u2193 EMA" : "\u00b7 EMA");
+      emaBadgeHtml = '<span class="ema-badge ' + badgeCls + '" title="Pivot H1 EMA alignment: ' + (h1Align || 'n/a') + ' \u00b7 EMA 20/50 \u00b7 '
+                   + cross + ' \u00b7 ' + bias + '">' + badgeLbl + '</span>';
+    }
+    // ───────────────────────────────────────────────────────────────────
+
+    var macroHtml = "";
+    var bias = getMacroBias(p);
+    if (bias) {
+      var bs = bias.score || 0, fillPct = Math.min(50, Math.abs(bs) / 3 * 50);
+      var cls = bs > 0.1 ? "bull" : bs < -0.1 ? "bear" : "neutral";
+      macroHtml = '<div class="pair-macro-row"><span class="macro-label">BIAS</span>' +
+        '<div class="macro-bar-wrap"><div class="macro-bar-center"></div>' +
+        '<div class="macro-bar-fill ' + cls + '" style="width:' + fillPct.toFixed(1) + '%"></div></div>' +
+        '<span class="macro-score-val ' + cls + '">' + (bs > 0 ? "+" : "") + bs.toFixed(2) + '</span></div>';
+    }
+
+    html += '<button class="pair-item' + (activePair === p ? " active" : "") + '" data-pair="' + p + '">' +
+      '<div class="pair-item-left">' +
+        '<div style="display:flex;align-items:center;gap:6px;flex-wrap:nowrap">' +
+          '<span class="pair-sym">' + fmt(p) + '</span>' +
+          emaBadgeHtml +
+        '</div>' +
+        '<span class="pair-rate-small">' + count + ' article' + (count !== 1 ? 's' : '') + '</span>' +
+        macroHtml +
+      '</div></button>';
+  });
+
+  list.innerHTML = html;
+  list.querySelectorAll(".pair-item").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      list.querySelectorAll(".pair-item").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      setPair(btn.dataset.pair);
+    });
+  });
+}
+
+function setPair(p) {
+  activePair = p;
+  document.getElementById("view-title").textContent = p === "all" ? "ALL PAIRS" : fmt(p);
+  var rateEl = document.getElementById("view-rate");
+  rateEl.textContent = getHeaderRate(p);
+  if (p !== "all" && LAST_RATES.length) {
+    var meta = FX_PAIRS.find(function (fp) { return fp.pair === p; });
+    var r    = meta && LAST_RATES.find(function (x) { return x.label === meta.label; });
+    rateEl.style.color = r ? (r.chg_pct >= 0 ? "var(--accent)" : "var(--red)") : "";
+  } else rateEl.style.color = "";
+  updateMacroHeatBar(p);
+  safeRender();
+  renderCalendar();
+  var nav = document.getElementById("mobile-nav");
+  if (nav) {
+    nav.querySelectorAll(".mob-tab").forEach(function (b) { b.classList.remove("active"); });
+    var mt = nav.querySelector('[data-pair="' + p + '"]');
+    if (mt) mt.classList.add("active");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Main render
+// ---------------------------------------------------------------------------
+
+function render() {
+  var grid    = document.getElementById("news-grid");
+  var countEl = document.getElementById("view-count");
+  var pairs   = activePair === "all" ? Object.keys(FEEDS) : [activePair];
+
+  var items = [];
+  pairs.forEach(function (p) {
+    (FEEDS[p] || []).forEach(function (item) {
+      items.push(Object.assign({}, item, { pair: p, impact: normaliseImpact(item.impact || inferImpact(item.title)) }));
+    });
+  });
+
+  var seen = new Set();
+  items = items.filter(function (it) {
+    var key = (it.title || "").trim().toLowerCase() + "|" + (it.link || "").split("?")[0].replace(/\/$/, "");
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  });
+
+  if (activeSort === "fused") items.sort(function (a, b) { return Math.abs(getFusedScore(b)) - Math.abs(getFusedScore(a)); });
+  else items.sort(function (a, b) { return new Date(b.published_at || b.scraped_at || 0) - new Date(a.published_at || a.scraped_at || 0); });
+
+  if (activeFilter !== "all") items = items.filter(function (it) { return it.impact === activeFilter; });
+
+  if (items.length) {
+    items.forEach(function (it) { it.featured = false; });
+    if (activePair === "all" || activeSort === "fused") items[0].featured = true;
+  }
+
+  document.getElementById("news-count").textContent = totalArticles() + " ARTICLES" + (SCRAPE_TIME ? " \u00b7 scraped " + relTime(SCRAPE_TIME) : "");
+  countEl.textContent = items.length + " RESULT" + (items.length !== 1 ? "S" : "");
+
+  if (!items.length) { grid.innerHTML = '<div class="no-results">NO ARTICLES MATCH CURRENT FILTERS</div>'; return; }
+
+  checkAlerts(items);
+
+  grid.innerHTML = items.map(function (it, idx) {
+    var delay      = Math.min(idx * 30, 300);
+    var impactHtml = it.impact ? '<span class="impact-tag ' + escapeHTML(it.impact) + '">' + escapeHTML(it.impact.toUpperCase()) + ' IMPACT</span>' : "";
+    var sObj       = it.sentiment
+      ? { sentiment: it.sentiment, confidence: confidenceToFloat(it.macro_conf || "low") }
+      : detectSentiment(it.title, it.pair);
+    var sentIcon   = sObj.sentiment === "bullish" ? "\u25b2" : sObj.sentiment === "bearish" ? "\u25bc" : "\u25cf";
+    var sentHtml   = '<span class="sentiment-tag ' + sObj.sentiment + '">' + sentIcon + ' ' + sObj.sentiment.toUpperCase() + confDotsHTML(sObj.sentiment, sObj.confidence) + '</span>';
+    var fused      = getFusedScore(it);
+    var fusedHtml  = typeof it.fused_score === "number"
+      ? '<span class="fused-badge ' + fusedBadgeClass(fused) + '" title="Macro-fused conviction' + (it.macro_conf ? ' \u00b7 conf: ' + it.macro_conf : '') + '">FS ' + (fused > 0 ? '+' : '') + fused.toFixed(2) + '</span>'
+      : '';
+    var heatCls = fusedClass(fused);
+
+    return '<a class="news-card' + (it.featured ? ' featured' : '') + (heatCls ? ' ' + heatCls : '') +
+      '" href="' + escapeHTML(it.link || "#") + '" target="_blank" rel="noopener noreferrer" style="animation-delay:' + delay + 'ms">' +
+      '<div class="card-top"><span class="src-chip">' + escapeHTML((it.source || '').toUpperCase()) + '</span>' +
+      impactHtml + sentHtml + fusedHtml +
+      '<span class="card-time">' + relTime(it.published_at || it.scraped_at) + '</span></div>' +
+      '<div class="card-title">' + escapeHTML(it.title) + '</div>' +
+      '<div class="card-bottom"><span class="pair-tag">' + fmt(it.pair) + '</span>' +
+      (it.featured ? '<span class="featured-label">TOP STORY</span>' : '') +
+      '<span class="card-arrow">&rarr;</span></div></a>';
+  }).join("");
+}
+
+// ---------------------------------------------------------------------------
+// Data loading
+// ---------------------------------------------------------------------------
+
+async function loadData() {
+  try {
+    var resp = await fetch("forex.json", { cache: "no-cache" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data    = await resp.json();
+    var newHash = hashData(data);
+    if (newHash === LAST_HASH) return;
+    LAST_HASH  = newHash;
+    FEEDS      = data.feeds || {};
+    SCRAPE_TIME = data.scrape_time || null;
+    if (data.macro && typeof data.macro === "object") {
+      MACRO_DATA = data.macro;
+      updateMacroPanel(); updateDataQuality(); updateHorizonPill(activePair); updateMacroHeatBar(activePair);
+    }
+    if (!Object.keys(FEEDS).length) {
+      document.getElementById("news-grid").innerHTML = '<div class="no-results" style="color:var(--amber)">NO DATA \u2014 run scraper.py first</div>';
+      document.getElementById("sidebar-list").innerHTML = "";
+      return;
+    }
+    buildSidebar(); buildMobileNav(); setPair(activePair);
+  } catch (err) {
+    document.getElementById("news-grid").innerHTML = '<div class="no-results" style="color:var(--dim)">forex.json not found \u2014 run scraper.py to populate</div>';
+    document.getElementById("sidebar-list").innerHTML = "";
+    document.getElementById("news-count").textContent = "\u2014 ARTICLES";
+    console.warn("ForexFlow: forex.json unavailable --", err.message);
+  }
+}
+
+async function loadCalendar() {
+  try {
+    var resp = await fetch("calendar.json", { cache: "no-cache" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data    = await resp.json();
+    var newHash = (data.events || []).length + "_" + (data.scrape_time || "");
+    if (newHash === LAST_CAL_HASH) return;
+    LAST_CAL_HASH = newHash;
+    CAL_EVENTS    = data.events || [];
+    renderCalendar();
+    if (Object.keys(FEEDS).length) buildMobileNav();
+  } catch (err) {
+    CAL_EVENTS = []; renderCalendar();
+    console.warn("ForexFlow: calendar.json unavailable --", err.message);
+  }
+}
+
+async function loadEmaData() {
+  try {
+    var resp = await fetch("ema_state.json", { cache: "no-cache" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data    = await resp.json();
+    var newHash = (data.generated_at || "") + "_" + Object.keys(data.results || {}).length;
+    if (newHash === LAST_EMA_HASH) return;
+    LAST_EMA_HASH = newHash;
+    EMA_DATA = data;
+    // Refresh sidebar badges and active-pair heat bar chips if feeds already loaded
+    if (Object.keys(FEEDS).length) {
+      buildSidebar();
+      updateMacroHeatBar(activePair);
+    }
+  } catch (err) {
+    console.warn("ForexFlow: ema_state.json unavailable --", err.message);
+  }
+}
+
+async function loadPivotLevels() {
+  try {
+    var resp = await fetch("pivot_levels.json", { cache: "no-cache" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data = await resp.json();
+    var pairs = data.pairs || data;
+    if (typeof pairs !== "object") return;
+    // Normalise keys to lowercase (eurusd / gbpusd etc.)
+    var normalised = {};
+    for (var k in pairs) { if (pairs.hasOwnProperty(k)) normalised[k.toLowerCase()] = pairs[k]; }
+    PIVOT_LEVELS = normalised;
+    // Re-render heat bar now that we have live pivot context
+    if (activePair && activePair !== "all") updateMacroHeatBar(activePair);
+  } catch (err) {
+    console.warn("ForexFlow: pivot_levels.json unavailable --", err.message);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Touch swipe
+// ---------------------------------------------------------------------------
+
+(function () {
+  var startX = 0, startY = 0;
+  document.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; startY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener("touchend", function (e) {
+    var dx = e.changedTouches[0].clientX - startX, dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) < 60 || Math.abs(dy) > Math.abs(dx) * 0.7) return;
+    var cp = document.getElementById("cal-panel");
+    if (cp && cp.classList.contains("mob-visible")) {
+      cp.classList.remove("mob-visible");
+      var ct = document.getElementById("mob-cal-tab"); if (ct) ct.classList.remove("active");
+      return;
+    }
+    var keys = ["all"].concat(Object.keys(FEEDS)), i = keys.indexOf(activePair);
+    if (i === -1 || (dx < 0 && i >= keys.length - 1) || (dx > 0 && i <= 0)) return;
+    i += dx < 0 ? 1 : -1;
+    setPair(keys[i]);
+    var list = document.getElementById("sidebar-list");
+    if (list) {
+      list.querySelectorAll(".pair-item").forEach(function (b) { b.classList.remove("active"); });
+      var m = list.querySelector('[data-pair="' + keys[i] + '"]');
+      if (m) m.classList.add("active");
+    }
+  }, { passive: true });
+})();
+
+// ---------------------------------------------------------------------------
+// Init
+// ---------------------------------------------------------------------------
+
+updateClock();
+setInterval(updateClock, 1000);
+loadLiveRates();
+setInterval(loadLiveRates, 5 * 60 * 1000);
+bindFilters();
+bindCalFilters();
+bindSortToggle();
+loadData();
+loadCalendar();
+loadEmaData();
+loadPivotLevels();
+setInterval(loadData,         5 * 60 * 1000);
+setInterval(loadCalendar,     5 * 60 * 1000);
+setInterval(loadEmaData,      5 * 60 * 1000);
+setInterval(loadPivotLevels,  5 * 60 * 1000);
+
+</script>
+</body>
+</html>

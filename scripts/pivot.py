@@ -404,10 +404,6 @@ def _unavailable_result(macro_score: float = 0.0) -> Dict[str, Union[str, float,
         "rsi_alignment": "unavailable",
         "rsi_confluence_mult": 0.0,
         "combined_conviction_mult": 0.0,
-        # H1 RSI — sourced from TwelveData /rsi?interval=1h
-        "rsi_h1": None,
-        "rsi_h1_state": "unavailable",
-        "rsi_h1_bias": "unavailable",
     }
 
                                                                                
@@ -547,24 +543,9 @@ def _apply_rsi_to_result(result: Dict, ohlc: Dict[str, float]) -> Dict:
     result["combined_conviction_mult"] = round(base_conv * rsi_mult, 3) if rsi_val is not None else base_conv
     return result
 
-def _apply_h1_rsi_to_result(result: Dict, rsi_h1: Optional[float]) -> Dict:
-    """Attach H1 RSI14 fields to a pivot result dict in-place and return it.
-
-    Fields added:
-      rsi_h1        – raw RSI value (float) or None if unavailable.
-      rsi_h1_state  – "overbought" / "oversold" / "neutral" / "unavailable".
-      rsi_h1_bias   – "bullish" / "bearish" / "neutral" / "unavailable".
-
-    The H1 RSI is informational only and does not feed into conviction_mult or
-    combined_conviction_mult; that weighting is intentionally limited to the
-    daily RSI so as not to double-count on shorter timeframes.
-    """
-    result["rsi_h1"] = round(rsi_h1, 2) if rsi_h1 is not None else None
-    result["rsi_h1_state"] = _rsi_state(rsi_h1)
-    result["rsi_h1_bias"] = _rsi_bias(rsi_h1)
-    return result
-
-
+# ---------------------------------------------------------------------------
+# Stooq OHLC — yfinance-style, free, no API key
+# ---------------------------------------------------------------------------
 # Imports the shared StooqTicker engine from macro.py so the session, handshake,
 # retry adapter, and CSV parser are all shared across the codebase.
 # ---------------------------------------------------------------------------
@@ -717,83 +698,6 @@ def _fetch_twelvedata_ohlc(pair: str) -> Optional[Dict[str, float]]:
         return ohlc
     except Exception as exc:
         log.warning("pivot: TwelveData fetch failed for %s: %s", pair, exc)
-        return None
-
-
-def _fetch_td_h1_rsi(pair: str) -> Optional[float]:
-    """Fetch the latest H1 RSI14 for *pair* from TwelveData's dedicated /rsi endpoint.
-
-    Uses the UTC timezone so timestamps are consistent with the rest of the
-    codebase.  Returns the most-recent RSI value as a float, or None on any
-    failure (missing API key, rate-cap exceeded, network error, bad response).
-
-    Endpoint pattern (per pair):
-      EUR/USD → /rsi?symbol=EUR/USD&interval=1h&time_period=14&series_type=close&timezone=UTC
-      GBP/USD → /rsi?symbol=GBP/USD&interval=1h&time_period=14&series_type=close&timezone=UTC
-      XAU/USD → /rsi?symbol=XAU/USD&interval=1h&time_period=14&series_type=close&timezone=UTC
-
-    The call is counted against the shared TwelveData quota managed by
-    _td_pivot_can_call() / _mark_td_call_shared() so it co-exists safely with
-    the daily OHLC fetcher.  Raise TD_PIVOT_MAX_PER_RUN (default 4) via the
-    PIVOT_TD_MAX_PER_RUN env var if you need more budget per run.
-    """
-    if not TWELVEDATA_API_KEY:
-        log.debug("pivot: TWELVEDATA_API_KEY not set -- skipping H1 RSI fetch for %r", pair)
-        return None
-
-    symbol = TD_SYMBOLS.get(pair.lower())
-    if not symbol:
-        log.debug("pivot: no TwelveData symbol mapping for %r (H1 RSI)", pair)
-        return None
-
-    if not _td_pivot_can_call():
-        log.warning("pivot: TD quota/cooldown blocked H1 RSI fetch for %r", pair)
-        return None
-
-    try:
-        response = _get_session().get(
-            f"{TWELVEDATA_BASE}/rsi",
-            params={
-                "symbol":      symbol,
-                "interval":    "1h",
-                "time_period": 14,
-                "series_type": "close",
-                "timezone":    "UTC",
-                "outputsize":  1,
-                "apikey":      TWELVEDATA_API_KEY,
-            },
-            timeout=HTTP_TIMEOUT,
-        )
-        if not response.ok:
-            log.warning(
-                "pivot: TwelveData H1 RSI HTTP %s for %s", response.status_code, pair
-            )
-            return None
-
-        data = response.json()
-        if data.get("status") == "error":
-            log.warning(
-                "pivot: TwelveData H1 RSI error for %s: %s",
-                pair, data.get("message", "?"),
-            )
-            return None
-
-        values = data.get("values", [])
-        if not values:
-            log.warning("pivot: TwelveData H1 RSI returned no values for %s", pair)
-            return None
-
-        rsi_raw = values[0].get("rsi")
-        rsi_val = round(float(rsi_raw), 2)
-        _mark_td_call_shared()
-        log.debug(
-            "pivot[%s]: TwelveData H1 RSI14=%.2f datetime=%s",
-            pair, rsi_val, values[0].get("datetime", "?"),
-        )
-        return rsi_val
-
-    except Exception as exc:
-        log.warning("pivot: TwelveData H1 RSI fetch failed for %s: %s", pair, exc)
         return None
 
 
@@ -1471,17 +1375,6 @@ def fetch_price_structure(
         result["ohlc_date"] = ohlc.get("_date", "")
         _apply_rsi_to_result(result, ohlc)
 
-        # H1 RSI — fetched from TwelveData /rsi?interval=1h (independent of
-        # the daily OHLC source so it is always attempted when the API key is
-        # present and quota allows).
-        rsi_h1 = _fetch_td_h1_rsi(pair_l)
-        _apply_h1_rsi_to_result(result, rsi_h1)
-        if rsi_h1 is not None:
-            log.debug(
-                "pivot[%s]: H1 RSI14=%.2f state=%s bias=%s",
-                pair_l, rsi_h1, result["rsi_h1_state"], result["rsi_h1_bias"],
-            )
-
         if result["state_basis"] == "prior_close":
             log.debug(
                 "pivot[%s]: using prior-close-only structure (source=%s date=%s)",
@@ -1574,11 +1467,6 @@ def fetch_price_context(
     result["ohlc_source"] = source
     result["ohlc_date"] = clean_ohlc.get("_date", "")
     _apply_rsi_to_result(result, clean_ohlc)
-
-    # H1 RSI from TwelveData — attempted independently of the daily OHLC source.
-    rsi_h1 = _fetch_td_h1_rsi(pair_l)
-    _apply_h1_rsi_to_result(result, rsi_h1)
-
     return result
 
 # ===========================================================================

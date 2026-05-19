@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T13:05:25.360612Z",
+  "scrape_time": "2026-05-19T13:10:23.076933Z",
   "signals": {
     "eurusd": {
       "signal": "confirmed_long",

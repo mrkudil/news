@@ -1,8 +1,6 @@
 name: Delete Old Workflow Runs and Artifacts
 
 on:
-  schedule:
-    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,3 +30,4 @@ jobs:
           retain_days: 3
           keep_minimum_runs: 2
           dry_run: false
+  

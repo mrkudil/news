@@ -36,17 +36,7 @@
     @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.35} }
     #utc-time { font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 0.72rem; }
 
-    .ticker-wrap { overflow: hidden; width: 100%; background: #080d12; border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 28px; }
-    .ticker-label { flex-shrink: 0; padding: 0 9px; font-family: var(--font-mono); font-size: 7.5px; letter-spacing: .15em; color: var(--accent); border-right: 1px solid var(--border); height: 100%; display: flex; align-items: center; }
-    .ticker-track { overflow: hidden; flex: 1; }
-    .ticker-inner { display: inline-flex; gap: 0; animation: fxscroll 40s linear infinite; white-space: nowrap; }
-    .ticker-inner:hover { animation-play-state: paused; }
-    @keyframes fxscroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .tick { display: inline-flex; align-items: center; gap: 5px; padding: 0 12px; border-right: 1px solid var(--border); font-family: var(--font-mono); font-size: 9px; height: 28px; }
-    .tick-pair { color: var(--text); font-weight: 700; letter-spacing: 0.04em; }
-    .tick-rate { color: var(--muted); }
-    .tick-chg.up { color: var(--green); }
-    .tick-chg.dn { color: var(--red); }
+    #fx-ticker-wrap { width:100%; background:#080d12; border-bottom:1px solid var(--border); overflow:hidden; line-height:0; }
 
     /* session strip */
     #sessions { display: flex; border-bottom: 1px solid var(--border); max-width: 1200px; margin: 0 auto; padding: 0 1rem; overflow-x: auto; }
@@ -150,9 +140,8 @@
   </div>
 </nav>
 
-<div class="ticker-wrap">
-  <span class="ticker-label">RATES</span>
-  <div class="ticker-track"><div class="ticker-inner" id="ticker-inner"><span class="tick"><span class="tick-pair" style="color:var(--muted)">FETCHING RATES&hellip;</span></span></div></div>
+<div id="fx-ticker-wrap">
+  <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,39,1984,1,39,1984&border=show&speed=50&click_target=blank&theme=dark&tm-cr=0b0d10&hr-cr=1e222900&by-cr=10b981&sl-cr=ef4444&flags=circle&d_mode=compact-name&column=chg_per&lang=en&font=ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace" width="100%" height="40" style="border:unset;display:block;"></iframe>
 </div>
 
 <div id="sessions">
@@ -179,8 +168,8 @@
 <script>
  // MARKET_REGIME_FORCEFIX_20260515
   // --- Configuration --- 
- const MAIN_PAIR_ORDER = ['eurusd', 'gbpusd', 'usdjpy', 'xauusd']; 
- const PAIR_LABELS = { 'eurusd':'EUR/USD', 'gbpusd':'GBP/USD', 'usdjpy':'USD/JPY', 'xauusd':'XAU/USD' }; 
+ const MAIN_PAIR_ORDER = ['eurusd', 'gbpusd', 'xauusd']; 
+ const PAIR_LABELS = { 'eurusd':'EUR/USD', 'gbpusd':'GBP/USD', 'xauusd':'XAU/USD' }; 
 const SESSIONS = { 
  sydney: { open: 22, close: 7 }, 
  tokyo: { open: 0, close: 9 }, 
@@ -353,20 +342,6 @@ function toMYT(isoStr) {
     });
   }
 
-  // --- Ticker ---
-  function renderTicker(rates) {
-    const wrap = document.getElementById('ticker-inner');
-    if (!wrap || !rates.length) return;
-    let html = '';
-    for (let dup = 0; dup < 2; dup++) {
-      rates.forEach(r => {
-        const chg = parseFloat(r.chg_pct || 0);
-        html += `<span class="tick"><span class="tick-pair">${r.label}</span><span class="tick-rate">${r.rate}</span><span class="tick-chg ${chg >= 0 ? 'up' : 'dn'}">${chg >= 0 ? '+' : ''}${chg.toFixed(2)}%</span></span>`;
-      });
-    }
-    wrap.innerHTML = html;
-  }
-
   // --- Macro Rendering ---
   function renderMacro(data) { 
  const grid = document.getElementById('macro-grid'); 
@@ -387,7 +362,6 @@ function toMYT(isoStr) {
  const regimeConf = Number(data.regime_confidence ?? 0.5); 
  const horizon = data.signal_horizon || 'medium'; 
  const spx = data.spx || {}; 
- const nikkei = data.nikkei || {}; 
  const biases = data.pair_biases || data.biases || data.pairBiases || data._prev_scores || data.price_momentum || {}; 
  const pCtx = data.price_context || {}; 
  const prev = data.prev_rates || {}; 
@@ -658,7 +632,7 @@ function toMYT(isoStr) {
    <div class="regime-bar"> 
     <div class="regime-fill ${regimeScoreClass}" style="width:${regimeScorePct}%; margin-left:${aggregateScore < 0 ? 'auto' : 0}; margin-right:${aggregateScore > 0 ? 'auto' : 0}"></div> 
    </div> 
-   <div style="margin-top:0.7rem; color:var(--muted); font-size:0.74rem;">Main pairs: ${mainPairsText || 'EUR/USD · GBP/USD · USD/JPY · XAU/USD'}</div> 
+   <div style="margin-top:0.7rem; color:var(--muted); font-size:0.74rem;">Main pairs: ${mainPairsText || 'EUR/USD · GBP/USD · XAU/USD'}</div> 
    <div style="margin-top:0.35rem; color:var(--muted); font-size:0.66rem; font-family:var(--font-mono);">Regime score source: ${escapeHTML(regimeScoreSource)} · ${finalScores.length} pair score(s)</div>
    ${providerPolicy ? `<div class="provider-line"><span class="chip">DATA ${escapeHTML(providerPolicyLabel(providerPolicy))}</span>${momentumModule ? `<span>momentum: ${escapeHTML(momentumModule)}</span>` : ''}${pivotModule ? `<span>pivot: ${escapeHTML(pivotModule)}</span>` : ''}</div>` : ''} 
   </div>`; 
@@ -687,16 +661,8 @@ function toMYT(isoStr) {
    ${valRow('UK PMI', ind.uk_pmi, '', {threshHigh: 52, threshLow: 48, decimals: 1})} 
    ${valRow('PMI Delta', ind.pmi_deltas?.uk, '', {threshHigh: 0.5, threshLow: -0.5, decimals: 1})} 
   </div>`; 
- grid.innerHTML += ` 
-  <div class="macro-card"> 
-   <div class="mc-header"><span class="mc-title">🇯🇵 JAPAN FACTORS</span></div> 
-   ${rateRow('BoJ Rate', ind.boj_rate, prev.jp_rate)} 
-   ${valRow('PMI Delta', ind.pmi_deltas?.jp, '', {threshHigh: 0.5, threshLow: -0.5, decimals: 1})} 
-  </div>`; 
  const spxTrend = spx.valid && spx.prev != null ? (Number(spx.current) >= Number(spx.prev) ? 'up' : 'down') : ''; 
  const spxArrow = spxTrend === 'up' ? '▲ ' : spxTrend === 'down' ? '▼ ' : ''; 
- const nikkeiTrend = nikkei.valid && nikkei.prev != null ? (Number(nikkei.current) >= Number(nikkei.prev) ? 'up' : 'down') : ''; 
- const nikkeiArrow = nikkeiTrend === 'up' ? '▲ ' : nikkeiTrend === 'down' ? '▼ ' : ''; 
  const goldBias = biases.xauusd || {}; 
  const goldTrend = (goldBias.enabled === false) ? 'neutral' : (goldBias.score > 0.1 ? 'up' : goldBias.score < -0.1 ? 'down' : 'neutral'); 
  const goldArrow = goldTrend === 'up' ? '▲ ' : goldTrend === 'down' ? '▼ ' : '— '; 
@@ -706,7 +672,6 @@ function toMYT(isoStr) {
    <div class="mc-header"><span class="mc-title">⚠️ RISK & EQUITY</span></div> 
    ${ind.vix != null ? rateRow('VIX', ind.vix, prev.prev_vix, '') : row('VIX', '--')} 
    ${row('S&P 500', spx.current ? spxArrow + fmt(spx.current, 0) : '--', spxTrend)} 
-   ${row('Nikkei 225', nikkei.current ? nikkeiArrow + fmt(nikkei.current, 0) : '--', nikkeiTrend)} 
    ${row('Gold Bias', goldArrow + goldText, goldTrend === 'neutral' ? '' : goldTrend)} 
   </div>`; 
  let biasHTML = ''; 
@@ -826,9 +791,8 @@ function buildDashboardMacroPayload(macro, cachedMacro) {
 
 // --- Main Loop ---
   async function refreshData() {
-    const [macro, rates, macroCache, pivotLevels] = await Promise.all([
+    const [macro, macroCache, pivotLevels] = await Promise.all([
       fetchJSON('macro_components.json'),
-      fetchJSON('rates.json'),
       fetchJSON('macro_cache.json'),
       fetchJSON('pivot_levels.json'),
     ]);
@@ -869,16 +833,16 @@ function buildDashboardMacroPayload(macro, cachedMacro) {
         }
       }
     }
-    if (!macro && !rates && !macroCache) {
+    if (!macro && !macroCache) {
       updateScrapeAge(null);
       document.getElementById('loader').style.display = 'none';
       document.getElementById('error-box').textContent = 'Failed to load any data.';
       document.getElementById('error-box').style.display = 'block';
       return;
     }
-    const generatedIso = macro?.generated_at ?? macro?.scrape_time ?? rates?.fetched_at ?? null;
+    const generatedIso = macro?.generated_at ?? macro?.scrape_time ?? null;
     updateScrapeAge(generatedIso);
-    if (rates && Array.isArray(rates.rates)) renderTicker(rates.rates);
+
     const dashboardMacro = buildDashboardMacroPayload(macro, cachedMacro);
  if (dashboardMacro && Object.keys(dashboardMacro).length) renderMacro(dashboardMacro);
     countdown = 60;

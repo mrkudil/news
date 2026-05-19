@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-19T06:30:36.105661+00:00",
+  "timestamp": "2026-05-19T06:40:29.748974+00:00",
   "macro": {
     "timestamp": "2026-05-19T06:21:23.122629+00:00",
     "run_id": "2c348e43",
@@ -509,7 +509,7 @@
             "slow_ema": 1.169281,
             "ema20_vs_ema50": "above",
             "trend_bias": "bullish_bias",
-            "price": 1.16456,
+            "price": 1.16418,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -527,12 +527,12 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "above",
-            "current_price": 1.16456,
+            "current_price": 1.16418,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
             "suggestion": "bullish_at_ema",
-            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "notes": "local_ok Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
             "twelvedata_requests_today": 3,
             "source_basis": "local_closes + stooq_latest"
           }
@@ -663,7 +663,7 @@
             "slow_ema": 1.347363,
             "ema20_vs_ema50": "above",
             "trend_bias": "bullish_bias",
-            "price": 1.34165,
+            "price": 1.34122,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -681,12 +681,12 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "above",
-            "current_price": 1.34165,
+            "current_price": 1.34122,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
             "suggestion": "bullish_at_ema",
-            "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+            "notes": "local_ok Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
             "twelvedata_requests_today": 3,
             "source_basis": "local_closes + stooq_latest"
           }
@@ -817,7 +817,7 @@
             "slow_ema": 4689.56,
             "ema20_vs_ema50": "below",
             "trend_bias": "bearish_bias",
-            "price": 4550.88,
+            "price": 4547.55,
             "current_vs_ema20": "below",
             "current_vs_ema50": "below",
             "price_vs_fast": "below",
@@ -835,12 +835,12 @@
             "close_vs_slow": "below",
             "close_structure": "below_fast_slow",
             "ema_fast_vs_slow": "below",
-            "current_price": 4550.88,
+            "current_price": 4547.55,
             "current_vs_fast": "below",
             "current_vs_slow": "below",
             "current_structure": "below_fast_slow",
             "suggestion": "bearish",
-            "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+            "notes": "local_ok Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
             "twelvedata_requests_today": 3,
             "source_basis": "local_closes + stooq_latest"
           }
@@ -935,7 +935,7 @@
         "slow_ema": 1.169281,
         "ema20_vs_ema50": "above",
         "trend_bias": "bullish_bias",
-        "price": 1.16456,
+        "price": 1.16418,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -953,12 +953,12 @@
         "close_vs_slow": "below",
         "close_structure": "below_fast_slow",
         "ema_fast_vs_slow": "above",
-        "current_price": 1.16456,
+        "current_price": 1.16418,
         "current_vs_fast": "below",
         "current_vs_slow": "below",
         "current_structure": "below_fast_slow",
         "suggestion": "bullish_at_ema",
-        "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+        "notes": "local_ok Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
         "twelvedata_requests_today": 3,
         "source_basis": "local_closes + stooq_latest"
       },
@@ -975,7 +975,7 @@
         "slow_ema": 1.347363,
         "ema20_vs_ema50": "above",
         "trend_bias": "bullish_bias",
-        "price": 1.34165,
+        "price": 1.34122,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -993,12 +993,12 @@
         "close_vs_slow": "below",
         "close_structure": "below_fast_slow",
         "ema_fast_vs_slow": "above",
-        "current_price": 1.34165,
+        "current_price": 1.34122,
         "current_vs_fast": "below",
         "current_vs_slow": "below",
         "current_structure": "below_fast_slow",
         "suggestion": "bullish_at_ema",
-        "notes": "twelvedata_missing_history Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
+        "notes": "local_ok Close is at or between EMA20/EMA50 in a bullish EMA stack; price testing EMA level.",
         "twelvedata_requests_today": 3,
         "source_basis": "local_closes + stooq_latest"
       },
@@ -1015,7 +1015,7 @@
         "slow_ema": 4689.56,
         "ema20_vs_ema50": "below",
         "trend_bias": "bearish_bias",
-        "price": 4550.88,
+        "price": 4547.55,
         "current_vs_ema20": "below",
         "current_vs_ema50": "below",
         "price_vs_fast": "below",
@@ -1033,12 +1033,12 @@
         "close_vs_slow": "below",
         "close_structure": "below_fast_slow",
         "ema_fast_vs_slow": "below",
-        "current_price": 4550.88,
+        "current_price": 4547.55,
         "current_vs_fast": "below",
         "current_vs_slow": "below",
         "current_structure": "below_fast_slow",
         "suggestion": "bearish",
-        "notes": "twelvedata_missing_history Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
+        "notes": "local_ok Bearish structure: completed Daily close is below EMA20 and EMA50. Current price also remains below both EMAs.",
         "twelvedata_requests_today": 3,
         "source_basis": "local_closes + stooq_latest"
       }
@@ -2486,45 +2486,45 @@
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
-      "xauusd": 4550.47,
-      "eurusd": 1.16451,
-      "gbpusd": 1.34162
+      "xauusd": 4551.28,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34071
     },
     "_price_session_ohlc": {
       "xauusd": {
-        "open": 4550.47,
-        "high": 4550.47,
-        "low": 4550.47,
-        "close": 4550.47,
+        "open": 4551.28,
+        "high": 4551.28,
+        "low": 4551.28,
+        "close": 4551.28,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "eurusd": {
-        "open": 1.16451,
-        "high": 1.16451,
-        "low": 1.16451,
-        "close": 1.16451,
+        "open": 1.16409,
+        "high": 1.16409,
+        "low": 1.16409,
+        "close": 1.16409,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "gbpusd": {
-        "open": 1.34162,
-        "high": 1.34162,
-        "low": 1.34162,
-        "close": 1.34162,
+        "open": 1.34071,
+        "high": 1.34071,
+        "low": 1.34071,
+        "close": 1.34071,
         "_date": "2026-05-19",
         "_synthetic": true
       }
     },
     "_price_session_high": {
-      "xauusd": 4550.47,
-      "eurusd": 1.16451,
-      "gbpusd": 1.34162
+      "xauusd": 4551.28,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34071
     },
     "_price_session_low": {
-      "xauusd": 4550.47,
-      "eurusd": 1.16451,
-      "gbpusd": 1.34162
+      "xauusd": 4551.28,
+      "eurusd": 1.16409,
+      "gbpusd": 1.34071
     },
     "_price_date": {
       "xauusd": "2026-05-19",

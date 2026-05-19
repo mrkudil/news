@@ -7,8 +7,6 @@ on:
     paths:
       - "scripts/**"
   workflow_dispatch:
-  schedule:
-    - cron: "*/5 * * * *"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -52,20 +50,14 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p public_html
-
-          # Initialize alert and momentum JSON files if they don't exist to prevent verification failure
           for f in pivot_telegram_alerts.json signal_telegram_alerts.json momentum_telegram_alerts.json momentum_closes.json momentum_td_usage.json ema_closes.json ema_state.json ema_twelvedata_usage.json; do
             if [ ! -f "public_html/$f" ]; then
               echo '{}' > "public_html/$f"
             fi
           done
-
-          # Initialize momentum .jsonl file if missing
           if [ ! -f "public_html/momentum_stooq_snapshots.jsonl" ]; then
             touch "public_html/momentum_stooq_snapshots.jsonl"
           fi
-
-          # Initialize EMA .jsonl file if missing
           if [ ! -f "public_html/ema_stooq_snapshots.jsonl" ]; then
             touch "public_html/ema_stooq_snapshots.jsonl"
           fi

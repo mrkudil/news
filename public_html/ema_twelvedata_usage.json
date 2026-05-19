@@ -1,0 +1,13 @@
+{
+  "date": "2026-05-19",
+  "count": 3,
+  "per_symbol": {
+    "EURUSD": 1,
+    "GBPUSD": 1,
+    "XAUUSD": 1
+  },
+  "last_request_ts": "2026-05-19T06:22:46.189305Z",
+  "cooldown_until": null,
+  "used_windows": [],
+  "attempted_windows": []
+}

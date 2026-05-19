@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-05-19T19:07:47.223296Z",
+=======
+  "generated_at": "2026-05-19T19:08:22.186254Z",
+>>>>>>> Stashed changes
   "pairs": {
     "eurusd": {
       "price_state": "unavailable",

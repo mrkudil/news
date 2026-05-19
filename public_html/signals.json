@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "scrape_time": "2026-05-19T19:07:42.292492Z",
+=======
+  "scrape_time": "2026-05-19T19:08:16.469078Z",
+>>>>>>> Stashed changes
   "signals": {
     "eurusd": {
       "signal": "unavailable",

@@ -498,20 +498,18 @@ def _save_alert_state(state: Dict[str, Any]) -> None:
 
 
 def _prune_alert_state(state: Dict[str, Any], max_age_hours: int = 48) -> Dict[str, Any]:
-    """Remove old one-shot alert keys while preserving clean-alignment regime state."""
+    """Remove entries older than max_age_hours so the state file doesn't grow unboundedly."""
     cutoff = now_utc() - timedelta(hours=max_age_hours)
     pruned: Dict[str, Any] = {}
     for k, v in state.items():
-        if str(k).endswith(":clean_alignment_state") and isinstance(v, dict):
-            pruned[k] = v
-            continue
         ts = parse_dt(v)
         if ts is None:
             log.debug("_prune_alert_state: dropping corrupt entry key=%s", k)
-            continue
+            continue  # drop unparseable entries instead of keeping them
         if ts >= cutoff:
             pruned[k] = v
     return pruned
+
 
 def _proximity_pct(price: float, ema: float) -> float:
     """Return |price − ema| / ema as a fraction.
@@ -711,9 +709,7 @@ def build_alerts(res: "EMAAnalysisResult") -> List[Dict[str, Any]]:
     Each dict has:
       - ``key``  : stable de-dup fingerprint for this Daily bucket + signal
       - ``text`` : polished HTML Telegram message
-      - ``level``: "cross" or "clean_alignment"
-      - ``state_key`` / ``state_value``: optional regime state used so clean
-        alignment alerts fire only when the alignment first appears or flips.
+      - ``level``: "cross" (only — proximity and imminent alerts removed)
     """
     alerts: List[Dict[str, Any]] = []
 
@@ -797,56 +793,6 @@ def build_alerts(res: "EMAAnalysisResult") -> List[Dict[str, Any]]:
             text += f"\n{'─' * 32}\n<b>🤖 Groq AI</b>\n{ai_note}"
         alerts.append({"key": key, "text": text, "level": "cross"})
 
-    # Clean alignment alerts — full bullish/bearish stack confirmation.
-    # Bullish: EMA fast > EMA slow, completed Daily close above both EMAs,
-    # and current price above both EMAs. Bearish is the mirror image.
-    clean_alignment: Optional[str] = None
-    if (
-        res.ema_fast_vs_slow == "above"
-        and res.close_vs_fast == "above"
-        and res.close_vs_slow == "above"
-        and res.current_vs_fast == "above"
-        and res.current_vs_slow == "above"
-    ):
-        clean_alignment = "bullish"
-    elif (
-        res.ema_fast_vs_slow == "below"
-        and res.close_vs_fast == "below"
-        and res.close_vs_slow == "below"
-        and res.current_vs_fast == "below"
-        and res.current_vs_slow == "below"
-    ):
-        clean_alignment = "bearish"
-
-    if clean_alignment:
-        is_bullish = clean_alignment == "bullish"
-        signal = ("🟢 Clean bullish EMA alignment" if is_bullish else "🔴 Clean bearish EMA alignment")
-        stack_word = "above" if is_bullish else "below"
-        key = f"{pair}:clean_alignment:{clean_alignment}:{bucket}"
-        state_key = f"{pair}:clean_alignment_state"
-        summary = (
-            f"Clean {clean_alignment} alignment confirmed: EMA{f} is {stack_word} EMA{s}, "
-            f"the completed Daily close is {stack_word} both EMAs, and current price is also "
-            f"{stack_word} both EMAs. {_clean_text(res.notes)}"
-        )
-        text = _format_message(
-            signal=signal,
-            summary=summary,
-            extra_lines=[
-                f"<b>Alignment:</b> EMA{f} {stack_word} EMA{s}; close and current price {stack_word} both EMAs",
-            ],
-        )
-        ai_note = _ema_groq_ai_note(res, signal, summary)
-        if ai_note:
-            text += f"\n{'─' * 32}\n<b>🤖 Groq AI</b>\n{ai_note}"
-        alerts.append({
-            "key": key,
-            "text": text,
-            "level": "clean_alignment",
-            "state_key": state_key,
-            "state_value": clean_alignment,
-        })
-
     return alerts
 
 def dispatch_alerts(
@@ -877,45 +823,30 @@ def dispatch_alerts(
     for res in results:
         if res.suggestion == "warming_up":
             continue
-
-        alerts = build_alerts(res)
-        alignment_state_key = f"{res.pair}:clean_alignment_state"
-        has_clean_alignment_alert = any(a.get("level") == "clean_alignment" for a in alerts)
-
-        # Reset when clean alignment disappears, so a future fresh same-direction
-        # alignment can alert again.
-        if not dry_run and not has_clean_alignment_alert and alignment_state_key in state:
-            state[alignment_state_key] = {"direction": "none", "ts": iso_z(now_utc())}
-
-        for alert in alerts:
+        for alert in build_alerts(res):
             key = alert["key"]
-            state_key = alert.get("state_key")
-            state_value = alert.get("state_value")
-
-            if state_key and state_value:
-                previous_state = state.get(state_key)
-                previous_direction = previous_state.get("direction") if isinstance(previous_state, dict) else None
-                if previous_direction == state_value:
-                    log.debug("dispatch_alerts: skipping unchanged clean alignment for %s (%s)", res.pair, state_value)
-                    continue
-            elif key in state:
+            if key in state:
                 log.debug("dispatch_alerts: skipping duplicate key=%s", key)
                 continue
-
             if dry_run:
                 log.info("[DRY-RUN] Would send alert key=%s:\n%s", key, alert["text"])
+                # Do NOT mutate state during dry-run: persisting keys here would
+                # suppress real alerts on the next non-dry-run invocation.
                 sent += 1
             else:
                 ok = send_telegram_message(bot_token, chat_id, alert["text"])
                 if ok:
-                    now_iso = iso_z(now_utc())
-                    state[key] = now_iso
-                    if state_key and state_value:
-                        state[state_key] = {"direction": state_value, "ts": now_iso}
+                    state[key] = iso_z(now_utc())
                     sent += 1
-                    log.info("dispatch_alerts: sent %s alert for %s (key=%s)", alert["level"], res.pair, key)
+                    log.info(
+                        "dispatch_alerts: sent %s alert for %s (key=%s)",
+                        alert["level"], res.pair, key,
+                    )
                 else:
-                    log.warning("dispatch_alerts: failed to send %s alert for %s", alert["level"], res.pair)
+                    log.warning(
+                        "dispatch_alerts: failed to send %s alert for %s",
+                        alert["level"], res.pair,
+                    )
 
     if not dry_run:
         _save_alert_state(state)

@@ -1,0 +1,196 @@
+{
+  "fetched_at": "2026-05-19T00:48:10.431988Z",
+  "source": "Stooq",
+  "stale": false,
+  "ttl_s": 900.0,
+  "attribution": "https://stooq.com",
+  "rates": [
+    {
+      "label": "EUR/USD",
+      "rate": "1.16457",
+      "prev": "1.16457",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "GBP/USD",
+      "rate": "1.34233",
+      "prev": "1.34233",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "AUD/USD",
+      "rate": "0.71561",
+      "prev": "0.71561",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/CAD",
+      "rate": "1.37464",
+      "prev": "1.37464",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/CHF",
+      "rate": "0.78511",
+      "prev": "0.78511",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "XAU/USD",
+      "rate": "4571.90",
+      "prev": "4571.90",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/MYR",
+      "rate": "3.9710",
+      "prev": "3.9710",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "USD/SGD",
+      "rate": "1.2793",
+      "prev": "1.2793",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "SGD/MYR",
+      "rate": "3.1039",
+      "prev": "3.1039",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "EUR/MYR",
+      "rate": "4.6245",
+      "prev": "4.6245",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "GBP/MYR",
+      "rate": "5.3301",
+      "prev": "5.3301",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "CNY/MYR",
+      "rate": "0.5839",
+      "prev": "0.5839",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "THB/MYR",
+      "rate": "0.1219",
+      "prev": "0.1219",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "IDR/MYR",
+      "rate": "0.000225",
+      "prev": "0.000225",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "AUD/MYR",
+      "rate": "2.8416",
+      "prev": "2.8416",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "NZD/MYR",
+      "rate": "2.3284",
+      "prev": "2.3284",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    },
+    {
+      "label": "BTC/USD",
+      "rate": "77129.48",
+      "prev": "77129.48",
+      "chg_pct": 0.0,
+      "source": "Stooq",
+      "stale_age_s": 0.0,
+      "stale_pct": 0.0,
+      "stale_label": "fresh",
+      "changed": true
+    }
+  ]
+}

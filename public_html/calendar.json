@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T01:51:13.517388Z",
+  "scrape_time": "2026-05-19T02:34:52.039561Z",
   "events": [
     {
       "title": "Rightmove HPI m/m",
@@ -484,16 +484,12 @@
       "currency": "GBP",
       "impact": "High",
       "event_time": "2026-05-21T12:30:00+00:00",
-      "actual": "53.7",
+      "actual": "",
       "forecast": "52.8",
       "previous": "53.6",
       "pairs": [
         "gbpusd"
-      ],
-      "actual_source": "Stooq",
-      "actual_source_symbol": "pmmnuk.m",
-      "actual_source_url": "https://stooq.com/q/?s=pmmnuk.m",
-      "actual_source_time": "2026-04-30T23:00:00+00:00"
+      ]
     },
     {
       "title": "Flash Services PMI",
@@ -628,18 +624,14 @@
       "currency": "USD",
       "impact": "Medium",
       "event_time": "2026-05-21T17:45:00+00:00",
-      "actual": "54.5",
+      "actual": "",
       "forecast": "53.7",
       "previous": "54.0",
       "pairs": [
         "eurusd",
         "gbpusd",
         "xauusd"
-      ],
-      "actual_source": "Stooq",
-      "actual_source_symbol": "pmmnus.m",
-      "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
-      "actual_source_time": "2026-04-30T23:00:00+00:00"
+      ]
     },
     {
       "title": "Flash Services PMI",
@@ -882,24 +874,6 @@
       "pairs": [
         "eurusd"
       ]
-    },
-    {
-      "title": "Stooq Eurozone Manufacturing PMI",
-      "currency": "EUR",
-      "impact": "Medium",
-      "event_time": "2026-04-30T23:00:00+00:00",
-      "actual": "52.2",
-      "forecast": "",
-      "previous": "",
-      "pairs": [
-        "eurusd"
-      ],
-      "source": "Stooq",
-      "actual_source": "Stooq",
-      "actual_source_symbol": "pmmneu.m",
-      "actual_source_url": "https://stooq.com/q/?s=pmmneu.m",
-      "actual_source_time": "2026-04-30T23:00:00+00:00",
-      "note": "Synthetic PMI fallback row added by scraper.py before macro.py reads calendar.json"
     }
   ],
   "events_by_pair": {
@@ -1299,18 +1273,14 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "54.5",
+        "actual": "",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
           "eurusd",
           "gbpusd",
           "xauusd"
-        ],
-        "actual_source": "Stooq",
-        "actual_source_symbol": "pmmnus.m",
-        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
-        "actual_source_time": "2026-04-30T23:00:00+00:00"
+        ]
       },
       {
         "title": "Flash Services PMI",
@@ -1505,24 +1475,6 @@
         "pairs": [
           "eurusd"
         ]
-      },
-      {
-        "title": "Stooq Eurozone Manufacturing PMI",
-        "currency": "EUR",
-        "impact": "Medium",
-        "event_time": "2026-04-30T23:00:00+00:00",
-        "actual": "52.2",
-        "forecast": "",
-        "previous": "",
-        "pairs": [
-          "eurusd"
-        ],
-        "source": "Stooq",
-        "actual_source": "Stooq",
-        "actual_source_symbol": "pmmneu.m",
-        "actual_source_url": "https://stooq.com/q/?s=pmmneu.m",
-        "actual_source_time": "2026-04-30T23:00:00+00:00",
-        "note": "Synthetic PMI fallback row added by scraper.py before macro.py reads calendar.json"
       }
     ],
     "gbpusd": [
@@ -1853,16 +1805,12 @@
         "currency": "GBP",
         "impact": "High",
         "event_time": "2026-05-21T12:30:00+00:00",
-        "actual": "53.7",
+        "actual": "",
         "forecast": "52.8",
         "previous": "53.6",
         "pairs": [
           "gbpusd"
-        ],
-        "actual_source": "Stooq",
-        "actual_source_symbol": "pmmnuk.m",
-        "actual_source_url": "https://stooq.com/q/?s=pmmnuk.m",
-        "actual_source_time": "2026-04-30T23:00:00+00:00"
+        ]
       },
       {
         "title": "Flash Services PMI",
@@ -1973,18 +1921,14 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "54.5",
+        "actual": "",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
           "eurusd",
           "gbpusd",
           "xauusd"
-        ],
-        "actual_source": "Stooq",
-        "actual_source_symbol": "pmmnus.m",
-        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
-        "actual_source_time": "2026-04-30T23:00:00+00:00"
+        ]
       },
       {
         "title": "Flash Services PMI",
@@ -2349,18 +2293,14 @@
         "currency": "USD",
         "impact": "Medium",
         "event_time": "2026-05-21T17:45:00+00:00",
-        "actual": "54.5",
+        "actual": "",
         "forecast": "53.7",
         "previous": "54.0",
         "pairs": [
           "eurusd",
           "gbpusd",
           "xauusd"
-        ],
-        "actual_source": "Stooq",
-        "actual_source_symbol": "pmmnus.m",
-        "actual_source_url": "https://stooq.com/q/?s=pmmnus.m",
-        "actual_source_time": "2026-04-30T23:00:00+00:00"
+        ]
       },
       {
         "title": "Flash Services PMI",

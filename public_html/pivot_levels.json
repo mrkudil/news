@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-05-19T06:11:56.956300Z",
+=======
+  "generated_at": "2026-05-19T06:12:36.693793Z",
+>>>>>>> Stashed changes
   "pairs": {
     "eurusd": {
       "price_state": "accept_above_pp",
@@ -35,10 +39,14 @@
       "rsi_bias": "neutral",
       "rsi_alignment": "neutral",
       "rsi_confluence_mult": 1.0,
+<<<<<<< Updated upstream
       "combined_conviction_mult": 1.0,
       "rsi_h1": 49.52,
       "rsi_h1_state": "neutral",
       "rsi_h1_bias": "neutral"
+=======
+      "combined_conviction_mult": 1.0
+>>>>>>> Stashed changes
     },
     "gbpusd": {
       "price_state": "accept_above_pp",
@@ -74,49 +82,50 @@
       "rsi_bias": "bearish",
       "rsi_alignment": "against",
       "rsi_confluence_mult": 0.95,
+<<<<<<< Updated upstream
       "combined_conviction_mult": 0.95,
       "rsi_h1": 54.43,
       "rsi_h1_state": "neutral",
       "rsi_h1_bias": "neutral"
+=======
+      "combined_conviction_mult": 0.95
+>>>>>>> Stashed changes
     },
     "xauusd": {
-      "price_state": "unavailable",
+      "price_state": "accept_above_pp",
       "rejection_level": "",
-      "macro_alignment": "unavailable",
-      "conviction_mult": 0.0,
+      "macro_alignment": "neutral",
+      "conviction_mult": 1.0,
       "score_adj": 0.0,
-      "price_used": 0.0,
-      "tolerance": 0.0,
-      "state_basis": "none",
-      "state_quality": "none",
+      "price_used": 4566.17371,
+      "tolerance": 5.376149,
+      "state_basis": "prior_close",
+      "state_quality": "low",
       "nearest_level": {
-        "name": "",
-        "value": 0.0,
-        "distance": 0.0,
-        "side": "at"
+        "name": "PP",
+        "value": 4542.498333,
+        "distance": 23.675377,
+        "side": "above"
       },
-      "PP": 0.0,
-      "R1": 0.0,
-      "R2": 0.0,
-      "R3": 0.0,
-      "S1": 0.0,
-      "S2": 0.0,
-      "S3": 0.0,
-      "range": 0.0,
-      "close": 0.0,
+      "PP": 4542.498333,
+      "R1": 4608.097507,
+      "R2": 4650.021303,
+      "R3": 4715.620477,
+      "S1": 4500.574537,
+      "S2": 4434.975363,
+      "S3": 4393.051567,
+      "range": 107.52297,
+      "close": 4566.17371,
       "macro_score": 0.0,
-      "ohlc_source": "unavailable",
-      "ohlc_date": "",
-      "rsi": null,
+      "ohlc_source": "twelvedata",
+      "ohlc_date": "2026-05-18",
+      "rsi": 54.81,
       "rsi_period": 14,
-      "rsi_state": "unavailable",
-      "rsi_bias": "unavailable",
-      "rsi_alignment": "unavailable",
-      "rsi_confluence_mult": 0.0,
-      "combined_conviction_mult": 0.0,
-      "rsi_h1": null,
-      "rsi_h1_state": "unavailable",
-      "rsi_h1_bias": "unavailable"
+      "rsi_state": "neutral",
+      "rsi_bias": "neutral",
+      "rsi_alignment": "neutral",
+      "rsi_confluence_mult": 1.0,
+      "combined_conviction_mult": 1.0
     }
   }
 }

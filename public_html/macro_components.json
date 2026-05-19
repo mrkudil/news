@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "scrape_time": "2026-05-19T06:11:28.795510Z",
+=======
+  "scrape_time": "2026-05-19T06:12:15.840809Z",
+>>>>>>> Stashed changes
   "indicators": {
     "fed_rate": 3.64,
     "yield_spread": 0.5,

@@ -11,7 +11,11 @@
         "S2": "above",
         "S3": "above"
       },
+<<<<<<< Updated upstream
       "updated_at": "2026-05-19T06:11:56.954738Z"
+=======
+      "updated_at": "2026-05-19T06:12:36.692213Z"
+>>>>>>> Stashed changes
     },
     "gbpusd": {
       "last_price": 1.34344,
@@ -24,7 +28,24 @@
         "S2": "above",
         "S3": "above"
       },
+<<<<<<< Updated upstream
       "updated_at": "2026-05-19T06:11:56.954771Z"
+=======
+      "updated_at": "2026-05-19T06:12:36.692253Z"
+    },
+    "xauusd": {
+      "last_price": 4566.17371,
+      "sides": {
+        "R3": "below",
+        "R2": "below",
+        "R1": "below",
+        "PP": "above",
+        "S1": "above",
+        "S2": "above",
+        "S3": "above"
+      },
+      "updated_at": "2026-05-19T06:12:36.692266Z"
+>>>>>>> Stashed changes
     }
   },
   "alerts": {}

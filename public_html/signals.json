@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "scrape_time": "2026-05-19T06:11:28.795510Z",
+=======
+  "scrape_time": "2026-05-19T06:12:15.840809Z",
+>>>>>>> Stashed changes
   "signals": {
     "eurusd": {
       "signal": "confirmed_long",
@@ -106,18 +110,18 @@
       "confidence_before_h1": 0.888
     },
     "xauusd": {
-      "signal": "unavailable",
-      "confidence": 0.0,
-      "direction": "neutral",
-      "reason": "Pivot data unavailable",
-      "pivot_state": "unavailable",
+      "signal": "confirmed_long",
+      "confidence": 0.808,
+      "direction": "long",
+      "reason": "Accept_Above_PP With Bullish EMA Trend",
+      "pivot_state": "accept_above_pp",
       "ema_bias": "bullish_bias",
       "ema_cross": "none",
-      "macro_align": "unavailable",
+      "macro_align": "neutral",
       "warming_up": false,
-      "ok": false,
-      "ohlc_date": "",
-      "pivot_source": "unavailable",
+      "ok": true,
+      "ohlc_date": "2026-05-18",
+      "pivot_source": "twelvedata",
       "ema_source": "stooq_h1+td_seeded",
       "h1_ema_alignment": "",
       "h1_ema_direction": "",
@@ -127,14 +131,14 @@
       "h1_rsi_label": "",
       "h1_rsi_signal": "",
       "h1_ema": {},
-      "d1_rsi": null,
-      "d1_rsi_state": "unavailable",
-      "d1_rsi_bias": "unavailable",
+      "d1_rsi": 54.81,
+      "d1_rsi_state": "neutral",
+      "d1_rsi_bias": "neutral",
       "technical_summary": {},
       "technical_context": {},
       "h1_status": "ok",
       "h1_movement": "h1_bearish",
-      "h1_bias_alignment": "against_bias",
+      "h1_bias_alignment": "against_h1_ema",
       "h1_ema_bias": "neutral_bias",
       "h1_score": -5,
       "h1_confidence_adjustment": -0.08,
@@ -154,7 +158,8 @@
       "last_close": null,
       "trend_bias": "",
       "h1_summary": "\u26a0\ufe0f H1 AGAINST \u00b7 EMA20>EMA50 \u00b7 Close<EMA50 \u00b7 RSI n/a",
-      "h1_adjustment_text": "drag -0.08"
+      "h1_adjustment_text": "drag -0.08",
+      "confidence_before_h1": 0.888
     }
   }
 }

@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "scrape_time": "2026-05-19T14:55:28.824949Z",
-=======
-  "scrape_time": "2026-05-19T14:55:54.995846Z",
->>>>>>> Stashed changes
+  "scrape_time": "2026-05-19T15:00:41.048175Z",
   "events": [
     {
       "title": "Rightmove HPI m/m",

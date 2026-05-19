@@ -1,33 +1,17 @@
 {
   "stooq_price_XAUUSD": {
-<<<<<<< Updated upstream
-    "price": 4489.05,
+    "price": 4495.78,
     "source": "Stooq",
-    "t": 1779202530.0990381
+    "t": 1779202845.8840055
   },
   "stooq_price_EURUSD": {
-    "price": 1.15969,
+    "price": 1.15962,
     "source": "Stooq",
-    "t": 1779202530.20025
+    "t": 1779202846.9949458
   },
   "stooq_price_GBPUSD": {
-    "price": 1.33857,
+    "price": 1.33938,
     "source": "Stooq",
-    "t": 1779202531.4103863
-=======
-    "price": 4490.87,
-    "source": "Stooq",
-    "t": 1779202556.6403325
-  },
-  "stooq_price_EURUSD": {
-    "price": 1.15973,
-    "source": "Stooq",
-    "t": 1779202556.7619357
-  },
-  "stooq_price_GBPUSD": {
-    "price": 1.33885,
-    "source": "Stooq",
-    "t": 1779202558.0049527
->>>>>>> Stashed changes
+    "t": 1779202848.0782807
   }
 }

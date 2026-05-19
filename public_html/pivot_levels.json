@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-05-19T14:55:34.502762Z",
-=======
-  "generated_at": "2026-05-19T14:56:01.152920Z",
->>>>>>> Stashed changes
+  "generated_at": "2026-05-19T15:00:51.887791Z",
   "pairs": {
     "eurusd": {
       "price_state": "accept_above_pp",

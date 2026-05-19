@@ -1,5 +1,5 @@
 {
-  "scrape_time": "2026-05-19T05:45:39.083814Z",
+  "scrape_time": "2026-05-19T05:51:07.836135Z",
   "indicators": {
     "fed_rate": 3.64,
     "yield_spread": 0.5,
@@ -94,7 +94,7 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "technical_context": {
@@ -136,11 +136,37 @@
             "ok": false
           },
           "ema_20_50": {
-            "pair": "eurusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "EURUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.16455,
+            "ema50": 1.16455,
+            "ema_fast": 1.16455,
+            "ema_slow": 1.16455,
+            "fast_ema": 1.16455,
+            "slow_ema": 1.16455,
+            "ema20_vs_ema50": "at",
+            "trend_bias": "neutral_bias",
+            "price": 1.16388,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 1,
+            "last_completed_hour": "2026-05-19T00:00:00Z",
+            "last_close": 1.16455,
+            "current_price": 1.16388,
+            "suggestion": "warming_up",
+            "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+            "twelvedata_requests_today": 0,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -208,13 +234,13 @@
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": false,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": false
         },
         "sources": {
           "pivot": "unavailable",
           "h1": "stooq_h1",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     },
@@ -288,7 +314,7 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "technical_context": {
@@ -330,11 +356,37 @@
             "ok": false
           },
           "ema_20_50": {
-            "pair": "gbpusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "GBPUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 1.34183,
+            "ema50": 1.34183,
+            "ema_fast": 1.34183,
+            "ema_slow": 1.34183,
+            "fast_ema": 1.34183,
+            "slow_ema": 1.34183,
+            "ema20_vs_ema50": "at",
+            "trend_bias": "neutral_bias",
+            "price": 1.34096,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 1,
+            "last_completed_hour": "2026-05-19T00:00:00Z",
+            "last_close": 1.34183,
+            "current_price": 1.34096,
+            "suggestion": "warming_up",
+            "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+            "twelvedata_requests_today": 0,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -402,13 +454,13 @@
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": false,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": false
         },
         "sources": {
           "pivot": "unavailable",
           "h1": "stooq_h1",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     },
@@ -494,7 +546,7 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "technical_context": {
@@ -536,11 +588,37 @@
             "ok": false
           },
           "ema_20_50": {
-            "pair": "xauusd",
-            "timeframe": "D1",
-            "ok": false,
-            "source": "unavailable",
-            "reason": "no_daily_ema_history"
+            "pair": "XAUUSD",
+            "timeframe": "Daily",
+            "fast_period": 20,
+            "slow_period": 50,
+            "ema20": 4549.8,
+            "ema50": 4549.8,
+            "ema_fast": 4549.8,
+            "ema_slow": 4549.8,
+            "fast_ema": 4549.8,
+            "slow_ema": 4549.8,
+            "ema20_vs_ema50": "at",
+            "trend_bias": "neutral_bias",
+            "price": 4539.3,
+            "current_vs_ema20": "below",
+            "current_vs_ema50": "below",
+            "price_vs_fast": "below",
+            "price_vs_slow": "below",
+            "cross": "none",
+            "ema_cross_signal": "none",
+            "warming_up": false,
+            "ok": true,
+            "source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+            "completed_closes": 1,
+            "last_completed_hour": "2026-05-19T00:00:00Z",
+            "last_close": 4549.8,
+            "current_price": 4539.3,
+            "suggestion": "warming_up",
+            "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+            "twelvedata_requests_today": 0,
+            "source_basis": "local_closes + stooq_latest"
           }
         },
         "h1": {
@@ -608,13 +686,13 @@
           "bearish_votes": 0,
           "d1_rsi_ok": false,
           "h1_rsi_ok": false,
-          "d1_ema_ok": false,
+          "d1_ema_ok": true,
           "h1_ema_ok": false
         },
         "sources": {
           "pivot": "unavailable",
           "h1": "stooq_h1",
-          "d1_ema": "unavailable"
+          "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
         }
       }
     }
@@ -901,25 +979,103 @@
   },
   "daily_ema_20_50_state": {
     "eurusd": {
-      "pair": "eurusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "EURUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 1.16455,
+      "ema50": 1.16455,
+      "ema_fast": 1.16455,
+      "ema_slow": 1.16455,
+      "fast_ema": 1.16455,
+      "slow_ema": 1.16455,
+      "ema20_vs_ema50": "at",
+      "trend_bias": "neutral_bias",
+      "price": 1.16388,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "none",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 1,
+      "last_completed_hour": "2026-05-19T00:00:00Z",
+      "last_close": 1.16455,
+      "current_price": 1.16388,
+      "suggestion": "warming_up",
+      "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+      "twelvedata_requests_today": 0,
+      "source_basis": "local_closes + stooq_latest"
     },
     "gbpusd": {
-      "pair": "gbpusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "GBPUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 1.34183,
+      "ema50": 1.34183,
+      "ema_fast": 1.34183,
+      "ema_slow": 1.34183,
+      "fast_ema": 1.34183,
+      "slow_ema": 1.34183,
+      "ema20_vs_ema50": "at",
+      "trend_bias": "neutral_bias",
+      "price": 1.34096,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "none",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 1,
+      "last_completed_hour": "2026-05-19T00:00:00Z",
+      "last_close": 1.34183,
+      "current_price": 1.34096,
+      "suggestion": "warming_up",
+      "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+      "twelvedata_requests_today": 0,
+      "source_basis": "local_closes + stooq_latest"
     },
     "xauusd": {
-      "pair": "xauusd",
-      "timeframe": "D1",
-      "ok": false,
-      "source": "unavailable",
-      "reason": "no_daily_ema_history"
+      "pair": "XAUUSD",
+      "timeframe": "Daily",
+      "fast_period": 20,
+      "slow_period": 50,
+      "ema20": 4549.8,
+      "ema50": 4549.8,
+      "ema_fast": 4549.8,
+      "ema_slow": 4549.8,
+      "fast_ema": 4549.8,
+      "slow_ema": 4549.8,
+      "ema20_vs_ema50": "at",
+      "trend_bias": "neutral_bias",
+      "price": 4539.3,
+      "current_vs_ema20": "below",
+      "current_vs_ema50": "below",
+      "price_vs_fast": "below",
+      "price_vs_slow": "below",
+      "cross": "none",
+      "ema_cross_signal": "none",
+      "warming_up": false,
+      "ok": true,
+      "source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+      "completed_closes": 1,
+      "last_completed_hour": "2026-05-19T00:00:00Z",
+      "last_close": 4549.8,
+      "current_price": 4539.3,
+      "suggestion": "warming_up",
+      "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+      "twelvedata_requests_today": 0,
+      "source_basis": "local_closes + stooq_latest"
     }
   },
   "h1_rsi_state": {
@@ -1029,11 +1185,37 @@
           "ok": false
         },
         "ema_20_50": {
-          "pair": "eurusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "EURUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 1.16455,
+          "ema50": 1.16455,
+          "ema_fast": 1.16455,
+          "ema_slow": 1.16455,
+          "fast_ema": 1.16455,
+          "slow_ema": 1.16455,
+          "ema20_vs_ema50": "at",
+          "trend_bias": "neutral_bias",
+          "price": 1.16388,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "none",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 1,
+          "last_completed_hour": "2026-05-19T00:00:00Z",
+          "last_close": 1.16455,
+          "current_price": 1.16388,
+          "suggestion": "warming_up",
+          "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+          "twelvedata_requests_today": 0,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1101,13 +1283,13 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "sources": {
         "pivot": "unavailable",
         "h1": "stooq_h1",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     },
     "gbpusd": {
@@ -1149,11 +1331,37 @@
           "ok": false
         },
         "ema_20_50": {
-          "pair": "gbpusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "GBPUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 1.34183,
+          "ema50": 1.34183,
+          "ema_fast": 1.34183,
+          "ema_slow": 1.34183,
+          "fast_ema": 1.34183,
+          "slow_ema": 1.34183,
+          "ema20_vs_ema50": "at",
+          "trend_bias": "neutral_bias",
+          "price": 1.34096,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "none",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 1,
+          "last_completed_hour": "2026-05-19T00:00:00Z",
+          "last_close": 1.34183,
+          "current_price": 1.34096,
+          "suggestion": "warming_up",
+          "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+          "twelvedata_requests_today": 0,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1221,13 +1429,13 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "sources": {
         "pivot": "unavailable",
         "h1": "stooq_h1",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     },
     "xauusd": {
@@ -1269,11 +1477,37 @@
           "ok": false
         },
         "ema_20_50": {
-          "pair": "xauusd",
-          "timeframe": "D1",
-          "ok": false,
-          "source": "unavailable",
-          "reason": "no_daily_ema_history"
+          "pair": "XAUUSD",
+          "timeframe": "Daily",
+          "fast_period": 20,
+          "slow_period": 50,
+          "ema20": 4549.8,
+          "ema50": 4549.8,
+          "ema_fast": 4549.8,
+          "ema_slow": 4549.8,
+          "fast_ema": 4549.8,
+          "slow_ema": 4549.8,
+          "ema20_vs_ema50": "at",
+          "trend_bias": "neutral_bias",
+          "price": 4539.3,
+          "current_vs_ema20": "below",
+          "current_vs_ema50": "below",
+          "price_vs_fast": "below",
+          "price_vs_slow": "below",
+          "cross": "none",
+          "ema_cross_signal": "none",
+          "warming_up": false,
+          "ok": true,
+          "source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "history_source": "/home/runner/work/News/News/public_html/ema_state.json",
+          "completed_closes": 1,
+          "last_completed_hour": "2026-05-19T00:00:00Z",
+          "last_close": 4549.8,
+          "current_price": 4539.3,
+          "suggestion": "warming_up",
+          "notes": "repair_skipped:history_too_short:1:no_twelvedata_api_key EMA50 is still warming up; not enough completed Daily closes yet.",
+          "twelvedata_requests_today": 0,
+          "source_basis": "local_closes + stooq_latest"
         }
       },
       "h1": {
@@ -1341,13 +1575,13 @@
         "bearish_votes": 0,
         "d1_rsi_ok": false,
         "h1_rsi_ok": false,
-        "d1_ema_ok": false,
+        "d1_ema_ok": true,
         "h1_ema_ok": false
       },
       "sources": {
         "pivot": "unavailable",
         "h1": "stooq_h1",
-        "d1_ema": "unavailable"
+        "d1_ema": "/home/runner/work/News/News/public_html/ema_state.json"
       }
     }
   },

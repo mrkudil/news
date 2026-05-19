@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T05:45:48.591208Z",
+  "generated_at": "2026-05-19T05:51:12.336634Z",
   "pairs": {
     "eurusd": {
       "price_state": "unavailable",
@@ -35,7 +35,10 @@
       "rsi_bias": "unavailable",
       "rsi_alignment": "unavailable",
       "rsi_confluence_mult": 0.0,
-      "combined_conviction_mult": 0.0
+      "combined_conviction_mult": 0.0,
+      "rsi_h1": null,
+      "rsi_h1_state": "unavailable",
+      "rsi_h1_bias": "unavailable"
     },
     "gbpusd": {
       "price_state": "unavailable",
@@ -71,7 +74,10 @@
       "rsi_bias": "unavailable",
       "rsi_alignment": "unavailable",
       "rsi_confluence_mult": 0.0,
-      "combined_conviction_mult": 0.0
+      "combined_conviction_mult": 0.0,
+      "rsi_h1": null,
+      "rsi_h1_state": "unavailable",
+      "rsi_h1_bias": "unavailable"
     },
     "xauusd": {
       "price_state": "unavailable",
@@ -107,7 +113,10 @@
       "rsi_bias": "unavailable",
       "rsi_alignment": "unavailable",
       "rsi_confluence_mult": 0.0,
-      "combined_conviction_mult": 0.0
+      "combined_conviction_mult": 0.0,
+      "rsi_h1": null,
+      "rsi_h1_state": "unavailable",
+      "rsi_h1_bias": "unavailable"
     }
   }
 }

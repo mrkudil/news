@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-05-19T00:48:32.462584+00:00",
+  "timestamp": "2026-05-19T01:51:30.645346+00:00",
   "macro": {
-    "timestamp": "2026-05-19T00:48:14.656969+00:00",
-    "run_id": "48c0ce1a",
+    "timestamp": "2026-05-19T01:51:15.213007+00:00",
+    "run_id": "1746db38",
     "us": {
       "rate": 3.64,
       "yield_spread": 0.5,
@@ -90,9 +90,9 @@
       "pmi_valid": true,
       "pmi_source": "calendar/forexfactory"
     },
-    "vix": 18.43,
+    "vix": 17.82,
     "vix_valid": true,
-    "vix_trend": 0.0,
+    "vix_trend": -0.18,
     "pmi": 54.5,
     "pmi_valid": true,
     "pmi_source": "calendar/forexfactory",
@@ -160,15 +160,15 @@
     },
     "prev": {
       "us_rate": 3.64,
-      "eu_rate": null,
-      "gb_rate": null,
+      "eu_rate": 2.0,
+      "gb_rate": 3.75,
       "prev_pmi": {
-        "us": null,
-        "eu": null,
-        "gb": null
+        "us": 54.5,
+        "eu": 52.2,
+        "gb": 53.7
       },
-      "prev_vix": null,
-      "us_yield_spread": null
+      "prev_vix": 18.43,
+      "us_yield_spread": 0.5
     },
     "diff": {
       "eurusd": -1.64,
@@ -176,12 +176,15 @@
     },
     "rate_history": {
       "us": [
+        3.64,
         3.64
       ],
       "eu": [
+        2.0,
         2.0
       ],
       "gb": [
+        3.75,
         3.75
       ]
     },
@@ -197,12 +200,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 1.16457,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 1.16457,
+        "price": 1.165,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -211,13 +214,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -229,7 +232,7 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       },
       "gbpusd": {
         "pair": "gbpusd",
@@ -242,12 +245,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 1.34234,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 1.34234,
+        "price": 1.34213,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -256,13 +259,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -274,7 +277,7 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       },
       "xauusd": {
         "pair": "xauusd",
@@ -287,12 +290,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 4571.86,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 4571.86,
+        "price": 4567.71,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -301,13 +304,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -319,21 +322,21 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       }
     },
     "_regime": "neutral",
     "_prev_scores": {
-      "eurusd": -0.974,
-      "gbpusd": -0.037,
-      "xauusd": -2.576
+      "eurusd": -0.925,
+      "gbpusd": -0.004,
+      "xauusd": -2.789
     },
     "_factor_history": {
       "eurusd": {},
       "gbpusd": {},
       "xauusd": {}
     },
-    "vix_ema": 18.43,
+    "vix_ema": 18.25,
     "main_pairs": [
       "eurusd",
       "gbpusd",
@@ -347,89 +350,75 @@
       "xauusd": 0.0
     },
     "price_momentum_sources": {
-      "eurusd": "unavailable",
-      "gbpusd": "unavailable",
-      "xauusd": "unavailable"
+      "eurusd": "stooq_h1",
+      "gbpusd": "stooq_h1",
+      "xauusd": "stooq_h1"
     },
     "price_momentum_diagnostics": {
       "eurusd": {
         "score": 0.0,
-        "bars": 0.0,
-        "last_close": 0.0,
-        "current_price": 1.16457,
+        "bars": 1.0,
+        "last_close": 1.16457,
+        "current_price": 1.165,
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "needs_seed": true,
-        "needs_seed_reason": "missing_history",
-        "repair_priority_class": 0.0,
-        "repair_priority_metric": 9999.0,
+        "needs_seed_reason": "history_too_short:1",
+        "repair_priority_class": 1.0,
+        "repair_priority_metric": 59.0,
         "td_requests_today": 0.0,
         "td_window_active": false,
         "strict_one_attempt_per_window": true,
         "bootstrap_anytime_enabled": true,
-        "expected_last_hour": "2026-05-18T23:00:00Z"
+        "expected_last_hour": "2026-05-19T00:00:00Z"
       },
       "gbpusd": {
         "score": 0.0,
-        "bars": 0.0,
-        "last_close": 0.0,
-        "current_price": 1.34234,
+        "bars": 1.0,
+        "last_close": 1.34234,
+        "current_price": 1.34213,
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "needs_seed": true,
-        "needs_seed_reason": "missing_history",
-        "repair_priority_class": 0.0,
-        "repair_priority_metric": 9999.0,
+        "needs_seed_reason": "history_too_short:1",
+        "repair_priority_class": 1.0,
+        "repair_priority_metric": 59.0,
         "td_requests_today": 0.0,
         "td_window_active": false,
         "strict_one_attempt_per_window": true,
         "bootstrap_anytime_enabled": true,
-        "expected_last_hour": "2026-05-18T23:00:00Z"
+        "expected_last_hour": "2026-05-19T00:00:00Z"
       },
       "xauusd": {
         "score": 0.0,
-        "bars": 0.0,
-        "last_close": 0.0,
-        "current_price": 4571.86,
+        "bars": 1.0,
+        "last_close": 4571.86,
+        "current_price": 4567.71,
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "needs_seed": true,
-        "needs_seed_reason": "missing_history",
-        "repair_priority_class": 0.0,
-        "repair_priority_metric": 9999.0,
+        "needs_seed_reason": "history_too_short:1",
+        "repair_priority_class": 1.0,
+        "repair_priority_metric": 59.0,
         "td_requests_today": 0.0,
         "td_window_active": false,
         "strict_one_attempt_per_window": true,
         "bootstrap_anytime_enabled": true,
-        "expected_last_hour": "2026-05-18T23:00:00Z"
+        "expected_last_hour": "2026-05-19T00:00:00Z"
       }
     },
     "data_quality": {
-      "score": 0.785,
-      "grade": "B",
+      "score": 0.92,
+      "grade": "A",
       "penalties": {
-        "us_hist_thin": 0.03,
-        "us_hist_stale": 0.015,
-        "eu_hist_thin": 0.03,
-        "eu_hist_stale": 0.015,
-        "gb_hist_thin": 0.03,
-        "gb_hist_stale": 0.015,
         "momentum_blind": 0.08
       },
       "categories": {
         "moderate": [
           "momentum_blind"
-        ],
-        "minor": [
-          "us_hist_thin",
-          "us_hist_stale",
-          "eu_hist_thin",
-          "eu_hist_stale",
-          "gb_hist_thin",
-          "gb_hist_stale"
         ]
       }
     },
@@ -445,29 +434,152 @@
       "us_pmi": "calendar/forexfactory",
       "eu_pmi": "calendar/forexfactory",
       "uk_pmi": "calendar/forexfactory",
-      "momentum": "unavailable",
+      "momentum": "stooq_h1",
       "momentum_module": "momentum",
       "pivot_module": "pivot",
       "provider_policy": "momentum: Twelve Data; pivot: Twelve Data",
       "technical_context": "pivot_levels+momentum+ema_state+ema_closes",
-      "pivot_levels_file": "unavailable",
-      "ema_state_file": "unavailable"
+      "pivot_levels_file": "public_html/pivot_levels.json",
+      "ema_state_file": "/home/runner/work/News/News/public_html/ema_state.json"
+    },
+    "price_context": {
+      "eurusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": 0.0,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0
+      },
+      "gbpusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": 0.0,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0
+      },
+      "xauusd": {
+        "price_state": "unavailable",
+        "rejection_level": "",
+        "macro_alignment": "unavailable",
+        "conviction_mult": 0.0,
+        "score_adj": 0.0,
+        "price_used": 0.0,
+        "tolerance": 0.0,
+        "state_basis": "none",
+        "state_quality": "none",
+        "nearest_level": {
+          "name": "",
+          "value": 0.0,
+          "distance": 0.0,
+          "side": "at"
+        },
+        "PP": 0.0,
+        "R1": 0.0,
+        "R2": 0.0,
+        "R3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "range": 0.0,
+        "close": 0.0,
+        "macro_score": 0.0,
+        "ohlc_source": "unavailable",
+        "ohlc_date": "",
+        "rsi": null,
+        "rsi_period": 14,
+        "rsi_state": "unavailable",
+        "rsi_bias": "unavailable",
+        "rsi_alignment": "unavailable",
+        "rsi_confluence_mult": 0.0,
+        "combined_conviction_mult": 0.0
+      }
     },
     "technical_context": {
       "eurusd": {
         "pair": "eurusd",
-        "current_price": 1.16457,
+        "current_price": 1.16498,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "eurusd",
             "timeframe": "D1",
@@ -476,7 +588,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -496,7 +608,7 @@
             "value": null,
             "state": "unavailable",
             "bias": "neutral",
-            "source": "unavailable",
+            "source": "stooq_h1",
             "ok": false
           },
           "ema_20_50": {
@@ -510,12 +622,12 @@
             "slow_ema": null,
             "cross": "none",
             "ema_cross_signal": "none",
-            "last_close": null,
+            "last_close": 1.16457,
             "close_vs_ema20": null,
             "close_vs_ema50": null,
             "close_structure": null,
             "ema20_vs_ema50": null,
-            "price": 1.16457,
+            "price": 1.165,
             "current_vs_ema20": null,
             "current_vs_ema50": null,
             "price_vs_fast": null,
@@ -524,13 +636,13 @@
             "trend_bias": "neutral_bias",
             "suggestion": "warming_up",
             "warming_up": true,
-            "bars_available": 0,
+            "bars_available": 1,
             "bars_needed": 50,
-            "warm_up_reason": "no_data:bars=0",
-            "last_completed_hour": "2026-05-18T23:00:00Z",
+            "warm_up_reason": "no_data:bars=1",
+            "last_completed_hour": "2026-05-19T00:00:00Z",
             "current_source": "stooq_latest",
-            "history_source": "unavailable",
-            "repair_note": "repair_skipped:no_api_key:missing_history",
+            "history_source": "stooq_h1",
+            "repair_note": "repair_skipped:no_api_key:history_too_short:1",
             "ok": false,
             "h1_rsi_period": 14,
             "h1_rsi": null,
@@ -542,7 +654,7 @@
             "h1_rsi_bars_needed": 15,
             "current_vs_fast": null,
             "current_vs_slow": null,
-            "source": "unavailable"
+            "source": "stooq_h1"
           }
         },
         "summary": {
@@ -555,25 +667,38 @@
           "h1_ema_ok": false
         },
         "sources": {
-          "pivot": "pivot_levels",
-          "h1": "unavailable",
+          "pivot": "unavailable",
+          "h1": "stooq_h1",
           "d1_ema": "unavailable"
         }
       },
       "gbpusd": {
         "pair": "gbpusd",
-        "current_price": 1.34233,
+        "current_price": 1.34213,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "gbpusd",
             "timeframe": "D1",
@@ -582,7 +707,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -602,7 +727,7 @@
             "value": null,
             "state": "unavailable",
             "bias": "neutral",
-            "source": "unavailable",
+            "source": "stooq_h1",
             "ok": false
           },
           "ema_20_50": {
@@ -616,12 +741,12 @@
             "slow_ema": null,
             "cross": "none",
             "ema_cross_signal": "none",
-            "last_close": null,
+            "last_close": 1.34234,
             "close_vs_ema20": null,
             "close_vs_ema50": null,
             "close_structure": null,
             "ema20_vs_ema50": null,
-            "price": 1.34234,
+            "price": 1.34213,
             "current_vs_ema20": null,
             "current_vs_ema50": null,
             "price_vs_fast": null,
@@ -630,13 +755,13 @@
             "trend_bias": "neutral_bias",
             "suggestion": "warming_up",
             "warming_up": true,
-            "bars_available": 0,
+            "bars_available": 1,
             "bars_needed": 50,
-            "warm_up_reason": "no_data:bars=0",
-            "last_completed_hour": "2026-05-18T23:00:00Z",
+            "warm_up_reason": "no_data:bars=1",
+            "last_completed_hour": "2026-05-19T00:00:00Z",
             "current_source": "stooq_latest",
-            "history_source": "unavailable",
-            "repair_note": "repair_skipped:no_api_key:missing_history",
+            "history_source": "stooq_h1",
+            "repair_note": "repair_skipped:no_api_key:history_too_short:1",
             "ok": false,
             "h1_rsi_period": 14,
             "h1_rsi": null,
@@ -648,7 +773,7 @@
             "h1_rsi_bars_needed": 15,
             "current_vs_fast": null,
             "current_vs_slow": null,
-            "source": "unavailable"
+            "source": "stooq_h1"
           }
         },
         "summary": {
@@ -661,25 +786,38 @@
           "h1_ema_ok": false
         },
         "sources": {
-          "pivot": "pivot_levels",
-          "h1": "unavailable",
+          "pivot": "unavailable",
+          "h1": "stooq_h1",
           "d1_ema": "unavailable"
         }
       },
       "xauusd": {
         "pair": "xauusd",
-        "current_price": 4571.9,
+        "current_price": 4567.87,
         "daily": {
           "timeframe": "D1",
           "ohlc": {
-            "date": null,
-            "source": null,
-            "close": null,
-            "range": null
+            "date": "",
+            "source": "unavailable",
+            "close": 0.0,
+            "range": 0.0
           },
-          "pivots": {},
-          "price_state": null,
-          "nearest_level": null,
+          "pivots": {
+            "PP": 0.0,
+            "R1": 0.0,
+            "R2": 0.0,
+            "R3": 0.0,
+            "S1": 0.0,
+            "S2": 0.0,
+            "S3": 0.0
+          },
+          "price_state": "unavailable",
+          "nearest_level": {
+            "name": "",
+            "value": 0.0,
+            "distance": 0.0,
+            "side": "at"
+          },
           "rsi14": {
             "pair": "xauusd",
             "timeframe": "D1",
@@ -688,7 +826,7 @@
             "state": "unavailable",
             "bias": "unavailable",
             "alignment": "unavailable",
-            "source": "pivot_levels",
+            "source": "unavailable",
             "ok": false
           },
           "ema_20_50": {
@@ -708,7 +846,7 @@
             "value": null,
             "state": "unavailable",
             "bias": "neutral",
-            "source": "unavailable",
+            "source": "stooq_h1",
             "ok": false
           },
           "ema_20_50": {
@@ -722,12 +860,12 @@
             "slow_ema": null,
             "cross": "none",
             "ema_cross_signal": "none",
-            "last_close": null,
+            "last_close": 4571.86,
             "close_vs_ema20": null,
             "close_vs_ema50": null,
             "close_structure": null,
             "ema20_vs_ema50": null,
-            "price": 4571.86,
+            "price": 4567.71,
             "current_vs_ema20": null,
             "current_vs_ema50": null,
             "price_vs_fast": null,
@@ -736,13 +874,13 @@
             "trend_bias": "neutral_bias",
             "suggestion": "warming_up",
             "warming_up": true,
-            "bars_available": 0,
+            "bars_available": 1,
             "bars_needed": 50,
-            "warm_up_reason": "no_data:bars=0",
-            "last_completed_hour": "2026-05-18T23:00:00Z",
+            "warm_up_reason": "no_data:bars=1",
+            "last_completed_hour": "2026-05-19T00:00:00Z",
             "current_source": "stooq_latest",
-            "history_source": "unavailable",
-            "repair_note": "repair_skipped:no_api_key:missing_history",
+            "history_source": "stooq_h1",
+            "repair_note": "repair_skipped:no_api_key:history_too_short:1",
             "ok": false,
             "h1_rsi_period": 14,
             "h1_rsi": null,
@@ -754,7 +892,7 @@
             "h1_rsi_bars_needed": 15,
             "current_vs_fast": null,
             "current_vs_slow": null,
-            "source": "unavailable"
+            "source": "stooq_h1"
           }
         },
         "summary": {
@@ -767,8 +905,8 @@
           "h1_ema_ok": false
         },
         "sources": {
-          "pivot": "pivot_levels",
-          "h1": "unavailable",
+          "pivot": "unavailable",
+          "h1": "stooq_h1",
           "d1_ema": "unavailable"
         }
       }
@@ -808,12 +946,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 1.16457,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 1.16457,
+        "price": 1.165,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -822,13 +960,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -840,7 +978,7 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       },
       "gbpusd": {
         "pair": "gbpusd",
@@ -853,12 +991,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 1.34234,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 1.34234,
+        "price": 1.34213,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -867,13 +1005,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -885,7 +1023,7 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       },
       "xauusd": {
         "pair": "xauusd",
@@ -898,12 +1036,12 @@
         "slow_ema": null,
         "cross": "none",
         "ema_cross_signal": "none",
-        "last_close": null,
+        "last_close": 4571.86,
         "close_vs_ema20": null,
         "close_vs_ema50": null,
         "close_structure": null,
         "ema20_vs_ema50": null,
-        "price": 4571.86,
+        "price": 4567.71,
         "current_vs_ema20": null,
         "current_vs_ema50": null,
         "price_vs_fast": null,
@@ -912,13 +1050,13 @@
         "trend_bias": "neutral_bias",
         "suggestion": "warming_up",
         "warming_up": true,
-        "bars_available": 0,
+        "bars_available": 1,
         "bars_needed": 50,
-        "warm_up_reason": "no_data:bars=0",
-        "last_completed_hour": "2026-05-18T23:00:00Z",
+        "warm_up_reason": "no_data:bars=1",
+        "last_completed_hour": "2026-05-19T00:00:00Z",
         "current_source": "stooq_latest",
-        "history_source": "unavailable",
-        "repair_note": "repair_skipped:no_api_key:missing_history",
+        "history_source": "stooq_h1",
+        "repair_note": "repair_skipped:no_api_key:history_too_short:1",
         "ok": false,
         "h1_rsi_period": 14,
         "h1_rsi": null,
@@ -930,7 +1068,7 @@
         "h1_rsi_bars_needed": 15,
         "current_vs_fast": null,
         "current_vs_slow": null,
-        "source": "unavailable"
+        "source": "stooq_h1"
       }
     },
     "daily_rsi_state": {
@@ -942,7 +1080,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "gbpusd": {
@@ -953,7 +1091,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       },
       "xauusd": {
@@ -964,7 +1102,7 @@
         "state": "unavailable",
         "bias": "unavailable",
         "alignment": "unavailable",
-        "source": "pivot_levels",
+        "source": "unavailable",
         "ok": false
       }
     },
@@ -976,7 +1114,7 @@
         "value": null,
         "state": "unavailable",
         "bias": "neutral",
-        "source": "unavailable",
+        "source": "stooq_h1",
         "ok": false
       },
       "gbpusd": {
@@ -986,7 +1124,7 @@
         "value": null,
         "state": "unavailable",
         "bias": "neutral",
-        "source": "unavailable",
+        "source": "stooq_h1",
         "ok": false
       },
       "xauusd": {
@@ -996,7 +1134,7 @@
         "value": null,
         "state": "unavailable",
         "bias": "neutral",
-        "source": "unavailable",
+        "source": "stooq_h1",
         "ok": false
       }
     },
@@ -1008,23 +1146,23 @@
         "factors": {
           "rate": -0.82,
           "curve": 0.013,
-          "risk": 0.191,
+          "risk": 0.276,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.184,
-          "usd": -0.266,
+          "usd": -0.232,
           "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": -0.82,
           "curve": 0.0,
-          "risk": 0.153,
+          "risk": 0.221,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.009,
-          "usd": -0.186,
+          "usd": -0.162,
           "liquidity": 0.0
         },
         "regime_confidence": 0.33,
@@ -1054,7 +1192,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -0.999,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1076,18 +1214,31 @@
         },
         "technical_context": {
           "pair": "eurusd",
-          "current_price": 1.16457,
+          "current_price": 1.165,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "eurusd",
               "timeframe": "D1",
@@ -1096,7 +1247,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -1116,7 +1267,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -1130,12 +1281,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 1.16457,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 1.16457,
+              "price": 1.165,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -1144,13 +1295,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -1162,7 +1313,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -1175,8 +1326,8 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
@@ -1188,23 +1339,23 @@
         "factors": {
           "rate": 0.055,
           "curve": 0.013,
-          "risk": 0.096,
+          "risk": 0.138,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.159,
-          "usd": -0.266,
+          "usd": -0.232,
           "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": 0.055,
           "curve": 0.0,
-          "risk": 0.077,
+          "risk": 0.11,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.008,
-          "usd": -0.186,
+          "usd": -0.162,
           "liquidity": 0.0
         },
         "regime_confidence": 0.33,
@@ -1234,7 +1385,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -0.041,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1256,18 +1407,31 @@
         },
         "technical_context": {
           "pair": "gbpusd",
-          "current_price": 1.34234,
+          "current_price": 1.34213,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "gbpusd",
               "timeframe": "D1",
@@ -1276,7 +1440,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -1296,7 +1460,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -1310,12 +1474,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 1.34234,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 1.34234,
+              "price": 1.34213,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -1324,13 +1488,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -1342,7 +1506,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -1355,8 +1519,8 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
@@ -1368,7 +1532,7 @@
         "factors": {
           "rate": 0.0,
           "curve": -0.25,
-          "risk": -0.396,
+          "risk": -0.548,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": -1.4,
@@ -1385,7 +1549,7 @@
         "weighted_factors": {
           "rate": 0.0,
           "curve": -0.0,
-          "risk": -0.317,
+          "risk": -0.438,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": -1.75,
@@ -1426,7 +1590,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -2.576,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1448,18 +1612,31 @@
         },
         "technical_context": {
           "pair": "xauusd",
-          "current_price": 4571.86,
+          "current_price": 4567.71,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "xauusd",
               "timeframe": "D1",
@@ -1468,7 +1645,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -1488,7 +1665,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -1502,12 +1679,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 4571.86,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 4571.86,
+              "price": 4567.71,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -1516,13 +1693,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -1534,7 +1711,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -1547,8 +1724,8 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
@@ -1562,23 +1739,23 @@
         "factors": {
           "rate": -0.82,
           "curve": 0.013,
-          "risk": 0.191,
+          "risk": 0.276,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.184,
-          "usd": -0.266,
+          "usd": -0.232,
           "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": -0.82,
           "curve": 0.0,
-          "risk": 0.153,
+          "risk": 0.221,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.009,
-          "usd": -0.186,
+          "usd": -0.162,
           "liquidity": 0.0
         },
         "regime_confidence": 0.33,
@@ -1608,7 +1785,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -0.999,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1630,18 +1807,31 @@
         },
         "technical_context": {
           "pair": "eurusd",
-          "current_price": 1.16457,
+          "current_price": 1.165,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "eurusd",
               "timeframe": "D1",
@@ -1650,7 +1840,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -1670,7 +1860,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -1684,12 +1874,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 1.16457,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 1.16457,
+              "price": 1.165,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -1698,13 +1888,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -1716,7 +1906,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -1729,8 +1919,8 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
@@ -1742,23 +1932,23 @@
         "factors": {
           "rate": 0.055,
           "curve": 0.013,
-          "risk": 0.096,
+          "risk": 0.138,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.159,
-          "usd": -0.266,
+          "usd": -0.232,
           "liquidity": 0.0
         },
         "weighted_factors": {
           "rate": 0.055,
           "curve": 0.0,
-          "risk": 0.077,
+          "risk": 0.11,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": 0.0,
           "growth": -0.008,
-          "usd": -0.186,
+          "usd": -0.162,
           "liquidity": 0.0
         },
         "regime_confidence": 0.33,
@@ -1788,7 +1978,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -0.041,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -1810,18 +2000,31 @@
         },
         "technical_context": {
           "pair": "gbpusd",
-          "current_price": 1.34234,
+          "current_price": 1.34213,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "gbpusd",
               "timeframe": "D1",
@@ -1830,7 +2033,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -1850,7 +2053,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -1864,12 +2067,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 1.34234,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 1.34234,
+              "price": 1.34213,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -1878,13 +2081,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -1896,7 +2099,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -1909,8 +2112,8 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
@@ -1922,7 +2125,7 @@
         "factors": {
           "rate": 0.0,
           "curve": -0.25,
-          "risk": -0.396,
+          "risk": -0.548,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": -1.4,
@@ -1939,7 +2142,7 @@
         "weighted_factors": {
           "rate": 0.0,
           "curve": -0.0,
-          "risk": -0.317,
+          "risk": -0.438,
           "diff": 0.0,
           "momentum": 0.0,
           "real_yield": -1.75,
@@ -1980,7 +2183,7 @@
           "S3": 0.0,
           "range": 0.0,
           "close": 0.0,
-          "macro_score": -2.576,
+          "macro_score": 0.0,
           "ohlc_source": "unavailable",
           "ohlc_date": "",
           "rsi": null,
@@ -2002,18 +2205,31 @@
         },
         "technical_context": {
           "pair": "xauusd",
-          "current_price": 4571.86,
+          "current_price": 4567.71,
           "daily": {
             "timeframe": "D1",
             "ohlc": {
-              "date": null,
-              "source": null,
-              "close": null,
-              "range": null
+              "date": "",
+              "source": "unavailable",
+              "close": 0.0,
+              "range": 0.0
             },
-            "pivots": {},
-            "price_state": null,
-            "nearest_level": null,
+            "pivots": {
+              "PP": 0.0,
+              "R1": 0.0,
+              "R2": 0.0,
+              "R3": 0.0,
+              "S1": 0.0,
+              "S2": 0.0,
+              "S3": 0.0
+            },
+            "price_state": "unavailable",
+            "nearest_level": {
+              "name": "",
+              "value": 0.0,
+              "distance": 0.0,
+              "side": "at"
+            },
             "rsi14": {
               "pair": "xauusd",
               "timeframe": "D1",
@@ -2022,7 +2238,7 @@
               "state": "unavailable",
               "bias": "unavailable",
               "alignment": "unavailable",
-              "source": "pivot_levels",
+              "source": "unavailable",
               "ok": false
             },
             "ema_20_50": {
@@ -2042,7 +2258,7 @@
               "value": null,
               "state": "unavailable",
               "bias": "neutral",
-              "source": "unavailable",
+              "source": "stooq_h1",
               "ok": false
             },
             "ema_20_50": {
@@ -2056,12 +2272,12 @@
               "slow_ema": null,
               "cross": "none",
               "ema_cross_signal": "none",
-              "last_close": null,
+              "last_close": 4571.86,
               "close_vs_ema20": null,
               "close_vs_ema50": null,
               "close_structure": null,
               "ema20_vs_ema50": null,
-              "price": 4571.86,
+              "price": 4567.71,
               "current_vs_ema20": null,
               "current_vs_ema50": null,
               "price_vs_fast": null,
@@ -2070,13 +2286,13 @@
               "trend_bias": "neutral_bias",
               "suggestion": "warming_up",
               "warming_up": true,
-              "bars_available": 0,
+              "bars_available": 1,
               "bars_needed": 50,
-              "warm_up_reason": "no_data:bars=0",
-              "last_completed_hour": "2026-05-18T23:00:00Z",
+              "warm_up_reason": "no_data:bars=1",
+              "last_completed_hour": "2026-05-19T00:00:00Z",
               "current_source": "stooq_latest",
-              "history_source": "unavailable",
-              "repair_note": "repair_skipped:no_api_key:missing_history",
+              "history_source": "stooq_h1",
+              "repair_note": "repair_skipped:no_api_key:history_too_short:1",
               "ok": false,
               "h1_rsi_period": 14,
               "h1_rsi": null,
@@ -2088,7 +2304,7 @@
               "h1_rsi_bars_needed": 15,
               "current_vs_fast": null,
               "current_vs_slow": null,
-              "source": "unavailable"
+              "source": "stooq_h1"
             }
           },
           "summary": {
@@ -2101,198 +2317,88 @@
             "h1_ema_ok": false
           },
           "sources": {
-            "pivot": "pivot_levels",
-            "h1": "unavailable",
+            "pivot": "unavailable",
+            "h1": "stooq_h1",
             "d1_ema": "unavailable"
           }
         }
       }
     },
-    "price_context": {
-      "eurusd": {
-        "price_state": "unavailable",
-        "rejection_level": "",
-        "macro_alignment": "unavailable",
-        "conviction_mult": 0.0,
-        "score_adj": 0.0,
-        "price_used": 0.0,
-        "tolerance": 0.0,
-        "state_basis": "none",
-        "state_quality": "none",
-        "nearest_level": {
-          "name": "",
-          "value": 0.0,
-          "distance": 0.0,
-          "side": "at"
-        },
-        "PP": 0.0,
-        "R1": 0.0,
-        "R2": 0.0,
-        "R3": 0.0,
-        "S1": 0.0,
-        "S2": 0.0,
-        "S3": 0.0,
-        "range": 0.0,
-        "close": 0.0,
-        "macro_score": -0.999,
-        "ohlc_source": "unavailable",
-        "ohlc_date": "",
-        "rsi": null,
-        "rsi_period": 14,
-        "rsi_state": "unavailable",
-        "rsi_bias": "unavailable",
-        "rsi_alignment": "unavailable",
-        "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
-      },
-      "gbpusd": {
-        "price_state": "unavailable",
-        "rejection_level": "",
-        "macro_alignment": "unavailable",
-        "conviction_mult": 0.0,
-        "score_adj": 0.0,
-        "price_used": 0.0,
-        "tolerance": 0.0,
-        "state_basis": "none",
-        "state_quality": "none",
-        "nearest_level": {
-          "name": "",
-          "value": 0.0,
-          "distance": 0.0,
-          "side": "at"
-        },
-        "PP": 0.0,
-        "R1": 0.0,
-        "R2": 0.0,
-        "R3": 0.0,
-        "S1": 0.0,
-        "S2": 0.0,
-        "S3": 0.0,
-        "range": 0.0,
-        "close": 0.0,
-        "macro_score": -0.041,
-        "ohlc_source": "unavailable",
-        "ohlc_date": "",
-        "rsi": null,
-        "rsi_period": 14,
-        "rsi_state": "unavailable",
-        "rsi_bias": "unavailable",
-        "rsi_alignment": "unavailable",
-        "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
-      },
-      "xauusd": {
-        "price_state": "unavailable",
-        "rejection_level": "",
-        "macro_alignment": "unavailable",
-        "conviction_mult": 0.0,
-        "score_adj": 0.0,
-        "price_used": 0.0,
-        "tolerance": 0.0,
-        "state_basis": "none",
-        "state_quality": "none",
-        "nearest_level": {
-          "name": "",
-          "value": 0.0,
-          "distance": 0.0,
-          "side": "at"
-        },
-        "PP": 0.0,
-        "R1": 0.0,
-        "R2": 0.0,
-        "R3": 0.0,
-        "S1": 0.0,
-        "S2": 0.0,
-        "S3": 0.0,
-        "range": 0.0,
-        "close": 0.0,
-        "macro_score": -2.576,
-        "ohlc_source": "unavailable",
-        "ohlc_date": "",
-        "rsi": null,
-        "rsi_period": 14,
-        "rsi_state": "unavailable",
-        "rsi_bias": "unavailable",
-        "rsi_alignment": "unavailable",
-        "rsi_confluence_mult": 0.0,
-        "combined_conviction_mult": 0.0
-      }
-    },
     "_needs_resave": true,
     "_price_daily": {},
     "_price_current": {
-      "eurusd": 1.16457,
-      "gbpusd": 1.34233,
-      "audusd": 0.71561,
-      "usdcad": 1.37464,
-      "usdchf": 0.78511,
-      "xauusd": 4571.9,
-      "usdmyr": 3.971,
+      "eurusd": 1.16498,
+      "gbpusd": 1.34213,
+      "audusd": 0.71482,
+      "usdcad": 1.37462,
+      "usdchf": 0.78502,
+      "xauusd": 4567.87,
+      "usdmyr": 3.97389,
       "usdsgd": 1.27934,
-      "sgdmyr": 3.10394,
-      "eurmyr": 4.6245,
-      "gbpmyr": 5.33011,
-      "cnymyr": 0.583851,
-      "thbmyr": 0.121892,
+      "sgdmyr": 3.1062,
+      "eurmyr": 4.6295,
+      "gbpmyr": 5.33347,
+      "cnymyr": 0.584648,
+      "thbmyr": 0.122027,
       "idrmyr": 0.000225081,
-      "audmyr": 2.84162,
-      "nzdmyr": 2.32836,
-      "btcusd": 77129.48
+      "audmyr": 2.84062,
+      "nzdmyr": 2.32858,
+      "btcusd": 76692.02
     },
     "_price_session_ohlc": {
       "eurusd": {
-        "open": 1.16457,
-        "high": 1.16457,
-        "low": 1.16457,
-        "close": 1.16457,
+        "open": 1.16498,
+        "high": 1.16498,
+        "low": 1.16498,
+        "close": 1.16498,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "gbpusd": {
-        "open": 1.34233,
-        "high": 1.34233,
-        "low": 1.34233,
-        "close": 1.34233,
+        "open": 1.34213,
+        "high": 1.34213,
+        "low": 1.34213,
+        "close": 1.34213,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "audusd": {
-        "open": 0.71561,
-        "high": 0.71561,
-        "low": 0.71561,
-        "close": 0.71561,
+        "open": 0.71482,
+        "high": 0.71482,
+        "low": 0.71482,
+        "close": 0.71482,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "usdcad": {
-        "open": 1.37464,
-        "high": 1.37464,
-        "low": 1.37464,
-        "close": 1.37464,
+        "open": 1.37462,
+        "high": 1.37462,
+        "low": 1.37462,
+        "close": 1.37462,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "usdchf": {
-        "open": 0.78511,
-        "high": 0.78511,
-        "low": 0.78511,
-        "close": 0.78511,
+        "open": 0.78502,
+        "high": 0.78502,
+        "low": 0.78502,
+        "close": 0.78502,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "xauusd": {
-        "open": 4571.9,
-        "high": 4571.9,
-        "low": 4571.9,
-        "close": 4571.9,
+        "open": 4567.87,
+        "high": 4567.87,
+        "low": 4567.87,
+        "close": 4567.87,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "usdmyr": {
-        "open": 3.971,
-        "high": 3.971,
-        "low": 3.971,
-        "close": 3.971,
+        "open": 3.97389,
+        "high": 3.97389,
+        "low": 3.97389,
+        "close": 3.97389,
         "_date": "2026-05-19",
         "_synthetic": true
       },
@@ -2305,42 +2411,42 @@
         "_synthetic": true
       },
       "sgdmyr": {
-        "open": 3.10394,
-        "high": 3.10394,
-        "low": 3.10394,
-        "close": 3.10394,
+        "open": 3.1062,
+        "high": 3.1062,
+        "low": 3.1062,
+        "close": 3.1062,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "eurmyr": {
-        "open": 4.6245,
-        "high": 4.6245,
-        "low": 4.6245,
-        "close": 4.6245,
+        "open": 4.6295,
+        "high": 4.6295,
+        "low": 4.6295,
+        "close": 4.6295,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "gbpmyr": {
-        "open": 5.33011,
-        "high": 5.33011,
-        "low": 5.33011,
-        "close": 5.33011,
+        "open": 5.33347,
+        "high": 5.33347,
+        "low": 5.33347,
+        "close": 5.33347,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "cnymyr": {
-        "open": 0.583851,
-        "high": 0.583851,
-        "low": 0.583851,
-        "close": 0.583851,
+        "open": 0.584648,
+        "high": 0.584648,
+        "low": 0.584648,
+        "close": 0.584648,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "thbmyr": {
-        "open": 0.121892,
-        "high": 0.121892,
-        "low": 0.121892,
-        "close": 0.121892,
+        "open": 0.122027,
+        "high": 0.122027,
+        "low": 0.122027,
+        "close": 0.122027,
         "_date": "2026-05-19",
         "_synthetic": true
       },
@@ -2353,67 +2459,67 @@
         "_synthetic": true
       },
       "audmyr": {
-        "open": 2.84162,
-        "high": 2.84162,
-        "low": 2.84162,
-        "close": 2.84162,
+        "open": 2.84062,
+        "high": 2.84062,
+        "low": 2.84062,
+        "close": 2.84062,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "nzdmyr": {
-        "open": 2.32836,
-        "high": 2.32836,
-        "low": 2.32836,
-        "close": 2.32836,
+        "open": 2.32858,
+        "high": 2.32858,
+        "low": 2.32858,
+        "close": 2.32858,
         "_date": "2026-05-19",
         "_synthetic": true
       },
       "btcusd": {
-        "open": 77129.48,
-        "high": 77129.48,
-        "low": 77129.48,
-        "close": 77129.48,
+        "open": 76692.02,
+        "high": 76692.02,
+        "low": 76692.02,
+        "close": 76692.02,
         "_date": "2026-05-19",
         "_synthetic": true
       }
     },
     "_price_session_high": {
-      "eurusd": 1.16457,
-      "gbpusd": 1.34233,
-      "audusd": 0.71561,
-      "usdcad": 1.37464,
-      "usdchf": 0.78511,
-      "xauusd": 4571.9,
-      "usdmyr": 3.971,
+      "eurusd": 1.16498,
+      "gbpusd": 1.34213,
+      "audusd": 0.71482,
+      "usdcad": 1.37462,
+      "usdchf": 0.78502,
+      "xauusd": 4567.87,
+      "usdmyr": 3.97389,
       "usdsgd": 1.27934,
-      "sgdmyr": 3.10394,
-      "eurmyr": 4.6245,
-      "gbpmyr": 5.33011,
-      "cnymyr": 0.583851,
-      "thbmyr": 0.121892,
+      "sgdmyr": 3.1062,
+      "eurmyr": 4.6295,
+      "gbpmyr": 5.33347,
+      "cnymyr": 0.584648,
+      "thbmyr": 0.122027,
       "idrmyr": 0.000225081,
-      "audmyr": 2.84162,
-      "nzdmyr": 2.32836,
-      "btcusd": 77129.48
+      "audmyr": 2.84062,
+      "nzdmyr": 2.32858,
+      "btcusd": 76692.02
     },
     "_price_session_low": {
-      "eurusd": 1.16457,
-      "gbpusd": 1.34233,
-      "audusd": 0.71561,
-      "usdcad": 1.37464,
-      "usdchf": 0.78511,
-      "xauusd": 4571.9,
-      "usdmyr": 3.971,
+      "eurusd": 1.16498,
+      "gbpusd": 1.34213,
+      "audusd": 0.71482,
+      "usdcad": 1.37462,
+      "usdchf": 0.78502,
+      "xauusd": 4567.87,
+      "usdmyr": 3.97389,
       "usdsgd": 1.27934,
-      "sgdmyr": 3.10394,
-      "eurmyr": 4.6245,
-      "gbpmyr": 5.33011,
-      "cnymyr": 0.583851,
-      "thbmyr": 0.121892,
+      "sgdmyr": 3.1062,
+      "eurmyr": 4.6295,
+      "gbpmyr": 5.33347,
+      "cnymyr": 0.584648,
+      "thbmyr": 0.122027,
       "idrmyr": 0.000225081,
-      "audmyr": 2.84162,
-      "nzdmyr": 2.32836,
-      "btcusd": 77129.48
+      "audmyr": 2.84062,
+      "nzdmyr": 2.32858,
+      "btcusd": 76692.02
     },
     "_price_date": {
       "eurusd": "2026-05-19",

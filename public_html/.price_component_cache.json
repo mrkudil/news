@@ -1,87 +1,87 @@
 {
   "stooq_price_EURUSD": {
-    "price": 1.16457,
+    "price": 1.16498,
     "source": "Stooq",
-    "t": 1779151696.7508988
+    "t": 1779155476.813537
   },
   "stooq_price_GBPUSD": {
-    "price": 1.34233,
+    "price": 1.34213,
     "source": "Stooq",
-    "t": 1779151697.4223328
+    "t": 1779155477.522861
   },
   "stooq_price_AUDUSD": {
-    "price": 0.71561,
+    "price": 0.71482,
     "source": "Stooq",
-    "t": 1779151698.6000307
+    "t": 1779155478.3104944
   },
   "stooq_price_USDCAD": {
-    "price": 1.37464,
+    "price": 1.37462,
     "source": "Stooq",
-    "t": 1779151699.7928185
+    "t": 1779155479.2428436
   },
   "stooq_price_USDCHF": {
-    "price": 0.78511,
+    "price": 0.78502,
     "source": "Stooq",
-    "t": 1779151700.9376981
+    "t": 1779155479.8550448
   },
   "stooq_price_XAUUSD": {
-    "price": 4571.9,
+    "price": 4567.87,
     "source": "Stooq",
-    "t": 1779151701.5687835
+    "t": 1779155481.1165814
   },
   "stooq_price_USDMYR": {
-    "price": 3.971,
+    "price": 3.97389,
     "source": "Stooq",
-    "t": 1779151702.791364
+    "t": 1779155482.0531971
   },
   "stooq_price_USDSGD": {
     "price": 1.27934,
     "source": "Stooq",
-    "t": 1779151704.0403767
+    "t": 1779155483.1991198
   },
   "stooq_price_SGDMYR": {
-    "price": 3.10394,
+    "price": 3.1062,
     "source": "Stooq",
-    "t": 1779151705.0223916
+    "t": 1779155483.925365
   },
   "stooq_price_EURMYR": {
-    "price": 4.6245,
+    "price": 4.6295,
     "source": "Stooq",
-    "t": 1779151705.8023252
+    "t": 1779155484.8323877
   },
   "stooq_price_GBPMYR": {
-    "price": 5.33011,
+    "price": 5.33347,
     "source": "Stooq",
-    "t": 1779151706.9495673
+    "t": 1779155485.4770741
   },
   "stooq_price_CNYMYR": {
-    "price": 0.583851,
+    "price": 0.584648,
     "source": "Stooq",
-    "t": 1779151707.6067195
+    "t": 1779155486.3728883
   },
   "stooq_price_THBMYR": {
-    "price": 0.121892,
+    "price": 0.122027,
     "source": "Stooq",
-    "t": 1779151708.557313
+    "t": 1779155487.304038
   },
   "stooq_price_IDRMYR": {
     "price": 0.000225081,
     "source": "Stooq",
-    "t": 1779151709.5912232
+    "t": 1779155488.52435
   },
   "stooq_price_AUDMYR": {
-    "price": 2.84162,
+    "price": 2.84062,
     "source": "Stooq",
-    "t": 1779151710.290903
+    "t": 1779155489.1553028
   },
   "stooq_price_NZDMYR": {
-    "price": 2.32836,
+    "price": 2.32858,
     "source": "Stooq",
-    "t": 1779151711.395989
+    "t": 1779155489.781203
   },
   "stooq_price_BTCUSD": {
-    "price": 77129.48,
+    "price": 76692.02,
     "source": "Stooq",
-    "t": 1779151712.448184
+    "t": 1779155490.625593
   }
 }

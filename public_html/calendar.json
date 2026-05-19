@@ -1,0 +1,2405 @@
+{
+  "scrape_time": "2026-05-19T18:55:38.903216Z",
+  "events": [
+    {
+      "title": "Rightmove HPI m/m",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-18T03:01:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "0.8%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "MPC Member Greene Speaks",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-18T11:35:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Italian Trade Balance",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-18T12:00:00+00:00",
+      "actual": "",
+      "forecast": "5.25B",
+      "previous": "4.94B",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "MPC Member Mann Speaks",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-18T12:30:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-18T18:00:00+00:00",
+      "actual": "",
+      "forecast": "34",
+      "previous": "34",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Goolsbee Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-18T23:35:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "TIC Long-Term Purchases",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-19T00:00:00+00:00",
+      "actual": "",
+      "forecast": "87.2B",
+      "previous": "58.6B",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Claimant Count Change",
+      "currency": "GBP",
+      "impact": "High",
+      "event_time": "2026-05-19T10:00:00+00:00",
+      "actual": "",
+      "forecast": "23.1K",
+      "previous": "26.8K",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Average Earnings Index 3m/y",
+      "currency": "GBP",
+      "impact": "Medium",
+      "event_time": "2026-05-19T10:00:00+00:00",
+      "actual": "",
+      "forecast": "3.8%",
+      "previous": "3.8%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Unemployment Rate",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-19T10:00:00+00:00",
+      "actual": "",
+      "forecast": "4.9%",
+      "previous": "4.9%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "MPC Member Breeden Speaks",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-19T12:10:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Trade Balance",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-19T13:00:00+00:00",
+      "actual": "",
+      "forecast": "5.4B",
+      "previous": "7.0B",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-19T16:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-19T16:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "33.0K",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Pending Home Sales m/m",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-19T18:00:00+00:00",
+      "actual": "",
+      "forecast": "1.0%",
+      "previous": "1.5%",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-20T00:30:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Paulson Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-20T03:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "German PPI m/m",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "2.0%",
+      "previous": "2.5%",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "CPI y/y",
+      "currency": "GBP",
+      "impact": "High",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "3.0%",
+      "previous": "3.3%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Core CPI y/y",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "2.6%",
+      "previous": "3.1%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "PPI Input m/m",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "1.1%",
+      "previous": "4.4%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "PPI Output m/m",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "1.0%",
+      "previous": "0.9%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "RPI y/y",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-20T10:00:00+00:00",
+      "actual": "",
+      "forecast": "3.6%",
+      "previous": "4.1%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "HPI y/y",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-20T12:30:00+00:00",
+      "actual": "",
+      "forecast": "-0.1%",
+      "previous": "1.2%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Final Core CPI y/y",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-20T13:00:00+00:00",
+      "actual": "",
+      "forecast": "2.2%",
+      "previous": "2.2%",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Final CPI y/y",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-20T13:00:00+00:00",
+      "actual": "",
+      "forecast": "3.0%",
+      "previous": "3.0%",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "German 10-y Bond Auction",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-20T13:42:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "3.08|1.5",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Monetary Policy Report Hearings",
+      "currency": "GBP",
+      "impact": "Medium",
+      "event_time": "2026-05-20T17:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Barr Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-20T17:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Crude Oil Inventories",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-20T18:30:00+00:00",
+      "actual": "",
+      "forecast": "-2.5M",
+      "previous": "-4.3M",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "FOMC Meeting Minutes",
+      "currency": "USD",
+      "impact": "High",
+      "event_time": "2026-05-20T22:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "French Flash Manufacturing PMI",
+      "currency": "EUR",
+      "impact": "Medium",
+      "event_time": "2026-05-21T11:15:00+00:00",
+      "actual": "",
+      "forecast": "52.1",
+      "previous": "52.8",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "French Flash Services PMI",
+      "currency": "EUR",
+      "impact": "Medium",
+      "event_time": "2026-05-21T11:15:00+00:00",
+      "actual": "",
+      "forecast": "46.6",
+      "previous": "46.5",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "German Flash Manufacturing PMI",
+      "currency": "EUR",
+      "impact": "Medium",
+      "event_time": "2026-05-21T11:30:00+00:00",
+      "actual": "",
+      "forecast": "51.0",
+      "previous": "51.2",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "German Flash Services PMI",
+      "currency": "EUR",
+      "impact": "Medium",
+      "event_time": "2026-05-21T11:30:00+00:00",
+      "actual": "",
+      "forecast": "47.1",
+      "previous": "46.9",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Current Account",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T12:00:00+00:00",
+      "actual": "",
+      "forecast": "26.3B",
+      "previous": "24.9B",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Flash Manufacturing PMI",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T12:00:00+00:00",
+      "actual": "",
+      "forecast": "51.7",
+      "previous": "52.2",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Flash Services PMI",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T12:00:00+00:00",
+      "actual": "",
+      "forecast": "47.8",
+      "previous": "47.4",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Flash Manufacturing PMI",
+      "currency": "GBP",
+      "impact": "Medium",
+      "event_time": "2026-05-21T12:30:00+00:00",
+      "actual": "",
+      "forecast": "52.8",
+      "previous": "53.6",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Flash Services PMI",
+      "currency": "GBP",
+      "impact": "Medium",
+      "event_time": "2026-05-21T12:30:00+00:00",
+      "actual": "",
+      "forecast": "51.7",
+      "previous": "52.0",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "EU Economic Forecasts",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T13:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "10-y Bond Auction",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-21T13:33:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "4.91|3.5",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "German Buba Monthly Report",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T14:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "CBI Industrial Order Expectations",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-21T14:00:00+00:00",
+      "actual": "",
+      "forecast": "-40",
+      "previous": "-38",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "MPC Member Taylor Speaks",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-21T16:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Philly Fed Manufacturing Index",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-21T16:30:00+00:00",
+      "actual": "",
+      "forecast": "17.8",
+      "previous": "26.7",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-21T16:30:00+00:00",
+      "actual": "",
+      "forecast": "210K",
+      "previous": "211K",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Building Permits",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-21T16:30:00+00:00",
+      "actual": "",
+      "forecast": "1.38M",
+      "previous": "1.37M",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Housing Starts",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-21T16:30:00+00:00",
+      "actual": "",
+      "forecast": "1.42M",
+      "previous": "1.50M",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-21T17:45:00+00:00",
+      "actual": "",
+      "forecast": "53.7",
+      "previous": "54.0",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Flash Services PMI",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-21T17:45:00+00:00",
+      "actual": "",
+      "forecast": "51.1",
+      "previous": "51.3",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Consumer Confidence",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-21T18:00:00+00:00",
+      "actual": "",
+      "forecast": "-21",
+      "previous": "-21",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Natural Gas Storage",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-21T18:30:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "85B",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "BOE Gov Bailey Speaks",
+      "currency": "GBP",
+      "impact": "High",
+      "event_time": "2026-05-21T19:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-21T20:20:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "GfK Consumer Confidence",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-22T03:01:00+00:00",
+      "actual": "",
+      "forecast": "-28",
+      "previous": "-25",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "German Final GDP q/q",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T10:00:00+00:00",
+      "actual": "",
+      "forecast": "0.3%",
+      "previous": "0.3%",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "German GfK Consumer Climate",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T10:00:00+00:00",
+      "actual": "",
+      "forecast": "-33.7",
+      "previous": "-33.3",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Retail Sales m/m",
+      "currency": "GBP",
+      "impact": "Medium",
+      "event_time": "2026-05-22T10:00:00+00:00",
+      "actual": "",
+      "forecast": "-0.6%",
+      "previous": "0.7%",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "Public Sector Net Borrowing",
+      "currency": "GBP",
+      "impact": "Low",
+      "event_time": "2026-05-22T10:00:00+00:00",
+      "actual": "",
+      "forecast": "20.8B",
+      "previous": "12.6B",
+      "pairs": [
+        "gbpusd"
+      ]
+    },
+    {
+      "title": "German ifo Business Climate",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T12:00:00+00:00",
+      "actual": "",
+      "forecast": "84.2",
+      "previous": "84.4",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "ECOFIN Meetings",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T13:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Eurogroup Meetings",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T13:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Belgian NBB Business Climate",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-22T17:00:00+00:00",
+      "actual": "",
+      "forecast": "-13.5",
+      "previous": "-14.2",
+      "pairs": [
+        "eurusd"
+      ]
+    },
+    {
+      "title": "Revised UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "Medium",
+      "event_time": "2026-05-22T18:00:00+00:00",
+      "actual": "",
+      "forecast": "48.3",
+      "previous": "48.2",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "CB Leading Index m/m",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-22T18:00:00+00:00",
+      "actual": "",
+      "forecast": "-0.1%",
+      "previous": "-0.6%",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-22T18:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "Revised UoM Inflation Expectations",
+      "currency": "USD",
+      "impact": "Low",
+      "event_time": "2026-05-22T18:00:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "4.5%",
+      "pairs": [
+        "eurusd",
+        "gbpusd",
+        "xauusd"
+      ]
+    },
+    {
+      "title": "ECOFIN Meetings",
+      "currency": "EUR",
+      "impact": "Low",
+      "event_time": "2026-05-23T13:15:00+00:00",
+      "actual": "",
+      "forecast": "",
+      "previous": "",
+      "pairs": [
+        "eurusd"
+      ]
+    }
+  ],
+  "events_by_pair": {
+    "eurusd": [
+      {
+        "title": "Italian Trade Balance",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-18T12:00:00+00:00",
+        "actual": "",
+        "forecast": "5.25B",
+        "previous": "4.94B",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "NAHB Housing Market Index",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T18:00:00+00:00",
+        "actual": "",
+        "forecast": "34",
+        "previous": "34",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Goolsbee Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T23:35:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "TIC Long-Term Purchases",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T00:00:00+00:00",
+        "actual": "",
+        "forecast": "87.2B",
+        "previous": "58.6B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Trade Balance",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-19T13:00:00+00:00",
+        "actual": "",
+        "forecast": "5.4B",
+        "previous": "7.0B",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "ADP Weekly Employment Change",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "33.0K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Pending Home Sales m/m",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-19T18:00:00+00:00",
+        "actual": "",
+        "forecast": "1.0%",
+        "previous": "1.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "API Weekly Statistical Bulletin",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T00:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Paulson Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T03:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "German PPI m/m",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "2.0%",
+        "previous": "2.5%",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Final Core CPI y/y",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-20T13:00:00+00:00",
+        "actual": "",
+        "forecast": "2.2%",
+        "previous": "2.2%",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Final CPI y/y",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-20T13:00:00+00:00",
+        "actual": "",
+        "forecast": "3.0%",
+        "previous": "3.0%",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German 10-y Bond Auction",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-20T13:42:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "3.08|1.5",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barr Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T17:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Crude Oil Inventories",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T18:30:00+00:00",
+        "actual": "",
+        "forecast": "-2.5M",
+        "previous": "-4.3M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Meeting Minutes",
+        "currency": "USD",
+        "impact": "High",
+        "event_time": "2026-05-20T22:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "French Flash Manufacturing PMI",
+        "currency": "EUR",
+        "impact": "Medium",
+        "event_time": "2026-05-21T11:15:00+00:00",
+        "actual": "",
+        "forecast": "52.1",
+        "previous": "52.8",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "French Flash Services PMI",
+        "currency": "EUR",
+        "impact": "Medium",
+        "event_time": "2026-05-21T11:15:00+00:00",
+        "actual": "",
+        "forecast": "46.6",
+        "previous": "46.5",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German Flash Manufacturing PMI",
+        "currency": "EUR",
+        "impact": "Medium",
+        "event_time": "2026-05-21T11:30:00+00:00",
+        "actual": "",
+        "forecast": "51.0",
+        "previous": "51.2",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German Flash Services PMI",
+        "currency": "EUR",
+        "impact": "Medium",
+        "event_time": "2026-05-21T11:30:00+00:00",
+        "actual": "",
+        "forecast": "47.1",
+        "previous": "46.9",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Current Account",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T12:00:00+00:00",
+        "actual": "",
+        "forecast": "26.3B",
+        "previous": "24.9B",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Flash Manufacturing PMI",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T12:00:00+00:00",
+        "actual": "",
+        "forecast": "51.7",
+        "previous": "52.2",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Flash Services PMI",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T12:00:00+00:00",
+        "actual": "",
+        "forecast": "47.8",
+        "previous": "47.4",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "EU Economic Forecasts",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T13:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German Buba Monthly Report",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T14:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Philly Fed Manufacturing Index",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "17.8",
+        "previous": "26.7",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Unemployment Claims",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "210K",
+        "previous": "211K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Building Permits",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.38M",
+        "previous": "1.37M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Housing Starts",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.42M",
+        "previous": "1.50M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Manufacturing PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "53.7",
+        "previous": "54.0",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Services PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "51.1",
+        "previous": "51.3",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Consumer Confidence",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-21T18:00:00+00:00",
+        "actual": "",
+        "forecast": "-21",
+        "previous": "-21",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Natural Gas Storage",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T18:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "85B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barkin Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T20:20:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "German Final GDP q/q",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T10:00:00+00:00",
+        "actual": "",
+        "forecast": "0.3%",
+        "previous": "0.3%",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German GfK Consumer Climate",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T10:00:00+00:00",
+        "actual": "",
+        "forecast": "-33.7",
+        "previous": "-33.3",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "German ifo Business Climate",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T12:00:00+00:00",
+        "actual": "",
+        "forecast": "84.2",
+        "previous": "84.4",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "ECOFIN Meetings",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T13:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Eurogroup Meetings",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T13:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Belgian NBB Business Climate",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-22T17:00:00+00:00",
+        "actual": "",
+        "forecast": "-13.5",
+        "previous": "-14.2",
+        "pairs": [
+          "eurusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Consumer Sentiment",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "48.3",
+        "previous": "48.2",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "CB Leading Index m/m",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "-0.1%",
+        "previous": "-0.6%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Inflation Expectations",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "4.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "ECOFIN Meetings",
+        "currency": "EUR",
+        "impact": "Low",
+        "event_time": "2026-05-23T13:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd"
+        ]
+      }
+    ],
+    "gbpusd": [
+      {
+        "title": "Rightmove HPI m/m",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-18T03:01:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "0.8%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "MPC Member Greene Speaks",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-18T11:35:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "MPC Member Mann Speaks",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-18T12:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "NAHB Housing Market Index",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T18:00:00+00:00",
+        "actual": "",
+        "forecast": "34",
+        "previous": "34",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Goolsbee Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T23:35:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "TIC Long-Term Purchases",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T00:00:00+00:00",
+        "actual": "",
+        "forecast": "87.2B",
+        "previous": "58.6B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Claimant Count Change",
+        "currency": "GBP",
+        "impact": "High",
+        "event_time": "2026-05-19T10:00:00+00:00",
+        "actual": "",
+        "forecast": "23.1K",
+        "previous": "26.8K",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Average Earnings Index 3m/y",
+        "currency": "GBP",
+        "impact": "Medium",
+        "event_time": "2026-05-19T10:00:00+00:00",
+        "actual": "",
+        "forecast": "3.8%",
+        "previous": "3.8%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Unemployment Rate",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-19T10:00:00+00:00",
+        "actual": "",
+        "forecast": "4.9%",
+        "previous": "4.9%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "MPC Member Breeden Speaks",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-19T12:10:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "ADP Weekly Employment Change",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "33.0K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Pending Home Sales m/m",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-19T18:00:00+00:00",
+        "actual": "",
+        "forecast": "1.0%",
+        "previous": "1.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "API Weekly Statistical Bulletin",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T00:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Paulson Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T03:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "CPI y/y",
+        "currency": "GBP",
+        "impact": "High",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "3.0%",
+        "previous": "3.3%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Core CPI y/y",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "2.6%",
+        "previous": "3.1%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "PPI Input m/m",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "1.1%",
+        "previous": "4.4%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "PPI Output m/m",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "1.0%",
+        "previous": "0.9%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "RPI y/y",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-20T10:00:00+00:00",
+        "actual": "",
+        "forecast": "3.6%",
+        "previous": "4.1%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "HPI y/y",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-20T12:30:00+00:00",
+        "actual": "",
+        "forecast": "-0.1%",
+        "previous": "1.2%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Monetary Policy Report Hearings",
+        "currency": "GBP",
+        "impact": "Medium",
+        "event_time": "2026-05-20T17:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barr Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T17:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Crude Oil Inventories",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T18:30:00+00:00",
+        "actual": "",
+        "forecast": "-2.5M",
+        "previous": "-4.3M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Meeting Minutes",
+        "currency": "USD",
+        "impact": "High",
+        "event_time": "2026-05-20T22:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Manufacturing PMI",
+        "currency": "GBP",
+        "impact": "Medium",
+        "event_time": "2026-05-21T12:30:00+00:00",
+        "actual": "",
+        "forecast": "52.8",
+        "previous": "53.6",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Flash Services PMI",
+        "currency": "GBP",
+        "impact": "Medium",
+        "event_time": "2026-05-21T12:30:00+00:00",
+        "actual": "",
+        "forecast": "51.7",
+        "previous": "52.0",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "10-y Bond Auction",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-21T13:33:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "4.91|3.5",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "CBI Industrial Order Expectations",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-21T14:00:00+00:00",
+        "actual": "",
+        "forecast": "-40",
+        "previous": "-38",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "MPC Member Taylor Speaks",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Philly Fed Manufacturing Index",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "17.8",
+        "previous": "26.7",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Unemployment Claims",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "210K",
+        "previous": "211K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Building Permits",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.38M",
+        "previous": "1.37M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Housing Starts",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.42M",
+        "previous": "1.50M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Manufacturing PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "53.7",
+        "previous": "54.0",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Services PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "51.1",
+        "previous": "51.3",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Natural Gas Storage",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T18:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "85B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "BOE Gov Bailey Speaks",
+        "currency": "GBP",
+        "impact": "High",
+        "event_time": "2026-05-21T19:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barkin Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T20:20:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "GfK Consumer Confidence",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-22T03:01:00+00:00",
+        "actual": "",
+        "forecast": "-28",
+        "previous": "-25",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Retail Sales m/m",
+        "currency": "GBP",
+        "impact": "Medium",
+        "event_time": "2026-05-22T10:00:00+00:00",
+        "actual": "",
+        "forecast": "-0.6%",
+        "previous": "0.7%",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Public Sector Net Borrowing",
+        "currency": "GBP",
+        "impact": "Low",
+        "event_time": "2026-05-22T10:00:00+00:00",
+        "actual": "",
+        "forecast": "20.8B",
+        "previous": "12.6B",
+        "pairs": [
+          "gbpusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Consumer Sentiment",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "48.3",
+        "previous": "48.2",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "CB Leading Index m/m",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "-0.1%",
+        "previous": "-0.6%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Inflation Expectations",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "4.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      }
+    ],
+    "xauusd": [
+      {
+        "title": "NAHB Housing Market Index",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T18:00:00+00:00",
+        "actual": "",
+        "forecast": "34",
+        "previous": "34",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Goolsbee Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-18T23:35:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "TIC Long-Term Purchases",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T00:00:00+00:00",
+        "actual": "",
+        "forecast": "87.2B",
+        "previous": "58.6B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "ADP Weekly Employment Change",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-19T16:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "33.0K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Pending Home Sales m/m",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-19T18:00:00+00:00",
+        "actual": "",
+        "forecast": "1.0%",
+        "previous": "1.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "API Weekly Statistical Bulletin",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T00:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Paulson Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T03:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barr Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T17:15:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Crude Oil Inventories",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-20T18:30:00+00:00",
+        "actual": "",
+        "forecast": "-2.5M",
+        "previous": "-4.3M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Meeting Minutes",
+        "currency": "USD",
+        "impact": "High",
+        "event_time": "2026-05-20T22:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Philly Fed Manufacturing Index",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "17.8",
+        "previous": "26.7",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Unemployment Claims",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "210K",
+        "previous": "211K",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Building Permits",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.38M",
+        "previous": "1.37M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Housing Starts",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T16:30:00+00:00",
+        "actual": "",
+        "forecast": "1.42M",
+        "previous": "1.50M",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Manufacturing PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "53.7",
+        "previous": "54.0",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Flash Services PMI",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-21T17:45:00+00:00",
+        "actual": "",
+        "forecast": "51.1",
+        "previous": "51.3",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Natural Gas Storage",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T18:30:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "85B",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Barkin Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-21T20:20:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Consumer Sentiment",
+        "currency": "USD",
+        "impact": "Medium",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "48.3",
+        "previous": "48.2",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "CB Leading Index m/m",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "-0.1%",
+        "previous": "-0.6%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      },
+      {
+        "title": "Revised UoM Inflation Expectations",
+        "currency": "USD",
+        "impact": "Low",
+        "event_time": "2026-05-22T18:00:00+00:00",
+        "actual": "",
+        "forecast": "",
+        "previous": "4.5%",
+        "pairs": [
+          "eurusd",
+          "gbpusd",
+          "xauusd"
+        ]
+      }
+    ]
+  }
+}

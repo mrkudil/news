@@ -25,17 +25,7 @@
     @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.35} }
     #utc-time { font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 0.72rem; }
 
-    .ticker-wrap { overflow: hidden; width: 100%; background: #080d12; border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 28px; }
-    .ticker-label { flex-shrink: 0; padding: 0 9px; font-family: var(--font-mono); font-size: 7.5px; letter-spacing: .15em; color: var(--accent); border-right: 1px solid var(--border); height: 100%; display: flex; align-items: center; }
-    .ticker-track { overflow: hidden; flex: 1; }
-    .ticker-inner { display: inline-flex; animation: fxscroll 40s linear infinite; white-space: nowrap; }
-    .ticker-inner:hover { animation-play-state: paused; }
-    @keyframes fxscroll { from{transform:translateX(0)}to{transform:translateX(-50%)} }
-    .tick { display: inline-flex; align-items: center; gap: 5px; padding: 0 12px; border-right: 1px solid var(--border); font-family: var(--font-mono); font-size: 9px; height: 28px; }
-    .tick-pair { color: var(--text); font-weight: 700; }
-    .tick-rate { color: var(--muted); }
-    .tick-chg.up { color: var(--green); }
-    .tick-chg.dn { color: var(--red); }
+    #fx-pricing-widget-copyright{text-align:center;font-size:13px;font-family:sans-serif;margin-top:10px;margin-bottom:10px;color:#9db2bd}#fx-pricing-widget-copyright a{text-decoration:unset;color:#bb3534;font-weight:600}
 
     /* session strip */
     #sessions { display: flex; border-bottom: 1px solid var(--border); max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
@@ -165,14 +155,11 @@
     </div>
   </nav>
 
-  <div class="ticker-wrap">
-    <span class="ticker-label">RATES</span>
-    <div class="ticker-track"><div class="ticker-inner" id="ticker-inner"><span class="tick"><span class="tick-pair" style="color:var(--muted)">FETCHING RATES…</span></span></div></div>
- </div>
+  <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=1,2,3,5,14,20&d_mode=compact-name&theme=dark&tm-cr=212529&border=hide" scrolling="no" allowtransparency="true" width="100%" style="height:80px;border:unset;display:block;"></iframe>
+  <div id="fx-pricing-widget-copyright"><span>Powered by </span><a href="https://fxpricing.com/" target="_blank">FX Pricing</a></div>
 
   <div id="sessions">
  <div class="session-pill" data-session="sydney"><span class="session-dot"></span><span class="session-name">Sydney</span> <span class="session-status">--</span></div>
- <div class="session-pill" data-session="tokyo"><span class="session-dot"></span><span class="session-name">Tokyo</span> <span class="session-status">--</span></div>
  <div class="session-pill" data-session="london"><span class="session-dot"></span><span class="session-name">London</span> <span class="session-status">--</span></div>
  <div class="session-pill" data-session="ny"><span class="session-dot"></span><span class="session-name">New York</span> <span class="session-status">--</span></div>
  </div>
@@ -180,7 +167,7 @@
     <div class="topbar">
       <div class="topbar-left">
         <span class="info-pill">ⓘ Model basis
-          <span class="info-tooltip"><strong>Data sources:</strong> Daily closes are seeded/repaired from Twelve Data as the main broker-grade source. At each FX session open (Sydney, Tokyo, London, New York), a Twelve Data session correction is applied per pair — shown as <em>Data Session</em>. Outside windows, gap repair triggers if history is stale. Current price comes from Stooq snapshots. The slow EMA period determines the warm-up bar count before values display.</span>
+          <span class="info-tooltip"><strong>Data sources:</strong> Daily closes are seeded/repaired from Twelve Data as the main broker-grade source. At each FX session open (Sydney, London, New York), a Twelve Data session correction is applied per pair — shown as <em>Data Session</em>. Outside windows, gap repair triggers if history is stale. Current price comes from Stooq snapshots. The slow EMA period determines the warm-up bar count before values display.</span>
         </span>
         <span id="cooldown-pill">⚠ Data Provider Cooldown Active</span>
       </div>
@@ -199,10 +186,10 @@
   </footer>
 
   <script>
-    const DECIMALS    = { EURUSD:5, GBPUSD:5, USDJPY:3, XAUUSD:2 };
-    const PAIR_LABELS = { EURUSD:'EUR/USD', GBPUSD:'GBP/USD', USDJPY:'USD/JPY', XAUUSD:'XAU/USD' };
-    const ORDER       = ['EURUSD','GBPUSD','USDJPY','XAUUSD'];
-    const SESSIONS    = { sydney:{open:22,close:7}, tokyo:{open:0,close:9}, london:{open:8,close:17}, ny:{open:13,close:22} };
+    const DECIMALS    = { EURUSD:5, GBPUSD:5, XAUUSD:2 };
+    const PAIR_LABELS = { EURUSD:'EUR/USD', GBPUSD:'GBP/USD', XAUUSD:'XAU/USD' };
+    const ORDER       = ['EURUSD','GBPUSD','XAUUSD'];
+    const SESSIONS    = { sydney:{open:22,close:7}, london:{open:8,close:17}, ny:{open:13,close:22} };
 
     let latestAnalysisScrapeTime = null;
     let countdown = 60;
@@ -322,17 +309,6 @@ function toMYT(isoStr) {
       });
     }
 
-    function renderTicker(rates) {
-      const wrap=document.getElementById('ticker-inner');
-      if (!wrap) return;
-      if (!Array.isArray(rates)||!rates.length) { wrap.innerHTML='<span class="tick"><span class="tick-pair" style="color:var(--muted)">UNAVAILABLE</span></span>'; return; }
-      let html='';
-      for(let dup=0;dup<2;dup++) rates.forEach(r=>{
-        const chg=parseFloat(r.chg_pct||0);
-        html+=`<span class="tick"><span class="tick-pair">${r.label}</span><span class="tick-rate">${r.rate}</span><span class="tick-chg ${chg>=0?'up':'dn'}">${chg>=0?'+':''}${chg.toFixed(2)}%</span></span>`;
-      });
-      wrap.innerHTML=html;
-    }
     function noteTag(notes) {
       const prefix=(notes||'').split(' ')[0];
       if (!prefix) return '';
@@ -521,7 +497,6 @@ function toMYT(isoStr) {
       isRefreshing = true;
       try {
       const [state,rates] = await Promise.all([fetchJSON('ema_state.json'), fetchJSON('rates.json')]);
-      renderTicker(rates&&Array.isArray(rates.rates)?rates.rates:[]);
 
       if (!state||!state.results||Object.keys(state.results).length===0) {
         latestAnalysisScrapeTime = null;

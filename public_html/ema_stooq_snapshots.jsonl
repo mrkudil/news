@@ -26,8 +26,14 @@
 {"pair": "EURUSD", "ts": "2026-05-19T19:24:44.163966Z", "price": 1.16034}
 {"pair": "GBPUSD", "ts": "2026-05-19T19:24:44.678966Z", "price": 1.33993}
 {"pair": "XAUUSD", "ts": "2026-05-19T19:24:44.781978Z", "price": 4487.27}
+<<<<<<< Updated upstream
 =======
 {"pair": "EURUSD", "ts": "2026-05-19T19:25:12.771134Z", "price": 1.16034}
 {"pair": "GBPUSD", "ts": "2026-05-19T19:25:13.505017Z", "price": 1.33992}
 {"pair": "XAUUSD", "ts": "2026-05-19T19:25:13.668962Z", "price": 4486.65}
+>>>>>>> Stashed changes
+=======
+{"pair": "EURUSD", "ts": "2026-05-19T19:25:41.166860Z", "price": 1.1603}
+{"pair": "GBPUSD", "ts": "2026-05-19T19:25:41.892769Z", "price": 1.33985}
+{"pair": "XAUUSD", "ts": "2026-05-19T19:25:42.048060Z", "price": 4485.93}
 >>>>>>> Stashed changes

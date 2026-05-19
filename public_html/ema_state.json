@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T19:20:36.860988Z",
+  "generated_at": "2026-05-19T19:24:44.907966Z",
   "ema_periods": {
     "fast": 20,
     "slow": 50
@@ -22,7 +22,7 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
       "ema_cross_signal": "no_cross",
-      "current_price": 1.16048,
+      "current_price": 1.16034,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
@@ -47,7 +47,7 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "above",
       "ema_cross_signal": "no_cross",
-      "current_price": 1.34016,
+      "current_price": 1.33993,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
@@ -72,7 +72,7 @@
       "close_structure": "below_fast_slow",
       "ema_fast_vs_slow": "below",
       "ema_cross_signal": "no_cross",
-      "current_price": 4492.36,
+      "current_price": 4487.27,
       "current_vs_fast": "below",
       "current_vs_slow": "below",
       "current_structure": "below_fast_slow",
